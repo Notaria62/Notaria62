@@ -6,7 +6,6 @@ $categories = CategoryMenuData::get_base_categories();
         }
     }
 ?>
-
 <!doctype html>
 <html lang="es-co">
 
