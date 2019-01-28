@@ -1,0 +1,62 @@
+<?php
+/**
+ * admintemplates short summary.
+ *
+ * admintemplates description.
+ *
+ * @version 1.0
+ * @author DigitalesWeb
+ */
+ $listTemplate = NumeroALetras::obtenerListadoDeArchivos("PHPWord/resources");
+?>
+<div class="card">
+	<div class="card-header card-header-primary">
+		<h4 class="card-title">Categorias</h4>
+		<p class="card-category">Se listan las categorias</p>
+        </div>
+    <div class="card-body">
+        <div class="card-title">
+        <a href="index.php?view=newcategory" class="btn btn-default">
+                    <i class='fa fa-th-list'></i> 
+                  Nueva Categoria
+                </a>
+		<div class="row">
+			<div class="col-md-12">
+				<?php if (count($listTemplate) > 0) : ?>
+				<div class="material-datatables">
+					<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%"
+					 style="width:100%">
+						<thead>
+							<tr>
+								<th>Nombre de categoria</th> </> <th>Opciones</th>
+								
+							</tr>
+						</thead>
+						<?php foreach ($listTemplate as $value) : ?>
+						<tr data-background-color-approval="">
+				
+							<td class="text-right">
+							<a href="./?view=editcategory&id=<?php echo $user->id;?>" data-toggle="tooltip" title="Editar" class="btn btn-simple btn-warning btn-xs">
+                                <i class='fa fa-pencil'></i>
+                            </a>
+                            <a href="index.php?view=delcategory&id=<?php echo $user->id;?>" data-toggle="tooltip" title="Eliminar" class=" btn-simple btn btn-danger btn-xs">
+                                <i class='fa fa-remove'></i>
+                            </a>
+                            
+							</td>
+						</tr>
+						<?php endforeach;?>
+					</table>
+				</div>
+				<?php
+                else :
+                    echo "<p class='alert alert-danger'>No hay archivos de categorias.</p>";
+                endif;
+                ?>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
