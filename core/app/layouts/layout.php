@@ -287,9 +287,11 @@ $categories = CategoryMenuData::get_base_categories();
         </div>
     </div>
     <?php else:
-        View::load("login");
-    ?>
+        View::load("login");    ?>
     <?php endif;?>
+
+
+
 </body>
 
 </html>
