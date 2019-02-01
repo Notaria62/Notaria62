@@ -1,7 +1,7 @@
 <?php
 
 /**
- * searchescrituras_action short summary.
+ * searchpaymenbnttype_action short summary.
  *
  * searchescrituras_action description.
  *
@@ -114,11 +114,6 @@ $totalMountAccount1Cheque =0;
 $totalMountAccount2Efectivo =0;
 $totalMountAccount2Bouchers =0;
 $totalMountAccount2Cheque =0;
-
-
-
-
-
     foreach ($result as $value) {
         $sub_array = array();
         //$sub_array[] = '<div contenteditable class="update" data-id="'.$value->id.'" data-column="tipo">' . $value->id_bankaccounts. '</div>';

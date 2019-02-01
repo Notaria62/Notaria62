@@ -13,8 +13,8 @@ $b = new CashRegisterData();
 if (isset($_GET['idcr'])) {
     $id_cashregister = $_GET['idcr'];
     $cr = CashRegisterData::getById($id_cashregister);
-    $const=$cr->radicado;
-    $id_cashregister= $cr->id;
+    $const = $cr->radicado;
+    $id_cashregister = $cr->id;
 
 /* if (count($result)<=0) {
     $const = date("Y"). Util::zero_fill(1, 3);
@@ -26,10 +26,10 @@ if (isset($_GET['idcr'])) {
     }
 } */
 } else {
-    if (count($result)<=0) {
-        $const = date("Y"). Util::zero_fill(1, 3);
+    if (count($result) <= 0) {
+        $const = date("Y") . Util::zero_fill(1, 3);
         $b->radicado = $const;
-        $b->user_id =Session::getUID();
+        $b->user_id = Session::getUID();
         $b->addRadicado();
         $result = CashRegisterData::getByLastRadicado(date("Y"));
         foreach ($result as $value) {
@@ -39,11 +39,11 @@ if (isset($_GET['idcr'])) {
         foreach ($result as $value) {
             $const = $value->radicado;
             $const++;
-            $id_cashregister= $value->id;
+            $id_cashregister = $value->id;
             $id_cashregister++;
         }
         $b->radicado = $const;
-        $b->user_id =Session::getUID();
+        $b->user_id = Session::getUID();
         $b->addRadicado();
     }
 }
@@ -70,7 +70,7 @@ if (isset($_GET['idcr'])) {
     <div class="card-body">
         <div class="card-title">
             <!-- Session comments -->
-            <?= Util::display_msg(Session::$msg);?>
+            <?= Util::display_msg(Session::$msg); ?>
             <!-- End session comments-->
         </div>
 
@@ -79,7 +79,7 @@ if (isset($_GET['idcr'])) {
                 <div class="form-group">
                     <label for="radicado" class="bmd-label-floating">Cuadre diario nro.</label>
                     <input type="text" class="form-control" id="radicado" name="radicado" required
-                        value="<?=$const?>" />
+                        value="<?= $const ?>" />
                 </div>
             </div>
             <div class="col-md-3">
@@ -88,7 +88,7 @@ if (isset($_GET['idcr'])) {
                         Fecha inicio</label>
                     <input type="text" name="created_at" id="created_at" class="form-control datepicker-here"
                         data-timepicker="true" data-date-format="yyyy-mm-dd" data-time-format="hh:ii" placeholder=""
-                        value="<?=$start_at?>">
+                        value="<?= $start_at ?>">
                     <span class="form-control-feedback">
                         <i class="material-icons">calendar_today</i>
                     </span>
@@ -157,7 +157,7 @@ if (isset($_GET['idcr'])) {
 
 
             <input type="hidden" class="form-control" id="id_cashregister" name="id_cashregister"
-                value="<?=$id_cashregister;?>" />
+                value="<?= $id_cashregister; ?>" />
         </div>
     </div>
 </div>
@@ -179,7 +179,7 @@ if (isset($_GET['idcr'])) {
                                 <option value="" selected="selected"></option>
                                 <?php foreach (BankAccountsData::getAll() as $d) : ?>
                                 <option value="<?= $d->id; ?>">
-                                    <?= $d->nombrecuenta." ".$d->numerocuenta; ?>
+                                    <?= $d->nombrecuenta . " " . $d->numerocuenta; ?>
                                 </option>
                                 <?php endforeach ?>
                             </select>
@@ -226,7 +226,7 @@ $(document).ready(function() {
 
 
     function fetch_data() {
-        var $url = "./?action=searchpaymenttype&idcr=" + <?=$id_cashregister?>;
+        var $url = "./?action=searchpaymenttype&idcr=" + <?= $id_cashregister ?>;
         var dataTable = $('#user_data').DataTable({
             "processing": true,
             "serverSide": true,

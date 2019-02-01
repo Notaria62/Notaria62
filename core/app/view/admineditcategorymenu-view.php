@@ -4,7 +4,7 @@
 * @author DigitalesWeb
 * @website http://digitalesweb.com/
 **/
-Session::currentURL();
+
 
 $cat = CategoryMenuData::get_cat_by_id($_GET["id"]);
 $ug_catmenu = CategoryMenuData::get_usergroups_categorias($_GET["id"]);

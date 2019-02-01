@@ -40,7 +40,8 @@ foreach ($allNotarias as $key => $value) {
                     required />
             </div>
             <div class="form-group">
-                <label for="numeroescriturapublica" class="bmd-label-floating">N&uacute;mero de escritura publica</label>
+                <label for="numeroescriturapublica" class="bmd-label-floating">N&uacute;mero de escritura
+                    publica</label>
                 <input type="number" class="form-control" id="numeroescriturapublica" name="numeroescriturapublica"
                     required />
             </div>
@@ -65,14 +66,17 @@ foreach ($allNotarias as $key => $value) {
                 <label for="dateescriturahipoteca" class="bmd-label-floating">Fecha escritura hipoteca de
                     constituci&oacute;n (YYYY-MM-DD)</label>
                 <input type="text" class="form-control" name="dateescriturahipoteca" id="dateescriturahipoteca"
-                    placeholder="" required pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
+                    placeholder="" required
+                    pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
                     title="Entre formato YYYY-MM-DD" maxlength="10" />
             </div>
             <div class="form-group">
                 <label for="dateotorgamiento" class="bmd-label-floating">Fecha de otorgamiento (YYYY-MM-DD)</label>
                 <input type="text" class="form-control" name="dateotorgamiento" id="dateotorgamiento" placeholder=""
-                    required pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
-                    title="Entre formato YYYY-MM-DD" maxlength="10" value="<?php echo (new \DateTime())->format('Y-m-d'); ?>" />
+                    required
+                    pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
+                    title="Entre formato YYYY-MM-DD" maxlength="10"
+                    value="<?php echo (new \DateTime())->format('Y-m-d'); ?>" />
             </div>
             <div class="form-group">
                 <label for="cuantiahipoteca" class="bmd-label-floating">Cuantia hipoteca</label>
@@ -87,7 +91,8 @@ foreach ($allNotarias as $key => $value) {
             </div>
             <div class="form-group">
                 <label for="direccioninmueble" class="bmd-label-floating">Direcci&oacute;n inmueble</label>
-                <textarea class="form-control" id="direccioninmueble" name="direccioninmueble" required rows="10"></textarea>
+                <textarea class="form-control" id="direccioninmueble" name="direccioninmueble" required
+                    rows="10"></textarea>
             </div>
         </div>
         <!-- END DIV 6 -->
@@ -103,18 +108,20 @@ foreach ($allNotarias as $key => $value) {
                 <input type="text" class="form-control" id="numerocertificado" name="numerocertificado" />
             </div>
             <div class="form-group">
-                <label for="numerohojaspapelnotarial" class="bmd-label-floating">N&uacute;mero hojas papel notarial</label>
+                <label for="numerohojaspapelnotarial" class="bmd-label-floating">N&uacute;mero hojas papel
+                    notarial</label>
                 <input type="text" class="form-control" id="numerohojaspapelnotarial" name="numerohojaspapelnotarial"
                     required />
             </div>
             <div class="form-group">
                 <label for="derechosnotariales" class="bmd-label-floating">Derechos notariales</label>
                 <input type="number" class="form-control" id="derechosnotariales" name="derechosnotariales" required
-                    value="57600" />
+                    value="59400" />
             </div>
             <div class="form-group">
                 <label for="superintendencia" class="bmd-label-floating">Superintendencia</label>
-                <input type="text" class="form-control" id="superintendencia" name="superintendencia" required value="6200" />
+                <input type="text" class="form-control" id="superintendencia" name="superintendencia" required
+                    value="6200" />
             </div>
             <div class="form-group">
                 <label for="fondonacionalnotariado" class="bmd-label-floating">Fondo nacional notariado</label>
@@ -123,7 +130,7 @@ foreach ($allNotarias as $key => $value) {
             </div>
             <div class="form-group">
                 <label for="iva" class="bmd-label-floating">I.V.A.</label>
-                <input type="number" class="form-control" id="iva" name="iva" required value="23351" />
+                <input type="number" class="form-control" id="iva" name="iva" required value="24149" />
             </div>
 
             <div class="form-group bmd-form-group is-filled">
@@ -146,8 +153,10 @@ foreach ($allNotarias as $key => $value) {
             <div class="form-group label-floating" id="dateresolucionnotario_div">
                 <label for="dateresolucionnotario" class="bmd-label-floating">Fecha de resolución (YYYY-MM-DD)</label>
                 <input type="text" class="form-control" name="dateresolucionnotario" id="dateresolucionnotario"
-                    placeholder="" required pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
-                    title="Entre formato YYYY-MM-DD" maxlength="10" value="<?php echo (new \DateTime())->format('Y-m-d'); ?>" />
+                    placeholder="" required
+                    pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
+                    title="Entre formato YYYY-MM-DD" maxlength="10"
+                    value="<?php echo (new \DateTime())->format('Y-m-d'); ?>" />
             </div>
             <div class="form-group bmd-form-group is-filled">
                 <label for="" class="bmd-label-floating">Digitador</label>
@@ -186,7 +195,8 @@ foreach ($allNotarias as $key => $value) {
     </div>
     <div class="row">
         <div class="col-lg-offset-2 col-lg-10">
-            <input type="hidden" name="templatememo_id" id="templatememo_id" value="<?php echo $_GET['ddlmemorandum'];?>" />
+            <input type="hidden" name="templatememo_id" id="templatememo_id"
+                value="<?php echo $_GET['ddlmemorandum'];?>" />
             <button type="submit" class="btn btn-success">Guardar minuta</button>
         </div>
     </div>
@@ -194,63 +204,63 @@ foreach ($allNotarias as $key => $value) {
 </form>
 
 <script>
-    $(function() {
-        $("#notario_id").change(function() {
-            var flag = 0;
-            $("#notario_id option:selected").each(function() {
-                flag = $(this).val();
-            });
-            switch (flag) {
-                case "1":
-                    $('#resolucionnotario_div').hide();
-                    $('#dateresolucionnotario_div').hide();
-                    break;
-                case "2":
-                    $('#resolucionnotario_div').show();
-                    $('#dateresolucionnotario_div').show();
-                    break;
-                case "3":
-                    $('#resolucionnotario_div').show();
-                    $('#dateresolucionnotario_div').show();
-                    break;
-            }
-        }).trigger("change");
-        var availableTags = [ <?php echo $text;?> ];
-        var availableTagsNotarias = [ <?php echo $notarias;?> ];
-        autocomplete(document.getElementById("nombrebanco"), availableTags);
-        autocomplete(document.getElementById("notariaescriturahipoteca"), availableTagsNotarias);
+$(function() {
+    $("#notario_id").change(function() {
+        var flag = 0;
+        $("#notario_id option:selected").each(function() {
+            flag = $(this).val();
+        });
+        switch (flag) {
+            case "1":
+                $('#resolucionnotario_div').hide();
+                $('#dateresolucionnotario_div').hide();
+                break;
+            case "2":
+                $('#resolucionnotario_div').show();
+                $('#dateresolucionnotario_div').show();
+                break;
+            case "3":
+                $('#resolucionnotario_div').show();
+                $('#dateresolucionnotario_div').show();
+                break;
+        }
+    }).trigger("change");
+    var availableTags = [<?php echo $text;?>];
+    var availableTagsNotarias = [<?php echo $notarias;?>];
+    autocomplete(document.getElementById("nombrebanco"), availableTags);
+    autocomplete(document.getElementById("notariaescriturahipoteca"), availableTagsNotarias);
 
 
-    });
-    var nextinput = 0;
+});
+var nextinput = 0;
 
-    function adddebtor() {
-        nextinput++;
-        //campo = '<input type="text" size="20" id="campo' + nextinput + '"&nbsp; name="campo' + nextinput + '"&nbsp; />';
+function adddebtor() {
+    nextinput++;
+    //campo = '<input type="text" size="20" id="campo' + nextinput + '"&nbsp; name="campo' + nextinput + '"&nbsp; />';
 
-        htmldebtors =
-            '<div class="row"><div class="col-md-4"><div class="form-group bmd-form-group is-filled"><label for="" class="bmd-label-floating">Tipo documento</label>' +
-            '<select id="typeident' + nextinput + '" name="typeident' + nextinput + '" class="custom-select" required>' +
-            '<option value="0" selected>-- SELECCIONE --</option>' +
-            '<option value="C.C."> C.C.</option >' +
-            '<option value="NIT."> NIT.</option >' +
-            '<option value="C.E."> C.E.</option >' +
-            '<option value="P.P."> Pasaporte</option>' +
-            '</select></div></div><div class="col-md-4"><div class="form-group"><label for="identificacion' + nextinput +
-            '" class="bmd-label-floating"> Identificaci&oacute;n</label> ' +
-            '<input type= "text" class="form-control" id= "identificacion' + nextinput + '" name= "identificacion' +
-            nextinput + '" required />' +
-            '</div></div><div class="col-md-4"><div class="form-group"><label for="fullname' + nextinput +
-            '" class="bmd-label-floating"> Nombre completo</label > ' +
-            '<input type= "text" class="form-control" id= "fullname' + nextinput + '" name= "fullname' + nextinput +
-            '" required /></div></div></div>';
-        $("#campos").append(htmldebtors);
-    }
+    htmldebtors =
+        '<div class="row"><div class="col-md-4"><div class="form-group bmd-form-group is-filled"><label for="" class="bmd-label-floating">Tipo documento</label>' +
+        '<select id="typeident' + nextinput + '" name="typeident' + nextinput + '" class="custom-select" required>' +
+        '<option value="0" selected>-- SELECCIONE --</option>' +
+        '<option value="C.C."> C.C.</option >' +
+        '<option value="NIT."> NIT.</option >' +
+        '<option value="C.E."> C.E.</option >' +
+        '<option value="P.P."> Pasaporte</option>' +
+        '</select></div></div><div class="col-md-4"><div class="form-group"><label for="identificacion' + nextinput +
+        '" class="bmd-label-floating"> Identificaci&oacute;n</label> ' +
+        '<input type= "text" class="form-control" id= "identificacion' + nextinput + '" name= "identificacion' +
+        nextinput + '" required />' +
+        '</div></div><div class="col-md-4"><div class="form-group"><label for="fullname' + nextinput +
+        '" class="bmd-label-floating"> Nombre completo</label > ' +
+        '<input type= "text" class="form-control" id= "fullname' + nextinput + '" name= "fullname' + nextinput +
+        '" required /></div></div></div>';
+    $("#campos").append(htmldebtors);
+}
 
-    function AgregarCampos() {
-        nextinput++;
-        campo = '<li id="rut' + nextinput + '">Campo:<input type="text" size="20" id="campo' + nextinput +
-            '"&nbsp; name="campo' + nextinput + '"&nbsp; /></li>';
-        $("#campos").append(campo);
-    }
+function AgregarCampos() {
+    nextinput++;
+    campo = '<li id="rut' + nextinput + '">Campo:<input type="text" size="20" id="campo' + nextinput +
+        '"&nbsp; name="campo' + nextinput + '"&nbsp; /></li>';
+    $("#campos").append(campo);
+}
 </script>
