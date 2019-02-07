@@ -11,12 +11,19 @@
 include "../core/autoload.php";
 include "../core/app/model/CierresData.php";
 include "../core/app/model/NumeroALetras.php";
+include "../core/app/model/CifrasEnLetras.php";
+
 //session_start();
 require_once '../PHPWord/bootstrap.php';
 $cierr = CierresData::getById($_GET['id']);
 
 
-$pathtemplate= "protocolo-cierres.docx";
+if ($cierr->nrocopia == 0) {
+    $pathtemplate= "protocolo-cierres.docx";
+} else {
+    $pathtemplate= "protocolo-cierres-interesado.docx";
+}
+
 $dateescrituratextshort = NumeroALetras::dateShortToWords($cierr->dateescritura);
 $dateescrituratext = NumeroALetras::obtenerFechaEnLetraEscritura($cierr->dateescritura);
 $created_attext = NumeroALetras::obtenerFechaEnLetra($cierr->created_at);
@@ -26,12 +33,22 @@ $observationcopy2 = $cierr->observationcopy2;
 $numfoliostext =NumeroALetras::convertir($cierr->numfolios);
 $builder = new \PhpOffice\PhpWord\TemplateProcessor('../PHPWord/resources/'.$pathtemplate);
 // From
+if ($cierr->nrocopia != 0) {
+    $builder->setValue('nrocopia', strtoupper(CifrasEnLetras::$listaUnidadesOrdinalesFemenino[$cierr->nrocopia]));
+}
+
+if ($cierr->is_registro == 1) {
+    $builder->setValue('is_registro', "Art. 18 del decreto 1250 de 1970");
+} else {
+    $builder->setValue('is_registro', "Art. 41 del decreto 188 de 2013");
+}
+
 
 if ($observationcopy1 != "") {
-    $observationcopy1 = "Folios desde: $observationcopy1";
+    $observationcopy1 = "Se utilizaron folios: $observationcopy1";
 }
 if ($observationcopy2 != "") {
-    $observationcopy2 = "Folios desde: $observationcopy2";
+    $observationcopy2 = "Se utilizaron folios: $observationcopy2";
 }
 
 $builder->setValue('nroescriturapublica', strtoupper($cierr->nroescriturapublica));
@@ -49,23 +66,26 @@ $builder->setValue('created_attext', strtoupper($created_attext));
 switch ($cierr->notario_id) {
     case 1:
         $builder->setValue('nombrenotario', 'CARLOS ARTURO SERRATO GALEANO');
-        $builder->setValue('oa', 'O');
-        $builder->setValue('encargado', '');
+        $builder->setValue('description', 'NOTARIO SESENTA Y DOS (62) DEL CÍRCULO DE BOGOTÁ D.C.');
         break;
     case 2:
         $builder->setValue('nombrenotario', 'SANDY CATHERINE DUSSAN MORENO');
-        $builder->setValue('oa', 'A');
-        $builder->setValue('encargado', '(E)');
+        $builder->setValue('description', 'NOTARIA SESENTA Y DOS (62) (E) DEL CÍRCULO DE BOGOTÁ D.C.');
+
         break;
     case 3:
         $builder->setValue('nombrenotario', 'DORA INÉS VELOSA REYES');
-        $builder->setValue('oa', 'A');
-        $builder->setValue('encargado', '(E)');
+        $builder->setValue('description', 'NOTARIA SESENTA Y DOS (62) (E) DEL CÍRCULO DE BOGOTÁ D.C.');
+        //$builder->setValue('encargado', '(E)');
+        break;
+        case 4:
+        $builder->setValue('nombrenotario', 'DORA INÉS VELOSA REYES');
+        $builder->setValue('description', 'SECRETARIA DELEGADA PARA COPIAS DCTO. 1534 DE 1989');
+        //$builder->setValue('encargado', '');
         break;
 }
 
 $filename = "plantilla-".time()."-".$pathtemplate;
-//$builder = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'ODText');
 $builder->saveAs($filename);
 // Doc generated on the fly, may change so do not cache it; mark as public or
 // private to be cached.

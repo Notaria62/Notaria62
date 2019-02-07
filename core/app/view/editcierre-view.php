@@ -10,6 +10,7 @@ foreach ($allAcreedores as $key => $value) {
     $text .= "'".$value->destino."',";
 }
 
+
 ?>
 <div class="card">
     <div class="card-header card-header-primary">
@@ -22,6 +23,42 @@ foreach ($allAcreedores as $key => $value) {
 
         <form method="post" id="addcierres" action="./?action=updatecierres" role="form">
             <div class="row">
+                <?php if ($cierr->nrocopia != 0) : ?>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="is_registro" class="bmd-label-floating">Es registro</label>
+                        <input type="checkbox" name="is_registro" id="is_registro"
+                            <?= ($cierr->is_registro)? "checked":"";?>>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group bmd-form-group is-filled">
+                        <label for="nrocopia" class="bmd-label-floating">Copia de n&uacute;mero</label>
+                        <select id="nrocopia" name="nrocopia" required class="custom-select">
+                            <option <?= ($cierr->nrocopia == 0) ? "selected":"";?> value="">-- SELECCIONE --</option>
+                            <option <?= ($cierr->nrocopia == 1) ? "selected":"";?> value="1">Primera</option>
+                            <option <?= ($cierr->nrocopia == 2) ? "selected":"";?> value="2">Segunda</option>
+                            <option <?= ($cierr->nrocopia == 3) ? "selected":"";?> value="3">Tercera</option>
+                            <option <?= ($cierr->nrocopia == 4) ? "selected":"";?> value="4">Cuarta</option>
+                            <option <?= ($cierr->nrocopia == 5) ? "selected":"";?> value="5">Quinta</option>
+                            <option <?= ($cierr->nrocopia == 6) ? "selected":"";?> value="6">Sexta</option>
+                            <option <?= ($cierr->nrocopia == 7) ? "selected":"";?> value="7">Séptima</option>
+                            <option <?= ($cierr->nrocopia == 8) ? "selected":"";?> value="8">Octava</option>
+                            <option <?= ($cierr->nrocopia == 9) ? "selected":"";?> value="9">Novena</option>
+                            <option <?= ($cierr->nrocopia == 10) ? "selected":"";?> value="10">Décima</option>
+                            <option <?= ($cierr->nrocopia == 11) ? "selected":"";?> value="11">Décima primera</option>
+                            <option <?= ($cierr->nrocopia == 12) ? "selected":"";?> value="12">Décima segunda</option>
+                            <option <?= ($cierr->nrocopia == 13) ? "selected":"";?> value="13">Décima tercera</option>
+                            <option <?= ($cierr->nrocopia == 14) ? "selected":"";?> value="14">Décima cuarta</option>
+                            <option <?= ($cierr->nrocopia == 15) ? "selected":"";?> value="15">Décima quinta</option>
+                        </select>
+                    </div>
+                </div>
+                <?php endif;?>
+
+
+
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="" class="bmd-label-floating">N&uacute;mero de escritura</label>
@@ -69,11 +106,13 @@ foreach ($allAcreedores as $key => $value) {
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="observationcopy1" class="bmd-label-floating">Primera copia folios</label>
+                        <label for="observationcopy1"
+                            class="bmd-label-floating"><?= CifrasEnLetras::$listaUnidadesOrdinalesFemenino[$cierr->nrocopia];  ?></label>
                         <textarea class="form-control" id="observationcopy1" name="observationcopy1"
                             cols="30"><?=$cierr->observationcopy1;?></textarea>
                     </div>
                 </div>
+                <?php if ($cierr->nrocopia == 0) : ?>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="observationcopy2" class="bmd-label-floating">Segunda copia folios</label>
@@ -81,6 +120,7 @@ foreach ($allAcreedores as $key => $value) {
                             cols="30"><?=$cierr->observationcopy2;?></textarea>
                     </div>
                 </div>
+                <?php endif;?>
                 <div class="col-md-12">
                     <input type="hidden" name="id" value="<?= $cierr->id;?>">
                     <div class="col-lg-offset-2 col-lg-10">
@@ -96,5 +136,18 @@ foreach ($allAcreedores as $key => $value) {
 $(document).ready(function() {
     var availableTags = [<?php echo $text;?>];
     autocomplete(document.getElementById("destino"), availableTags);
+
+
+    $('#is_registro').on('click', function() {
+        if ($(this).is(':checked')) {
+            // Hacer algo si el checkbox ha sido seleccionado
+            //alert("El checkbox con valor " + $(this).val() + " ha sido seleccionado");
+            $('#destino').val('Registrador de instrumentos publicos correspondiente');
+        } else {
+            // Hacer algo si el checkbox ha sido deseleccionado
+            //alert("El checkbox con valor " + $(this).val() + " ha sido deseleccionado");
+            $('#destino').val('');
+        }
+    });
 });
 </script>

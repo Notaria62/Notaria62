@@ -1,7 +1,15 @@
 <?php
 
 if (count($_POST)>0) {
+    $is_registro=0;
+    if (isset($_POST["is_registro"])) {
+        $is_registro=1;
+    }
+
     $c = CierresData::getById($_POST["id"]);
+    $c->is_registro = $is_registro;
+
+    $c->nrocopia = $_POST["nrocopia"]!="" ? $_POST["nrocopia"] : "0";
     $c->nroescriturapublica = $_POST["nroescriturapublica"];
     $c->dateescritura = $_POST["dateescritura"];
     $c->numfolios = $_POST["numfolios"];

@@ -77,7 +77,7 @@ if (isset($_GET["start_at"])) {
             <div class="col-md-12">
                 <?php
                 header("refresh:500;  url=./?view=beneficencia");
-                $result = BeneficenciaData::getAllNumRow();
+                $result = CashRegisterData::getAllNumRow();
                 if (count($result) > 0) :
                     ?>
                 <div class="material-datatables">
@@ -85,14 +85,10 @@ if (isset($_GET["start_at"])) {
                         width="100%" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Nro. escritura</th>
-                                <th>Tipo doc.</th>
-                                <th>A&ntilde;o escritura</th>
-                                <th>Fecha solicitud</th>
-                                <th>Usuario solicitante</th>
-                                <th>Fecha entregado</th>
-                                <th>Usuario que entrego</th>
-                                <th class="disabled-sorting text-right">Aprobaci&oacute;n</th>
+                                <th>Nro. cuadre</th>
+                                <th>Total</th>
+                                <th>Fecha creado</th>
+
                                 <th class="disabled-sorting text-right">Opciones</th>
                             </tr>
                         </thead>
@@ -113,45 +109,31 @@ if (isset($_GET["start_at"])) {
 <script language="javascript">
 $(document).ready(function() {
     var $url =
-        '<?="./?action=searchescrituras&start_at=".$start_at."&finish_at=".$now;?>';
+        '<?="./?action=searchcashregister&start_at=".$start_at."&finish_at=".$now;?>';
     $('#datatables').DataTable({
         "processing": true,
         "ajax": {
             "url": $url,
-            \
             "dataSrc": "",
             "type": "GET"
         },
         "columns": [{
-                "data": "nroescriturapublica"
+                "data": "radicado"
             },
             {
-                "data": "tipo"
+                "data": "totalpagos"
             },
-            {
-                "data": "anho"
-            },
+
             {
                 "data": "created_at"
             },
             {
-                "data": "usuarioSolicitud"
-            },
-            {
-                "data": "finished_at"
-            },
-            {
-                "data": "userDelivered"
-            },
-            {
-                "data": "approvals"
-            }, {
                 "data": "options"
             }
         ],
         "columnDefs": [{
             className: "text-right",
-            "targets": [7, 8]
+            "targets": [3]
         }],
         "bProcessing": true,
         "pagingType": "full_numbers",
@@ -176,7 +158,7 @@ $(document).ready(function() {
             {
                 extend: 'pdf',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4]
+                    columns: [0, 1, 2, 3]
                 }
             }
         ],

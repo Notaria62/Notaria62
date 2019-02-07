@@ -28,7 +28,10 @@ if (isset($_GET["start_at"])) {
             <?= Util::display_msg(Session::$msg);?>
             <!-- End session comments-->
             <a href="./?view=newcierre" class="btn btn-default">
-                <i class="material-icons">add</i> Crear
+                <i class="material-icons">add</i> Crear hipotecario
+            </a>
+            <a href="./?view=newcierreinteresado" class="btn btn-default">
+                <i class="material-icons">add</i> Crear interesado
             </a>
             <hr />
             <form class="form-horizontal" role="form">
@@ -99,83 +102,83 @@ if (isset($_GET["start_at"])) {
 </div>
 
 <script language="javascript">
-    $(document).ready(function() {
-        var $url =
-            "<?="./?action=searchprotocolocierres&start_at=".$start_at."&finish_at=".$now;?>";
-        $('#datatables').DataTable({
-            "ajax": {
-                "url": $url,
-                "dataSrc": "",
-                "type": "GET"
+$(document).ready(function() {
+    var $url =
+        '<?="./?action=searchprotocolocierres&start_at=".$start_at."&finish_at=".$now;?>';
+    $('#datatables').DataTable({
+        "ajax": {
+            "url": $url,
+            "dataSrc": "",
+            "type": "GET"
+        },
+        "columns": [{
+                "data": "nroescriturapublica"
             },
-            "columns": [{
-                    "data": "nroescriturapublica"
-                },
-                {
-                    "data": "dateescritura"
-                },
-                {
-                    "data": "numfolios"
-                },
-                {
-                    "data": "destino"
-                },
-                {
-                    "data": "created_at"
-                },
-                {
-                    "data": "usuarioSolicitud"
-                },
-                {
-                    "data": "notario_id"
-                },
-                {
-                    "data": "options"
-                }
-            ],
-            "columnDefs": [{
-                className: "text-right",
-                "targets": [7]
-            }],
-            "processing": true,
-            "pagingType": "full_numbers",
-            "lengthMenu": [
-                [5, 10, 20, -1],
-                [5, 10, 20, "All"]
-            ],
-            responsive: true,
-            dom: 'lBfrtip',
-            buttons: [{
-                    extend: 'print',
-                    exportOptions: {
-                        columns: ':visible'
-                    }
-                },
-
-                {
-                    extend: 'excel',
-                    exportOptions: {
-                        columns: ':visible'
-                    }
-                },
-                {
-                    extend: 'pdf',
-                    exportOptions: {
-                        columns: [0, 1, 2, 3, 4]
-                    }
-                }
-            ],
-            language: {
-                buttons: {
-                    print: 'Imprimir'
-                },
-                search: "_INPUT_",
-                searchPlaceholder: "Buscar...",
+            {
+                "data": "dateescritura"
+            },
+            {
+                "data": "numfolios"
+            },
+            {
+                "data": "destino"
+            },
+            {
+                "data": "created_at"
+            },
+            {
+                "data": "usuarioSolicitud"
+            },
+            {
+                "data": "notario_id"
+            },
+            {
+                "data": "options"
             }
-        });
-        var table = $('#datatables').DataTable();
-        table.order([4, 'desc']).draw();
-        $('.card .material-datatables label').addClass('form-group');
+        ],
+        "columnDefs": [{
+            className: "text-right",
+            "targets": [7]
+        }],
+        "processing": true,
+        "pagingType": "full_numbers",
+        "lengthMenu": [
+            [5, 10, 20, -1],
+            [5, 10, 20, "All"]
+        ],
+        responsive: true,
+        dom: 'lBfrtip',
+        buttons: [{
+                extend: 'print',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
 
+            {
+                extend: 'excel',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+                extend: 'pdf',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4]
+                }
+            }
+        ],
+        language: {
+            buttons: {
+                print: 'Imprimir'
+            },
+            search: "_INPUT_",
+            searchPlaceholder: "Buscar...",
+        }
     });
+    var table = $('#datatables').DataTable();
+    table.order([4, 'desc']).draw();
+    $('.card .material-datatables label').addClass('form-group');
+
+});
 </script>

@@ -70,6 +70,10 @@ class CifrasEnLetras
 
     // ORDINALES (Wikipedia: "Nombres de los números en español", "Número ordinal")
 
+    public static $listaUnidadesOrdinalesFemenino = array( // Letras de los ordinales entre 0º y 19º
+    "ningún", "primera", "segunda", "tercera", "cuarta", "quinta", "sexta", "séptima", "octava", "novena",
+    "décima", "undécima", "duodécima", "decimotercera", "decimocuarta", "decimoquinta", "decimosexta", "decimoséptima", "decimoctava", "decimonovena"
+  );
     public static $listaUnidadesOrdinales = array( // Letras de los ordinales entre 0º y 19º
     "ningún", "primer", "segundo", "tercer", "cuarto", "quinto", "sexto", "séptimo", "octavo", "noveno",
     "décimo", "undécimo", "duodécimo", "decimotercer", "decimocuarto", "decimoquinto", "decimosexto", "decimoséptimo", "decimoctavo", "decimonoveno"

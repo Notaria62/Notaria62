@@ -13,6 +13,8 @@ class CierresData
     public static $tablename = "protocolocierres";
     public function __construct()
     {
+        $this->nrocopia = "";
+        $this->is_registro = "";
         $this->nroescriturapublica = "";
         $this->dateescritura = "";
         $this->numfolios = "";
@@ -28,15 +30,16 @@ class CierresData
     public function add()
     {
         $destino = addslashes($this->destino);
-        $sql = "INSERT INTO  ".self::$tablename." (nroescriturapublica,dateescritura, numfolios, observationcopy1, observationcopy2, destino  , created_at,notario_id, user_id) VALUES ";
-        $sql .= "(\"$this->nroescriturapublica\",\"$this->dateescritura\",\"$this->numfolios\",\"$this->observationcopy1\",\"$this->observationcopy2\",'$destino',\"$this->created_at\",\"$this->notario_id\",$this->user_id )";
+        $sql = "INSERT INTO  ".self::$tablename." (nrocopia,is_registro, nroescriturapublica,dateescritura, numfolios, observationcopy1, observationcopy2, destino  , created_at,notario_id, user_id) VALUES ";
+        $sql .= "(\"$this->nrocopia\",$this->is_registro,\"$this->nroescriturapublica\",\"$this->dateescritura\",\"$this->numfolios\",\"$this->observationcopy1\",\"$this->observationcopy2\",'$destino',\"$this->created_at\",\"$this->notario_id\",$this->user_id )";
+        //echo $sql;
         Executor::doit($sql);
     }
 
     public function update()
     {
         $destino = addslashes($this->destino);
-        $sql= "UPDATE ".self::$tablename." SET nroescriturapublica=\"$this->nroescriturapublica\", numfolios=$this->numfolios,observationcopy1=\"$this->observationcopy1\",observationcopy2=\"$this->observationcopy2\", destino=\"$destino\", notario_id=\"$this->notario_id\", user_id=\"$this->user_id\"   WHERE id=$this->id ";
+        $sql= "UPDATE ".self::$tablename." SET nrocopia=\"$this->nrocopia\",is_registro=$this->is_registro,nroescriturapublica=\"$this->nroescriturapublica\", numfolios=$this->numfolios,observationcopy1=\"$this->observationcopy1\",observationcopy2=\"$this->observationcopy2\", destino=\"$destino\", notario_id=\"$this->notario_id\", user_id=\"$this->user_id\"   WHERE id=$this->id ";
         Executor::doit($sql);
     }
     public function upload()

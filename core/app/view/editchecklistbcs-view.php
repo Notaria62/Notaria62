@@ -116,8 +116,8 @@ $display_number = 1;
                         <label for="numanotacioncoordinador" class="bmd-label-floating">A) Nro. anotaci&oacute;n</label>
                         <input type="text" class="form-control numguiones" id="numanotacioncoordinador"
                             name="numanotacioncoordinador" value="<?=$numanotacioncoordinador?>"
-                            <?=($user->user_level== 1 || $user->user_level==4 ||
-                        $user->user_level==7)?"":"readonly"; ?> />
+                            <?=($user->user_level== 1 || $user->user_level==20 ||
+                        $user->user_level==23)?"":"readonly"; ?> />
                     </div>
                 </div>
                 <div class="col-md-4">
