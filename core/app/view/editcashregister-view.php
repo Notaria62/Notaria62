@@ -47,19 +47,7 @@ if (isset($_GET['id'])) {
         $b->addRadicado();
     }
 }
-
-
-
-
-
-
 //$const =date("Y"). Util::zero_fill($cons, 3);
-
-
-
-
-
-
 ?>
 
 <div class="card">
