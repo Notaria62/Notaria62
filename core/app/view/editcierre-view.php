@@ -24,11 +24,27 @@ foreach ($allAcreedores as $key => $value) {
         <form method="post" id="addcierres" action="./?action=updatecierres" role="form">
             <div class="row">
                 <?php if ($cierr->nrocopia != 0) : ?>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="form-group">
                         <label for="is_registro" class="bmd-label-floating">Es registro</label>
                         <input type="checkbox" name="is_registro" id="is_registro"
-                            <?= ($cierr->is_registro)? "checked":"";?>>
+                            <?= ($cierr->is_registro)? "checked":"";?> class="">
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="is_sustituto" class="bmd-label-floating">Es sustitutiva</label>
+                        <input type="checkbox" name="is_" id="is_sustituto"
+                            <?= ($cierr->is_sustituto) ? "checked" : ""; ?> class="">
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="is_ejemplar" class="bmd-label-floating">Es ejemplar</label>
+                        <input type="checkbox" name="is_ejemplar" id="is_ejemplar"
+                            <?= ($cierr->is_ejemplar) ? "checked" : ""; ?> class="">
 
                     </div>
                 </div>
@@ -134,20 +150,43 @@ foreach ($allAcreedores as $key => $value) {
 
 <script>
 $(document).ready(function() {
-    var availableTags = [<?php echo $text;?>];
+    var availableTags = [<?php echo $text; ?>];
     autocomplete(document.getElementById("destino"), availableTags);
-
 
     $('#is_registro').on('click', function() {
         if ($(this).is(':checked')) {
-            // Hacer algo si el checkbox ha sido seleccionado
-            //alert("El checkbox con valor " + $(this).val() + " ha sido seleccionado");
             $('#destino').val('Registrador de instrumentos publicos correspondiente');
         } else {
-            // Hacer algo si el checkbox ha sido deseleccionado
-            //alert("El checkbox con valor " + $(this).val() + " ha sido deseleccionado");
             $('#destino').val('');
+
         }
     });
+
+    $(':checkbox').on('click', function() {
+        updateButton();
+    });
+    updateButton();
 });
+
+function updateButton() {
+    if ($('#is_registro:checked').length != 0) {
+        $('#is_sustituto').prop('disabled', true).prop("checked", false);
+        $('#is_ejemplar').prop('disabled', true).prop("checked", false);
+    } else {
+        if ($('#is_sustituto:checked').length != 0) {
+            $('#is_registro').prop('disabled', true).prop("checked", false);
+            $('#is_ejemplar').prop('disabled', true).prop("checked", false);
+        } else {
+            if ($('#is_ejemplar:checked').length != 0) {
+                $('#is_registro').prop('disabled', true).prop("checked", false);
+                $('#is_sustituto').prop('disabled', true).prop("checked", false);
+            } else {
+                $('#is_sustituto').prop('disabled', false);
+                $('#is_ejemplar').prop('disabled', false);
+                $('#is_registro').prop('disabled', false);
+
+            }
+        }
+    }
+}
 </script>

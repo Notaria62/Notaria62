@@ -18,11 +18,28 @@ require_once '../PHPWord/bootstrap.php';
 $cierr = CierresData::getById($_GET['id']);
 
 
-if ($cierr->nrocopia == 0) {
-    $pathtemplate= "protocolo-cierres.docx";
-} else {
-    $pathtemplate= "protocolo-cierres-interesado.docx";
+switch ($cierr->nrocopia) {
+    case 0:
+        $pathtemplate = "protocolo-cierres.docx";
+        break;
+    default:
+    if ($cierr->is_ejemplar == 1) {
+        $pathtemplate = "protocolo-cierres-ejemplar.docx";
+        break;
+    } else {
+        if ($cierr->is_sustituto == 1) {
+            $pathtemplate = "protocolo-cierres-sustitutivo.docx";
+            break;
+        } else {
+            $pathtemplate = "protocolo-cierres-interesado.docx";
+            break;
+        }
+    }
+        
+       
 }
+
+
 
 $dateescrituratextshort = NumeroALetras::dateShortToWords($cierr->dateescritura);
 $dateescrituratext = NumeroALetras::obtenerFechaEnLetraEscritura($cierr->dateescritura);
@@ -38,9 +55,9 @@ if ($cierr->nrocopia != 0) {
 }
 
 if ($cierr->is_registro == 1) {
-    $builder->setValue('is_registro', "Art. 18 del decreto 1250 de 1970");
+    $builder->setValue('is_registro', "Art. 14 Ley 1579 de 2012");
 } else {
-    $builder->setValue('is_registro', "Art. 41 del decreto 188 de 2013");
+    $builder->setValue('is_registro', "Art. 85 Decreto 960 de 1970");
 }
 
 

@@ -5,10 +5,18 @@ if (count($_POST)>0) {
     if (isset($_POST["is_registro"])) {
         $is_registro=1;
     }
-
+    $is_sustituto = 0;
+    if (isset($_POST["is_sustituto"])) {
+        $is_sustituto = 1;
+    }
+    $is_ejemplar = 0;
+    if (isset($_POST["is_ejemplar"])) {
+        $is_ejemplar = 1;
+    }
     $c = CierresData::getById($_POST["id"]);
     $c->is_registro = $is_registro;
-
+    $c->is_sustituto = $is_sustituto;
+    $c->is_ejemplar = $is_ejemplar;
     $c->nrocopia = $_POST["nrocopia"]!="" ? $_POST["nrocopia"] : "0";
     $c->nroescriturapublica = $_POST["nroescriturapublica"];
     $c->dateescritura = $_POST["dateescritura"];
