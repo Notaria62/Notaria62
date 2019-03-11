@@ -1,8 +1,3 @@
-<?php Session::currentURL();?>
-
-
-
-
 <div class="card">
     <div class="card-header card-header-primary">
         <h4 class="card-title">Productos</h4>
