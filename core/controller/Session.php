@@ -91,7 +91,6 @@ class Session
     public static function currentURL()
     {
         $uri= $_SERVER["REQUEST_URI"];
-        //echo $uri;
         $user = Util::current_user();
         $ugcm = Util::getUrlGropus($user->user_level);
         $flag = false;
