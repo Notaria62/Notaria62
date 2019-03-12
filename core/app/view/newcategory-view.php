@@ -11,8 +11,6 @@
             <h2></h2>
         </div>
 
-
-
         <form class="form-horizontal" method="post" id="addcategory" action="index.php?view=addcategory" role="form">
             <div class="row">
                 <div class="col-md-8">

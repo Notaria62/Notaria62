@@ -1,10 +1,10 @@
 <?php $user = Util::current_user();
 $categories = CategoryMenuData::get_base_categories();
-    if (isset($_GET['view'])) {
-        if (($_GET['view']!="fechafirmapublico")&&($_GET['view']!="consultatramite")&&($_GET['view']!="processlogin")&&($_GET['view']!="consultatramiteresultado")&&($_GET['view']!="emailsuccess")&&($_GET['view']!="emailto")) {
-            Session::getLogin();
-        }
+if (isset($_GET['view'])) {
+    if (($_GET['view'] != "fechafirmapublico") && ($_GET['view'] != "consultatramite") && ($_GET['view'] != "processlogin") && ($_GET['view'] != "consultatramiteresultado") && ($_GET['view'] != "emailsuccess") && ($_GET['view'] != "emailto")) {
+        Session::getLogin();
     }
+}
 ?>
 <!doctype html>
 <html lang="es-co">
@@ -17,10 +17,10 @@ $categories = CategoryMenuData::get_base_categories();
         <?php if (!empty($page_title)) {
     echo Util::remove_junk($page_title);
 } elseif (!empty($user)) {
-    echo ucfirst($user->name);
+    echo ucfirst($user->name) . " - Sistema de administrador de contenido Notaria 62 del circulo de Bogotá";
 } else {
     echo "Sistema de administrador de contenido Notaria 62 del circulo de Bogotá";
-}?>
+} ?>
     </title>
     <link rel="apple-touch-icon" sizes="57x57" href="themes/notaria62web/img/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="themes/notaria62web/img/apple-icon-60x60.png" />
@@ -109,8 +109,8 @@ $categories = CategoryMenuData::get_base_categories();
 </head>
 
 <body class="">
-    <?php if (count($user)>0):
-        $fullname = $user->name." ".$user->lastname;
+    <?php if (count($user) > 0) :
+        $fullname = $user->name . " " . $user->lastname;
         $name = $user->name;
         $gender = $user->gender;
         ?>
@@ -128,12 +128,12 @@ $categories = CategoryMenuData::get_base_categories();
             <div class="sidebar-wrapper">
                 <div class="user">
                     <div class="photo">
-                        <?= ($gender=='1')?'<img src="themes/notaria62web/img/male.png" />':'<img src="themes/notaria62web/img/female.png" />'?>
+                        <?= ($gender == '1') ? '<img src="themes/notaria62web/img/male.png" />' : '<img src="themes/notaria62web/img/female.png" />' ?>
                     </div>
                     <div class="user-info">
                         <a data-toggle="collapse" href="#collapseuser" class="username">
                             <span>
-                                <?=$name ?>
+                                <?= $name ?>
                                 <b class="caret"></b>
                             </span>
                         </a>
@@ -168,26 +168,27 @@ $categories = CategoryMenuData::get_base_categories();
                         </div>
                     </div>
                 </div>
-                <?php if (count($categories)>0):?>
+                <?php if (count($categories) > 0) : ?>
                 <ul class="nav">
-                    <?php foreach ($categories as $cat):
+                    <?php foreach ($categories as $cat) :
                         $view_id = CategoryMenuData::isUserGroupCategoryMenu($cat->id, $user->user_level);
-                         if ($user->user_level== $view_id): ?>
+                        if ($user->user_level == $view_id) : ?>
                     <li class="nav-item ">
-                        <a class="nav-link" data-toggle="collapse" href="#<?=$cat->id;?>">
-                            <i class="material-icons"><?=$cat->icon;?></i>
-                            <p><?=$cat->name;?>
+                        <a class="nav-link" data-toggle="collapse" href="#<?= $cat->id; ?>">
+                            <i class="material-icons"><?= $cat->icon; ?></i>
+                            <p><?= $cat->name; ?>
                                 <b class="caret"></b>
                             </p>
                         </a>
                         <?php
-                    CategoryMenuData::list_tree_cat_id_user($cat->id); ?>
-                        <?php endif; endforeach; ?>
+                        CategoryMenuData::list_tree_cat_id_user($cat->id); ?>
+                        <?php endif;
+                endforeach; ?>
                     </li>
                 </ul>
-                <?php else:?>
+                <?php else : ?>
                 <p class="alert alert-danger">No hay menu creado</p>
-                <?php endif;?>
+                <?php endif; ?>
 
             </div>
         </div>
@@ -286,12 +287,12 @@ $categories = CategoryMenuData::get_base_categories();
             </footer>
         </div>
     </div>
-    <?php else:
-        View::load("login");    ?>
+    <?php else :
+    View::load("login");    ?>
 
 
 
-    <?php endif;?>
+    <?php endif; ?>
 
 
 

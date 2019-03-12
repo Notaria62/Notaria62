@@ -13,7 +13,6 @@ if (count($_POST)>0) {
     $r->author_id = $_POST["author_id"]!="" ? $_POST["author_id"] : "NULL";
     $r->update();
 
-
     Session::msg("s", "Actualizado el usuario correctamente.");
     Core::redir("./?view=books");
 }
