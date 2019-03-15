@@ -49,6 +49,12 @@ class TemplateMemorandumData
         $query = Executor::doit($sql);
         return Model::many($query[0], new TemplateMemorandumData());
     }
+    public static function getDigitizerAll()
+    {
+        $sql = "select * from ".self::$tablename . " where type =1";
+        $query = Executor::doit($sql);
+        return Model::many($query[0], new TemplateMemorandumData());
+    }
 
     public static function getById($id)
     {

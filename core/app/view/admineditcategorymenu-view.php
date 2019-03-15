@@ -24,7 +24,6 @@ $categories = CategoryMenuData::get_base_categories();
             <h2></h2>
         </div>
 
-
         <form role="form" method="post" action="./?action=updatecategorymenu">
             <div class="row">
                 <div class="col-md-4">
