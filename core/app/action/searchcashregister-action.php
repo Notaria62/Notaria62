@@ -19,14 +19,15 @@ if (count($result)>0) {
  
        
         $btnDel = ($us->is_admin)?'<a href="./?action=delbeneficencia&id='.$value->id.'" data-toggle="tooltip" title="Eliminar" class="btn btn-link btn-danger btn-just-icon btn-sm"> <i class="material-icons">delete</i></a>':'';
-        
+        $btnPrint = '<a onclick="openWindowsPrint(\'./?view=printcontrolcuadrediario&id='.$value->id.'\')"
+        data-toggle="tooltip" title="Imprimir cuadre" class="btn btn-link btn-info btn-just-icon btn-sm"><i class="material-icons">print</i> </a>';
      
         
         $ar[] = array(
         'radicado'=>$value->radicado,
         'totalpagos'=>$value->totalpagos,
         'created_at'=>$value->created_at,
-       'options'=>'<a href="./?view=editcashregister&id='.$value->id.'" data-toggle="tooltip" title="Editar" class="btn btn-link btn-success btn-just-icon btn-sm"><i class="material-icons">edit</i> </a>'.$btnDel
+       'options'=>'<a href="./?view=editcashregister&id='.$value->id.'" data-toggle="tooltip" title="Editar" class="btn btn-link btn-success btn-just-icon btn-sm"><i class="material-icons">edit</i> </a>'.$btnDel.$btnPrint
         );
     }
     echo json_encode($ar);

@@ -16,8 +16,14 @@ class CashRegisterData
         $this->radicado = "";
         $this->cuentaanticipos = "";
         $this->cuentanotaria = "";
+        $this->cuentaunicanotarial ="";
         $this->totalpagos = "";
+
         $this->diferencias = "";
+        $this->cajaauxuliar = "";
+        $this->cajaprincipal = "";
+        $this->caja1erpiso = "";
+        
         $this->status = "";
         $this->user_id = "";
         $this->created_at = Util::getDatetimeNow();
@@ -32,7 +38,7 @@ class CashRegisterData
     {
         $sql = "INSERT IGNORE INTO  ".self::$tablename." (radicado, user_id, created_at) VALUES ";
         $sql .= "(\"$this->radicado\",$this->user_id,\"$this->created_at\" )";
-        echo $sql;
+        //echo $sql;
         Executor::doit($sql);
     }
 
@@ -49,8 +55,8 @@ class CashRegisterData
     }
     public function update()
     {
-        $sql= "UPDATE ".self::$tablename." SET  nroescriturapublica=$this->nroescriturapublica, tipo=\"$this->tipo\",anho=\"$this->anho\",comments=\"$this->comments\"  WHERE id=$this->id ";
-        //echo $sql;
+        $sql= "UPDATE ".self::$tablename." SET cuentaanticipos=\"$this->cuentaanticipos\",cuentanotaria=\"$this->cuentanotaria\",cuentaunicanotarial=\"$this->cuentaunicanotarial\",totalpagos=\"$this->totalpagos\",diferencias=\"$this->diferencias\",cajaauxuliar=\"$this->cajaauxuliar\" ,cajaprincipal=\"$this->cajaprincipal\" ,caja1erpiso=\"$this->caja1erpiso\"   WHERE id=$this->id ";
+        echo $sql;
         Executor::doit($sql);
     }
     public function updateComments()

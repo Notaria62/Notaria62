@@ -76,7 +76,6 @@ if (isset($_GET["start_at"])) {
         <div class="row">
             <div class="col-md-12">
                 <?php
-                header("refresh:500;  url=./?view=beneficencia");
                 $result = CashRegisterData::getAllNumRow();
                 if (count($result) > 0) :
                     ?>
@@ -88,7 +87,6 @@ if (isset($_GET["start_at"])) {
                                 <th>Nro. cuadre</th>
                                 <th>Total</th>
                                 <th>Fecha creado</th>
-
                                 <th class="disabled-sorting text-right">Opciones</th>
                             </tr>
                         </thead>
@@ -175,4 +173,10 @@ $(document).ready(function() {
     $('.card .material-datatables label').addClass('form-group');
 
 });
+
+function openWindowsPrint($url) {
+    var newWindow = window.open($url, 'Reporte',
+        'width=700,height=700,location=no,menubar=no,scrollbars=no,resizable=no,left=200px'); //replace with your url
+    newWindow.focus(); //Sets focus window
+}
 </script>
