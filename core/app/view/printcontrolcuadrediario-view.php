@@ -14,7 +14,7 @@
 if (isset($_GET['id'])) {
     $id_cashregister = $_GET['id'];
     $cr = CashRegisterData::getById($id_cashregister);
-    $result =PaymentTypeData::getAllCashRegister($cr->id);
+    $result = PaymentTypeData::getAllCashRegister($cr->id);
     $radicado = $cr->radicado;
     $cuentaanticipos = $cr->cuentaanticipos;
     $cuentanotaria = $cr->cuentanotaria;
@@ -25,20 +25,19 @@ if (isset($_GET['id'])) {
     $cajaprincipal = $cr->cajaprincipal;
     $caja1erpiso = $cr->caja1erpiso;
     $created_at = $cr->created_at;
-    $totalMount =0;
-$totalMountAccount1 =0;
-$totalMountAccount2 =0;
-$totalMountAccount1Efectivo =0;
-$totalMountAccount1Bouchers =0;
-$totalMountAccount1Cheque =0;
-$totalMountAccount1Transferencia =0;
-$totalMountAccount2Efectivo =0;
-$totalMountAccount2Bouchers =0;
-$totalMountAccount2Cheque =0;
-$totalMountAccount2Transferencia =0;
-
+    $totalMount = 0.00;
+    $totalMountAccount1 = 0.00;
+    $totalMountAccount2 = 0.00;
+    $totalMountAccount1Efectivo = 0.00;
+    $totalMountAccount1Voucher = 0.00;
+    $totalMountAccount1Cheque = 0.00;
+    $totalMountAccount1Transferencia = 0.00;
+    $totalMountAccount2Efectivo = 0.00;
+    $totalMountAccount2Voucher = 0.00;
+    $totalMountAccount2Cheque = 0.00;
+    $totalMountAccount2Transferencia = 0.00;
 }
-
+//echo Util::toDot("20000.87");
 $display_number = 1;
 ?>
 
@@ -53,9 +52,9 @@ $display_number = 1;
     </tr>
     <tr>
         <td colspan="2">PLANILLA CONTROL CUADRE DIARIO: <strong>
-                <?= $created_at;?></strong>
+                <?= $created_at; ?></strong>
             del radicado: <strong>
-                <?= $radicado;?></strong>
+                <?= $radicado; ?></strong>
         </td>
     </tr>
 </table>
@@ -65,7 +64,7 @@ $display_number = 1;
     <thead>
         <tr>
             <th colspan="2">CUENTA NOTARIA (1837)</th>
-            <th>INGRESO SEGÚN CUADRE (SIGNO): <?=$cuentaanticipos + $cuentanotaria  ?></th>
+            <th>INGRESO SEGÚN CUADRE (SIGNO): <?= $cuentaanticipos + $cuentanotaria  ?></th>
         </tr>
         <tr>
             <th>Tipo transacción</th>
@@ -74,51 +73,50 @@ $display_number = 1;
         </tr>
     </thead>
     <?php foreach ($result as $key => $value) :
-    //$ba=BankAccountsData::getById($value->id_bankaccounts);
+        //$ba=BankAccountsData::getById($value->id_bankaccounts);
 
-     if ($value->id_bankaccounts == 1) {
-     ?>
+        if ($value->id_bankaccounts == 1) {
+            ?>
     <tr>
         <td>
-            <?= $value->tipo?>:
+            <?= $value->tipo ?>:
         </td>
         <td>
-            <?= ($value->id_tipo==0)? "-": $value->id_tipo;?>
+            <?= ($value->id_tipo == 0) ? "-" : $value->id_tipo; ?>
         </td>
         <td>
-            <?= $value->mount?>
+            <?= Util::toDot($value->mount) ?>
         </td>
     </tr>
     <?php }
-switch (true) :
-            case ($value->id_bankaccounts == 1) && ($value->tipo == 'Efectivo'):
-                $totalMountAccount1Efectivo +=$value->mount;
-                break;
-            case ($value->id_bankaccounts == 1) && ($value->tipo == 'Bouchers'):
-                $totalMountAccount1Bouchers+=$value->mount;
-                break;
-            case ($value->id_bankaccounts == 1) && ($value->tipo == 'Cheque'):
-                $totalMountAccount1Cheque+=$value->mount;
-                break;
-                case ($value->id_bankaccounts == 1) && ($value->tipo == 'Transferencia'):
-                $totalMountAccount1Transferencia+=$value->mount;
-                break;
-endswitch;
-endforeach; ?>
-
+    switch (true): case ($value->id_bankaccounts == 1) && ($value->tipo == 'Efectivo'):
+            $totalMountAccount1Efectivo += $value->mount;
+            break;
+        case ($value->id_bankaccounts == 1) && ($value->tipo == 'Voucher'):
+            $totalMountAccount1Voucher += $value->mount;
+            break;
+        case ($value->id_bankaccounts == 1) && ($value->tipo == 'Cheque'):
+            $totalMountAccount1Cheque += $value->mount;
+            break;
+        case ($value->id_bankaccounts == 1) && ($value->tipo == 'Transferencia'):
+            $totalMountAccount1Transferencia += $value->mount;
+            break;
+    endswitch;
+endforeach;
+$totalMountAccount1 = $totalMountAccount1Efectivo + $totalMountAccount1Voucher + $totalMountAccount1Cheque + $totalMountAccount1Transferencia; ?>
     <tfoot>
         <tr>
             <td>
             </td>
             <td>EFECTIVO:</td>
-            <td><?=$totalMountAccount1Efectivo?></td>
+            <td><?= Util::toDot($totalMountAccount1Efectivo) ?></td>
         </tr>
         <tr>
             <td>
             </td>
             <td>TOTAL INGRESO: </td>
             <td>
-                <?=$totalMountAccount1Efectivo + $totalMountAccount1Bouchers +$totalMountAccount1Cheque +$totalMountAccount1Transferencia ?>
+                <?= Util::toDot($totalMountAccount1) ?>
             </td>
         </tr>
         <tr>
@@ -126,18 +124,17 @@ endforeach; ?>
             </td>
             <td>DIFERENCIA:</td>
             <td>
-                <?=$totalMountAccount1Efectivo + $totalMountAccount1Bouchers +$totalMountAccount1Cheque +$totalMountAccount1Transferencia-($cuentaanticipos + $cuentanotaria)  ?>
+                <?= Util::toDot($totalMountAccount1 - ($cuentaanticipos + $cuentanotaria))  ?>
             </td>
         </tr>
     </tfoot>
-
 </table>
 <hr />
 <table class="material-datatables table-bordered" style="width: 100%;">
     <thead>
         <tr>
             <th colspan="2">CUENTA UNINCA NOTARIAL (1938)</th>
-            <th>INGRESO SEGÚN CUADRE (SIGNO): <?=$cuentaunicanotarial ?></th>
+            <th>INGRESO SEGÚN CUADRE (SIGNO): <?= $cuentaunicanotarial ?></th>
         </tr>
         <tr>
             <th>Tipo transacción</th>
@@ -146,44 +143,43 @@ endforeach; ?>
         </tr>
     </thead>
     <?php foreach ($result as $key => $value) :
-    //$ba=BankAccountsData::getById($value->id_bankaccounts);
-
-     if ($value->id_bankaccounts == 2) {
-     ?>
+        if ($value->id_bankaccounts == 2) : ?>
     <tr>
         <td>
-            <?= $value->tipo?>:
+            <?= $value->tipo ?>:
         </td>
         <td>
-            <?= ($value->id_tipo==0)? "-": $value->id_tipo;?>
+            <?= ($value->id_tipo == 0) ? "-" : $value->id_tipo; ?>
         </td>
         <td>
-            <?= $value->mount?>
+            <?= Util::toDot($value->mount) ?>
         </td>
     </tr>
-    <?php }
-switch (true) :
-            case ($value->id_bankaccounts == 2) && ($value->tipo == 'Efectivo'):
-                $totalMountAccount2Efectivo +=$value->mount;
-                break;
-            case ($value->id_bankaccounts == 2) && ($value->tipo == 'Bouchers'):
-                $totalMountAccount2Bouchers+=$value->mount;
-                break;
-            case ($value->id_bankaccounts == 2) && ($value->tipo == 'Cheque'):
-                $totalMountAccount2Cheque+=$value->mount;
-                break;
-                case ($value->id_bankaccounts == 2) && ($value->tipo == 'Transferencia'):
-                $totalMountAccount2Transferencia+=$value->mount;
-                break;
-endswitch;
-endforeach; ?>
+    <?php endif;
+    switch (true): case ($value->id_bankaccounts == 2) && ($value->tipo == 'Efectivo'):
+            $totalMountAccount2Efectivo += $value->mount;
+            break;
+        case ($value->id_bankaccounts == 2) && ($value->tipo == 'Voucher'):
+            $totalMountAccount2Voucher += $value->mount;
+            break;
+        case ($value->id_bankaccounts == 2) && ($value->tipo == 'Cheque'):
+            $totalMountAccount2Cheque += $value->mount;
+            break;
+        case ($value->id_bankaccounts == 2) && ($value->tipo == 'Transferencia'):
+            $totalMountAccount2Transferencia += $value->mount;
+            break;
+    endswitch;
+endforeach;
+$totalMountAccount2 = $totalMountAccount2Efectivo + $totalMountAccount2Voucher + $totalMountAccount2Cheque + $totalMountAccount2Transferencia;
+
+?>
 
     <tfoot>
         <tr>
             <td>
             </td>
             <td>EFECTIVO:</td>
-            <td><?=$totalMountAccount2Efectivo?>
+            <td><?= Util::toDot($totalMountAccount2Efectivo) ?>
             </td>
         </tr>
         <tr>
@@ -191,7 +187,7 @@ endforeach; ?>
             </td>
             <td>TOTAL INGRESO:</td>
             <td>
-                <?=$totalMountAccount2Efectivo + $totalMountAccount2Bouchers +$totalMountAccount2Cheque +$totalMountAccount2Transferencia ?>
+                <?= Util::toDot($totalMountAccount2) ?>
             </td>
 
         </tr>
@@ -200,7 +196,7 @@ endforeach; ?>
             </td>
             <td>DIFERENCIA:</td>
             <td>
-                <?=$totalMountAccount2Efectivo + $totalMountAccount2Bouchers +$totalMountAccount2Cheque +$totalMountAccount1Transferencia-($cuentaunicanotarial)  ?>
+                <?= Util::toDot($totalMountAccount2 - $cuentaunicanotarial) ?>
             </td>
         </tr>
     </tfoot>
@@ -215,19 +211,19 @@ endforeach; ?>
     </thead>
     <tr>
         <td>C) CAJERO AUXILIAR</td>
-        <td><?=$cajaauxuliar?></td>
+        <td><?= Util::toDot($cajaauxuliar) ?></td>
     </tr>
     <tr>
         <td>D)CAJERO PRINCIPAL</td>
-        <td><?=$cajaprincipal?></td>
+        <td><?= Util::toDot($cajaprincipal) ?></td>
     </tr>
     <tr>
         <td>E)CAJA 1ER PISO</td>
-        <td><?=$caja1erpiso?></td>
+        <td><?= Util::toDot($caja1erpiso) ?></td>
     </tr>
     <tr>
         <td>SUME (C+D+E) TOTAL $</td>
-        <td><?= $cajaauxuliar + $cajaprincipal + $caja1erpiso?></td>
+        <td><?= Util::toDot($cajaauxuliar + $cajaprincipal + $caja1erpiso) ?></td>
 
     </tr>
     </thead>
@@ -235,7 +231,7 @@ endforeach; ?>
         <tr>
             <th>SUME (A+B) TOTAL:</th>
             <th>
-                <?=$totalMountAccount1Efectivo + $totalMountAccount2Efectivo ?>
+                <?= Util::toDot($totalMountAccount1Efectivo + $totalMountAccount2Efectivo) ?>
             </th>
         </tr>
 

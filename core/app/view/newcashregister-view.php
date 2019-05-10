@@ -138,7 +138,7 @@ if (isset($_GET['idcr'])) {
                             <tr>
                                 <th>Cuenta bancaria</th>
                                 <th>Tipo de trans.</th>
-                                <th>Número (Bouchers o cheque)</th>
+                                <th>Número (Voucher o cheque)</th>
                                 <th class="sum">Monto</th>
                                 <th></th>
                             </tr>
@@ -191,7 +191,7 @@ if (isset($_GET['idcr'])) {
                             <select id="tipo" name="tipo" class="custom-select" required>
                                 <option value="" selected="selected"></option>
                                 <option value="Efectivo">Efectivo</option>
-                                <option value="Bouchers">Bouchers</option>
+                                <option value="Voucher">Voucher</option>
                                 <option value="Cheque">Cheque</option>
                             </select>
                         </div>

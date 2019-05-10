@@ -32,7 +32,7 @@
  *
  * ========================================================= */
 
-(function() {
+(function () {
   isWindows = navigator.platform.indexOf("Win") > -1 ? true : false;
 
   if (isWindows && !$("body").hasClass("sidebar-mini")) {
@@ -65,7 +65,7 @@ var seq2 = 0,
   delays2 = 80,
   durations2 = 500;
 
-$(document).ready(function() {
+$(document).ready(function () {
   $("body").bootstrapMaterialDesign();
 
   $sidebar = $(".sidebar");
@@ -108,12 +108,12 @@ $(document).ready(function() {
   });
 
   $(".form-control")
-    .on("focus", function() {
+    .on("focus", function () {
       $(this)
         .parent(".input-group")
         .addClass("input-group-focus");
     })
-    .on("blur", function() {
+    .on("blur", function () {
       $(this)
         .parent(".input-group")
         .removeClass("input-group-focus");
@@ -121,11 +121,11 @@ $(document).ready(function() {
 
   if (breakCards == true) {
     // We break the cards headers if there is too much stress on them :-)
-    $('[data-header-animation="true"]').each(function() {
+    $('[data-header-animation="true"]').each(function () {
       var $fix_button = $(this);
       var $card = $(this).parent(".card");
 
-      $card.find(".fix-broken-card").click(function() {
+      $card.find(".fix-broken-card").click(function () {
         console.log(this);
         var $header = $(this)
           .parent()
@@ -136,12 +136,12 @@ $(document).ready(function() {
 
         $card.attr("data-count", 0);
 
-        setTimeout(function() {
+        setTimeout(function () {
           $header.removeClass("fadeInDown animate");
         }, 480);
       });
 
-      $card.mouseenter(function() {
+      $card.mouseenter(function () {
         var $this = $(this);
         hover_count = parseInt($this.attr("data-count"), 10) + 1 || 0;
         $this.attr("data-count", hover_count);
@@ -158,7 +158,7 @@ $(document).ready(function() {
   // remove class has-error for checkbox validation
   $(
     'input[type="checkbox"][required="true"], input[type="radio"][required="true"]'
-  ).on("click", function() {
+  ).on("click", function () {
     if ($(this).hasClass("error")) {
       $(this)
         .closest("div")
@@ -167,20 +167,20 @@ $(document).ready(function() {
   });
 });
 
-$(document).on("click", ".navbar-toggler", function() {
+$(document).on("click", ".navbar-toggler", function () {
   $toggle = $(this);
 
   if (mobile_menu_visible == 1) {
     $("html").removeClass("nav-open");
 
     $(".close-layer").remove();
-    setTimeout(function() {
+    setTimeout(function () {
       $toggle.removeClass("toggled");
     }, 400);
 
     mobile_menu_visible = 0;
   } else {
-    setTimeout(function() {
+    setTimeout(function () {
       $toggle.addClass("toggled");
     }, 430);
 
@@ -192,17 +192,17 @@ $(document).on("click", ".navbar-toggler", function() {
       $layer.appendTo(".wrapper-full-page");
     }
 
-    setTimeout(function() {
+    setTimeout(function () {
       $layer.addClass("visible");
     }, 100);
 
-    $layer.click(function() {
+    $layer.click(function () {
       $("html").removeClass("nav-open");
       mobile_menu_visible = 0;
 
       $layer.removeClass("visible");
 
-      setTimeout(function() {
+      setTimeout(function () {
         $layer.remove();
         $toggle.removeClass("toggled");
       }, 400);
@@ -213,7 +213,7 @@ $(document).on("click", ".navbar-toggler", function() {
   }
 });
 // activate collapse right menu when the windows is resized
-$(window).resize(function() {
+$(window).resize(function () {
   md.initSidebarsCheck();
   // reset the seq for charts drawing animations
   seq = seq2 = 0;
@@ -240,8 +240,8 @@ md = {
     active_collapse: true,
     disabled_collapse_init: 0
   },
-  initNumGuiones: function() {
-    $(".numguiones").on("keypress", function(e) {
+  initNumGuiones: function () {
+    $(".numguiones").on("keypress", function (e) {
       var code = e.which || e.keyCode,
         allowedKeys = [8, 9, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45];
       if (allowedKeys.indexOf(code) > -1) {
@@ -252,7 +252,7 @@ md = {
       }
     });
   },
-  checkSidebarImage: function() {
+  checkSidebarImage: function () {
     $sidebar = $(".sidebar");
     image_src = $sidebar.data("image");
 
@@ -264,7 +264,7 @@ md = {
       $sidebar.append(sidebar_container);
     }
   },
-  showSwal: function(type, id, url) {
+  showSwal: function (type, id, url) {
     if (type == "warning-message-and-confirmation-delete") {
       swal({
         title: "¿Estás seguro?",
@@ -275,32 +275,32 @@ md = {
         cancelButtonClass: "btn btn-danger",
         confirmButtonText: "¡Sí, bórralo!",
         buttonsStyling: false
-      }).then(function() {
+      }).then(function () {
         $.ajax({
           type: "GET",
           url: "./?action=" + url,
           data: "id=" + id,
-          success: function(data) {}
+          success: function (data) { }
         })
-          .done(function(data) {
+          .done(function (data) {
             swal({
               title: "¡Eliminado!",
               text: "Su archivo ha sido eliminado.",
               type: "success",
               confirmButtonClass: "btn btn-success",
               buttonsStyling: false
-            }).then(function() {
+            }).then(function () {
               window.location = "./?view=memorandumcreated";
             });
           })
-          .error(function(data) {
+          .error(function (data) {
             swal("Oops", "We couldn't connect to the server!", "error");
           });
       });
     }
   },
 
-  initSliders: function() {
+  initSliders: function () {
     // Sliders for demo purpose
     var slider = document.getElementById("sliderRegular");
     noUiSlider.create(slider, {
@@ -324,7 +324,7 @@ md = {
     });
   },
 
-  initSidebarsCheck: function() {
+  initSidebarsCheck: function () {
     if ($(window).width() <= 991) {
       if ($sidebar.length != 0) {
         md.initRightMenu();
@@ -332,8 +332,8 @@ md = {
     }
   },
 
-  initMinimizeSidebar: function() {
-    $("#minimizeSidebar").click(function() {
+  initMinimizeSidebar: function () {
+    $("#minimizeSidebar").click(function () {
       var $btn = $(this);
 
       if (md.misc.sidebar_mini_active == true) {
@@ -345,18 +345,18 @@ md = {
       }
 
       // we simulate the window Resize so the charts will get updated in realtime.
-      var simulateWindowResize = setInterval(function() {
+      var simulateWindowResize = setInterval(function () {
         window.dispatchEvent(new Event("resize"));
       }, 180);
 
       // we stop the simulation of Window Resize after the animations are completed
-      setTimeout(function() {
+      setTimeout(function () {
         clearInterval(simulateWindowResize);
       }, 1000);
     });
   },
 
-  checkScrollForTransparentNavbar: debounce(function() {
+  checkScrollForTransparentNavbar: debounce(function () {
     if ($(document).scrollTop() > 260) {
       if (transparent) {
         transparent = false;
@@ -370,7 +370,7 @@ md = {
     }
   }, 17),
 
-  initRightMenu: debounce(function() {
+  initRightMenu: debounce(function () {
     $sidebar_wrapper = $(".sidebar-wrapper");
 
     if (!mobile_menu_initialized) {
@@ -397,7 +397,7 @@ md = {
       $nav_content.insertBefore($sidebar_nav);
       $navbar_form.insertBefore($nav_content);
 
-      $(".sidebar-wrapper .dropdown .dropdown-menu > li > a").click(function(
+      $(".sidebar-wrapper .dropdown .dropdown-menu > li > a").click(function (
         event
       ) {
         event.stopPropagation();
@@ -450,8 +450,8 @@ md = {
   //     }
   // }, 500),
 
-  startAnimationForLineChart: function(chart) {
-    chart.on("draw", function(data) {
+  startAnimationForLineChart: function (chart) {
+    chart.on("draw", function (data) {
       if (data.type === "line" || data.type === "area") {
         data.element.animate({
           d: {
@@ -482,8 +482,8 @@ md = {
 
     seq = 0;
   },
-  startAnimationForBarChart: function(chart) {
-    chart.on("draw", function(data) {
+  startAnimationForBarChart: function (chart) {
+    chart.on("draw", function (data) {
       if (data.type === "bar") {
         seq2++;
         data.element.animate({
@@ -509,11 +509,11 @@ md = {
 
 function debounce(func, wait, immediate) {
   var timeout;
-  return function() {
+  return function () {
     var context = this,
       args = arguments;
     clearTimeout(timeout);
-    timeout = setTimeout(function() {
+    timeout = setTimeout(function () {
       timeout = null;
       if (!immediate) func.apply(context, args);
     }, wait);
@@ -526,7 +526,7 @@ function autocomplete(inp, arr) {
   the text field element and an array of possible autocompleted values:*/
   var currentFocus;
   /*execute a function when someone writes in the text field:*/
-  inp.addEventListener("input", function(e) {
+  inp.addEventListener("input", function (e) {
     var a,
       b,
       i,
@@ -555,7 +555,7 @@ function autocomplete(inp, arr) {
         /*insert a input field that will hold the current array item's value:*/
         b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
         /*execute a function when someone clicks on the item value (DIV element):*/
-        b.addEventListener("click", function(e) {
+        b.addEventListener("click", function (e) {
           /*insert the value for the autocomplete text field:*/
           inp.value = this.getElementsByTagName("input")[0].value;
           /*close the list of autocompleted values,
@@ -568,7 +568,7 @@ function autocomplete(inp, arr) {
   });
 
   /*execute a function presses a key on the keyboard:*/
-  inp.addEventListener("keydown", function(e) {
+  inp.addEventListener("keydown", function (e) {
     var x = document.getElementById(this.id + "autocomplete-list");
     if (x) x = x.getElementsByTagName("div");
     if (e.keyCode == 40) {
@@ -622,7 +622,8 @@ function autocomplete(inp, arr) {
   }
 
   /*execute a function when someone clicks in the document:*/
-  document.addEventListener("click", function(e) {
+  document.addEventListener("click", function (e) {
     closeAllLists(e.target);
   });
 }
+

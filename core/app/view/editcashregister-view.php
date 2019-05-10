@@ -5,8 +5,6 @@ if (isset($_GET["start_at"])) {
     $start_at = date('Y\-m\-d\ H:i');
 }
 
-
-
 $result = CashRegisterData::getByLastRadicado(date("Y"));
 $b = new CashRegisterData();
 
@@ -22,20 +20,6 @@ if (isset($_GET['id'])) {
     $cajaauxuliar = $cr->cajaauxuliar;
     $cajaprincipal = $cr->cajaprincipal;
     $caja1erpiso = $cr->caja1erpiso;
-
-    
-
-
-/* if (count($result)<=0) {
-    $const = date("Y"). Util::zero_fill(1, 3);
-} else {
-    foreach ($result as $value) {
-        $const = $value->radicado;
-        $const++;
-        $id_cashregister= $value->id;
-    }
-} */
-
 } else {
     if (count($result) <= 0) {
         $const = date("Y") . Util::zero_fill(1, 3);
@@ -58,7 +42,6 @@ if (isset($_GET['id'])) {
         $b->addRadicado();
     }
 }
-//$const =date("Y"). Util::zero_fill($cons, 3);
 ?>
 
 <div class="card">
@@ -82,7 +65,7 @@ if (isset($_GET['id'])) {
                             value="<?= $const ?>" />
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group bmd-form-group has-success">
                         <label for="created_at" class="bmd-label-floating">
                             Fecha</label>
@@ -97,14 +80,14 @@ if (isset($_GET['id'])) {
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="cuentaanticipos" class="bmd-label-floating">Cuenta anticipos (SIGNO 1837)</label>
-                        <input type="text" class="form-control" id="cuentaanticipos" name="cuentaanticipos"
+                        <input type="text" class="form-control txtMounts" id="cuentaanticipos" name="cuentaanticipos"
                             value="<?= $cuentaanticipos ?>" required />
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="cuentanotaria" class="bmd-label-floating">Cuenta notaria (SIGNO 1837)</label>
-                        <input type="text" class="form-control" id="cuentanotaria" name="cuentanotaria"
+                        <input type="text" class="form-control txtMounts" id="cuentanotaria" name="cuentanotaria"
                             value="<?= $cuentanotaria ?>" required />
                     </div>
                 </div>
@@ -112,22 +95,22 @@ if (isset($_GET['id'])) {
                     <div class="form-group">
                         <label for="cuentaunicanotarial" class="bmd-label-floating">Cuenta unica notarial
                             (SIGNO 1938)</label>
-                        <input type="text" class="form-control" id="cuentaunicanotarial" name="cuentaunicanotarial"
-                            value="<?= $cuentaunicanotarial ?>" required />
+                        <input type="text" class="form-control txtMounts" id="cuentaunicanotarial"
+                            name="cuentaunicanotarial" value="<?= $cuentaunicanotarial ?>" required />
                     </div>
                 </div>
-
+                <!-- 
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="diferencias" class="bmd-label-floating">Diferencia</label>
                         <input type="text" class="form-control" id="diferencias" name="diferencias"
                             value="<?= $diferencias ?>" required />
                     </div>
-                </div>
-                <div class="col-md-3">
+                </div> -->
+                <div class="col-md-2">
                     <div class="form-group">
                         <label for="totalpagos" class="bmd-label-floating">Total pagos</label>
-                        <input type="text" class="form-control" id="totalpagos" name="totalpagos"
+                        <input type="text" class="form-control txtMounts" id="totalpagos" name="totalpagos"
                             value="<?= $totalpagos ?>" required />
                     </div>
                 </div>
@@ -135,18 +118,18 @@ if (isset($_GET['id'])) {
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="cajaauxuliar" class="bmd-label-floating">Cajero auxiliar</label>
-                        <input type="text" class="form-control target" id="cajaauxuliar" name="cajaauxuliar"
+                        <input type="text" class="form-control target txtMounts" id="cajaauxuliar" name="cajaauxuliar"
                             value="<?= $cajaauxuliar ?>" required />
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group">
                         <label for="cajaprincipal" class="bmd-label-floating">Cajero principal</label>
                         <input type="text" class="form-control target" id="cajaprincipal" name="cajaprincipal"
                             value="<?= $cajaprincipal ?>" required />
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group">
                         <label for="caja1erpiso" class="bmd-label-floating">Caja 1er primer</label>
                         <input type="text" class="form-control target" id="caja1erpiso" name="caja1erpiso"
@@ -154,60 +137,52 @@ if (isset($_GET['id'])) {
                     </div>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-12">
                     <div class="form-group">
                         <input type="hidden" class="form-control" id="id_cashregister" name="id_cashregister"
                             value="<?= $id_cashregister; ?>" />
                         <button type="submit" name="btnupdatecashregister" id="btnupdatecashregister"
-                            class="btn btn-success btn-xs">Actualizar</button></td>
+                            class="btn btn-success btn-xs">Actualizar</button>
+                        <a href="./?view=cashregister" class="btn btn-default">Volver</a>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <!-- <div style="display:block;" id="totalMount">0</div>
-                    <div style="display:block;" id="totalMountAccount1">0</div>
-                    <div style="display:block;" id="totalMountAccount2">0</div> -->
-                    <div style="display:block;" id="efectivosobrante">0</div>
-
-                </div>
-
-        </form>
-        <input type="hidden" class="form-control" id="totalMountAccountCash" name="totalMountAccountCash" value="0" />
-        <input type="hidden" class="form-control" id="totalMountCash" name="totalMountCash" value="0" />
-        <button type="button" name="btncalculator" id="btncalculator" class="btn btn-success btn-xs">Calcular</button>
-
-    </div>
-    <div class="col-md-12">
-        <div class="table-responsive">
-            <div align="right">
-                <button type="button" name="add" id="add" class="btn btn-info">Add</button>
             </div>
-            <br />
-            <div id="alert_message"></div>
-            <table id="user_data" class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th>Cuenta bancaria</th>
-                        <th>Tipo de trans.</th>
-                        <th>Número (Bouchers o cheque)</th>
-                        <th class="sum">Monto</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th colspan="4" style="text-align:right">Total:</th>
-                        <th></th>
-                    </tr>
-                </tfoot>
-            </table>
+        </form>
+        <div class="col-md-12">
+            <div style="display:block;" id="efectivosobrante">0</div>
+            <input type="hidden" class="form-control" id="totalMountAccountCash" name="totalMountAccountCash"
+                value="0" />
+            <input type="hidden" class="form-control" id="totalMountCash" name="totalMountCash" value="0" />
+            <button type="button" name="btncalculator" id="btncalculator"
+                class="btn btn-success btn-xs">Calcular</button>
         </div>
-    </div>
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <div align="right">
+                    <button type="button" name="add" id="add" class="btn btn-info">Add</button>
+                </div>
+                <br />
+                <div id="alert_message"></div>
+                <table id="user_data" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Cuenta bancaria</th>
+                            <th>Tipo de trans.</th>
+                            <th>Número (Voucher o cheque)</th>
+                            <th class="sum">Monto</th>
+                            <th class="disabled-sorting text-right">Options</th>
+                        </tr>
+                    </thead>
 
+                </table>
+            </div>
+        </div>
+
+    </div>
 </div>
-</div>
-</div>
+
 <!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
+<div class="modal fade" id="addModal" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
@@ -236,13 +211,13 @@ if (isset($_GET['id'])) {
                             <select id="tipo" name="tipo" class="custom-select" required>
                                 <option value="" selected="selected"></option>
                                 <option value="Efectivo">Efectivo</option>
-                                <option value="Bouchers">Bouchers</option>
+                                <option value="Voucher">Voucher</option>
                                 <option value="Cheque">Cheque</option>
                                 <option value="Transferencia">Transferencia</option>
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12" id="div_id_tipo">
                         <div class="form-group">
                             <label for="id_tipo" class="bmd-label-floating">N&uacute;mero o identificador</label>
                             <input type="text" class="form-control" id="id_tipo" name="id_tipo" value="" required />
@@ -251,12 +226,12 @@ if (isset($_GET['id'])) {
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="mount" class="bmd-label-floating">Monto</label>
-                            <input type="text" class="form-control" id="mount" name="mount" required />
+                            <input type="text" class="form-control txtMounts" id="mount" name="mount" required />
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
+            <div class=" modal-footer">
                 <button type="button" name="insert" id="insert" class="btn btn-success btn-xs">Insert</button></td>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
             </div>
@@ -280,61 +255,24 @@ $(document).ready(function() {
                 url: $url,
                 type: "GET"
             },
-            "footerCallback": function(row, data, start, end, display) {
-                var api = this.api(),
-                    data;
-                //console.log(data[12]);
-
-                // Remove the formatting to get integer data for summation
-                var intVal = function(i) {
-                    return typeof i === 'string' ?
-                        i.replace(/[\$,]/g, '') * 1 :
-                        typeof i === 'number' ?
-                        i : 0;
-                };
-
-                // Total over all pages
-                total = api
-                    .column(3)
-                    .data()
-                    .reduce(function(a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0);
-
-                // Total over this page
-                pageTotal = api
-                    .column(3, {
-                        page: 'current'
-                    })
-                    .data()
-                    .reduce(function(a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0);
-                // Update footer
-                $(api.column(2).footer()).html(
-                    '$' + pageTotal + ' ( $' + total + ' total)'
-                );
-            },
+            "columnDefs": [{
+                className: "text-right",
+                "targets": [4]
+            }],
             // MAGIC TO ACCESS VALUES IN JSON
             "fnInitComplete": function(oSettings, json) {
-                // console.log(json.totalMountAccount1);
-                // console.log(json.totalMountAccount2);
-                // $("#totalpagos").val(json.totalMount);
-                // $("#totalMount").html('Monto total : $' + json.totalMount);
-                // $("#totalMountAccount1").html('Monto total cuenta 1 : $' + json.totalMountAccount1);
-                // $("#totalMountAccount2").html('Monto total cuenta 2 : $' + json.totalMountAccount2);
+                $("#totalpagos").val(json.totalMount);
                 var cajaauxuliar = Number($("#cajaauxuliar").val());
                 var cajaprincipal = Number($("#cajaprincipal").val());
                 var caja1erpiso = Number($("#caja1erpiso").val());
                 var totalMountCash = cajaauxuliar + cajaprincipal + caja1erpiso;
                 var totalMountAccount1Efectivo = json.totalMountAccount1Efectivo;
                 var totalMountAccount2Efectivo = json.totalMountAccount2Efectivo;
-                var totalMountAccountCash = totalMountAccount1Efectivo + totalMountAccount2Efectivo;
-                //var cash = totalMountCash - totalMountAccountCash;
+                var totalMountAccountCash = totalMountAccount1Efectivo +
+                    totalMountAccount2Efectivo;
                 $("#totalMountAccountCash").val(totalMountAccountCash);
                 $("#totalMountCash").val(totalMountCash);
             }
-            //console.log(totalMount);
         });
         $("#totalpagos").val()
         $('#id_bankaccounts').val("");
@@ -347,7 +285,7 @@ $(document).ready(function() {
 
     function update_data(id, column_name, value) {
         $.ajax({
-            url: "update.php",
+            url: "./?action=updatepaymenttype",
             method: "POST",
             data: {
                 id: id,
@@ -375,19 +313,7 @@ $(document).ready(function() {
     });
 
     $('#add').click(function() {
-
-        $("#myModal").modal();
-        //var html = '<tr>';
-        /*  html += '<td contenteditable id="data1"></td>';
-         html += '<td contenteditable id="data2"></td>';
-         html += '<td contenteditable id="data3"></td>';
-         html +=
-             '<td><button type="button" name="insert" id="insert" class="btn btn-success btn-xs">Insert</button></td>';
-         html += '</tr>';
-         $('#user_data tbody').prepend(html); */
-
-
-
+        $("#addModal").modal();
     });
 
     $(document).on('click', '#insert', function() {
@@ -425,7 +351,6 @@ $(document).ready(function() {
             alert("Both Fields is required");
         }
     });
-
     $(document).on('click', '.delete', function() {
         var id = $(this).attr("id");
         var $url = "./?action=delpaymenttype";
@@ -438,7 +363,7 @@ $(document).ready(function() {
                 },
                 success: function(data) {
                     $('#alert_message').html(
-                        '<div class="alert alert-success">' +
+                        '<div class="alert alert-danger">' +
                         data +
                         '</div>');
                     $('#user_data').DataTable().destroy();
@@ -453,9 +378,6 @@ $(document).ready(function() {
     $(document).on('click', '#btncalculator', function() {
         //var id = $(this).attr("value");
         var totalMountAccountCash = Number($("#totalMountAccountCash").val());
-
-
-
         var totalMountCash = Number($("#totalMountCash").val());
         var cajaauxuliar = Number($("#cajaauxuliar").val());
         var cajaprincipal = Number($("#cajaprincipal").val());
@@ -469,10 +391,10 @@ $(document).ready(function() {
 
 
 
-
 });
 
 $(function() {
+
     $("#tipo").change(function() {
         var flag = 0;
         $("#tipo option:selected").each(function() {
@@ -482,20 +404,32 @@ $(function() {
         switch (flag) {
             case "Efectivo":
                 $('#id_tipo').val(0);
-                //$('#id_tipo').hide();
+                $('#div_id_tipo').hide();
                 break;
-                // case "2":
-                //     $('#resolucionnotario_div').show();
-                //     $('#dateresolucionnotario_div').show();
-                //     break;
-                // case "3":
-                //     $('#resolucionnotario_div').show();
-                //     $('#dateresolucionnotario_div').show();
-                //     break;
+            case "Voucher":
+                $('#id_tipo').val("");
+                $('#div_id_tipo').show();
+                break;
+            case "Cheque":
+                $('#id_tipo').val("");
+                $('#div_id_tipo').show();
+                break;
+            case "Transferencia":
+                $('#did_tipo').val("");
+                $('#div_id_tipo').show();
+                break;
         }
     }).trigger("change");
 
-
+    $('.txtMounts').keyup(function() {
+        var val = $(this).val();
+        if (isNaN(val)) {
+            val = val.replace(/[^0-9\.]/g, '');
+            if (val.split('.').length > 2)
+                val = val.replace(/\.+$/, "");
+        }
+        $(this).val(val);
+    });
 
 });
 </script>

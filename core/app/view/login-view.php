@@ -1,8 +1,8 @@
 <?php
 
-if (Session::getUID()!="") {
+if (Session::getUID() != "") {
     Core::redir("./?view=home", false);
-}?>
+} ?>
 
 <div class="off-canvas-sidebar login-page">
     <div class="wrapper wrapper-full-page">
@@ -18,7 +18,8 @@ if (Session::getUID()!="") {
                             <div class="card-body ">
                                 <span class="bmd-form-group">
                                     <div class="input-group justify-content-center">
-                                        <img src="themes/notaria62web/img/logo.png" alt="Notaria 62" height="40" width="40" />
+                                        <img src="themes/notaria62web/img/logo.png" alt="Notaria 62" height="40"
+                                            width="40" />
                                     </div>
                                 </span>
                                 <span class="bmd-form-group">
@@ -28,7 +29,8 @@ if (Session::getUID()!="") {
                                                 <i class="material-icons">email</i>
                                             </span>
                                         </div>
-                                        <input type="email" name="mail" id="mail" class="form-control" placeholder="Correo electr&oacute;nico...">
+                                        <input type="email" name="mail" id="mail" class="form-control"
+                                            placeholder="Correo electr&oacute;nico...">
                                     </div>
                                 </span>
                                 <span class="bmd-form-group">
@@ -48,26 +50,31 @@ if (Session::getUID()!="") {
                             </div>
                         </div>
                     </form>
-                    <?php if (isset($_COOKIE['password_updated'])):?>
+                    <?php if (isset($_COOKIE['password_updated'])) : ?>
                     <div class="alert alert-success alert-with-icon" data-notify="container">
                         <i class="material-icons" data-notify="icon">notifications</i>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="material-icons">close</i></button>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><i
+                                class="material-icons">close</i></button>
                         <span data-notify="icon" class="now-ui-icons ui-1_bell-53"></span>
                         <span data-notify="message">
                             ¡Se ha cambiado la contraseña exitosamente!
                         </span>
                     </div>
-                    <?php setcookie("password_updated", "", time()-18600); endif; ?>
-                    <?php if (isset($_COOKIE['loginInvalid'])):?>
+                    <?php setcookie("password_updated", "", time() - 18600);
+                    endif; ?>
+                    <?php if (isset($_COOKIE['loginInvalid'])) : ?>
                     <div class="alert alert-danger alert-with-icon" data-notify="container">
                         <i class="material-icons" data-notify="icon">notifications</i>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="material-icons">close</i></button>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><i
+                                class="material-icons">close</i></button>
                         <span data-notify="icon" class="now-ui-icons ui-1_bell-53"></span>
                         <span data-notify="message">
                             Usuario y/o contraseña incorrecta.
                         </span>
+                        <a href="./?view=forgotpassword">¿Recuperar contraseña?</a>
                     </div>
-                    <?php setcookie("loginInvalid", "", time()-18600); endif; ?>
+                    <?php setcookie("loginInvalid", "", time() - 18600);
+                    endif; ?>
                 </div>
             </div>
 
@@ -75,11 +82,13 @@ if (Session::getUID()!="") {
     </div>
 </div>
 
+
+
 <script type="text/javascript">
-    $().ready(function() {
-        setTimeout(function() {
-            // after 1000 ms we add the class animated to the login/register card
-            $('.card').removeClass('card-hidden');
-        }, 500)
-    });
+$().ready(function() {
+    setTimeout(function() {
+        // after 1000 ms we add the class animated to the login/register card
+        $('.card').removeClass('card-hidden');
+    }, 500)
+});
 </script>

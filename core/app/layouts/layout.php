@@ -1,7 +1,7 @@
 <?php $user = Util::current_user();
 $categories = CategoryMenuData::get_base_categories();
 if (isset($_GET['view'])) {
-    if (($_GET['view'] != "fechafirmapublico") && ($_GET['view'] != "consultatramite") && ($_GET['view'] != "processlogin") && ($_GET['view'] != "consultatramiteresultado") && ($_GET['view'] != "emailsuccess") && ($_GET['view'] != "emailto")) {
+    if (($_GET['view'] != "fechafirmapublico") && ($_GET['view'] != "consultatramite") && ($_GET['view'] != "processlogin") && ($_GET['view'] != "consultatramiteresultado") && ($_GET['view'] != "emailsuccess") && ($_GET['view'] != "emailto") && ($_GET['view'] != "forgotpassword")) {
         Session::getLogin();
     }
 }
@@ -15,12 +15,12 @@ if (isset($_GET['view'])) {
     <meta name="author" content="" />
     <title>
         <?php if (!empty($page_title)) {
-    echo Util::remove_junk($page_title);
-} elseif (!empty($user)) {
-    echo ucfirst($user->name) . " - Sistema de administrador de contenido Notaria 62 del circulo de Bogotá";
-} else {
-    echo "Sistema de administrador de contenido Notaria 62 del circulo de Bogotá";
-} ?>
+            echo Util::remove_junk($page_title);
+        } elseif (!empty($user)) {
+            echo ucfirst($user->name) . " - Sistema de administrador de contenido Notaria 62 del circulo de Bogotá";
+        } else {
+            echo "Sistema de administrador de contenido Notaria 62 del circulo de Bogotá";
+        } ?>
     </title>
     <link rel="apple-touch-icon" sizes="57x57" href="themes/notaria62web/img/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="themes/notaria62web/img/apple-icon-60x60.png" />
@@ -80,8 +80,7 @@ if (isset($_GET['view'])) {
     <script src="themes/notaria62web/js/plugins/arrive.min.js" type="text/javascript"></script>
     <!-- Forms Validations Plugin -->
     <script src="themes/notaria62web/js/plugins/jquery.validate.min.js"></script>
-    <!--  Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-    <script src="themes/notaria62web/js/plugins/jquery.bootstrap-wizard.js"></script>
+
     <!--  Notifications Plugin, full documentation here: http://bootstrap-notify.remabledesigns.com/    -->
     <script src="themes/notaria62web/js/plugins/bootstrap-notify.js"></script>
     <!--    Sliders Plugin, full documentation here: https://refreshless.com/nouislider/ -->
@@ -97,6 +96,7 @@ if (isset($_GET['view'])) {
     <script src="themes/notaria62web/js/plugins/jasny-bootstrap.min.js"></script>
     <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
     <script src="themes/notaria62web/js/plugins/fullcalendar.min.js"></script>
+
 
     <link rel="stylesheet" href="themes/notaria62web/css/datepicker.min.css">
     <script src="themes/notaria62web/js/plugins/datepicker.min.js"></script>
@@ -171,8 +171,8 @@ if (isset($_GET['view'])) {
                 <?php if (count($categories) > 0) : ?>
                 <ul class="nav">
                     <?php foreach ($categories as $cat) :
-                        $view_id = CategoryMenuData::isUserGroupCategoryMenu($cat->id, $user->user_level);
-                        if ($user->user_level == $view_id) : ?>
+                                $view_id = CategoryMenuData::isUserGroupCategoryMenu($cat->id, $user->user_level);
+                                if ($user->user_level == $view_id) : ?>
                     <li class="nav-item ">
                         <a class="nav-link" data-toggle="collapse" href="#<?= $cat->id; ?>">
                             <i class="material-icons"><?= $cat->icon; ?></i>
@@ -181,9 +181,9 @@ if (isset($_GET['view'])) {
                             </p>
                         </a>
                         <?php
-                        CategoryMenuData::list_tree_cat_id_user($cat->id); ?>
+                                        CategoryMenuData::list_tree_cat_id_user($cat->id); ?>
                         <?php endif;
-                endforeach; ?>
+                            endforeach; ?>
                     </li>
                 </ul>
                 <?php else : ?>

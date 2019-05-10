@@ -1,19 +1,19 @@
 <?php
 
-if (count($_POST)>0) {
+if (count($_POST) > 0) {
 
     $cr = CashRegisterData::getById($_POST["id_cashregister"]);
     // $cr->radicado = $_POST["radicado"];
-    $cr->cuentaanticipos = $_POST["cuentaanticipos"];
-    $cr->cuentanotaria = $_POST["cuentanotaria"];
-    $cr->cuentaunicanotarial = $_POST["cuentaunicanotarial"];
-    $cr->diferencias = $_POST["diferencias"];
+    $cr->cuentaanticipos = Util::eliminar_puntos_tres_digitos($_POST["cuentaanticipos"]);
+    $cr->cuentanotaria = Util::eliminar_puntos_tres_digitos($_POST["cuentanotaria"]);
+    $cr->cuentaunicanotarial = Util::eliminar_puntos_tres_digitos($_POST["cuentaunicanotarial"]);
+    $cr->diferencias = isset($_POST["diferencias"]) ? $_POST["diferencias"] : "0";;
 
-    $cr->totalpagos = $_POST["totalpagos"];
-    $cr->cajaauxuliar = $_POST["cajaauxuliar"];
-    $cr->cajaprincipal = $_POST["cajaprincipal"];
-    $cr->caja1erpiso = $_POST["caja1erpiso"];
-     
+    $cr->totalpagos = Util::eliminar_puntos_tres_digitos($_POST["totalpagos"]);
+    $cr->cajaauxuliar = Util::eliminar_puntos_tres_digitos($_POST["cajaauxuliar"]);
+    $cr->cajaprincipal = Util::eliminar_puntos_tres_digitos($_POST["cajaprincipal"]);
+    $cr->caja1erpiso = Util::eliminar_puntos_tres_digitos($_POST["caja1erpiso"]);
+
     $cr->update();
 
     // if ($_POST["password"]!="") {

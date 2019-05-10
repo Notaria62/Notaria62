@@ -16,9 +16,9 @@ class Util
         static $current_user;
         global $db;
         if (!$current_user) {
-            if (isset($_SESSION['user_id'])):
-             $user_id = intval($_SESSION['user_id']);
-            $current_user = UserData::getById($user_id);
+            if (isset($_SESSION['user_id'])) :
+                $user_id = intval($_SESSION['user_id']);
+                $current_user = UserData::getById($user_id);
             endif;
         }
         return $current_user;
@@ -44,7 +44,7 @@ class Util
     /* Function for Display Session Message
        Ex echo displayt_msg($message);
     /*--------------------------------------------------------------*/
-    public static function display_msg($msg ='')
+    public static function display_msg($msg = '')
     {
         $output = array();
         if (!empty($msg)) {
@@ -72,29 +72,29 @@ class Util
         $val = ucfirst($val);
         return $val;
     }
-    public static function generateRadioButtons($name, $values = 5, $flag=false, $valueA="")
+    public static function generateRadioButtons($name, $values = 5, $flag = false, $valueA = "")
     {
-        $i= $flag == true ? 0: 1;
-        $values = $flag == true ? $values-1 : $values;
+        $i = $flag == true ? 0 : 1;
+        $values = $flag == true ? $values - 1 : $values;
         $o = '<label>' . "\n";
         for ($v = $i; $v <= $values; $v++) {
             $b = '';
             if ($flag == true) {
-                $b = $v==0? 'No':'Si';
+                $b = $v == 0 ? 'No' : 'Si';
             }
             $selected = (empty($valueA) && $valueA != $v) ? '' : ' checked="checked"';
-            $o.= '<input type="radio" class="" id="' . $name . '" name="' . $name . '" value="' . $v . '"' . $selected . '> ' . $b . "\n";
+            $o .= '<input type="radio" class="" id="' . $name . '" name="' . $name . '" value="' . $v . '"' . $selected . '> ' . $b . "\n";
         }
-        $o.= '</label>' . "\n";
+        $o .= '</label>' . "\n";
         return $o;
     }
-    public static function generateTextArea($name, $values=1, $rows =3, $cols=3)
+    public static function generateTextArea($name, $values = 1, $rows = 3, $cols = 3)
     {
         $o = '<label>' . "\n";
         for ($v = 1; $v <= $values; $v++) {
-            $o.= '<textarea class="" name="' . $name . '" id="' . $name . '" rows="' . $rows . '" cols="' . $cols . '"> </textarea>'. "\n";
+            $o .= '<textarea class="" name="' . $name . '" id="' . $name . '" rows="' . $rows . '" cols="' . $cols . '"> </textarea>' . "\n";
         }
-        $o.= '</label>' . "\n";
+        $o .= '</label>' . "\n";
         return $o;
     }
 
@@ -107,24 +107,24 @@ class Util
 
         $start      = (($_page - $links) > 0) ? $_page - $links : 1;
         $end        = (($_page + $links) < $last) ? $_page + $links : $last;
-       
+
         $html       = '<ul class="' . $list_class . '">';
         $class      = ($_page == 1) ? "disabled" : "";
-        $html       .= '<li class="page-item ' . $class . '"><a class="page-link" href="./?view='.$_GET['view'].'&page=' . ($_page - 1) . '">&laquo;</a></li>';
+        $html       .= '<li class="page-item ' . $class . '"><a class="page-link" href="./?view=' . $_GET['view'] . '&page=' . ($_page - 1) . '">&laquo;</a></li>';
         if ($start > 1) {
-            $html   .= '<li class="page-item"><a href="./?view='.$_GET['view']. '&page=1">1</a></li>';
+            $html   .= '<li class="page-item"><a href="./?view=' . $_GET['view'] . '&page=1">1</a></li>';
             $html   .= '<li class="disabled"><span>...</span></li>';
         }
-        for ($i = $start ; $i <= $end; $i++) {
+        for ($i = $start; $i <= $end; $i++) {
             $class  = ($_page == $i) ? "active" : "";
-            $html   .= '<li class="page-item ' . $class . '"><a class="page-link" href="./?view='.$_GET['view']. '&page=' . $i . '">' . $i . '</a></li>';
+            $html   .= '<li class="page-item ' . $class . '"><a class="page-link" href="./?view=' . $_GET['view'] . '&page=' . $i . '">' . $i . '</a></li>';
         }
         if ($end < $last) {
             $html   .= '<li class="disabled"><span>...</span></li>';
-            $html   .= '<li class="page-item" ><a class="page-link" href="./?view='.$_GET['view'].'&page=' . $last . '">' . $last . '</a></li>';
+            $html   .= '<li class="page-item" ><a class="page-link" href="./?view=' . $_GET['view'] . '&page=' . $last . '">' . $last . '</a></li>';
         }
         $class      = ($_page == $last) ? "disabled" : "";
-        $html       .= '<li class="page-item ' . $class . '"><a  class="page-link"  href="./?view='.$_GET['view']. '&page=' . ($_page + 1) . '">&raquo;</a></li>';
+        $html       .= '<li class="page-item ' . $class . '"><a  class="page-link"  href="./?view=' . $_GET['view'] . '&page=' . ($_page + 1) . '">&raquo;</a></li>';
         $html       .= '</ul>';
         return $html;
     }
@@ -143,8 +143,22 @@ class Util
     {
         return str_pad($valor, $long, '0', STR_PAD_LEFT);
     }
-    // public static function getApprovalNumber($num =0)
-    // {
-    //     return date('Y').self::zero_fill($num, 4);
-    // }
+    public static function eliminar_puntos_tres_digitos($valor)
+    {
+        return preg_replace('/(\d)\.(?=\d{3}(?!\d))/', '$1', $valor);
+    }
+    public static function toDot($valor)
+    {
+        return preg_replace('/\B(?=(\d{3})+\b)/', '.', $valor);
+    }
+    public static function antiXSS($valor)
+    {    //Variable de búsqueda
+        $consultaBusqueda = $valor;
+
+        //Filtro anti-XSS
+        $caracteres_malos = array("<", ">", "\"", "'", "/", "<", ">", "'", "/");
+        $caracteres_buenos = array("& lt;", "& gt;", "& quot;", "& #x27;", "& #x2F;", "& #060;", "& #062;", "& #039;", "& #047;");
+        $consultaBusqueda = str_replace($caracteres_malos, $caracteres_buenos, $consultaBusqueda);
+        return $consultaBusqueda;
+    }
 }

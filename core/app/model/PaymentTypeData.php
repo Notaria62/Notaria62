@@ -46,6 +46,14 @@ class PaymentTypeData
         //echo $sql;
         Executor::doit($sql);
     }
+    public function updatePaymentType($id, $column_name, $value)
+    {
+        //$sql= "UPDATE ".self::$tablename." SET  tipo=$this->tipo, id_tipo=\"$this->id_tipo\",mount=\"$this->mount\",comments=\"$this->comments\"  WHERE id=$this->id ";
+       $sql= "UPDATE ".self::$tablename." SET ".$column_name."='".$value."' WHERE id=$id";
+        //echo $sql;
+        echo "Actualizado correctamente...";
+        Executor::doit($sql);
+    }
     public function updateComments()
     {
         $sql= "UPDATE ".self::$tablename." SET  comments=\"$this->comments\"  WHERE id=$this->id ";
@@ -60,6 +68,7 @@ class PaymentTypeData
     public static function delById($id)
     {
         $sql = "delete from ".self::$tablename." where id=$id";
+        echo "Eliminado...";
         Executor::doit($sql);
     }
     public function del()
