@@ -1,15 +1,38 @@
-<div id="progress"></div>
+<?php
 
+if (Session::getUID() != "") {
+    Core::redir("./?view=home", false);
+} ?>
+<div id="progress"></div>
+<a href="/" id="login"><i class="material-icons">assignment_ind</i>
+    Iniciar sesion</a>
 <div class="center">
     <div id="register">
+
+        <div id="notify" class="alert alert-danger alert-with-icon" data-notify="container" style="display:none">
+            <i class="material-icons" data-notify="icon">notifications</i>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><i
+                    class="material-icons">close</i></button>
+            <span data-notify="icon" class="now-ui-icons ui-1_bell-53"></span>
+            <span data-notify="message" id="error">
+            </span>
+        </div>
+        <div class="bmd-form-group" style="margin-top: 10px;">
+            <div class="input-group justify-content-center">
+                <img src="themes/notaria62web/img/logo.png" alt="Notaria 62" height="40" width="40" />
+            </div>
+
+        </div>
 
         <i id="previousButton" class="material-icons">arrow_back</i>
 
         <i id="forwardButton" class="material-icons">arrow_right</i>
 
-        <div id="inputContainer">
+        <div id="inputContainer" class="form-group">
+
+            <label id="inputLabel" class="bmd-label-floating"></label>
             <input id="inputField" required multiple class="form-control">
-            <label id="inputLabel"></label>
+
             <div id="inputProgress"></div>
         </div>
 
@@ -31,9 +54,8 @@ $(document).ready(function() {
      **********/
 
     var questions = [{
-            question: "Cedula de ciudadania"
+            question: "Cédula de ciudadanía"
         },
-
         {
             question: "Correo electrónico",
             pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -49,23 +71,17 @@ $(document).ready(function() {
     */
     var onComplete = function() {
 
-
-
-
-
-
-
-
-
-        var h1 = document.createElement('h1')
-        h1.appendChild(document.createTextNode('Thanks ' + questions[0].answer +
-            ' for checking this pen out!'))
+        var h1 = document.createElement('div')
+        div.appendChild(document.createTextNode(
+            '<a href="/" id="login"><i class="material-icons">assignment_ind</i>Iniciar sesion < /a>'
+        ));
         setTimeout(function() {
-            register.parentElement.appendChild(h1)
+            register.parentElement.appendChild(div)
             setTimeout(function() {
-                h1.style.opacity = 1
+                div.style.opacity = 1
             }, 50)
-        }, 1000)
+        }, 1000);
+
 
     }
 
@@ -106,46 +122,101 @@ $(document).ready(function() {
             inputField.type = questions[position].type || 'text'
             inputField.value = questions[position].answer || ''
             inputField.focus()
-
             // set the progress of the background
             progress.style.width = position * 100 / questions.length + '%'
-
             previousButton.className = position ? 'material-icons' : 'material-icons'
-
             showCurrent()
 
         }
 
         // when submitting the current question
         function validate() {
-
             var validateCore = function() {
-                alert(inputField.value.match(questions[position].pattern || /.+/));
                 return inputField.value.match(questions[position].pattern || /.+/)
             }
-
             if (!questions[position].validate) {
                 questions[position].validate = validateCore
             }
 
             // check if the pattern matches
             if (!questions[position].validate()) {
+                alert("nose");
                 wrong(inputField.focus.bind(inputField))
             } else ok(function() {
-
                 // execute the custom end function or the default value set
                 if (questions[position].done) {
                     questions[position].done()
                 } else {
-                    questions[position].answer = inputField.value
+                    questions[position].answer = inputField.value;
                 }
 
                 ++position
 
                 // if there is a new question, hide current and load next
                 if (questions[position]) {
-                    hideCurrent(putQuestion)
+                    $("#error").html("");
+                    $("#notify").hide();
+                    if (position == 1 && questions[0].answer != "") {
+                        var inputF = questions[0].answer;
+                        $.post("./?action=searchforgotpassword", {
+                            value1: inputF,
+                            value2: "",
+                            value3: "",
+                            getBy: "cc"
+                        }, function(flag) {
+                            if (flag == "ok") {
+                                hideCurrent(putQuestion);
+                            } else {
+                                $("#error").html("Cédula de ciudadanía no existe.");
+                                $("#notify").show();
+                                $("#previousButton").click();
+                            }
+
+                        });
+                    }
+
+                    if (position == 2 && questions[0].answer != "" && questions[1].answer != "") {
+                        var inputF1 = questions[0].answer;
+                        var inputF2 = questions[1].answer;
+                        $.post("./?action=searchforgotpassword", {
+                            value1: inputF1,
+                            value2: inputF2,
+                            value3: "",
+                            getBy: "email"
+                        }, function(flag) {
+                            if (flag == "ok") {
+                                hideCurrent(putQuestion);
+                            } else {
+                                $("#error").html("Correo electrónico no existe.");
+                                $("#notify").show();
+                                $("#previousButton").click();
+                            }
+
+                        });
+                    }
                 } else hideCurrent(function() {
+                    alert("nect3");
+                    if (position == 3 && questions[0].answer != "" && questions[1].answer !=
+                        "" &&
+                        questions[2].answer != "") {
+                        var inputF1 = questions[0].answer;
+                        var inputF2 = questions[1].answer;
+                        var inputF3 = questions[2].answer;
+                        // alert("Value cc: " + questions[0].answer);
+                        $.post("./?action=searchforgotpassword", {
+                            value1: inputF1,
+                            value2: inputF2,
+                            value3: inputF3,
+                            getBy: "password"
+                        }, function(flag) {
+                            if (flag == "ok") {
+
+                            } else {
+                                $("#previousButton").click();
+                            }
+
+                        });
+                    }
                     // remove the box if there is no next question
                     register.className = 'close'
                     progress.style.width = '100%'
@@ -237,6 +308,7 @@ h1 {
     width: 550px;
     box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3);
     transition: transform .1s ease-in-out;
+    border-radius: 10px;
 }
 
 #register.close {
@@ -289,7 +361,7 @@ h1 {
 
 #inputContainer {
     position: relative;
-    padding: 30px 20px 20px 20px;
+    padding: 0px 20px 20px 0px;
     margin: 10px 60px 10px 10px;
     opacity: 0;
     transition: opacity .3s ease-in-out;
@@ -307,18 +379,19 @@ h1 {
     font-family: 'Noto Sans', sans-serif;
 }
 
-#inputLabel {
+/* #inputLabel {
     position: absolute;
     pointer-events: none;
     top: 32px;
-    /* same as container padding + margin */
-    left: 20px;
-    /* same as container padding */
-    font-size: 20px;
-    font-weight: bold;
-    transition: .2s ease-in-out;
+    /* same as container padding + margin *
+left: 20px;
+/* same as container padding *
+font-size: 20px;
+font-weight: bold;
+transition: .2s ease-in-out;
 }
 
+*/
 #inputContainer input:valid+#inputLabel {
     top: 6px;
     left: 42px;
