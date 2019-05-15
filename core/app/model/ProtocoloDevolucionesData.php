@@ -68,12 +68,7 @@ class ProtocoloDevolucionesData
         return Model::many($query[0], new ProtocoloDevolucionesData());
     }
 
-    public static function getByEoRyC($nut, $CI)
-    {
-        $sql = "select * from " . self::$tablename . " where radicado='$nut' OR escritura='$nut' AND ci='$ci' ORDER BY radicado DESC LIMIT 1";
-        $query = Executor::doit($sql);
-        return Model::many($query[0], new ProtocoloDevolucionesData());
-    }
+
     public static function getAll()
     {
         $sql = "select *  from " . self::$tablename . " order by created_at desc";
