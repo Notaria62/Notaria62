@@ -1,33 +1,24 @@
-<table id="example" class="display" style="width:100%">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Extn.</th>
-            <th>Start date</th>
-            <th>Salary</th>
-            <th>Extn.</th>
-            <th>Start date</th>
-            <th>Salary</th>
-            <th>Salary</th>
-            <th>Extn.</th>
-            <th>Extn.</th>
-            <th>Start date</th>
-            <th>Salary</th>
-            <th>Extn.</th>
-            <th>Start date</th>
-            <th>Salary</th>
-            <th>Salary</th>
-            <th>Salary</th>
-        </tr>
-    </thead>
+<?php
 
-</table>
-<script>
-$(document).ready(function() {
-    $('#example').DataTable({
-        "ajax": '/core/app/view/test2.txt'
-    });
-});
-</script>
+$result = ProtocoloDevolucionesData::getById($_GET['id']);
+$resultep = ProtocoloDevolucionesData::getLikeBy($result->escritura_anho);
+
+//print_r($resultep);
+$sumclient = 0;
+$sumsaldo = 0;
+$acumActa = "";
+foreach ($resultep as $key => $value) {
+    # code...
+
+    echo "Tipo deposito: " . $value->tipo_deposito . "<br> ";
+    //echo "Num acta: " . $value->acta . "<br> ";
+    echo "Valor del acta: " . $value->valor_acta . "<br> ";
+    echo "Saldo del usuario: " . $value->saldo . "<br> ";
+    $acumActa .= $value->acta . " - ";
+    $sumsaldo += $value->saldo;
+    $sumclient += $value->valor_acta;
+}
+echo "Nueros de actas: " . $acumActa;
+echo "<br>Total pagado por el usuario:" . $sumclient;
+
+echo "<br>Saldo a favor del cliente: " . $sumsaldo . " Para la escritura: " . $result->escritura_anho;

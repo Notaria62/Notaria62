@@ -59,6 +59,7 @@ $(document).ready(function() {
         {
             question: "Correo electrónico",
             pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
         },
         {
             question: "Nueva contraseña",
@@ -71,16 +72,30 @@ $(document).ready(function() {
     */
     var onComplete = function() {
 
-        var h1 = document.createElement('div')
-        div.appendChild(document.createTextNode(
-            '<a href="/" id="login"><i class="material-icons">assignment_ind</i>Iniciar sesion < /a>'
-        ));
+        // var h1 = document.createElement('div')
+        // h1.appendChild(document.createTextNode(
+        //     '<a href="/" id="login"><i class="material-icons">assignment_ind</i>Iniciar sesion < /a>'
+        // ));
+
+        // var g = document.createElement('div');
+        // g.setAttribute("id", "Div1");
+        // g.appendChild("Gola");
+
         setTimeout(function() {
-            register.parentElement.appendChild(div)
-            setTimeout(function() {
-                div.style.opacity = 1
-            }, 50)
+            //register.parentElement.appendChild(g)
+            // setTimeout(function() {
+            //     //g.style.opacity = 1
+            //     location.href("./")
+            // }, 50)
+            window.location.href = "./";
         }, 1000);
+
+
+        // $('<div/>', {
+        //     id: 'some-id',
+        //     class: 'some-class',
+        //     title: 'now this div has a title!'
+        // }).appendTo('#register');
 
 
     }
@@ -140,7 +155,7 @@ $(document).ready(function() {
 
             // check if the pattern matches
             if (!questions[position].validate()) {
-                alert("nose");
+                // alert("nose");
                 wrong(inputField.focus.bind(inputField))
             } else ok(function() {
                 // execute the custom end function or the default value set
@@ -195,7 +210,7 @@ $(document).ready(function() {
                         });
                     }
                 } else hideCurrent(function() {
-                    alert("nect3");
+                    // alert("nect3");
                     if (position == 3 && questions[0].answer != "" && questions[1].answer !=
                         "" &&
                         questions[2].answer != "") {
@@ -214,7 +229,6 @@ $(document).ready(function() {
                             } else {
                                 $("#previousButton").click();
                             }
-
                         });
                     }
                     // remove the box if there is no next question
