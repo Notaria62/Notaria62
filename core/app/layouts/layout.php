@@ -1,4 +1,5 @@
 <?php $user = Util::current_user();
+
 $categories = CategoryMenuData::get_base_categories();
 if (isset($_GET['view'])) {
     if (($_GET['view'] != "fechafirmapublico") && ($_GET['view'] != "consultatramite") && ($_GET['view'] != "processlogin") && ($_GET['view'] != "consultatramiteresultado") && ($_GET['view'] != "emailsuccess") && ($_GET['view'] != "emailto") && ($_GET['view'] != "forgotpassword")) {
@@ -40,13 +41,11 @@ if (isset($_GET['view'])) {
     <meta name="msapplication-TileImage" content="themes/notaria62web/img/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-        name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
     <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700%7CRoboto+Slab:400,700%7CMaterial+Icons" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700%7CRoboto+Slab:400,700%7CMaterial+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <link rel="stylesheet" href="themes/notaria62web/css/material-dashboard-v=2.0.1.css">
     <link rel="stylesheet" href="themes/notaria62web/css/material-dashboard-print.css" media="print" />
@@ -102,9 +101,9 @@ if (isset($_GET['view'])) {
     <script src="themes/notaria62web/js/plugins/datepicker.min.js"></script>
     <script src="themes/notaria62web/js/plugins/datepicker.es.js"></script>
     <script type="text/javascript">
-    $(document).ready(function() {
+        $(document).ready(function() {
 
-    });
+        });
     </script>
 </head>
 
@@ -114,179 +113,173 @@ if (isset($_GET['view'])) {
         $name = $user->name;
         $gender = $user->gender;
         ?>
-    <div class="wrapper">
-        <div class="sidebar" data-color="rose" data-background-color="white"
-            data-image="themes/notaria62web/img/sidebar-1.jpg">
-            <div class="logo">
-                <a href="./" class="simple-text logo-mini">
-                    62
-                </a>
-                <a href="/" class="simple-text logo-normal">
-                    <img src="themes/notaria62web/img/logo.png" alt="Notaria 62" height="40" width="40" />
-                </a>
-            </div>
-            <div class="sidebar-wrapper">
-                <div class="user">
-                    <div class="photo">
-                        <?= ($gender == '1') ? '<img src="themes/notaria62web/img/male.png" />' : '<img src="themes/notaria62web/img/female.png" />' ?>
+        <div class="wrapper">
+            <div class="sidebar" data-color="rose" data-background-color="white" data-image="themes/notaria62web/img/sidebar-1.jpg">
+                <div class="logo">
+                    <a href="./" class="simple-text logo-mini">
+                        62
+                    </a>
+                    <a href="/" class="simple-text logo-normal">
+                        <img src="themes/notaria62web/img/logo.png" alt="Notaria 62" height="40" width="40" />
+                    </a>
+                </div>
+                <div class="sidebar-wrapper">
+                    <div class="user">
+                        <div class="photo">
+                            <?= ($gender == '1') ? '<img src="themes/notaria62web/img/male.png" />' : '<img src="themes/notaria62web/img/female.png" />' ?>
+                        </div>
+                        <div class="user-info">
+                            <a data-toggle="collapse" href="#collapseuser" class="username">
+                                <span>
+                                    <?= $name ?>
+                                    <b class="caret"></b>
+                                </span>
+                            </a>
+                            <div class="collapse" id="collapseuser">
+                                <ul class="nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <span class="sidebar-mini">MP</span>
+                                            <span class="sidebar-normal">Mi perfil </span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <span class="sidebar-mini">EP</span>
+                                            <span class="sidebar-normal">Editar perfil </span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./?view=configuration">
+                                            <span class="sidebar-mini"><i class="material-icons">security</i></span>
+                                            <span class="sidebar-normal">Cambiar contrase&ntilde;a</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="logout.php">
+                                            <span class="sidebar-mini"><i class="material-icons">power_settings_new</i></span>
+                                            <span class="sidebar-normal">Salir</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="user-info">
-                        <a data-toggle="collapse" href="#collapseuser" class="username">
-                            <span>
-                                <?= $name ?>
-                                <b class="caret"></b>
-                            </span>
-                        </a>
-                        <div class="collapse" id="collapseuser">
-                            <ul class="nav">
+                    <?php if (count($categories) > 0) : ?>
+                        <ul class="nav">
+                            <?php foreach ($categories as $cat) :
+                                $view_id = CategoryMenuData::isUserGroupCategoryMenu($cat->id, $user->user_level);
+                                if ($user->user_level == $view_id) : ?>
+                                    <li class="nav-item ">
+                                        <a class="nav-link" data-toggle="collapse" href="#<?= $cat->id; ?>">
+                                            <i class="material-icons"><?= $cat->icon; ?></i>
+                                            <p><?= $cat->name; ?>
+                                                <b class="caret"></b>
+                                            </p>
+                                        </a>
+                                        <?php
+                                        CategoryMenuData::list_tree_cat_id_user($cat->id); ?>
+                                    <?php endif;
+                            endforeach; ?>
+                            </li>
+                        </ul>
+                    <?php else : ?>
+                        <p class="alert alert-danger">No hay menu creado</p>
+                    <?php endif; ?>
+
+                </div>
+            </div>
+            <div class="main-panel">
+                <!-- Navbar -->
+                <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top">
+                    <div class="container-fluid">
+                        <div class="navbar-wrapper">
+                            <div class="navbar-minimize">
+                                <button id="minimizeSidebar" class="btn btn-just-icon btn-white btn-fab btn-round">
+                                    <i class="material-icons text_align-center visible-on-sidebar-regular">more_vert</i>
+                                    <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
+                                </button>
+                            </div>
+                            <a class="navbar-brand" href="./">Sistema ADC de Notaria 62</a>
+                        </div>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                            <span class="navbar-toggler-icon icon-bar"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end">
+                            <form class="navbar-form">
+                                <div class="input-group no-border">
+                                    <input type="text" value="" class="form-control" placeholder="Buscar..." />
+                                    <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                        <i class="material-icons">search</i>
+                                        <div class="ripple-container"></div>
+                                    </button>
+                                </div>
+                            </form>
+                            <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <span class="sidebar-mini">MP</span>
-                                        <span class="sidebar-normal">Mi perfil </span>
+                                    <a class="nav-link" href="./">
+                                        <i class="material-icons">dashboard</i>
+                                        <p>
+                                            <span class="d-lg-none d-md-block">Stats</span>
+                                        </p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <span class="sidebar-mini">EP</span>
-                                        <span class="sidebar-normal">Editar perfil </span>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="./" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">notifications</i>
+                                        <span class="notification">5</span>
+                                        <p class="d-lg-none d-md-block">Some Actions</p>
                                     </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Mike John responded to your email</a>
+                                    </div>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="./?view=configuration">
-                                        <span class="sidebar-mini"><i class="material-icons">security</i></span>
-                                        <span class="sidebar-normal">Cambiar contrase&ntilde;a</span>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="./" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">person</i>
                                     </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="logout.php">
-                                        <span class="sidebar-mini"><i
-                                                class="material-icons">power_settings_new</i></span>
-                                        <span class="sidebar-normal">Salir</span>
-                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                                        <a class="dropdown-item" href="logout.php"><i class="material-icons">power_settings_new</i>
+                                            Salir</a>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                </div>
-                <?php if (count($categories) > 0) : ?>
-                <ul class="nav">
-                    <?php foreach ($categories as $cat) :
-                                $view_id = CategoryMenuData::isUserGroupCategoryMenu($cat->id, $user->user_level);
-                                if ($user->user_level == $view_id) : ?>
-                    <li class="nav-item ">
-                        <a class="nav-link" data-toggle="collapse" href="#<?= $cat->id; ?>">
-                            <i class="material-icons"><?= $cat->icon; ?></i>
-                            <p><?= $cat->name; ?>
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <?php
-                                        CategoryMenuData::list_tree_cat_id_user($cat->id); ?>
-                        <?php endif;
-                            endforeach; ?>
-                    </li>
-                </ul>
-                <?php else : ?>
-                <p class="alert alert-danger">No hay menu creado</p>
-                <?php endif; ?>
-
-            </div>
-        </div>
-        <div class="main-panel">
-            <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top">
-                <div class="container-fluid">
-                    <div class="navbar-wrapper">
-                        <div class="navbar-minimize">
-                            <button id="minimizeSidebar" class="btn btn-just-icon btn-white btn-fab btn-round">
-                                <i class="material-icons text_align-center visible-on-sidebar-regular">more_vert</i>
-                                <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
-                            </button>
-                        </div>
-                        <a class="navbar-brand" href="./">Sistema ADC de Notaria 62</a>
-                    </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="navbar-toggler-icon icon-bar"></span>
-                        <span class="navbar-toggler-icon icon-bar"></span>
-                        <span class="navbar-toggler-icon icon-bar"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-end">
-                        <form class="navbar-form">
-                            <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Buscar..." />
-                                <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                                    <i class="material-icons">search</i>
-                                    <div class="ripple-container"></div>
-                                </button>
-                            </div>
-                        </form>
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="./">
-                                    <i class="material-icons">dashboard</i>
-                                    <p>
-                                        <span class="d-lg-none d-md-block">Stats</span>
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="./" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">notifications</i>
-                                    <span class="notification">5</span>
-                                    <p class="d-lg-none d-md-block">Some Actions</p>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="./" id="navbarDropdownProfile" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">person</i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                                    <a class="dropdown-item" href="logout.php"><i
-                                            class="material-icons">power_settings_new</i>
-                                        Salir</a>
-                                </div>
-                            </li>
-                        </ul>
+                </nav>
+                <!-- End Navbar -->
+                <div class="content">
+                    <div class="container-fluid">
+                        <?php View::load("login"); ?>
                     </div>
                 </div>
-            </nav>
-            <!-- End Navbar -->
-            <div class="content">
-                <div class="container-fluid">
-                    <?php View::load("login"); ?>
-                </div>
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <nav class="pull-left">
+                            <ul>
+                                <li>
+                                    <a href="./?view=changelog">
+                                        Log de cambios
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="//adc.notaria62bogota.com/" target="_blank">
+                                        Notaria62 ADC
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <p class="copyright pull-right"> <a href="//adc.notaria62bogota.com" target="_blank">Notaria62
+                                ADC</a>&copy;
+                            2018
+                        </p>
+                    </div>
+                </footer>
             </div>
-            <footer class="footer">
-                <div class="container-fluid">
-                    <nav class="pull-left">
-                        <ul>
-                            <li>
-                                <a href="./?view=changelog">
-                                    Log de cambios
-                                </a>
-                            </li>
-                            <li>
-                                <a href="//adc.notaria62bogota.com/" target="_blank">
-                                    Notaria62 ADC
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <p class="copyright pull-right"> <a href="//adc.notaria62bogota.com" target="_blank">Notaria62
-                            ADC</a>&copy;
-                        2018
-                    </p>
-                </div>
-            </footer>
         </div>
-    </div>
     <?php else :
     View::load("login");    ?>
 
