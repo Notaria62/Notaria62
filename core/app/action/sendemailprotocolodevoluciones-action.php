@@ -39,7 +39,7 @@ foreach ($resultep as $key => $value) {
 $endTable = '<tfoot><tr><td></td><td>Total, Depositos Realizados por el usuario</td><td>' . $acumValorActa . '</td></tr>
 <tr><td></td><td>Saldo a Favor del usuario</td><td>' . Util::toDot($acumSaldo) . '</td></tr></tfoot></table>';
 $acumActa = substr($acumActa, 0, -2);
-$subject = 'Devolución al usuario de acata(s): ' . $acumActa;
+$subject = 'Devolucion al usuario de acta(s): ' . $acumActa;
 $content = $beginTable . $tdTable . $endTable;
 $contact = $user->name . " " . $user->lastname;
 
@@ -54,11 +54,8 @@ try {
 
 function sendEmailDevoluciones($to, $subject, $depositante, $acumActa, $acumSaldo, $content, $contact, $escritura_anho)
 {
-
-
-
-    $nombre_origen    = "Carlos Arturo Serrato Galeano";
-    $email_origen     = "notaria62bogota@hotmail.com";
+    $nombre_origen    = "Notaria 62 del circulo de Bogota";
+    $email_origen     = "info@notaria62bogota.com";
     $email_copia      = "info@notaria62bogota.com";
     $email_ocultos    = "notaria62bogota@hotmail.com";
     //$email_destino    = $to;

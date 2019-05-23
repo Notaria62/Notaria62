@@ -30,9 +30,9 @@ if (isset($_GET["start_at"])) {
             <a href="./?view=uploadprotocolodevoluciones" class="btn btn-default">
                 <i class="material-icons">add</i> Cargar lista de devoluciones
             </a>
-            <a href="./?view=newprotocolodevoluciones" class="btn btn-default">
+            <!-- <a href="./?view=newprotocolodevoluciones" class="btn btn-default">
                 <i class="material-icons">add</i> Crear una devolución
-            </a>
+            </a> -->
             <hr />
             <form class="form-horizontal" role="form">
                 <input type="hidden" name="view" value="protocolodevoluciones" />

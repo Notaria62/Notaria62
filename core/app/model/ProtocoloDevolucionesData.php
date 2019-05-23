@@ -15,11 +15,11 @@ class ProtocoloDevolucionesData
         Executor::doit($sql);
     }
 
-    public function upload($escritura_anho, $acta, $tipo_deposito, $depositante, $email, $valor_acta, $saldo, $status)
+    public function upload($escritura_anho, $acta, $tipo_deposito, $depositante, $email, $valor_acta, $saldo)
     {
-        $sql = "insert into " . self::$tablename . " (escritura_anho, acta, tipo_deposito, depositante, email, valor_acta,saldo,status,user_id,created_at) ";
-        $sql .= "value (\"$escritura_anho\",\"$acta\",\"$tipo_deposito\",\"$depositante\",\"$email\",\"$valor_acta\",\"$saldo\",\"$status\",\"$this->user_id\",\"$this->created_at\") ";
-        //echo $sql;
+        $sql = "insert into " . self::$tablename . " (escritura_anho, acta, tipo_deposito, depositante, email, valor_acta,saldo,user_id,created_at) ";
+        $sql .= "value (\"$escritura_anho\",\"$acta\",\"$tipo_deposito\",\"$depositante\",\"$email\",\"$valor_acta\",\"$saldo\",\"$this->user_id\",\"$this->created_at\") ";
+        echo $sql;
         Executor::doit($sql);
     }
 
@@ -64,6 +64,7 @@ class ProtocoloDevolucionesData
     public static function getByRange($start_at, $finish_at)
     {
         $sql = "select * from " . self::$tablename . " where created_at>=\"$start_at\" and created_at<=\"$finish_at\" GROUP BY escritura_anho ASC ";
+        //echo $sql;
         $query = Executor::doit($sql);
         return Model::many($query[0], new ProtocoloDevolucionesData());
     }
