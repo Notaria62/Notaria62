@@ -29,7 +29,7 @@ $beginTable = "";
 $tdTable = "";
 $endTable = "";
 $acumValorActa = 0;
-$beginTable = '<table border="1"><thead>
+$beginTable = '<table border="1" align="center" valign="top" style="width: 100%;"><thead>
 				<th>N° Acta</th>
 				<th>Concepto</th>
 				<th>Valor(s)</th>
