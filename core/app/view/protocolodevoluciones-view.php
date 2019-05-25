@@ -74,7 +74,8 @@ if (isset($_GET["start_at"])) {
         <div class="row">
             <div class="col-md-12">
                 <?php
-                $result = CierresData::getAllNumRow();
+                $result = ProtocoloDevolucionesData::getAllNumRow();
+                //print_r($result);
                 if (count($result) > 0) : ?>
                 <div class="material-datatables">
                     <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
@@ -83,11 +84,10 @@ if (isset($_GET["start_at"])) {
                             <tr>
                                 <th>Nro. escritura</th>
                                 <th>Acta</th>
-                                <th>Tipo deposito</th>
                                 <th>Depositante</th>
-                                <th>email</th>
+                                <th>Email</th>
+                                <th>Estatus</th>
                                 <th>Fecha creaci&oacute;n</th>
-
                                 <th class="disabled-sorting text-right">Opciones</th>
                             </tr>
                         </thead>
@@ -118,18 +118,17 @@ $(document).ready(function() {
                 "data": "acta"
             },
             {
-                "data": "tipo_deposito"
+                "data": "depositante"
             },
             {
-                "data": "depositante"
-            }, {
                 "data": "email"
+            },
+            {
+                "data": "status"
             },
             {
                 "data": "created_at"
             },
-
-
             {
                 "data": "options"
             }
@@ -138,6 +137,18 @@ $(document).ready(function() {
             className: "text-right",
             "targets": [6]
         }],
+        "rowCallback": function(row, data) {
+            //alert(data.status);
+            if (data.status == "1") {
+                $(row).css('background-color', '#d4edda');
+            } else {
+                $(row).css('background-color', '#f8d7da');
+            }
+        },
+
+
+
+
         "processing": true,
         "pagingType": "full_numbers",
         "lengthMenu": [
@@ -174,6 +185,7 @@ $(document).ready(function() {
             searchPlaceholder: "Buscar...",
         }
     });
+
     var table = $('#datatables').DataTable();
     table.order([4, 'desc']).draw();
     $('.card .material-datatables label').addClass('form-group');

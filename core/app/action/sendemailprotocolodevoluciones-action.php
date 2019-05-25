@@ -8,10 +8,18 @@
  * @version 1.0
  * @author DigitalesWeb
  */
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+
 $result = ProtocoloDevolucionesData::getById($_GET['id']);
 $resultep = ProtocoloDevolucionesData::getLikeBy($result->escritura_anho);
 $user = Util::current_user();
-//email variables
+//email variables # A Quién va el correo
 $to = $result->email;
 
 $acumActa = "";
@@ -27,8 +35,6 @@ $beginTable = '<table border="1"><thead>
 				<th>Valor(s)</th>
 			</thead>';
 
-
-
 foreach ($resultep as $key => $value) {
     # code...
     $acumActa .= $value->acta . " - ";
@@ -39,50 +45,20 @@ foreach ($resultep as $key => $value) {
 $endTable = '<tfoot><tr><td></td><td>Total, Depositos Realizados por el usuario</td><td>' . $acumValorActa . '</td></tr>
 <tr><td></td><td>Saldo a Favor del usuario</td><td>' . Util::toDot($acumSaldo) . '</td></tr></tfoot></table>';
 $acumActa = substr($acumActa, 0, -2);
+# El asunto / título del mensaje
 $subject = 'Devolucion al usuario de acta(s): ' . $acumActa;
 $content = $beginTable . $tdTable . $endTable;
 $contact = $user->name . " " . $user->lastname;
 
-try {
-    sendEmailDevoluciones($to, $subject, $result->depositante, $acumActa, $acumSaldo, $content, $contact, $result->escritura_anho);
-} catch (Exception $exception) {
-    Core::alert("Actualizado exitosamente!, no envia email. " . $exception);
-    print "<script>
-    window.location = './?view=protocolodevoluciones';
-    </script>";
-}
+
+sendEmailDevoluciones($to, $subject, $result->depositante, $acumActa, $acumSaldo, $content, $contact, $result->escritura_anho);
 
 function sendEmailDevoluciones($to, $subject, $depositante, $acumActa, $acumSaldo, $content, $contact, $escritura_anho)
 {
-    $nombre_origen    = "Notaria 62 del circulo de Bogota";
-    $email_origen     = "info@notaria62bogota.com";
-    $email_copia      = "info@notaria62bogota.com";
-    $email_ocultos    = "notaria62bogota@hotmail.com";
-    //$email_destino    = $to;
-    $formato          = "html";
-
-    //*****************************************************************//
-    $headers  = "From: $nombre_origen <$email_origen> " . "\r\n";
-    $headers .= "Return-Path: <$email_origen> " . "\r\n";
-    $headers .= "Reply-To: $email_origen " . "\r\n";
-    // $headers .= "Cc: $email_copia " . "\r\n";
-    $headers .= "Bcc: $email_ocultos " . "\r\n";
-    $headers .= "X-Sender: $email_origen " . "\r\n";
-    $headers .= "X-Mailer: [Notaria 62 del circulo de bogota v.1.0] " . "\r\n";
-    $headers .= "X-Priority: 3 " . "\r\n";
-    $headers .= "MIME-Version: 1.0 " . "\r\n";
-    $headers .= "Content-Transfer-Encoding: 7bit " . "\r\n";
-    $headers .= "Disposition-Notification-To: \"$nombre_origen\" <$email_origen> \r\n";
     //*****************************************************************//
 
-    if ($formato == "html") {
-        $headers .= "Content-Type: text/html; charset==UTF-8 " . "\r\n";
-    } else {
-        $headers .= "Content-Type: text/plain; charset==UTF-8 " . " \r\n ";
-    }
     $bool = false;
     $path = 'template/protocolo-devoluciones.html';
-    //echo file_get_contents($path);
     if (file_exists($path)) {
         $tpl = file_get_contents($path);
     }
@@ -93,20 +69,46 @@ function sendEmailDevoluciones($to, $subject, $depositante, $acumActa, $acumSald
     $body = str_replace('{{contact}}', $contact, $body);
 
     $body = str_replace('{{acumActa}}', $acumActa, $body);
-    $bool = mail($to, $subject, $body, $headers);
-    if ($bool) {
-        Core::alert("Actualizado exitosamente!, email enviado: " . $bool);
-        print "<script>
-        window.location = './?view=protocolodevoluciones';
-        </script>";
-    } else {
-        Core::alert("Actualizado exitosamente!, pero email no enviado, por favor notificar.");
-        print "<script>
-        window.location = './?view=protocolodevoluciones';
-        </script>";
-    }
 
-    //if (mail($email, "Alguien solicit� una nueva contrase�a para tu cuenta de Dolphy", $body, $header)) {
-    // mysql_query("UPDATE pw_user SET password ='$newpassmd5' WHERE user = '$email'");
-    //}
+    // Instantiation and passing `true` enables exceptions
+    $mail = new PHPMailer(true);
+
+    try {
+        //Server settings
+        $mail->SMTPDebug = 1;                                       // Enable verbose debug output
+        $mail->isSMTP();                                            // Set mailer to use SMTP
+        $mail->Host       = 'mail.notaria62bogota.com';  // Specify main and backup SMTP servers
+        $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+        $mail->Username   = 'info@notaria62bogota.com';                     // SMTP username
+        $mail->Password   = '$$in2018';                               // SMTP password
+        $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
+        $mail->Port       = 587;                                    // TCP port to connect to
+
+        //Recipients
+        $mail->setFrom('info@notaria62bogota.com', 'Informacion Notaria 62 del circulo de Bogota');
+        $mail->addAddress($to);     // Add a recipient
+        //$mail->addAddress('ellen@example.com');               // Name is optional
+        $mail->addReplyTo('notaria62bogota@hotmail.com', 'Carlos Arturo Serrato Galeano');
+        //$mail->addCC('cc@example.com');
+        $mail->addBCC('notaria62bogota@hotmail.com');
+
+        // Content
+        $mail->isHTML(true);                                  // Set email format to HTML
+        $mail->Subject = $subject;
+        $mail->Body    = $body;
+        //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+        $mail->send();
+        $result = ProtocoloDevolucionesData::getById($_GET['id']);
+        $result->status = 1;
+        $result->update_status();
+
+
+        Session::msg("s", "El correo electronico se envío exitosamente para la(s) acta(s): [$acumActa]");
+        Core::redir("./?view=protocolodevoluciones");
+    } catch (Exception $e) {
+        Session::msg("d", "El correo electronico no se envío, por favor llame al administrador del sistema. {$mail->ErrorInfo}, $e->message");
+        Core::redir("./?view=protocolodevoluciones");
+        //echo "Message could not be sent. Mailer Error: ";
+    }
 }

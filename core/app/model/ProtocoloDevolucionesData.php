@@ -41,6 +41,13 @@ class ProtocoloDevolucionesData
         Executor::doit($sql);
     }
 
+    public function update_status()
+    {
+        $sql = "update " . self::$tablename . " set status=$this->status where id=$this->id";
+        //echo $sql;
+        Executor::doit($sql);
+    }
+
     public function update()
     {
         $sql = "update " . self::$tablename . " set radicado=\"$this->radicado\",escritura=\"$this->escritura\",ci=\"$this->ci\",email=\"$this->email\",anho=\"$this->anho\",estatus=\"$this->estatus\",user_id=\"$this->user_id\" where id=$this->id";
