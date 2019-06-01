@@ -11,7 +11,7 @@
 //echo "paso ". count($_POST);
 //echo isset($_POST["identificacion3"]);
 //echo isset($_POST["identificacion4"]);
-if (count($_POST)>0) {
+if (count($_POST) > 0) {
     $memo = MemorandumData::getById($_POST["id"]);
     $memo->sare = $_POST["sare"];
     $memo->officecode = $_POST["officecode"];
@@ -46,15 +46,15 @@ if (count($_POST)>0) {
     $memo->digitador_id = $_POST["digitador_id"];
     $memo->numerocertificado = $_POST["numerocertificado"];
     $memo->numerohojaspapelnotarial = $_POST["numerohojaspapelnotarial"];
-    $memo->derechosnotariales = isset($_POST["derechosnotariales"])? $_POST["derechosnotariales"]:"57600";
-    $memo->superintendencia = isset($_POST["superintendencia"])? $_POST["superintendencia"]:"6200";
-    $memo->fondonacionalnotariado = isset($_POST["fondonacionalnotariado"])? $_POST["fondonacionalnotariado"]:"6200";
-    $memo->iva = isset($_POST["iva"])? $_POST["iva"]:"23351";
+    $memo->derechosnotariales = isset($_POST["derechosnotariales"]) ? $_POST["derechosnotariales"] : "57600";
+    $memo->superintendencia = isset($_POST["superintendencia"]) ? $_POST["superintendencia"] : "6200";
+    $memo->fondonacionalnotariado = isset($_POST["fondonacionalnotariado"]) ? $_POST["fondonacionalnotariado"] : "6200";
+    $memo->iva = isset($_POST["iva"]) ? $_POST["iva"] : "23351";
     $memo->notario_id = $_POST["notario_id"];
-    $memo->dateresolucionnotario = isset($_POST["dateresolucionnotario"])? $_POST["dateresolucionnotario"]:"0";
-    $memo->resolucionnotario = isset($_POST["resolucionnotario"])? $_POST["resolucionnotario"]: "0";
+    $memo->dateresolucionnotario = isset($_POST["dateresolucionnotario"]) ? $_POST["dateresolucionnotario"] : "0";
+    $memo->resolucionnotario = isset($_POST["resolucionnotario"]) ? $_POST["resolucionnotario"] : "0";
     $memo->templatememo_id = $_POST["templatememo_id"];
-    $memo->user_id=Session::getUID();
+    $memo->user_id = Session::getUID();
     $memo->update();
     Session::msg("s", "Actualizado correctamente.");
     Core::redir("./?view=memorandumcreated");

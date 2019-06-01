@@ -10,7 +10,7 @@
  */
 
 
-if (count($_POST)>0) {
+if (count($_POST) > 0) {
     $memo = new MemorandumData();
     $memo->sare = $_POST["sare"];
     $memo->officecode = $_POST["officecode"];
@@ -40,17 +40,17 @@ if (count($_POST)>0) {
     $memo->nombrebanco = $_POST["nombrebanco"];
     $memo->observation = "";
     $memo->digitador_id = $_POST["digitador_id"];
-    $memo->dateresolucionnotario = isset($_POST["dateresolucionnotario"])? $_POST["dateresolucionnotario"]:"0";
-    $memo->resolucionnotario = isset($_POST["resolucionnotario"])? $_POST["resolucionnotario"]: "0";
+    $memo->dateresolucionnotario = isset($_POST["dateresolucionnotario"]) ? $_POST["dateresolucionnotario"] : "0";
+    $memo->resolucionnotario = isset($_POST["resolucionnotario"]) ? $_POST["resolucionnotario"] : "0";
     $memo->numerocertificado = $_POST["numerocertificado"];
     $memo->numerohojaspapelnotarial = $_POST["numerohojaspapelnotarial"];
-    $memo->derechosnotariales = isset($_POST["derechosnotariales"])? $_POST["derechosnotariales"]:"57600";
-    $memo->superintendencia = isset($_POST["superintendencia"])? $_POST["superintendencia"]:"6200";
-    $memo->fondonacionalnotariado = isset($_POST["fondonacionalnotariado"])? $_POST["fondonacionalnotariado"]:"6200";
-    $memo->iva = isset($_POST["iva"])? $_POST["iva"]:"23351";
+    $memo->derechosnotariales = isset($_POST["derechosnotariales"]) ? $_POST["derechosnotariales"] : "57600";
+    $memo->superintendencia = isset($_POST["superintendencia"]) ? $_POST["superintendencia"] : "6200";
+    $memo->fondonacionalnotariado = isset($_POST["fondonacionalnotariado"]) ? $_POST["fondonacionalnotariado"] : "6200";
+    $memo->iva = isset($_POST["iva"]) ? $_POST["iva"] : "23351";
     $memo->notario_id = $_POST["notario_id"];
     $memo->templatememo_id = $_POST["templatememo_id"];
-    $memo->user_id=Session::getUID();
+    $memo->user_id = Session::getUID();
     $memo->add();
     Session::msg("s", "Agregado satisfactoriamente.");
     Core::redir("./?view=memorandumcreated");
