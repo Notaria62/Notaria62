@@ -7,12 +7,12 @@ foreach ($events as $event) {
     $item = ItemData::getById($event->item_id);
     $book = $item->getBook();
     $user = ClientData::getById($event->client_id);
-    $thejson[] = array("title"=>$item->code." - ".$book->title." - Prestado a: ".$user->name,"url"=>"","start"=>$event->start_at,"end"=>$event->finish_at);
+    $thejson[] = array("title" => $item->code . " - " . $book->title . " - Prestado a: " . $user->name, "url" => "", "start" => $event->start_at, "end" => $event->finish_at);
 }
 ?>
 <script type="application/javascript">
 $(document).ready(function() {
-
+    var eventsJson = <?=json_encode($thejson); ?> ;
     $('#calendar').fullCalendar({
         header: {
             left: 'prev,next today',
@@ -20,10 +20,10 @@ $(document).ready(function() {
             right: 'month,agendaWeek,agendaDay,listWeek'
         },
         height: 550,
-        defaultDate: '<?php echo date("Y-m-d");?>',
+        // defaultDate: '<?php echo date("Y-m-d"); ?>',
         editable: false,
         eventLimit: true, // allow "more" link when too many events
-        events: <?php echo json_encode($thejson); ?>,
+        events: eventsJson,
         displayEventTime: false
     });
 

@@ -246,7 +246,7 @@ $(document).ready(function() {
     fetch_data();
 
     function fetch_data() {
-        var $url = "./?action=searchpaymenttype&idcr=" + <?= $id_cashregister ?>;
+        var $url = "./?action=searchpaymenttype&idcr=" + < ? = $id_cashregister ? > ;
         var dataTable = $('#user_data').DataTable({
             "processing": true,
             "serverSide": true,
@@ -316,6 +316,7 @@ $(document).ready(function() {
         $("#addModal").modal();
     });
 
+
     $(document).on('click', '#insert', function() {
         var $url = "./?action=addpaymenttype";
         var id_bankaccounts = $('#id_bankaccounts').val();
@@ -346,7 +347,7 @@ $(document).ready(function() {
             setInterval(function() {
                 $('#alert_message').html('');
 
-            }, 5000);
+            }, 50077990);
         } else {
             alert("Both Fields is required");
         }
