@@ -10,7 +10,7 @@ if (Session::getUID() != "") {
             <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
             <div class="container">
                 <div class="col-md-5 ml-auto mr-auto">
-                    <form accept-charset="UTF-8" role="form" method="post" action="./?view=processlogin">
+                    <form accept-charset="UTF-8" role="form" method="post" autocomplete="off" id="login_form" name="login_form" action="./?view=processlogin">
                         <div class="card card-login card-hidden">
                             <div class="card-header card-header-rose text-center">
                                 <h4 class="card-title">Iniciar session</h4>
@@ -29,7 +29,7 @@ if (Session::getUID() != "") {
                                                 <i class="material-icons">email</i>
                                             </span>
                                         </div>
-                                        <input type="email" name="mail" id="mail" class="form-control"
+                                        <input type="email" name="mail" id="mail" class="form-control" autocomplete="off"
                                             placeholder="Correo electr&oacute;nico...">
                                     </div>
                                 </span>
@@ -40,13 +40,14 @@ if (Session::getUID() != "") {
                                                 <i class="material-icons">lock_outline</i>
                                             </span>
                                         </div>
-                                        <input type="password" name="password" id="password" class="form-control"
+                                        <input type="password" name="password" id="password" autocomplete="off" id="password" class="form-control"
                                             placeholder="Contraseña...">
                                     </div>
                                 </span>
                             </div>
                             <div class="card-footer justify-content-center">
-                                <input class="btn btn-primary btn-round" type="submit" value="Iniciar Sesion" />
+                            <input type="hidden" name="ps" id="secret">
+                                <input class="btn btn-primary btn-round" type="submit" id="login_button" value="Iniciar Sesion" />
                             </div>
                         </div>
                     </form>
@@ -85,6 +86,24 @@ if (Session::getUID() != "") {
 
 
 <script type="text/javascript">
+    // Event.observe(window, 'load', function(){
+    //     Event.observe( 'login_button', 'click', formProcess);
+    //   });
+    //   function formProcess(){
+    //     //agregar validaciones
+    //     $('secret').value = hex_sha512($('password').value);
+    //     $('password').value = '';
+    //     $('login_form').submit();
+    //   }
+    //   function checkEnter(e){
+    //     var codigoCaracter = (e && e.which) ? e.which : event.keyCode;
+    //     if(codigoCaracter == 13) {
+    //       formProcess();
+    //     }
+    //     else {
+    //       return true;
+    //     }
+    //   }
 $().ready(function() {
     setTimeout(function() {
         // after 1000 ms we add the class animated to the login/register card
