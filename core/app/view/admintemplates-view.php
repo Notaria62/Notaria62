@@ -24,6 +24,9 @@ Session::currentURL();
             <a href="./?view=uploadtemplate" class="btn btn-default">
                 <i class="material-icons">cloud_upload</i> Cargar plantilla
             </a>
+               <a href="./?view=newmenutemplate" class="btn btn-default">
+                <i class="material-icons">menu</i> Agregar opción en menú
+            </a>
         </div>
         <div class="row">
             <div class="col-md-12">

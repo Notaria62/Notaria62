@@ -14,15 +14,19 @@ class TemplateMemorandumData
     public function __construct()
     {
         $this->templatememo_id = "";
+        $this->name = "";
+        $this->description = "";
+        $this->container = "";
+        $this->type = "";
         $this->user_id = "";
         $this->is_public = "0";
         $this->created_at = (new \DateTime())->format('Y-m-d H:i:s');
     }
     public function add()
     {
-        $sql= "INSERT INTO ".self::$tablename." (nombredeudores, tipocc_deudor, documentodeudor, matriculainmobiliaria, nroescritura, dateotorgamiento, ubicacionpredio, direccioninmueble, numeroescriturahipoteca, notariaescriturahipoteca, oficinaregistrohipoteca, dateescriturahipoteca, cuantiahipoteca, nombrebanco, digitador_id, numerocertificado, numerohojaspapelnotarial, derechosnotariales, superintendencia, fondonacionalnotariado, iva, notario_id, templatememo_id, user_id, created_at)";
-        $sql .= " VALUES (\"$this->nombredeudores\",\"$this->tipocc_deudor\",\"$this->documentodeudor\",\"$this->matriculainmobiliaria\",\"$this->nroescritura\",\"$this->dateotorgamiento\",\"$this->ubicacionpredio\",\"$this->direccioninmueble\",\"$this->numeroescriturahipoteca\",\"$this->oficinaregistrohipoteca\",\"$this->dateescriturahipoteca\",\"$this->cuantiahipoteca\",\"$this->nombrebanco\",\"$this->digitador_id\",\"$this->numerocertificado\",\"$this->numerohojaspapelnotarial\",\"$this->derechosnotariales\",\"$this->superintendencia\",\"$this->fondonacionalnotariado\",\"$this->iva\",\"$this->notario_id\",\"$this->templatememo_id\",\"$this->user_id\",\"$this->created_at\" )";
-        echo $sql;
+        $sql= "INSERT INTO ".self::$tablename." (name, description, container, type)";
+        $sql .= " VALUES (\"$this->name\",\"$this->description\",\"$this->container\",\"$this->type\" )";
+     return Executor::doit($sql);
     }
 
     public function upload($radicado, $escritura, $CI, $email, $anho, $estatus)

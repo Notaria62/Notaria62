@@ -14,7 +14,6 @@ include "../core/app/model/TemplateMemorandumData.php";
 include "../core/app/model/DigitadoresData.php";
 include "../core/app/model/NumeroALetras.php";
 include "../core/app/model/CifrasEnLetras.php";
-
 //session_start();
 require_once '../PHPWord/bootstrap.php';
 $memo = MemorandumData::getById($_GET['id']);
@@ -30,7 +29,6 @@ $identificacion2= number_format($memo->identificacion2, 0, ",", ".");
 $identificacion3= number_format($memo->identificacion3, 0, ",", ".");
 $identificacion4= number_format($memo->identificacion4, 0, ",", ".");
 $builder = new \PhpOffice\PhpWord\TemplateProcessor('../PHPWord/resources/'.$pathtemplatememo);
-
 $builder->setValue('numeroescriturapublica', strtoupper($memo->numeroescriturapublica));
 $builder->setValue('numeroescriturapublicaenletras', NumeroALetras::convertir($memo->numeroescriturapublica));
 $builder->setValue('dateotorgamiento', strtoupper($dateotorgamiento));
@@ -62,31 +60,30 @@ if ($memo->typeident1 !="0") {
     $builder->setValue('fullname1', strtoupper($memo->fullname1));
     $builder->setValue('typeident1', strtoupper($memo->typeident1));
     $builder->setValue('identificacion1', $identificacion1);
-    $deudoresstr1 .= strtoupper($memo->fullname1).'<w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr></w:t></w:r><w:r><w:tab/></w:r><w:r><w:t><w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr>'.strtoupper($memo->typeident1)." ".$identificacion1;
+    $deudoresstr1 .= strtoupper($memo->fullname1).'<w:t xml:space="preserve"> </w:t></w:t></w:r><w:r><w:tab/></w:r><w:r><w:t><w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr>'.strtoupper($memo->typeident1)." ".$identificacion1;
     $deudoresstr2 .=strtoupper($memo->fullname1)." Identificado(s) con ".strtoupper($memo->typeident1)." Número(s) ".$identificacion1;
 }
 if ($memo->typeident2 !="0") {
     $builder->setValue('fullname2', strtoupper($memo->fullname2));
     $builder->setValue('typeident2', strtoupper($memo->typeident2));
     $builder->setValue('identificacion2', $identificacion2);
-    $deudoresstr1 .= "<w:br/>".strtoupper($memo->fullname2).'<w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr></w:t></w:r><w:r><w:tab/></w:r><w:r><w:t><w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr>'.strtoupper($memo->typeident2)." ".$identificacion2;
+    $deudoresstr1 .= "<w:br/>".strtoupper($memo->fullname2).'<w:t xml:space="preserve"> </w:t></w:t></w:r><w:r><w:tab/></w:r><w:r><w:t><w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr>'.strtoupper($memo->typeident2)." ".$identificacion2;
     $deudoresstr2 .=" y ".strtoupper($memo->fullname2)." Identificado(s) con ".strtoupper($memo->typeident2)." Número(s) ".$identificacion2;
 }
 if ($memo->typeident3 !="0") {
     $builder->setValue('fullname3', strtoupper($memo->fullname3));
     $builder->setValue('typeident3', strtoupper($memo->typeident3));
     $builder->setValue('identificacion3', $identificacion3);
-    $deudoresstr1 .= "<w:br/>".strtoupper($memo->fullname3).'<w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr></w:t></w:r><w:r><w:tab/></w:r><w:r><w:t><w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr>'.strtoupper($memo->typeident3)." ".$identificacion3;
+    $deudoresstr1 .= "<w:br/>".strtoupper($memo->fullname3).'<w:t xml:space="preserve"> </w:t></w:t></w:r><w:r><w:tab/></w:r><w:r><w:t><w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr>'.strtoupper($memo->typeident3)." ".$identificacion3;
     $deudoresstr2 .=" y ".strtoupper($memo->fullname3)." Identificado(s) con ".strtoupper($memo->typeident3)." Número(s) ".$identificacion3;
 }
 if ($memo->typeident4 !="0") {
     $builder->setValue('fullname4', strtoupper($memo->fullname4));
     $builder->setValue('typeident4', strtoupper($memo->typeident4));
     $builder->setValue('identificacion4', $identificacion4);
-    $deudoresstr1 .= '<w:br/>'.strtoupper($memo->fullname4).'<w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr></w:t></w:r><w:r><w:tab/></w:r><w:r><w:t><w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr>'.strtoupper($memo->typeident4)." ".$identificacion4;
+    $deudoresstr1 .= "<w:br/>".strtoupper($memo->fullname4).'<w:t xml:space="preserve"> </w:t></w:t></w:r><w:r><w:tab/></w:r><w:r><w:t><w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr>'.strtoupper($memo->typeident4)." ".$identificacion4;
     $deudoresstr2 .=" y ".strtoupper($memo->fullname4)." Identificado(s) con ".strtoupper($memo->typeident4)." Número(s) ".$identificacion4;
 }
-
 
 $builder->setValue('deudoresstr1', $deudoresstr1);
 $builder->setValue('deudoresstr2', $deudoresstr2);
@@ -120,7 +117,6 @@ $builder->setValue('digitador', $digitador->name);
 $filename = "rad-".$memo->radicado."-ep-".$memo->numeroescriturapublica."-plantilla-".time()."-".$digitador->name."-".$pathtemplatememo;
 //$builder = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'ODText');
 $builder->saveAs($filename);
-
 // Doc generated on the fly, may change so do not cache it; mark as public or
 // private to be cached.
 header('Pragma: no-cache');
@@ -137,6 +133,7 @@ header('Content-Length: ' . filesize($filename));
 flush();
 readfile($filename);
 unlink($filename);
+//print "<script>window.location='./?view=memorandumcreated';</script>";
 // End the session. BE CAREFUL; YOU NEED TO DO THIS THROUGH YOUR FRAMEWORK:
 session_write_close();
 exit();

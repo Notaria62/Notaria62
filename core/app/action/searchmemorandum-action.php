@@ -59,8 +59,8 @@ if (count($reasult)>0) {
                         </div>
                         <!--  End Modal --> ';
         $btnModal = '<a href="" data-toggle="modal" data-target="#myModal-'.$value->id.'" data-toggle="tooltip" title="Agregar observaciones" class="btn btn-link btn-danger btn-just-icon btn-sm"><i class="material-icons">report_problem</i></a>';
-        $btnDownload = '<input type="hidden" name="id" id="id" value="'.$value->id.'" /> <a href="report/'.substr($templ->container, 0, -5).'.php?id='.$value->id.'&templatememo_id='.$value->templatememo_id.'" data-toggle="tooltip" title="Descargar minuta" class="btn btn-link btn-success btn-just-icon btn-sm"> <i class="material-icons">cloud_download</i> </a> ';
-        $btnApprovalDownload = ($value->is_approved == "1")?'<a href="report/'.substr($templ->container, 0, -5).'.php?id='.$value->id.'&templatememo_id='.$value->templatememo_id.'" data-toggle="tooltip" title="Descargar minuta" class="btn btn-link btn-info btn-just-icon btn-sm"> <i class="material-icons">cloud_download</i> </a> ':'';
+        $btnDownload = '<input type="hidden" name="id" id="id" value="'.$value->id.'" /> <a href="report/cancelacion-hipoteca.php?id='.$value->id.'&templatememo_id='.$value->templatememo_id.'" data-toggle="tooltip" title="Descargar minuta" class="btn btn-link btn-success btn-just-icon btn-sm"> <i class="material-icons">cloud_download</i> </a> ';
+        $btnApprovalDownload = ($value->is_approved == "1")?'<a href="report/cancelacion-hipoteca.php?id='.$value->id.'&templatememo_id='.$value->templatememo_id.'" data-toggle="tooltip" title="Descargar minuta" class="btn btn-link btn-info btn-just-icon btn-sm"> <i class="material-icons">cloud_download</i> </a> ':'';
         $ar[] = array('radicado' => $value->observation!= "" ? $value->radicado .'<a data-toggle="tooltip" title="'.$value->observation.'" class="btn btn-link btn-warning btn-just-icon btn-sm"><i class="material-icons">comment</i></a>':$value->radicado ,
         'numerocertificado'=>$value->numerocertificado,
         'numeroescriturapublica'=>$value->numeroescriturapublica,
