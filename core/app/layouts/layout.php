@@ -109,7 +109,8 @@ if (isset($_GET['view'])) {
 </head>
 
 <body class="">
-    <?php if (count($user) > 0) :
+    <?php
+    if (!empty($user)) :
         $fullname = $user->name . " " . $user->lastname;
         $name = $user->name;
         $gender = $user->gender;
@@ -232,15 +233,49 @@ if (isset($_GET['view'])) {
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
+
                                 <a class="nav-link" href="./" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
+                                    aria-haspopup="true" aria-expanded="false" id="notification-icon" onclick="ViewNotifications()">
                                     <i class="material-icons">notifications</i>
-                                    <span class="notification">5</span>
+                                    <span class="notification" id="notification-count"><?php $countView = NotificationsData::getCountNotRead();
+                                    echo (!empty($countView))? count($countView):"<script>$('#notification-count').remove();</script>"; ?></span>
                                     <p class="d-lg-none d-md-block">Some Actions</p>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                                </div>
+                                <div id="notification-latest" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                    
+                                </div> 
+
+          <?php if(isset($message)) { ?> <div class="error"><?php echo $message; ?></div> <?php } ?>
+          <?php if(isset($success)) { ?> <div class="success"><?php echo $success;?></div> <?php } ?>
+
+
+
+<script type="text/javascript">
+      function ViewNotifications() {
+        $.ajax({
+          url: "?action=searchnotifications&var=prin",
+          type: "GET",
+          processData:false,
+          success: function(data){
+            $("#notification-count").remove();                  
+            $("#notification-latest").show();$("#notification-latest").html(data);
+          },
+          error: function(){}           
+        });
+      }
+                                 
+      $(document).ready(function() {
+        $('body').click(function(e){
+          if ( e.target.id != 'notification-icon'){
+            $("#notification-latest").hide();
+          }
+        });
+      });                                     
+    </script>
+
+
+
+
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="./" id="navbarDropdownProfile" data-toggle="dropdown"
