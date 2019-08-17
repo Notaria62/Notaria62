@@ -27,7 +27,7 @@ if (isset($_GET["start_at"])) {
             <!-- Session comments -->
             <?= Util::display_msg(Session::$msg);?>
             <!-- End session comments-->
-            <a href="./?view=newcierre" class="btn btn-default">
+            <a href="./?view=newnotifications" class="btn btn-default">
                 <i class="material-icons">add</i> Crear notificaci&oacute;n
             </a>
             
@@ -101,13 +101,15 @@ if (isset($_GET["start_at"])) {
 
 <script language="javascript">
 $(document).ready(function() {
-    var $url =
-        '<?="./?action=searchnotifications&start_at=".$start_at."&finish_at=".$now;?>';
+    var $url ="/?action=searchnotifications";
+    var $start_at =<?="\"".$start_at."\""?>;
+    var $finish_at =<?="\"".$now."\""?>;
     $('#datatables').DataTable({
         "ajax": {
             "url": $url,
             "dataSrc": "",
-            "type": "GET"
+            "type": "POST",
+            "data": { var: "notifications", start_at: $start_at, finish_at: $finish_at} 
         },
         "columns": [{
                 "data": "id"

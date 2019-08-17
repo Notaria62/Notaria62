@@ -23,8 +23,8 @@ class NotificationsData
 
     public function add()
     {
-        $sql = "insert into ".self::$tablename." (user_id, title,body,url,class,start_at,returned_at) ";
-        $sql .= "value (\"$this->user_id\",\"$this->title\",\"$this->body\",\"$this->url\",\"$this->tipo\",\"$this->start_at\",\"$this->returned_at\")";
+        $sql = "insert into ".self::$tablename." (mensaje, autor) ";
+        $sql .= "value (\"$this->mensaje\",\"$this->autor\")";
         //echo $sql;
         return Executor::doit($sql);
     }
@@ -71,10 +71,20 @@ class NotificationsData
         $query = Executor::doit($sql);
         return Model::many($query[0], new NotificationsData());
     }
+
+
+
      public static function getAllLimit()
     {
         $sql = "select * from ".self::$tablename." ORDER BY id DESC limit 8 ";
         $query = Executor::doit($sql);
+        return Model::many($query[0], new NotificationsData());
+    }
+     public static function getCountDays()
+    {
+        $sql = "select TIMESTAMPDIFF(DAY,fecha, curdate()) as dias_transcurridos from " .self::$tablename ." Where TIMESTAMPDIFF(DAY,fecha, curdate()) <=7 " ;
+        $query = Executor::doit($sql);
+        //echo $sql;
         return Model::many($query[0], new NotificationsData());
     }
      public static function getCountNotRead()
@@ -83,9 +93,9 @@ class NotificationsData
         $query = Executor::doit($sql);
         return Model::many($query[0], new NotificationsData());
     }
-    public static function getRentsByRange($start, $finish)
+    public static function getByRange($start, $finish)
     {
-        $sql = "select * from ".self::$tablename." where (  (\"$start\">=start_at and \"$finish\"<=finish_at) or (start_at>=\"$start\" and finish_at<=\"$finish\") )  and returned_at is NULL ";
+        $sql = "select * from ".self::$tablename." where (  (\"$start\">=fecha and \"$finish\"<=fecha) or (fecha>=\"$start\" and fecha<=\"$finish\") ) ";
         $query = Executor::doit($sql);
         return Model::many($query[0], new NotificationsData());
     }
@@ -97,12 +107,7 @@ class NotificationsData
         //echo $query;
         return Model::many($query[0], new NotificationsData());
     }
-    public static function getByRange($start, $finish)
-    {
-        $sql = "select * from ".self::$tablename." where returned_at>=\"$start\" and returned_at<=\"$finish\" and returned_at is not NULL ";
-        $query = Executor::doit($sql);
-        return Model::many($query[0], new NotificationsData());
-    }
+
 
     public static function getRents()
     {

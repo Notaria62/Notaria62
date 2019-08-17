@@ -331,6 +331,13 @@ md = {
       }
     }
   },
+  initSidebarsNotifications: function () {
+    $('body').click(function (e) {
+      if (e.target.id != 'notification-icon') {
+        $("#notification-latest").hide();
+      }
+    });
+  },
 
   initMinimizeSidebar: function () {
     $("#minimizeSidebar").click(function () {
@@ -519,6 +526,19 @@ function debounce(func, wait, immediate) {
     }, wait);
     if (immediate && !timeout) func.apply(context, args);
   };
+}
+function ViewNotifications() {
+  $.ajax({
+    url: "?action=searchnotifications",
+    type: "POST",
+    data: jQuery.param({ var: "prin" }),
+    processData: false,
+    success: function (data) {
+      $("#notification-count").remove();
+      $("#notification-latest").show(); $("#notification-latest").html(data);
+    },
+    error: function () { }
+  });
 }
 
 function autocomplete(inp, arr) {

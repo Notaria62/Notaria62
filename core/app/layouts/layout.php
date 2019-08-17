@@ -103,7 +103,7 @@ if (isset($_GET['view'])) {
     <script src="themes/notaria62web/js/plugins/datepicker.es.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-
+md.initSidebarsNotifications(); 
     });
     </script>
 </head>
@@ -233,45 +233,29 @@ if (isset($_GET['view'])) {
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-
                                 <a class="nav-link" href="./" id="navbarDropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false" id="notification-icon" onclick="ViewNotifications()">
                                     <i class="material-icons">notifications</i>
-                                    <span class="notification" id="notification-count"><?php $countView = NotificationsData::getCountNotRead();
+                                    <span class="notification" id="notification-count"><?php $countView = NotificationsData::getCountDays();
                                     echo (!empty($countView))? count($countView):"<script>$('#notification-count').remove();</script>"; ?></span>
                                     <p class="d-lg-none d-md-block">Some Actions</p>
                                 </a>
-                                <div id="notification-latest" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                
+                                <div  class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                    <ul class="notify-drop">
                                     
-                                </div> 
+                                    <div class="drop-content" id="notification-latest">
+                                    </div>
+                           
+                            </ul>
+                                </div>
+                       
 
           <?php if(isset($message)) { ?> <div class="error"><?php echo $message; ?></div> <?php } ?>
           <?php if(isset($success)) { ?> <div class="success"><?php echo $success;?></div> <?php } ?>
 
 
 
-<script type="text/javascript">
-      function ViewNotifications() {
-        $.ajax({
-          url: "?action=searchnotifications&var=prin",
-          type: "GET",
-          processData:false,
-          success: function(data){
-            $("#notification-count").remove();                  
-            $("#notification-latest").show();$("#notification-latest").html(data);
-          },
-          error: function(){}           
-        });
-      }
-                                 
-      $(document).ready(function() {
-        $('body').click(function(e){
-          if ( e.target.id != 'notification-icon'){
-            $("#notification-latest").hide();
-          }
-        });
-      });                                     
-    </script>
 
 
 

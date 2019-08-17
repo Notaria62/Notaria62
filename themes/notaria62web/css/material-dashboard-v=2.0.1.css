@@ -27591,7 +27591,119 @@ select.selectpicker {
   background-color: DodgerBlue !important;
   color: #ffffff;
 }
+.notify-drop {
+  min-width: 330px;
+  background-color: #fff;
+  min-height: 360px;
+  max-height: 360px;
+  margin-top: 0;
+padding: 0;
+right: 0;
+display: block;
 
+list-style: none;
+
+}
+
+.notify-drop .drop-content {
+  min-height: 280px;
+  max-height: 360px;
+  overflow-y: scroll;
+}
+.notify-drop .drop-content::-webkit-scrollbar-track
+{
+  background-color: #F5F5F5;
+}
+
+.notify-drop .drop-content::-webkit-scrollbar
+{
+  width: 8px;
+  background-color: #F5F5F5;
+}
+
+.notify-drop .drop-content::-webkit-scrollbar-thumb
+{
+  background-color: #ccc;
+}
+.notify-drop .drop-content > li {
+  border-bottom: 1px solid #e2e2e2;
+  padding: 10px 0px 5px 0px;
+}
+.notify-drop .drop-content > li:nth-child(2n+0) {
+  background-color: #fafafa;
+}
+.notify-drop .drop-content > li:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.notify-drop .drop-content > li:hover {
+  background-color: #fcfcfc;
+}
+.notify-drop .drop-content > li:last-child {
+  border-bottom: none;
+}
+ .notify-drop .drop-content > li .notify-img {
+  float: left;
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  margin: 0px 0px 6px 0px;
+}
+
+.notify-drop .drop-content > li a {
+  font-size: 12px;
+  font-weight: normal;
+}
+.notify-drop .drop-content > li {
+  font-weight: bold;
+  font-size: 11px;
+}
+.notify-drop .drop-content > li hr {
+  margin: 5px 0;
+  width: 70%;
+  border-color: #e2e2e2;
+}
+.notify-drop .drop-content .pd-l0 {
+    float:right;
+    padding-left:0px;
+    line-height: 14px;
+  
+}
+.notify-drop .drop-content > li p {
+  font-size: 11px;
+  color: #666;
+  font-weight: normal;
+  margin: 0;
+}
+.notify-drop .drop-content > li p.time {
+  font-size: 10px;
+  font-weight: 600;
+  top: -6px;
+  margin: 8px 0px 0px 0px;
+  padding: 0px 3px;
+  border: 1px solid #e2e2e2;
+  position: relative;
+  background-image: linear-gradient(#fff,#f2f2f2);
+  display: inline-block;
+  border-radius: 2px;
+  color: #B97745;
+}
+.notify-drop .drop-content > li p.time:hover {
+  background-image: linear-gradient(#fff,#fff);
+}
+.notify-drop .notify-drop-footer {
+  border-top: 1px solid #e2e2e2;
+  bottom: 0;
+  position: relative;
+  padding: 8px 15px;
+}
+ .notify-drop .notify-drop-footer a {
+  color: #777;
+  text-decoration: none;
+}
+.notify-drop .notify-drop-footer a:hover {
+  color: #333;
+}
 
 /*# sourceMappingURL=material-dashboard.css.map */
-
