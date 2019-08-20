@@ -49,6 +49,11 @@ class ChecklistsanswerData
         $sql = "delete from ".self::$tablename." where id=$id";
         Executor::doit($sql);
     }
+    public static function delBy($nep, $ep_anho, $checklists_id)
+    {
+        $sql = "delete from ".self::$tablename." where numeroescriturapublica=$nep and ep_anho=$ep_anho and checklists_id=$checklists_id ";
+        Executor::doit($sql);
+    }
     public function del()
     {
         $sql = "delete from ".self::$tablename." where id=$this->id";

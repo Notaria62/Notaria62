@@ -30,8 +30,7 @@ Session::currentURL();
             <div class="col-md-12">
                 <?php
                 $result = ChecklistsanswerData::getAllNumRowAnswerToList();
-                $total_records = count($result);
-                if (count($total_records) > 0) {
+                if (!empty($result)) {
                     ?>
                 <div class="material-datatables">
                     <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
@@ -87,8 +86,9 @@ Session::currentURL();
                                     class="btn btn-link btn-warning btn-just-icon btn-sm edit">
                                     <i class="material-icons">edit</i>
                                 </a>
-                                <a href="./?action=admindelchecklists&id=<?=$cla->id; ?>" data-toggle="tooltip"
-                                    title="Eliminar" class="btn btn-link btn-danger btn-just-icon btn-sm remove">
+                                <a href="./?view=admindelchecklists&nep=<?=$cla->numeroescriturapublica; ?>&ep_anho=<?=$cla->ep_anho; ?>&checklists_id=<?=$cla->checklists_id; ?>"
+                                    data-toggle="tooltip" title="Eliminar"
+                                    class="btn btn-link btn-danger btn-just-icon btn-sm remove">
                                     <i class="material-icons">delete</i>
                                 </a><?php endif; ?>
                             </td>
@@ -108,55 +108,50 @@ Session::currentURL();
 </div>
 <script>
 $(document).ready(function() {
-    $('#datatables').DataTable({
-        "pagingType": "full_numbers",
-        "lengthMenu": [
-            [10, 25, 50, -1],
-            [10, 25, 50, "All"]
-        ],
-        responsive: true,
-        dom: 'lBfrtip',
-        buttons: [{
-                extend: 'print',
-                exportOptions: {
-                    columns: ':visible'
+            $('#datatables').DataTable({
+                " pagingType": "full_numbers",
+                "lengthMenu": [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, "All"]
+                ],
+                responsive: true,
+                dom: 'lBfrtip',
+                buttons: [{
+                    extend: 'print',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }, {
+                    extend: 'copy',
+                    exportOptions: {
+                        columns: [0, ':visible']
+                    }
+                }, {
+                    extend: 'excel',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }, {
+                    extend: 'pdf',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4]
+                    }
+                }],
+                language: {
+                    buttons: {
+                        print: 'Imprimir',
+                        copy: 'Copiar'
+                    },
+                    search: "_INPUT_",
+                    searchPlaceholder: "Buscar...",
                 }
-            },
-            {
-                extend: 'copy',
-                exportOptions: {
-                    columns: [0, ':visible']
-                }
-            },
-            {
-                extend: 'excel',
-                exportOptions: {
-                    columns: ':visible'
-                }
-            },
-            {
-                extend: 'pdf',
-                exportOptions: {
-                    columns: [0, 1, 2, 3, 4]
-                }
-            }
-        ],
-        language: {
-            buttons: {
-                print: 'Imprimir',
-                copy: 'Copiar'
-            },
-            search: "_INPUT_",
-            searchPlaceholder: "Buscar...",
-        }
-    });
-
-    $('.card .material-datatables label').addClass('form-group');
-});
-
-function openWindowsPrint($url) {
-    var newWindow = window.open($url, 'Reporte',
-        'width=700,height=700,location=no,menubar=no,scrollbars=no,resizable=no,left=200px'); //replace with your url
-    newWindow.focus(); //Sets focus window
-}
+            });
+            var table = $('#datatables').DataTable();
+            table.order([3, 'desc']).draw();
+            $('.card .material-datatables
+                    label ').addClass('
+                    form - group '); }); function openWindowsPrint($url) { var
+                    newWindow = window.open($url, 'Reporte',
+                        'width=800,height=700,location=no,menubar=no,scrollbars=no,resizable=no,left=200px'
+                    ); //replace with your url newWindow.focus(); //Sets focus window } 
 </script>

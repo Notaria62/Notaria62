@@ -36,7 +36,7 @@ class ClientData
 
     public function update()
     {
-        $sql = "update ".self::$tablename." set name=\"$this->name\",lastname=\"$this->lastname\",cc=\"$this->cc\",email=\"$this->email\",address=\"$this->address\",phone=\"$this->phone\" where id=$this->id";
+        $sql = "update ".self::$tablename." set name=\"$this->name\",lastname=\"$this->lastname\",cc=\"$this->cc\",email=\"$this->email\",address=\"$this->address\",phone=\"$this->phone\",is_dr=\"$this->is_dr\"  where id=$this->id";
         //echo $sql;
         Executor::doit($sql);
     }

@@ -8,7 +8,7 @@
  * @version 1.0
  * @author DigitalesWeb
  */
-Session::currentURL();
+//Session::currentURL();
 
 $checklistquestion = ChecklistsquestionData::getById($_GET["id"]);
 $checklists_id = $_GET["checklist"];
@@ -74,12 +74,10 @@ $checklists_id = $_GET["checklist"];
                     <div class="form-group bmd-form-group is-filled">
                         <label for="ddllquestionstatus" class="bmd-label-floating">Estatus</label>
                         <select id="ddllquestionstatus" name="ddllquestionstatus" class="custom-select" required>
-                            <option value="on"
-                                <?php if ($checklistquestion->q_status == 'on') : echo"selected"; endif;
+                            <option value="on" <?php if ($checklistquestion->q_status == 'on') : echo"selected"; endif;
                                 ?>>
                                 Activo</option>
-                            <option value="off"
-                                <?php if ($checklistquestion->q_status == 'off') : echo"selected";
+                            <option value="off" <?php if ($checklistquestion->q_status == 'off') : echo"selected";
                                 endif; ?>>
                                 Inactivo</option>
                         </select>

@@ -7,7 +7,7 @@
  * @version 1.0
  * @author DigitalesWeb
  */
-Session::currentURL();
+//Session::currentURL();
 
  $checklist = ChecklistsData::getById($_GET["id"]);
 ?>

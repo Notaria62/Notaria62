@@ -14,7 +14,7 @@ $client_id = $_GET['ddlabogado'];
 $anho = $_GET['ep_anho'];
 $questions = ChecklistsquestionData::getAllQuestionsOn("open", $checklists_id);
 $checkanswers = ChecklistsanswerData::getByEP($numeroescriturapublica, $anho);
-if (count($checkanswers) <= 0) {
+if (empty($checkanswers)) {
     ?>
 <form class="" method="post" id="addcontrolofprocess" action="./?action=addcontrolofprocess" role="form">
     <div class="row">
@@ -64,12 +64,13 @@ if (count($checkanswers) <= 0) {
                                     <div class="modal-body">
                                         <?php echo $description; ?>
                                         <?php if (!empty($linkpdf)): ?>
-                                        <object width="100%" height="350px" data="<?php echo $linkpdf; ?>#zoom=85" type="application/pdf"
-                                            trusted="yes" application="yes"></object>
+                                        <object width="100%" height="350px" data="<?php echo $linkpdf; ?>#zoom=85"
+                                            type="application/pdf" trusted="yes" application="yes"></object>
                                         <?php endif?>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>
@@ -79,14 +80,13 @@ if (count($checkanswers) <= 0) {
                     </td>
                     <td class="col-md-1">
                         <label>
-                            <input type="radio" name="question<?php echo $checklistsquestions_id; ?>_answer"
-                                value="1" required>
+                            <input type="radio" name="question<?php echo $checklistsquestions_id; ?>_answer" value="1"
+                                required>
                         </label>
                     </td>
                     <td class="col-md-1">
                         <label>
-                            <input type="radio" name="question<?php echo $checklistsquestions_id; ?>_answer"
-                                value="0">
+                            <input type="radio" name="question<?php echo $checklistsquestions_id; ?>_answer" value="0">
                         </label>
                     </td>
                 </tr>
@@ -98,14 +98,11 @@ if (count($checkanswers) <= 0) {
     </div>
     <div class="form-group">
         <div class="col-lg-offset-2 col-lg-10">
-            <input type="hidden" name="numeroescriturapublica" id="numeroescriturapublica" value="<?php echo $_GET['numeroescriturapublica']; ?>"
-            />
-            <input type="hidden" name="checklists_id" id="checklists_id" value="<?php echo $_GET['ddllists']; ?>"
-            />
-            <input type="hidden" name="client_id" id="client_id" value="<?php echo $_GET['ddlabogado']; ?>"
-            />
-            <input type="hidden" name="ep_anho" id="ep_anho" value="<?php echo $_GET['ep_anho']; ?>"
-            />
+            <input type="hidden" name="numeroescriturapublica" id="numeroescriturapublica"
+                value="<?php echo $_GET['numeroescriturapublica']; ?>" />
+            <input type="hidden" name="checklists_id" id="checklists_id" value="<?php echo $_GET['ddllists']; ?>" />
+            <input type="hidden" name="client_id" id="client_id" value="<?php echo $_GET['ddlabogado']; ?>" />
+            <input type="hidden" name="ep_anho" id="ep_anho" value="<?php echo $_GET['ep_anho']; ?>" />
             <button type="submit" class="btn btn-success">Guardar control proceso</button>
         </div>
     </div>

@@ -19,6 +19,8 @@ if ($count>0) {
         if ($counter == $count) {
             # code...
             $codeApproval=NumeroALetras::generarCodigo(10);
+        } else {
+            $codeApproval = "";
         }
     }
     //echo "El codigo de aprobacion es: ". $codeApproval;
@@ -34,9 +36,9 @@ if ($count>0) {
         $ca->a_code_approval = $codeApproval;
         $ca->add();
     }
-    Seesion::msg("s", "Agregado correctamente.");
+    Session::msg("s", "Agregado correctamente.");
     Core::redir("./?view=controlofprocess");
 } else {
-    Seesion::msg("s", "Error al agregar, por favor llame al administrador del sistema.");
+    Session::msg("s", "Error al agregar, por favor llame al administrador del sistema.");
     Core::redir("./?view=controlofprocess");
 }
