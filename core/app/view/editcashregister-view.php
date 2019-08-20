@@ -104,9 +104,9 @@ if (isset($_GET['id'])) {
                     <div class="form-group">
                         <label for="diferencias" class="bmd-label-floating">Diferencia</label>
                         <input type="text" class="form-control" id="diferencias" name="diferencias"
-                            value="<?= $diferencias ?>" required />
-                    </div>
-                </div> -->
+                            value="<= $diferencias " required />
+            </div>
+    </div> -->
                 <div class="col-md-2">
                     <div class="form-group">
                         <label for="totalpagos" class="bmd-label-floating">Total pagos</label>
@@ -246,7 +246,8 @@ $(document).ready(function() {
     fetch_data();
 
     function fetch_data() {
-        var $url = "./?action=searchpaymenttype&idcr=" + < ? = $id_cashregister ? > ;
+        var $url = "./?action=searchpaymenttype&idcr=" +
+            "<?=$id_cashregister ?>";
         var dataTable = $('#user_data').DataTable({
             "processing": true,
             "serverSide": true,
