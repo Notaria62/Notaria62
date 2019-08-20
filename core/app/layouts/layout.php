@@ -15,12 +15,12 @@ if (isset($_GET['view'])) {
     <meta name="author" content="" />
     <title>
         <?php if (!empty($page_title)) {
-            echo Util::remove_junk($page_title);
-        } elseif (!empty($user)) {
-            echo ucfirst($user->name) . " - Sistema de administrador de contenido Notaria 62 del circulo de Bogotá";
-        } else {
-            echo "Sistema de administrador de contenido Notaria 62 del circulo de Bogotá";
-        } ?>
+    echo Util::remove_junk($page_title);
+} elseif (!empty($user)) {
+    echo ucfirst($user->name) . " - Sistema de administrador de contenido Notaria 62 del circulo de Bogotá";
+} else {
+    echo "Sistema de administrador de contenido Notaria 62 del circulo de Bogotá";
+} ?>
     </title>
     <link rel="apple-touch-icon" sizes="57x57" href="themes/notaria62web/img/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="themes/notaria62web/img/apple-icon-60x60.png" />
@@ -103,7 +103,7 @@ if (isset($_GET['view'])) {
     <script src="themes/notaria62web/js/plugins/datepicker.es.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-md.initSidebarsNotifications(); 
+        md.initSidebarsNotifications();
     });
     </script>
 </head>
@@ -234,32 +234,26 @@ md.initSidebarsNotifications();
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="./" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false" id="notification-icon" onclick="ViewNotifications()">
+                                    aria-haspopup="true" aria-expanded="false" id="notification-icon"
+                                    onclick="ViewNotifications()">
                                     <i class="material-icons">notifications</i>
-                                    <span class="notification" id="notification-count"><?php $countView = NotificationsData::getCountDays();
+                                    <span class="notification"
+                                        id="notification-count"><?php $countView = NotificationsData::getCountDays();
                                     echo (!empty($countView))? count($countView):"<script>$('#notification-count').remove();</script>"; ?></span>
                                     <p class="d-lg-none d-md-block">Some Actions</p>
                                 </a>
-                                
-                                <div  class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                     <ul class="notify-drop">
-                                    
-                                    <div class="drop-content" id="notification-latest">
-                                    </div>
-                           
-                            </ul>
+                                        <div class="drop-content" id="notification-latest">
+                                        </div>
+                                    </ul>
                                 </div>
-                       
-
-          <?php if(isset($message)) { ?> <div class="error"><?php echo $message; ?></div> <?php } ?>
-          <?php if(isset($success)) { ?> <div class="success"><?php echo $success;?></div> <?php } ?>
-
-
-
-
-
-
-
+                                <?php if (isset($message)) { ?>
+                                <div class="error"><?php echo $message; ?>
+                                </div> <?php } ?>
+                                <?php if (isset($success)) { ?>
+                                <div class="success"><?php echo $success;?>
+                                </div> <?php } ?>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="./" id="navbarDropdownProfile" data-toggle="dropdown"

@@ -17,37 +17,10 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="mensaje" class="bmd-label-floating">Mensaje</label>
-                                <input type="text" class="form-control" id="mensaje"
-                                    name="mensaje" required />
+                                <textarea class="form-control" id="mensaje" name="mensaje" cols="30"
+                                    required></textarea>
                             </div>
                         </div>
-                        
-                        <!-- <div class="col-md-4">
-                            <div class="form-group bmd-form-group is-filled">
-                                <label for="notario_id" class="bmd-label-floating">Notario</label>
-                                <select id="notario_id" name="notario_id" required class="custom-select">
-                                    <php foreach (NotariosData::getAll() as $d) : 
-                                    <option value="php echo $d->id; >">
-                                        < $d->name." ".$d->lastname; >
-                                    </option>
-                                    <php endforeach >
-                                </select>
-                            </div>
-                        </div> -->
-                        <!-- <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="observationcopy1" class="bmd-label-floating">Primera copia folios</label>
-                                <textarea class="form-control" id="observationcopy1" name="observationcopy1"
-                                    cols="30"></textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="observationcopy2" class="bmd-label-floating">Segunda copia folios</label>
-                                <textarea class="form-control" id="observationcopy2" name="observationcopy2"
-                                    cols="30"></textarea>
-                            </div>
-                        </div> -->
                         <div class="col-md-12">
                             <div class="col-lg-offset-2 col-lg-10">
                                 <button type="submit" class="btn btn-primary">Crear</button>
@@ -63,7 +36,7 @@
 
 <script>
 // $(document).ready(function() {
-//     var availableTags = [<?php echo $text;?>];
+//     var availableTags = [];
 //     autocomplete(document.getElementById("destino"), availableTags);
 // });
 </script>

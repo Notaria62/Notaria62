@@ -14,13 +14,6 @@ class NotificationsData
         $this->type = "";
         $this->status = "";
     }
-
-    //public function getItem(){ return ItemData::getById($this->item_id); }
-    public function getClient()
-    {
-        return ClientData::getById($this->client_id);
-    }
-
     public function add()
     {
         $sql = "insert into ".self::$tablename." (mensaje, autor) ";
@@ -46,7 +39,7 @@ class NotificationsData
         $sql = "update ".self::$tablename." set name=\"$this->name\" where id=$this->id";
         Executor::doit($sql);
     }
-     public function updateView()
+    public function updateView()
     {
         $sql = "update ".self::$tablename." set estado=1 where estado=0 ";
         Executor::doit($sql);
@@ -74,20 +67,20 @@ class NotificationsData
 
 
 
-     public static function getAllLimit()
+    public static function getAllLimit()
     {
         $sql = "select * from ".self::$tablename." ORDER BY id DESC limit 8 ";
         $query = Executor::doit($sql);
         return Model::many($query[0], new NotificationsData());
     }
-     public static function getCountDays()
+    public static function getCountDays()
     {
         $sql = "select TIMESTAMPDIFF(DAY,fecha, curdate()) as dias_transcurridos from " .self::$tablename ." Where TIMESTAMPDIFF(DAY,fecha, curdate()) <=7 " ;
         $query = Executor::doit($sql);
         //echo $sql;
         return Model::many($query[0], new NotificationsData());
     }
-     public static function getCountNotRead()
+    public static function getCountNotRead()
     {
         $sql = "select estado from ".self::$tablename . " WHERE estado=0 ";
         $query = Executor::doit($sql);
@@ -100,7 +93,7 @@ class NotificationsData
         return Model::many($query[0], new NotificationsData());
     }
 
-   public static function getAllNumRow()
+    public static function getAllNumRow()
     {
         $sql = "select * from ".self::$tablename;
         $query = Executor::doit($sql);

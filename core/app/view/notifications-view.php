@@ -1,6 +1,4 @@
 <?php
-
-
 if (isset($_GET["finish_at"])) {
     $finish_at = strtotime($_GET["finish_at"]);
     $now = $_GET["finish_at"];
@@ -13,7 +11,6 @@ if (isset($_GET["start_at"])) {
 } else {
     $start_at = date('Y\-m\-d\ H:i', strtotime("-1 month", $finish_at));
 }
-
 ?>
 
 <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
@@ -30,7 +27,7 @@ if (isset($_GET["start_at"])) {
             <a href="./?view=newnotifications" class="btn btn-default">
                 <i class="material-icons">add</i> Crear notificaci&oacute;n
             </a>
-            
+
             <hr />
             <form class="form-horizontal" role="form">
                 <input type="hidden" name="view" value="notifications" />
@@ -82,10 +79,7 @@ if (isset($_GET["start_at"])) {
                                 <th>Nro. notificación</th>
                                 <th>Mensaje</th>
                                 <th>Autor</th>
-                           
                                 <th>Fecha creaci&oacute;n</th>
-                               
-                           
                                 <th class="disabled-sorting text-right">Opciones</th>
                             </tr>
                         </thead>
@@ -101,15 +95,19 @@ if (isset($_GET["start_at"])) {
 
 <script language="javascript">
 $(document).ready(function() {
-    var $url ="/?action=searchnotifications";
-    var $start_at =<?="\"".$start_at."\""?>;
-    var $finish_at =<?="\"".$now."\""?>;
+    var $url = "/?action=searchnotifications";
+    var $start_at = "<?=$start_at?>";
+    var $finish_at = "<?=$now?>";
     $('#datatables').DataTable({
         "ajax": {
             "url": $url,
             "dataSrc": "",
             "type": "POST",
-            "data": { var: "notifications", start_at: $start_at, finish_at: $finish_at} 
+            "data": {
+                var: "notifications",
+                start_at: $start_at,
+                finish_at: $finish_at
+            }
         },
         "columns": [{
                 "data": "id"
@@ -120,11 +118,11 @@ $(document).ready(function() {
             {
                 "data": "autor"
             },
-            
+
             {
                 "data": "fecha"
             },
-         
+
             {
                 "data": "options"
             }
