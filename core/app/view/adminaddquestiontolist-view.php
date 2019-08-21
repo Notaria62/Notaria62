@@ -64,7 +64,8 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="position" class="bmd-label-floating">Posic&oacute;n</label>
-                        <input type="number" min="1" max="300" class="form-control" id="position" name="position" />
+                        <input type="number" min="1" max="300" class="form-control" id="position" name="position"
+                            value="999" />
                     </div>
                 </div>
                 <div class="col-md-2">

@@ -47,8 +47,7 @@
                         onchange="location = this.options[this.selectedIndex].value;" required>
                         <option value="/?view=adminquestionlist&checklist=0">--- SELECCIONE ---</option>
                         <?php foreach (ChecklistsData::getAll() as $list):?>
-                        <option value="/?view=adminquestionlist&checklist=<?=$list->id; ?>"
-                            <?=($list->id ==
+                        <option value="/?view=adminquestionlist&checklist=<?=$list->id; ?>" <?=($list->id ==
                             $checklists_id) ?
                             "selected":"";?>>
                             <?=$list->name.": ".$list->description; ?>
@@ -63,140 +62,180 @@
 
 
                 <?php
-                $record_per_page = 10;
                 $result = ChecklistsquestionData::getAllNumRowQuestionToList($checklists_id);
-
-                //echo " sdsdfsdfs ". $result."---";
-                $total_records = count($result);
-                $total_pages = ceil($total_records / $record_per_page);
-                if (!isset($_GET['page'])) {
-                    $page = 1;
-                } else {
-                    $page = $_GET['page'];
-                }
-                if (!isset($number_of_pages)) {
-                    $number_of_pages = 1;
-                }
-
-                $this_page_first_result = ($page - 1) * $record_per_page;
-                $checklistsquestion = ChecklistsquestionData::getAllLimitRowQuestionToList($checklists_id, $this_page_first_result, $record_per_page);
-                if (count($checklistsquestion) > 0) {
+                if (count($result) > 0) {
                     ?>
 
-                <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>Posici&oacute;n</th>
-                            <th>Pregunta</th>
-                            <th>Descricion</th>
-                            <th>Tipo proceso</th>
-                            <th>Fecha creacion</th>
-                            <th>Usuario</th>
-                            <th>Opciones</th>
+                <div class="material-datatables">
+                    <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+                        width="100%" style="width:100%">
+                        <thead>
+                            <tr>
 
-                        </tr>
-                    </thead>
-                    <?php foreach ($checklistsquestion as $cq) {
+                                <th>Posici&oacute;n</th>
+                                <th>Pregunta</th>
+                                <th>Descricion</th>
+                                <th>Tipo proceso</th>
+                                <th>Fecha creacion</th>
+                                <th>Usuario</th>
+                                <th class="disabled-sorting text-right">Opciones</th>
+
+                            </tr>
+                        </thead>
+                        <tbody class="row_position">
+                            <?php foreach ($result as $cq) {
                         $user = UserData::getById($cq->user_id);
                         $color= $cq->q_status; ?>
-                    <tr data-background-color-approval="<?=($color==" off")? 'no-approval' : '' ; ?>">
-                        <td>
-                            <?=$cq->position; ?>
-                        </td>
-                        <td>
-                            <?php $question = $cq->question;
+                            <tr data-background-color-approval="<?=($color==" off")? 'no-approval' : '' ; ?>"
+                                id="<?=$cq->id; ?>" style="cursor:move">
+
+                                <td>
+                                    <?=$cq->position; ?>
+                                </td>
+                                <td>
+                                    <?php $question = $cq->question;
                         echo substr($question, 0, 100);
                         echo ($question !="")?"...":""; ?>
-                        </td>
-                        <td>
-                            <?=substr($cq->description, 0, 50);
+                                </td>
+                                <td>
+                                    <?=substr($cq->description, 0, 50);
                         echo ($cq->description !="")?"...":""; ?>
-                        </td>
-                        <td>
-                            <?=$cq->checklists_id; ?>
-                        </td>
-                        <td>
-                            <?=$cq->created_at; ?>
-                        </td>
-                        <td>
-                            <?= $user->name ?>
-                        </td>
-                        <td style="width:150px;" class="td-actions">
-                            <a href="./?view=admineditquestiontolist&id=<?=$cq->id; ?>&checklist=<?=$cq->checklists_id; ?>"
-                                data-toggle="tooltip" title="Editar" class="btn btn-success btn-round">
-                                <i class="material-icons">edit</i>
-                            </a> |
-                            <a href="./?view=adminaddquestiontolistclone&id=<?=$cq->id; ?>" data-toggle="tooltip"
-                                title="Clonar pregunta" class="btn btn-warning btn-round">
-                                <i class="material-icons">toll</i>
-                            </a> |
-                            <?php
+                                </td>
+                                <td>
+                                    <?=$cq->checklists_id; ?>
+                                </td>
+                                <td>
+                                    <?=$cq->created_at; ?>
+                                </td>
+                                <td>
+                                    <?= $user->name ?>
+                                </td>
+                                <td style="width:150px;" class="td-actions">
+                                    <a href="./?view=admineditquestiontolist&id=<?=$cq->id; ?>&checklist=<?=$cq->checklists_id; ?>"
+                                        data-toggle="tooltip" title="Editar"
+                                        class="btn btn-link btn-success btn-just-icon btn-sm">
+                                        <i class="material-icons">edit</i>
+                                    </a> |
+                                    <a href="./?view=adminaddquestiontolistclone&id=<?=$cq->id; ?>"
+                                        data-toggle="tooltip" title="Clonar pregunta"
+                                        class="btn btn-link btn-warning btn-just-icon btn-sm">
+                                        <i class="material-icons">toll</i>
+                                    </a> |
+                                    <?php
                               $u = UserData::getById(Session::getUID());
                         if ($u->is_admin):
                             ?>
-                            <a href="./?action=delquestionchecklist&id=<?=$cq->id; ?>" data-toggle="tooltip"
-                                title="Eliminar" class="btn btn-danger btn-round">
-                                <i class="material-icons">delete</i>
-                            </a>
-                            <?php endif; ?>
+                                    <a href="./?action=delquestionchecklist&id=<?=$cq->id; ?>" data-toggle="tooltip"
+                                        title="Eliminar" class="btn btn-link btn-danger btn-just-icon btn-sm">
+                                        <i class="material-icons">delete</i>
+                                    </a>
+                                    <?php endif; ?>
 
-                        </td>
+                                </td>
 
-                    </tr>
-                    <?php
+                            </tr>
+                            <?php
                     } ?>
-                </table>
-                <div align="center">
+                        </tbody>
+                    </table>
+
+
+                    <br />
                     <br />
                     <?php
-                    $start_loop = $page;
-                    $difference = $total_pages - $page;
-                    if ($difference <= 5) {
-                        $start_loop = $total_pages - 5;
-                    }
-                    $end_loop = $start_loop + 5;
-
-
-
-                    if ($page == 1) {
-                        echo '<ul class="pagination"><li class="disabled"><a href="./?view='.$_GET['view'].'&checklist='.$_GET['checklist'].'&page=1"><<</a></li>';
-                        echo '<li class="disabled"><a href="./?view='.$_GET['view'].'&checklist='.$_GET['checklist'].'&page='.$page.'"><</a></li>';
-                    } else {
-                        echo '<ul class="pagination"><li><a href="./?view='.$_GET['view'].'&checklist='.$_GET['checklist'].'&page=1"><<</a></li>';
-                        echo '<li><a href="./?view='.$_GET['view'].'&page='.($page-1).'"><</a></li>';
-                    }
-                    for ($i=$start_loop; $i<=$end_loop; $i++) {
-                        $active ="";
-                        if ($page  == $i) {
-                            $active = "active";
-                        }
-                        if ($i >0) {
-                            echo '<li class="'.$active.'"><a href="./?view='.$_GET['view'].'&checklist='.$_GET['checklist'].'&page='.$i.'">'.$i.'</a><li>';
-                        }
-                    }
-                    // Setting up the Next & Last Button
-                    if ($page == $total_pages) {
-                        echo'<li class="disabled"><a href="./?view='.$_GET['view'].'&checklist='.$_GET['checklist'].'&page='.($page-1).'">></a></li>';
-                        echo '<li class="disabled"><a href="./?view='.$_GET['view'].'&checklist='.$_GET['checklist'].'&page='.$number_of_pages.'">>></a></li></ul>';
-                    } else {
-                        echo'<li><a href="./?view='.$_GET['view'].'&checklist='.$_GET['checklist'].'&page='.($page+1).'">></a></li>';
-                        echo '<li><a href="./?view='.$_GET['view'].'&checklist='.$_GET['checklist'].'&page='.$total_pages.'">>></a></li>';
-                    }
-                    echo'</ul>'; ?>
-                </div>
-                <div class="form-group">
-                    Total registros:
-                    <?=$total_records?>
-                </div>
-                <br />
-                <br />
-                <?php
                 } else {
                     echo "<p class='alert alert-danger'>No hay preguntas en la listas de control de proceso seleccionada.</p>";
                 }
                 ?>
+                </div>
             </div>
-        </div>
 
+        </div>
     </div>
 </div>
+<script src="themes/notaria62web/js/plugins/jquery-ui.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#datatables').DataTable({
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "order": [
+            [0, "asc"]
+        ],
+        "columnDefs": [{
+            className: "text-right",
+            "targets": [6]
+        }],
+        "processing": true,
+        "pagingType": "full_numbers",
+        "lengthMenu": [
+            [-1, 10, 20],
+            ["All", 5, 10, 20]
+        ],
+        responsive: true,
+        dom: 'lBfrtip',
+        buttons: [{
+                extend: 'print',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+                extend: 'excel',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+                extend: 'pdf',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4]
+                }
+            }
+        ],
+        language: {
+            buttons: {
+                print: 'Imprimir'
+            },
+            search: "_INPUT_",
+            searchPlaceholder: "Buscar...",
+        }
+    });
+    $('.card .material-datatables label').addClass('form-group');
+});
+
+
+$(".row_position").sortable({
+    delay: 150,
+    stop: function() {
+        var selectedData = new Array();
+        $('.row_position>tr').each(function() {
+            selectedData.push($(this).attr("id"));
+        });
+        updateOrder(selectedData);
+
+    }
+
+});
+
+
+function updateOrder(data) {
+    $.ajax({
+        url: "./?action=updatechecklistquestionsorting",
+        type: 'post',
+        data: {
+            position: data,
+            checklist_id: <?=$checklists_id?>
+        },
+        success: function() {
+            alert('Posición guardada correctamente.');
+            document.location.href = "/?view=" +
+                "<?=$_GET['view']?>" +
+                "&checklist=" +
+                "<?=$_GET['checklist']?>";
+        }
+
+    });
+}
+</script>

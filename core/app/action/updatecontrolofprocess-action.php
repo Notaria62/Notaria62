@@ -31,9 +31,9 @@ if ($count>0) {
         $ca->a_code_approval = $codeApproval;
         $ca->update();
     }
-    Seesion::msg("s", "Actualizado correctamente.");
+    Session::msg("s", "Actualizado correctamente.");
     Core::redir("./?view=controlofprocess");
 } else {
-    Seesion::msg("d", "Error al actualizar, por favor llame al administrador del sistema.");
+    Session::msg("d", "Error al actualizar, por favor llame al administrador del sistema.");
     Core::redir("./?view=controlofprocess");
 }

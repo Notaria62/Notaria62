@@ -108,50 +108,52 @@ Session::currentURL();
 </div>
 <script>
 $(document).ready(function() {
-            $('#datatables').DataTable({
-                " pagingType": "full_numbers",
-                "lengthMenu": [
-                    [10, 25, 50, -1],
-                    [10, 25, 50, "All"]
-                ],
-                responsive: true,
-                dom: 'lBfrtip',
-                buttons: [{
-                    extend: 'print',
-                    exportOptions: {
-                        columns: ':visible'
-                    }
-                }, {
-                    extend: 'copy',
-                    exportOptions: {
-                        columns: [0, ':visible']
-                    }
-                }, {
-                    extend: 'excel',
-                    exportOptions: {
-                        columns: ':visible'
-                    }
-                }, {
-                    extend: 'pdf',
-                    exportOptions: {
-                        columns: [0, 1, 2, 3, 4]
-                    }
-                }],
-                language: {
-                    buttons: {
-                        print: 'Imprimir',
-                        copy: 'Copiar'
-                    },
-                    search: "_INPUT_",
-                    searchPlaceholder: "Buscar...",
-                }
-            });
-            var table = $('#datatables').DataTable();
-            table.order([3, 'desc']).draw();
-            $('.card .material-datatables
-                    label ').addClass('
-                    form - group '); }); function openWindowsPrint($url) { var
-                    newWindow = window.open($url, 'Reporte',
-                        'width=800,height=700,location=no,menubar=no,scrollbars=no,resizable=no,left=200px'
-                    ); //replace with your url newWindow.focus(); //Sets focus window } 
+    $('#datatables').DataTable({
+        " pagingType": "full_numbers",
+        "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+        ],
+        responsive: true,
+        dom: 'lBfrtip',
+        buttons: [{
+            extend: 'print',
+            exportOptions: {
+                columns: ':visible'
+            }
+        }, {
+            extend: 'copy',
+            exportOptions: {
+                columns: [0, ':visible']
+            }
+        }, {
+            extend: 'excel',
+            exportOptions: {
+                columns: ':visible'
+            }
+        }, {
+            extend: 'pdf',
+            exportOptions: {
+                columns: [0, 1, 2, 3, 4]
+            }
+        }],
+        language: {
+            buttons: {
+                print: 'Imprimir',
+                copy: 'Copiar'
+            },
+            search: "_INPUT_",
+            searchPlaceholder: "Buscar...",
+        }
+    });
+    var table = $('#datatables').DataTable();
+    table.order([3, 'desc']).draw();
+    $('.card .material-datatables label').addClass('form-group');
+});
+
+function openWindowsPrint($url) {
+    var newWindow = window.open($url, 'Reporte',
+        'width=800,height=700,location=no,menubar=no,scrollbars=no,resizable=no,left=200px'
+    ); //replace with your url newWindow.focus(); //Sets focus window 
+}
 </script>

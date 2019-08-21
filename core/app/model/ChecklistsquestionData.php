@@ -31,12 +31,19 @@ class ChecklistsquestionData
     {
         $sql= "INSERT INTO ".self::$tablename." (question, description, linkpdf, user_id, created_at, checklists_id, q_status, position, q_format, num_input)";
         $sql .= " VALUES (\"$this->question\",\"$this->description\",\"$this->linkpdf\",\"$this->user_id\",\"$this->created_at\",\"$this->checklists_id\",\"$this->q_status\",\"$this->position\",\"$this->q_format\",\"$this->num_input\" )";
+        //  echo $sql;
         Executor::doit($sql);
     }
 
     public function update()
     {
         $sql= "UPDATE ".self::$tablename." SET question=\"$this->question\", description=\"$this->description\",linkpdf=\"$this->linkpdf\", checklists_id=\"$this->checklists_id\",user_id=\"$this->user_id\", q_status=\"$this->q_status\", position=\"$this->position\", num_input=\"$this->num_input\"  WHERE id=$this->id ";
+        Executor::doit($sql);
+    }
+    public static function updatePositions($position, $id)
+    {
+        $sql= "UPDATE ".self::$tablename." SET position=\"$position\" WHERE id=$id ";
+        echo $sql." - ";
         Executor::doit($sql);
     }
 
