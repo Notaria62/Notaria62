@@ -10,7 +10,6 @@
  */
 Session::currentURL();
 
-
  if (isset($_GET["finish_at"])) {
      $finish_at = strtotime($_GET["finish_at"]);
      $now = $_GET["finish_at"];
@@ -110,7 +109,8 @@ if (isset($_GET["start_at"])) {
 <script>
 function openWindowsPrint($url) {
     var newWindow = window.open($url, 'Reporte',
-        'width=700,height=700,location=no,menubar=no,scrollbars=no,resizable=no,left=200px'); //replace with your url
+        'width=700,height=700,location=no,menubar=no,scrollbars=no,resizable=no,left=200px'
+    ); //replace with your url
     newWindow.focus(); //Sets focus window
 }
 </script>

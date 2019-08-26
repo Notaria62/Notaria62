@@ -16,6 +16,8 @@ class ChecklistsanswerData
     {
         $this->id ="";
         $this->numeroescriturapublica ="";
+        $this->observation ="";
+
         $this->answer ="";
         $this->checklistsquestions_id = "";
         $this->checklists_id ="";
@@ -23,17 +25,22 @@ class ChecklistsanswerData
         $this->user_id ="";
         $this->client_id ="";
         $this->a_code_approval = "";
-        $this->created_at = (new \DateTime())->format('Y-m-d H:i:s');
+        $this->created_at = Util::getDatetimeNow();
     }
     public function add()
     {
-        $sql= "INSERT INTO ".self::$tablename." (numeroescriturapublica,ep_anho, answer,checklistsquestions_id, user_id, client_id, created_at, checklists_id, a_code_approval)";
-        $sql .= " VALUES (\"$this->numeroescriturapublica\",\"$this->ep_anho\",\"$this->answer\",\"$this->checklistsquestions_id\",\"$this->user_id\",\"$this->client_id\",\"$this->created_at\",\"$this->checklists_id\" ,\"$this->a_code_approval\" )";
+        $sql= "INSERT INTO ".self::$tablename." (numeroescriturapublica,ep_anho,observation, answer,checklistsquestions_id, user_id, client_id, created_at, checklists_id, a_code_approval)";
+        $sql .= " VALUES (\"$this->numeroescriturapublica\",\"$this->ep_anho\",\"$this->observation\",\"$this->answer\",\"$this->checklistsquestions_id\",\"$this->user_id\",\"$this->client_id\",\"$this->created_at\",\"$this->checklists_id\" ,\"$this->a_code_approval\" )";
         Executor::doit($sql);
     }
     public function update()
     {
-        $sql= "UPDATE ".self::$tablename." SET answer=\"$this->answer\", user_id=\"$this->user_id\", client_id=\"$this->client_id\", a_code_approval=\"$this->a_code_approval\"   WHERE id=$this->id ";
+        $sql= "UPDATE ".self::$tablename." SET observation=\"$this->observation\", answer=\"$this->answer\", user_id=\"$this->user_id\", client_id=\"$this->client_id\", a_code_approval=\"$this->a_code_approval\"   WHERE id=$this->id ";
+        Executor::doit($sql);
+    }
+    public function updateObservation()
+    {
+        $sql= "UPDATE ".self::$tablename." SET observation=\"$this->observation\" WHERE id=$this->id ";
         Executor::doit($sql);
     }
 
@@ -97,6 +104,13 @@ class ChecklistsanswerData
         $sql = "select * from ".self::$tablename;
         $query = Executor::doit($sql);
         return Model::many($query[0], new ChecklistsanswerData());
+    }
+    public static function getAllNumRowAnswerToListByRange($start_at, $finish_at)
+    {
+        $sql = "select t1.* from ".self::$tablename. " t1 join (select numeroescriturapublica, min(id) as min_fila from ".self::$tablename." group by numeroescriturapublica, ep_anho) t2 on t2.numeroescriturapublica = t1.numeroescriturapublica and t2.min_fila = t1.id and  t1.created_at>=\"$start_at\" and t1.created_at<=\"$finish_at\" order by t1.id ";
+        $query = Executor::doit($sql);
+        //echo $sql;
+        return Model::many($query[0], new ChecklistsanswerBCSData());
     }
     public static function getAllNumRowAnswerToList()
     {

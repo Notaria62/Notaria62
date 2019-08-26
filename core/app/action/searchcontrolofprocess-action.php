@@ -30,7 +30,7 @@ if (empty($checkanswers)) {
                 <?php
                         $display_number = 1;
     foreach ($questions as $key => $value) :
-        $q_format= $value->q_format;
+    $q_format= $value->q_format;
     $question1 = $value->pregunta;
     $description = $value->description;
     $checklistsquestions_id = $value->clq_id;
@@ -81,7 +81,7 @@ if (empty($checkanswers)) {
                     <td class="col-md-1">
                         <label>
                             <input type="radio" name="question<?php echo $checklistsquestions_id; ?>_answer" value="1"
-                                required>
+                                required checked="checked">
                         </label>
                     </td>
                     <td class="col-md-1">
@@ -102,6 +102,7 @@ if (empty($checkanswers)) {
                 value="<?php echo $_GET['numeroescriturapublica']; ?>" />
             <input type="hidden" name="checklists_id" id="checklists_id" value="<?php echo $_GET['ddllists']; ?>" />
             <input type="hidden" name="client_id" id="client_id" value="<?php echo $_GET['ddlabogado']; ?>" />
+            <input type="hidden" name="observation" id="observation" value="<?php echo $_GET['observation']; ?>" />
             <input type="hidden" name="ep_anho" id="ep_anho" value="<?php echo $_GET['ep_anho']; ?>" />
             <button type="submit" class="btn btn-success">Guardar control proceso</button>
         </div>

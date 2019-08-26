@@ -27,6 +27,7 @@ if ($count>0) {
     foreach ($_POST['qid'] as $key => $value) {
         $ca = new ChecklistsanswerData();
         $ca->numeroescriturapublica = $_POST['numeroescriturapublica'];
+        $ca->observation =isset($_POST["observation"]) ? $_POST["observation"] : "";
         $ca->answer= $_POST['question'.$value.'_answer'];
         $ca->checklistsquestions_id = $value;
         $ca->user_id= Session::getUID();
