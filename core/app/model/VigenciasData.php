@@ -8,21 +8,23 @@
  * @version 1.0
  * @author sistemas
  */
-class CierresData
+class VigenciasData
 {
-    public static $tablename = "protocolocierres";
+    public static $tablename = "protocolovigencias";
     public function __construct()
     {
-        $this->nrocopia = "";
-        $this->is_registro = "";
-        $this->is_sustituto = "";
-        $this->is_ejemplar = "";
+        $this->consecutivo = "";
         $this->nroescriturapublica = "";
         $this->dateescritura = "";
-        $this->numfolios = "";
-        $this->observationcopy1 = "";
-        $this->observationcopy2 = "";
-        $this->destino = "";
+        $this->poderdantecc = "";
+        $this->poderdantename = "";
+        $this->poderdanteccexpedida = "";
+        $this->apoderadocc = "";
+        $this->apoderadoname = "";
+        $this->apoderadoccexpedida = "";
+        $this->otorgotipo = "";
+        $this->solicitante = "";
+        $this->observation = "";
         $this->notario_id = "";
         $this->user_id = "";
         $this->created_at = Util::getDatetimeNow();
@@ -31,16 +33,15 @@ class CierresData
 
     public function add()
     {
-        $destino = addslashes($this->destino);
-        $sql = "INSERT INTO  ".self::$tablename. " (nrocopia,is_registro,is_sustituto,is_ejemplar, nroescriturapublica,dateescritura, numfolios, observationcopy1, observationcopy2, destino  , created_at,notario_id, user_id) VALUES ";
-        $sql .= "(\"$this->nrocopia\",$this->is_registro,$this->is_sustituto,$this->is_ejemplar,\"$this->nroescriturapublica\",\"$this->dateescritura\",\"$this->numfolios\",\"$this->observationcopy1\",\"$this->observationcopy2\",'$destino',\"$this->created_at\",\"$this->notario_id\",$this->user_id )";
-        //echo $sql;
+        $sql = "INSERT INTO  ".self::$tablename. " (consecutivo,nroescriturapublica,dateescritura,poderdantecc,poderdantename,poderdanteccexpedida,  apoderadocc, apoderadoname, apoderadoccexpedida, otorgotipo, solicitante, observation,notario_id, user_id, created_at ) VALUES ";
+        $sql .= "(\"$this->consecutivo\",\"$this->nroescriturapublica\",\"$this->dateescritura\",\"$this->poderdantecc\",\"$this->poderdantename\",\"$this->poderdanteccexpedida\",\"$this->apoderadocc\",\"$this->apoderadoname\",\"$this->apoderadoccexpedida\",\"$this->otorgotipo\",\"$this->solicitante\",\"$this->observation\",\"$this->notario_id\",$this->user_id,\"$this->created_at\" )";
+        echo $sql;
         Executor::doit($sql);
     }
 
     public function update()
     {
-        $destino = addslashes($this->destino);
+        //$destino = addslashes($this->destino);
         $sql= "UPDATE ".self::$tablename." SET nrocopia=\"$this->nrocopia\",is_registro=$this->is_registro,is_sustituto=$this->is_sustituto,is_ejemplar=$this->is_ejemplar,nroescriturapublica=\"$this->nroescriturapublica\", numfolios=$this->numfolios,observationcopy1=\"$this->observationcopy1\",observationcopy2=\"$this->observationcopy2\", destino=\"$destino\", notario_id=\"$this->notario_id\", user_id=\"$this->user_id\"   WHERE id=$this->id ";
         Executor::doit($sql);
     }
@@ -65,34 +66,34 @@ class CierresData
     {
         $sql = "select * from ".self::$tablename;
         $query = Executor::doit($sql);
-        return Model::many($query[0], new CierresData());
+        return Model::many($query[0], new VigenciasData());
     }
     public static function getByRange($start_at, $finish_at)
     {
         $sql = "select * from ".self::$tablename." where created_at>=\"$start_at\" and created_at<=\"$finish_at\" ";
         $query = Executor::doit($sql);
-        return Model::many($query[0], new CierresData());
+        return Model::many($query[0], new VigenciasData());
     }
     
     public static function getAllAcreedores()
     {
         $sql = "select DISTINCT destino from ".self::$tablename ;
         $query = Executor::doit($sql);
-        return Model::many($query[0], new CierresData());
+        return Model::many($query[0], new VigenciasData());
     }
 
     public static function getById($id)
     {
         $sql = "select * from ".self::$tablename." where id=$id";
         $query = Executor::doit($sql);
-        return Model::one($query[0], new CierresData());
+        return Model::one($query[0], new VigenciasData());
     }
     public static function getAllNumRow()
     {
         $sql = "select * from ".self::$tablename;
         $query = Executor::doit($sql);
         //echo $query;
-        return Model::many($query[0], new CierresData());
+        return Model::many($query[0], new VigenciasData());
     }
 
     public static function getAllLimitRow($this_page_first_result, $results_per_page)
@@ -100,7 +101,14 @@ class CierresData
         $sql = "select * from ".self::$tablename. " ORDER BY created_at DESC "." LIMIT " . $this_page_first_result . "," .  $results_per_page;
         $query = Executor::doit($sql);
         //echo $sql;
-        return Model::many($query[0], new CierresData());
+        return Model::many($query[0], new VigenciasData());
+    }
+    public static function getByConsecutivoLast($datetoday)
+    {
+        $sql = "select consecutivo from ".self::$tablename." where YEAR(created_at)='$datetoday' ORDER BY consecutivo DESC LIMIT 1";
+        $query = Executor::doit($sql);
+        //echo $sql;
+        return Model::many($query[0], new ConsecutivosDeCertificadosData());
     }
 
     public static function getAllCreated()
@@ -108,7 +116,7 @@ class CierresData
         $sql = "select created_at from ".self::$tablename." ORDER BY created_at DESC LIMIT 1";
         //echo $sql;
         $query = Executor::doit($sql);
-        return Model::many($query[0], new CierresData());
+        return Model::many($query[0], new VigenciasData());
     }
     public function getDatetimeNow()
     {

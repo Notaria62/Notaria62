@@ -56,7 +56,7 @@ class MemorandumData
         $this->user_id = "";
         $this->is_approved = "";
         $this->is_public = "0";
-        $this->created_at = (new \DateTime())->format('Y-m-d H:i:s');
+        $this->created_at = Util::getDatetimeNow();
     }
 
 

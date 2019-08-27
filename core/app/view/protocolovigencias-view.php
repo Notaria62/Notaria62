@@ -1,6 +1,5 @@
 <?php
 
-
 if (isset($_GET["finish_at"])) {
     $finish_at = strtotime($_GET["finish_at"]);
     $now = $_GET["finish_at"];
@@ -28,12 +27,12 @@ if (isset($_GET["start_at"])) {
             <?= Util::display_msg(Session::$msg);?>
             <!-- End session comments-->
 
-            <a href="./?view=newcierreinteresado" class="btn btn-default">
+            <a href="./?view=newvigencias" class="btn btn-default">
                 <i class="material-icons">add</i> Crear
             </a>
             <hr />
             <form class="form-horizontal" role="form">
-                <input type="hidden" name="view" value="vigencias" />
+                <input type="hidden" name="view" value="protocolovigencias" />
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group bmd-form-group has-success">
@@ -72,8 +71,8 @@ if (isset($_GET["start_at"])) {
         <div class="row">
             <div class="col-md-12">
                 <?php
-                $result = CierresData::getAllNumRow();
-                if (count($result) > 0) : ?>
+                $result = VigenciasData::getAllNumRow();
+                if (!empty($result)) : ?>
                 <div class="material-datatables">
                     <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
                         width="100%" style="width:100%">
@@ -81,8 +80,8 @@ if (isset($_GET["start_at"])) {
                             <tr>
                                 <th>Nro. escritura</th>
                                 <th>Fecha escritura</th>
-                                <th>Nro. folios</th>
-                                <th>Destino</th>
+                                <th>Poderdante</th>
+                                <th>Apoderado</th>
                                 <th>Fecha creaci&oacute;n</th>
                                 <th>Usuario</th>
                                 <th>Notario</th>
@@ -92,7 +91,7 @@ if (isset($_GET["start_at"])) {
                     </table>
                 </div>
                 <?php else :
-                    echo "<p class='alert alert-danger'>No hay cierres creados.</p>";
+                    echo "<p class='alert alert-danger'>No hay vigencias creados.</p>";
                  endif; ?>
             </div>
         </div>
@@ -102,7 +101,7 @@ if (isset($_GET["start_at"])) {
 <script language="javascript">
 $(document).ready(function() {
     var $url =
-        '<?="./?action=searchvigenciaslist&start_at=".$start_at."&finish_at=".$now;?>';
+        '<?="./?action=searchprotocolovigencias&start_at=".$start_at."&finish_at=".$now;?>';
     $('#datatables').DataTable({
         "ajax": {
             "url": $url,
@@ -116,10 +115,10 @@ $(document).ready(function() {
                 "data": "dateescritura"
             },
             {
-                "data": "numfolios"
+                "data": "poderdante"
             },
             {
-                "data": "destino"
+                "data": "apoderado"
             },
             {
                 "data": "created_at"
@@ -174,8 +173,6 @@ $(document).ready(function() {
             searchPlaceholder: "Buscar...",
         }
     });
-    var table = $('#datatables').DataTable();
-    table.order([4, 'desc']).draw();
     $('.card .material-datatables label').addClass('form-group');
 
 });

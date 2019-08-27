@@ -17,7 +17,7 @@ class ConsecutivosDeCertificadosData
         $this->nroescriturapublica = "";
         $this->dateescritura = "";
         $this->user_id = "";
-        $this->created_at = (new \DateTime())->format('Y-m-d H:i:s');
+        $this->created_at = Util::getDatetimeNow();
     }
     public function add()
     {
