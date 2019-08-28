@@ -17,7 +17,7 @@ if (!empty($result)) {
         $u = UserData::getById($value->user_id);
         $us = UserData::getById(Session::getUID());
         $nf = NotariosData::getById($value->notario_id);
-        $btnDel = ($us->is_admin)?'<a href="./?action=delvigencias&id='.$value->id.'" data-toggle="tooltip" title="Eliminar" class="btn btn-link btn-danger btn-just-icon btn-sm"> <i class="material-icons">delete</i></a>':'';
+        $btnDel = ($us->is_admin)?'<a href="./?view=delvigencias&id='.$value->id.'" data-toggle="tooltip" title="Eliminar" class="btn btn-link btn-danger btn-just-icon btn-sm"> <i class="material-icons">delete</i></a>':'';
         $btnEdit ='<a href="./?view=editvigencias&id='.$value->id.'" data-toggle="tooltip" title="Editar" class="btn btn-link btn-success btn-just-icon btn-sm"><i class="material-icons">edit</i> </a>';
         $btnDownload = '<a href="report/protocolo-vigencias.php?id='.$value->id.'" data-toggle="tooltip" title="Descargar" class="btn btn-link btn-info btn-just-icon btn-sm"><i class="material-icons">cloud_download</i></a>';
         $ar[] = array('nroescriturapublica' => $value->nroescriturapublica,

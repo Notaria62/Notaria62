@@ -49,6 +49,7 @@ $year = $benefi->anho;
                                 Beneficencia</option>
                             <option <?=($benefi->tipo == "Matriz") ? "selected":"";?> value="Matriz">Matriz</option>
                             <option <?=($benefi->tipo == "Registro") ? "selected":"";?> value="Registro">Registro
+                            <option <?=($benefi->tipo == "Vigencia") ? "selected":"";?> value="Vigencia">Vigencia
                             </option>
                         </select>
                     </div>

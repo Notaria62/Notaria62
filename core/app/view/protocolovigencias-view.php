@@ -28,7 +28,10 @@ if (isset($_GET["start_at"])) {
             <!-- End session comments-->
 
             <a href="./?view=newvigencias" class="btn btn-default">
-                <i class="material-icons">add</i> Crear
+                <i class="material-icons">add</i> Crear vigencia
+            </a>
+            <a href="./?view=expediciondecertificados" class="btn btn-default">
+                <i class="material-icons">cloud_download</i> Expedicion de certificado
             </a>
             <hr />
             <form class="form-horizontal" role="form">

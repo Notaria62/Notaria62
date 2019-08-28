@@ -23,6 +23,7 @@
                             <option value="Beneficencia">Beneficencia</option>
                             <option value="Matriz">Matriz</option>
                             <option value="Registro">Registro</option>
+                            <option value="Vigencia">Vigencia</option>
                         </select>
                     </div>
                 </div>
@@ -31,9 +32,10 @@
                         <div class="form-group bmd-form-group has-success">
                             <label for="anho" class="bmd-label-floating">
                                 A&ntilde;o escritura</label>
-                            <input type="number" name="anho" id="anho" min="1900" max="2300" class="form-control datepicker-here"
-                                data-timepicker="false" data-min-view="years" data-view="years" data-date-format="yyyy"
-                                placeholder="" value="<?=substr(Util::getDatetimeNow(), 0, 4);?>">
+                            <input type="number" name="anho" id="anho" min="1900" max="2300"
+                                class="form-control datepicker-here" data-timepicker="false" data-min-view="years"
+                                data-view="years" data-date-format="yyyy" placeholder=""
+                                value="<?=substr(Util::getDatetimeNow(), 0, 4);?>">
                             <span class="form-control-feedback">
                                 <i class="material-icons">calendar_today</i>
                             </span>

@@ -42,7 +42,8 @@ class VigenciasData
     public function update()
     {
         //$destino = addslashes($this->destino);
-        $sql= "UPDATE ".self::$tablename." SET nrocopia=\"$this->nrocopia\",is_registro=$this->is_registro,is_sustituto=$this->is_sustituto,is_ejemplar=$this->is_ejemplar,nroescriturapublica=\"$this->nroescriturapublica\", numfolios=$this->numfolios,observationcopy1=\"$this->observationcopy1\",observationcopy2=\"$this->observationcopy2\", destino=\"$destino\", notario_id=\"$this->notario_id\", user_id=\"$this->user_id\"   WHERE id=$this->id ";
+        $sql= "UPDATE ".self::$tablename." SET consecutivo=\"$this->consecutivo\",poderdantecc=\"$this->poderdantecc\",poderdantename=\"$this->poderdantename\",poderdanteccexpedida=\"$this->poderdanteccexpedida\",nroescriturapublica=\"$this->nroescriturapublica\", apoderadocc=\"$this->apoderadocc\", apoderadoname=\"$this->apoderadoname\", apoderadoccexpedida=\"$this->apoderadoccexpedida\",observation=\"$this->observation\",solicitante=\"$this->solicitante\", otorgotipo=\"$this->otorgotipo\", notario_id=\"$this->notario_id\", user_id=\"$this->user_id\"   WHERE id=$this->id ";
+        // echo $sql;
         Executor::doit($sql);
     }
     public function upload()
