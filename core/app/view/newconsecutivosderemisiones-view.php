@@ -35,16 +35,16 @@ if (count($last)<=0) {
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="consecutivo" class="bmd-label-floating">N&uacute;mero de consecutivo</label>
-                                <input type="number" class="form-control" id="consecutivo" name="consecutivo" number="true"
-                                    required="true" value="<?=$cons?>"
-                                    aria-required="true" />
+                                <input type="number" class="form-control" id="consecutivo" name="consecutivo"
+                                    number="true" required="true" value="<?=$cons?>" aria-required="true" readonly />
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="nroescriturapublica" class="bmd-label-floating">N&uacute;mero de escritura</label>
-                                <input type="number" class="form-control" id="nroescriturapublica" name="nroescriturapublica"
-                                    required="true" aria-required="true" />
+                                <label for="nroescriturapublica" class="bmd-label-floating">N&uacute;mero de
+                                    escritura</label>
+                                <input type="number" class="form-control" id="nroescriturapublica"
+                                    name="nroescriturapublica" required="true" aria-required="true" />
                             </div>
                         </div>
                         <div class="col-md-3">

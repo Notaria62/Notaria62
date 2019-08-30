@@ -21,8 +21,9 @@ class ConsecutivosDeCertificadosData
     }
     public function add()
     {
-        $sql = "INSERT INTO  ".self::$tablename." (consecutivo, nroescriturapublica,dateescritura,user_id, created_at) VALUES ";
-        $sql .= "(\"$this->consecutivo\",\"$this->nroescriturapublica\",\"$this->dateescritura\",$this->user_id ,\"$this->created_at\")";
+        $sql = " INSERT INTO  ".self::$tablename." (consecutivo, nroescriturapublica,dateescritura,user_id, created_at) VALUES ";
+        $sql .= "(\"$this->consecutivo\",\"$this->nroescriturapublica\",\"$this->dateescritura\",$this->user_id ,\"$this->created_at\"); ";
+        //echo $sql;
         Executor::doit($sql);
     }
 
@@ -68,10 +69,12 @@ class ConsecutivosDeCertificadosData
         $query = Executor::doit($sql);
         return Model::many($query[0], new ConsecutivosDeCertificadosData());
     }
-    public static function getByConsecutivo($numeroescriturapublica, $dateescritura, $consecutivo)
+ 
+    public static function getByConsecutivo($dateescritura, $consecutivo)
     {
-        $sql = "select * from ".self::$tablename." where YEAR(dateescritura)='$dateescritura' AND consecutivo=$consecutivo";
+        $sql = "select consecutivo from ".self::$tablename." where  consecutivo=$consecutivo AND YEAR(dateescritura)='$dateescritura' ";
         $query = Executor::doit($sql);
+        //echo $sql;
         return Model::one($query[0], new ConsecutivosDeCertificadosData());
     }
 
