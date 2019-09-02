@@ -81,6 +81,7 @@ if (isset($_GET["start_at"])) {
                         width="100%" style="width:100%">
                         <thead>
                             <tr>
+                                <th>Nro. consecutivo</th>
                                 <th>Nro. escritura</th>
                                 <th>Fecha escritura</th>
                                 <th>Poderdante</th>
@@ -112,6 +113,8 @@ $(document).ready(function() {
             "type": "GET"
         },
         "columns": [{
+                "data": "consecutivo"
+            }, {
                 "data": "nroescriturapublica"
             },
             {
@@ -138,7 +141,7 @@ $(document).ready(function() {
         ],
         "columnDefs": [{
             className: "text-right",
-            "targets": [7]
+            "targets": [8]
         }],
         "processing": true,
         "pagingType": "full_numbers",

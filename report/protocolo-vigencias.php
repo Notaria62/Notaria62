@@ -10,6 +10,8 @@
  */
 include "../core/autoload.php";
 include "../core/app/model/Util.php";
+include "../core/app/model/UserData.php";
+
 include "../core/app/model/VigenciasData.php";
 include "../core/app/model/NumeroALetras.php";
 include "../core/app/model/CifrasEnLetras.php";
@@ -17,6 +19,8 @@ include "../core/app/model/CifrasEnLetras.php";
 //session_start();
 require_once '../PHPWord/bootstrap.php';
 $cierr = VigenciasData::getById($_GET['id']);
+$u = UserData::getById($cierr->user_id);
+
 $pathtemplate = "protocolo-vigencias.docx";
 $dateescrituratextshort = NumeroALetras::dateShortToWords($cierr->dateescritura);
 $dateescrituratext = NumeroALetras::obtenerFechaEnLetraEscritura($cierr->dateescritura);
@@ -40,7 +44,7 @@ $builder->setValue('apoderadoccexpedida', strtoupper($cierr->apoderadoccexpedida
 $builder->setValue('solicitante', strtoupper($cierr->solicitante));
 $builder->setValue('otorgotipo', strtoupper($cierr->otorgotipo));
 $builder->setValue('observation', strtoupper($cierr->observation));
-$builder->setValue('digitador', strtoupper("test"));
+$builder->setValue('digitador', strtoupper($u->name));
 
 $builder->setValue('created_attext', strtoupper($created_attext));
 

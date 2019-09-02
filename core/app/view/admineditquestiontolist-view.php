@@ -63,11 +63,18 @@ $checklists_id = $_GET["checklist"];
                             value="<?=$checklistquestion->linkpdf; ?>" />
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <div class="form-group">
                         <label for="position" class="bmd-label-floating">Posic&oacute;n</label>
-                        <input type="number" min="1" max="300" class="form-control" id="position" name="position"
+                        <input type="number" min="1" max="999" class="form-control" id="position" name="position"
                             value="<?=$checklistquestion->position;?>" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="num_input" class="bmd-label-floating">Nro. botones radio</label>
+                        <input type="number" min="1" max="300" class="form-control" id="num_input" name="num_input"
+                            value="<?=$checklistquestion->num_input;?>" />
                     </div>
                 </div>
                 <div class="col-md-4">

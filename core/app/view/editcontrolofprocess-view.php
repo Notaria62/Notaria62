@@ -58,8 +58,8 @@ $answers = ChecklistsanswerData::getAllAnswersOn($numeroescriturapublica, $anho,
                         <thead>
                             <tr>
                                 <th>Pregunta</th>
-                                <th>Si</th>
-                                <th>No</th>
+                                <th>Opciones</th>
+                                <!-- <th>No</th> -->
                             </tr>
                         </thead>
                         <?php
@@ -76,9 +76,10 @@ $answers = ChecklistsanswerData::getAllAnswersOn($numeroescriturapublica, $anho,
         $linkpdf = $question->linkpdf;
         $created_at = new DateTime($question->created_at);
         $today = new DateTime(NumeroALetras::getDatetimeNow());
-        $diff =$created_at->diff($today); ?>
-                        <tr
-                            data-background-color-approval="<?=($diff->days <= 30) ? " approval " : "
+        $diff =$created_at->diff($today);
+        $num_input = $question->num_input;
+?>
+                        <tr data-background-color-approval="<?=($diff->days <= 30) ? " approval " : "
                                 "; ?>">
                             <td>
                                 <?=$display_number; ?>.
@@ -120,21 +121,26 @@ $answers = ChecklistsanswerData::getAllAnswersOn($numeroescriturapublica, $anho,
                                 <input type="hidden" name="aid[]" id="aid[]" value='<?= $cla_id; ?>'>
                             </td>
 
-                            <td class="col-md-1">
-                                <label>
-                                    <input type="radio" name="question<?= $cla_id; ?>_answer" value="1"
-                                        <?php
-                                            if ($value->respuesta == 1): ?>
-                                        checked="checked" <?php endif; ?>required>
-                                </label>
+                            <td class="col-md-3">
+                                <?php
+                            if ($q_format=="radio") :
+                               echo Util::generateRadioButtons("question".$cla_id ."_answer", $num_input, true, $value->respuesta);
+                            endif;
+                            ?>
+
+                                <!-- <label>
+                                    <input type="radio" name="question<= $cla_id; ?>_answer"
+                                value="1"
+                                <php if ($value->respuesta == 1): >
+                                    checked="checked" <php endif;>required>
+                                        </label>
                             </td>
                             <td class="col-md-1">
                                 <label>
-                                    <input type="radio" name="question<?= $cla_id; ?>_answer" value="0"
-                                        <?php
-                                            if ($value->respuesta !=1): ?>
-                                        checked="checked" <?php endif; ?>>
-                                </label>
+                                    <input type="radio" name="question< $cla_id; ?>_answer" value="0" <php if
+                                        ($value->respuesta !=1): >
+                                    checked="checked" <php endif; ?>>
+                                </label> -->
                             </td>
                         </tr>
                         <?php $display_number++;

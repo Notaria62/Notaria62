@@ -17,6 +17,8 @@ if (count($_POST)>0) {
     $clq->checklists_id = $_POST["ddllists"];
     $clq->q_status = $_POST["ddllquestionstatus"];
     $clq->position = $_POST["position"];
+    $clq->num_input = $_POST["num_input"];
+
     $clq->user_id=Session::getUID();
     $clq->update();
     Session::msg("s", "Actualizado correctamente.");

@@ -18,7 +18,7 @@ class Util
         if (!$current_user) {
             if (isset($_SESSION['user_id'])) :
                 $user_id = intval($_SESSION['user_id']);
-                $current_user = UserData::getById($user_id);
+            $current_user = UserData::getById($user_id);
             endif;
         }
         return $current_user;
@@ -78,11 +78,30 @@ class Util
         $values = $flag == true ? $values - 1 : $values;
         $o = '<label>' . "\n";
         for ($v = $i; $v <= $values; $v++) {
+            // echo "--".$v."--";
             $b = '';
+            $selected = '';
             if ($flag == true) {
-                $b = $v == 0 ? 'No' : 'Si';
+                switch ($v) {
+                    case 0:
+                        # code...
+                        $b= "No";
+                        break;
+                    case 1:
+                        # code...
+                        $b= "Si";
+                        break;
+                    case 2:
+                        # code...
+                        $b= "N/A";
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
             }
-            $selected = (empty($valueA) && $valueA != $v) ? '' : ' checked="checked"';
+            $selected = ($valueA === "$v") ? ' checked="checked"': '' ;
+            //echo "Valor:".$valueA." Selection:".$selected." foreach:$v";
             $o .= '<input type="radio" class="" id="' . $name . '" name="' . $name . '" value="' . $v . '"' . $selected . '> ' . $b . "\n";
         }
         $o .= '</label>' . "\n";

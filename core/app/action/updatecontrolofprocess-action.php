@@ -22,6 +22,7 @@ if ($count>0) {
             $codeApproval="";
         }
     }
+    
     //echo "El codigo de aprobacion es: ". $codeApproval;
     foreach ($_POST['aid'] as $key => $value) {
         $ca = ChecklistsanswerData::getById($value);

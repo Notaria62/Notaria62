@@ -20,7 +20,7 @@ if (!empty($result)) {
         $btnDel = ($us->is_admin)?'<a href="./?view=delvigencias&id='.$value->id.'" data-toggle="tooltip" title="Eliminar" class="btn btn-link btn-danger btn-just-icon btn-sm"> <i class="material-icons">delete</i></a>':'';
         $btnEdit ='<a href="./?view=editvigencias&id='.$value->id.'" data-toggle="tooltip" title="Editar" class="btn btn-link btn-success btn-just-icon btn-sm"><i class="material-icons">edit</i> </a>';
         $btnDownload = '<a href="report/protocolo-vigencias.php?id='.$value->id.'" data-toggle="tooltip" title="Descargar" class="btn btn-link btn-info btn-just-icon btn-sm"><i class="material-icons">cloud_download</i></a>';
-        $ar[] = array('nroescriturapublica' => $value->nroescriturapublica,
+        $ar[] = array('consecutivo' => $value->consecutivo,'nroescriturapublica' => $value->nroescriturapublica,
         'dateescritura'=>$value->dateescritura,
         'poderdante'=>$value->poderdantename,
         'apoderado'=>$value->apoderadoname,

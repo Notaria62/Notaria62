@@ -23,8 +23,9 @@ if (empty($checkanswers)) {
                 <thead>
                     <tr>
                         <th>Pregunta</th>
-                        <th>Si</th>
-                        <th>No</th>
+                        <th>Opciones</th>
+                        <!-- <th>No</th>
+                        <th>N/A</th> -->
                     </tr>
                 </thead>
                 <?php
@@ -38,7 +39,8 @@ if (empty($checkanswers)) {
     $linkpdf = $value->linkpdf;
     $created_at = new DateTime($value->created_at);
     $today = new DateTime(NumeroALetras::getDatetimeNow());
-    $diff =$created_at->diff($today); ?>
+    $diff =$created_at->diff($today);
+    $num_input = $value->num_input; ?>
                 <tr data-background-color-approval="<?php echo ($diff->days <= 30) ? " approval " : "
                     "; ?>">
                     <td>
@@ -78,16 +80,28 @@ if (empty($checkanswers)) {
                         <?php endif; ?>
                         <input type="hidden" name="qid[]" id="qid[]" value='<?php echo $checklistsquestions_id; ?>'>
                     </td>
-                    <td class="col-md-1">
-                        <label>
-                            <input type="radio" name="question<?php echo $checklistsquestions_id; ?>_answer" value="1"
+                    <td class="col-md-3">
+                        <?php
+                            if ($q_format=="radio") :
+                               echo Util::generateRadioButtons("question".$checklistsquestions_id ."_answer", $num_input, true);
+    endif; ?>
+
+
+
+                        <!-- <label>
+                            <input type="radio" name="question< echo $checklistsquestions_id; >_answer" value="1"
                                 required checked="checked">
                         </label>
                     </td>
                     <td class="col-md-1">
                         <label>
-                            <input type="radio" name="question<?php echo $checklistsquestions_id; ?>_answer" value="0">
+                            <input type="radio" name="question< echo $checklistsquestions_id; >_answer" value="0">
                         </label>
+                    </td>
+                    <td class="col-md-1">
+                        <label>
+                            <input type="radio" name="question< echo $checklistsquestions_id; >_answer" value="2">
+                        </label> -->
                     </td>
                 </tr>
                 <?php
