@@ -32,129 +32,174 @@ if (empty($last)) {
     <div class="card-body">
         <div class="card-title">
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <form method="post" id="addvigencias" action="./?action=addvigencias" role="form">
 
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="consecutivo" class="bmd-label-floating">N&uacute;mero de consecutivo</label>
-                                <input type="number" class="form-control" id="consecutivo" name="consecutivo"
-                                    number="true" required="true" value="<?=$cons?>" aria-required="true" />
-                            </div>
-                        </div>
+        <form method="post" id="addvigencias" action="./?action=addvigencias" role="form">
 
-                        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="consecutivo" class="bmd-label-floating">N&uacute;mero de consecutivo</label>
+                        <input type="number" class="form-control" id="consecutivo" name="consecutivo" number="true"
+                            required="true" value="<?=$cons?>" aria-required="true" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="nroescriturapublica" class="bmd-label-floating">N&uacute;mero de
+                            escritura</label>
+                        <input type="number" class="form-control" id="nroescriturapublica" name="nroescriturapublica"
+                            required />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group bmd-form-group is-filled has-success">
+                        <label for="dateescritura" class="bmd-label-floating">
+                            Fecha escritura</label>
+                        <input type="text" name="dateescritura" id="dateescritura" class="form-control datepicker-here"
+                            data-timepicker="false" data-date-format="yyyy-mm-dd" placeholder="" value="" required>
+                        <span class="form-control-feedback">
+                            <i class="material-icons">calendar_today</i>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group bmd-form-group is-filled">
+                        <label for="otorgotipo" class="bmd-label-floating">Otorga</label>
+                        <select id="otorgotipo" name="otorgotipo" required class="custom-select">
+                            <option value="Poder general">Poder general</option>
+                            <option value="Poder especial">Poder especial</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div id="poderdante" class="row">
+                <div id="addpoderdante" class="d-none1">
+                    <div class="col-md-3">
+                        <div class="well well-sm">
                             <div class="form-group">
-                                <label for="nroescriturapublica" class="bmd-label-floating">N&uacute;mero de
-                                    escritura</label>
-                                <input type="number" class="form-control" id="nroescriturapublica"
-                                    name="nroescriturapublica" required />
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group bmd-form-group is-filled has-success">
-                                <label for="dateescritura" class="bmd-label-floating">
-                                    Fecha escritura</label>
-                                <input type="text" name="dateescritura" id="dateescritura"
-                                    class="form-control datepicker-here" data-timepicker="false"
-                                    data-date-format="yyyy-mm-dd" placeholder="" value="" required>
-                                <span class="form-control-feedback">
-                                    <i class="material-icons">calendar_today</i>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group bmd-form-group is-filled">
-                                <label for="otorgotipo" class="bmd-label-floating">Otorga</label>
-                                <select id="otorgotipo" name="otorgotipo" required class="custom-select">
-                                    <option value="Poder general">Poder general</option>
-                                    <option value="Poder especial">Poder especial</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="poderdantecc" class="bmd-label-floating">C.C. poderdante</label>
-                                <input type="number" class="form-control" id="poderdantecc" name="poderdantecc"
+                                <label for="poderdantecc" class="bmd-label-floating">Tipo identificacion</label>
+                                <input type="text" class="form-control" name="poderdantetypeidentification[]" value="CC"
                                     required />
                             </div>
-                        </div>
-                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="poderdantecc" class="bmd-label-floating">Indentificacion poderdante</label>
+                                <input type="number" class="form-control" name="poderdanteidentification[]"
+                                    value="112222222" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="poderdanteidentificationexpedida" class="bmd-label-floating">Expedida ident.
+                                    poderdante</label>
+                                <input type="text" class="form-control" id="" name="poderdanteidentificationexpedida[]"
+                                    value="Bogota D.C." autocomplete="off" required />
+                            </div>
                             <div class="form-group">
                                 <label for="poderdantename" class="bmd-label-floating">Nombre poderdante</label>
-                                <input type="text" class="form-control" id="poderdantename" name="poderdantename"
-                                    autocomplete="off" required />
+                                <input type="text" class="form-control" id="" name="poderdantename[]" autocomplete="off"
+                                    value="Julio Marino" required />
                             </div>
-                        </div>
-                        <div class="col-md-4">
                             <div class="form-group">
-                                <label for="poderdanteccexpedida" class="bmd-label-floating">Expedida cc
-                                    poderdante</label>
-                                <input type="text" class="form-control" id="poderdanteccexpedida"
-                                    name="poderdanteccexpedida" autocomplete="off" required />
+                                <label for="poderdantelastname" class="bmd-label-floating">Apellido poderdante</label>
+                                <input type="text" class="form-control" id="" name="poderdantelastname[]"
+                                    value="Lopex Angu" autocomplete="off" required />
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="apoderadocc" class="bmd-label-floating">C.C. apoderado</label>
-                                <input type="number" class="form-control" id="apoderadocc" name="apoderadocc"
-                                    required />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="apoderadoname" class="bmd-label-floating">Nombre apoderado</label>
-                                <input type="text" class="form-control" id="apoderadoname" name="apoderadoname"
-                                    autocomplete="off" required />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="apoderadoccexpedida" class="bmd-label-floating">Expedida cc
-                                    apoderado</label>
-                                <input type="text" class="form-control" id="apoderadoccexpedida"
-                                    name="apoderadoccexpedida" autocomplete="off" required />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="solicitante" class="bmd-label-floating">Solicitante</label>
-                                <input type="text" class="form-control" id="solicitante" name="solicitante"
-                                    autocomplete="off" required />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group bmd-form-group is-filled">
-                                <label for="notario_id" class="bmd-label-floating">Notario</label>
-                                <select id="notario_id" name="notario_id" required class="custom-select">
-                                    <?php foreach (NotariosData::getAll() as $d) : ?>
-                                    <option value="<?php echo $d->id; ?>">
-                                        <?= $d->name." ".$d->lastname; ?>
-                                    </option>
-                                    <?php endforeach ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="observation" class="bmd-label-floating">Derechos notariales
-                                </label>
-                                <textarea class="form-control" id="observation" name="observation"
-                                    cols="30">DERECHOS NOTARIALES 2.800 + IVA 532 = 3.332 Resolución 0691 del 24 de Enero del 2019 ART. 4 Literal A.</textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="col-lg-offset-2 col-lg-10">
-                                <button type="submit" class="btn btn-primary">Crear</button>
-                            </div>
+
+
                         </div>
                     </div>
-                </form>
-
+                </div>
+                <div class="col-md-2">
+                    <div class="well">
+                        <button class="btn btn-block btn-default" id="btn-poderdante-agregar" type="button">Agregar
+                            poderdante</button>
+                    </div>
+                </div>
             </div>
-        </div>
+
+            <hr />
+
+            <div id="apoderado" class="row">
+                <div id="addapoderado" class="d-none1">
+                    <div class="col-md-3">
+                        <div class="well well-sm">
+                            <div class="form-group">
+                                <label for="apoderadotypeidentification" class="bmd-label-floating">Tipo identificacion
+                                    apoderado</label>
+                                <input type="number" class="form-control" id="" name="apoderadotypeidentification[]"
+                                    value="22" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="apoderadoidentification" class="bmd-label-floating">Identificacion
+                                    apoderado</label>
+                                <input type="number" class="form-control" id="" name="apoderadoidentification[]"
+                                    value="22" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="apoderadoidentificationexpedida" class="bmd-label-floating">Expedida ident.
+                                    apoderado</label>
+                                <input type="text" class="form-control" id="" name="apoderadoidentificationexpedida[]"
+                                    value="22" autocomplete="off" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="apoderadoname" class="bmd-label-floating">Nombre apoderado</label>
+                                <input type="text" class="form-control" id="" name="apoderadoname[]" value="22"
+                                    autocomplete="off" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="apoderadolastname" class="bmd-label-floating">Apellido apoderado</label>
+                                <input type="text" class="form-control" id="" name="apoderadolastname[]" value="22"
+                                    autocomplete="off" required />
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-md-2">
+                    <div class="well">
+                        <button class="btn btn-block btn-default" id="btn-apoderado-agregar" type="button">Agregar
+                            apoderado</button>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="solicitante" class="bmd-label-floating">Solicitante</label>
+                        <input type="text" class="form-control" id="solicitante" name="solicitante" autocomplete="off"
+                            required />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group bmd-form-group is-filled">
+                        <label for="notario_id" class="bmd-label-floating">Notario</label>
+                        <select id="notario_id" name="notario_id" required class="custom-select">
+                            <?php foreach (NotariosData::getAll() as $d) : ?>
+                            <option value="<?php echo $d->id; ?>">
+                                <?= $d->name." ".$d->lastname; ?>
+                            </option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="observation" class="bmd-label-floating">Derechos notariales
+                        </label>
+                        <textarea class="form-control" id="observation" name="observation"
+                            cols="30">DERECHOS NOTARIALES 2.800 + IVA 532 = 3.332 Resolución 0691 del 24 de Enero del 2019 ART. 4 Literal A.</textarea>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-lg-offset-2 col-lg-10">
+                        <button type="submit" class="btn btn-primary">Crear</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 
@@ -176,6 +221,52 @@ $(document).ready(function() {
     //     updateButton();
     // });
     // updateButton();
+
+
+    var formulario_poderdante = $("#addpoderdante").html();
+    // El encargado de agregar más formularios
+    $("#btn-poderdante-agregar").click(function() {
+        // Agregamos el formulario
+        $("#poderdante").prepend(formulario_poderdante);
+
+        // Agregamos un boton para retirar el formulario
+        $("#poderdante .col-md-3:first .well").append(
+            '<button class="btn-danger btn btn-block btn-retirar-poderdante" type="button">Retirar</button>'
+        );
+
+        // Hacemos focus en el primer input del formulario
+        $("#poderdante .col-md-3:first .well input:first").focus();
+
+        // Volvemos a cargar todo los plugins que teníamos, dentro de esta función esta el del datepicker assets/js/ini.js
+        //Plugins();
+    });
+    // Cuando hacemos click en el boton de retirar
+    $("#poderdante").on('click', '.btn-retirar-poderdante', function() {
+        $(this).closest('.col-md-3').remove();
+    });
+    var formulario_apoderado = $("#addapoderado").html();
+    // El encargado de agregar más formularios
+    $("#btn-apoderado-agregar").click(function() {
+        // Agregamos el formulario
+        $("#apoderado").prepend(formulario_poderdante);
+
+        // Agregamos un boton para retirar el formulario
+        $("#apoderado .col-md-3:first .well").append(
+            '<button class="btn-danger btn btn-block btn-retirar-apoderado" type="button">Retirar</button>'
+        );
+
+        // Hacemos focus en el primer input del formulario
+        $("#apoderado .col-md-3:first .well input:first").focus();
+
+        // Volvemos a cargar todo los plugins que teníamos, dentro de esta función esta el del datepicker assets/js/ini.js
+        //Plugins();
+    });
+    // Cuando hacemos click en el boton de retirar
+    $("#apoderado").on('click', '.btn-retirar-apoderado', function() {
+        $(this).closest('.col-md-3').remove();
+    });
+
+
 });
 
 // function updateButton() {

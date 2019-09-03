@@ -13,7 +13,7 @@ $count = count($_POST['aid']);
 $codeApproval = "";
 if ($count>0) {
     foreach ($_POST['aid'] as $key => $value) {
-        if ($_POST['question'.$value.'_answer'] == 1) {
+        if (($_POST['question'.$value.'_answer'] == 1) || ($_POST['question'.$value.'_answer'] == 2)) {
             $counter++;
         }
         if ($counter == $count) {

@@ -12,7 +12,7 @@ $count = count($_POST['qid']);
 $codeAproval = "";
 if ($count>0) {
     foreach ($_POST['qid'] as $key => $value) {
-        if ($_POST['question'.$value.'_answer'] == 1) {
+        if (($_POST['question'.$value.'_answer'] == 1) || ($_POST['question'.$value.'_answer'] == 2)) {
             # code...
             $counter++;
         }
