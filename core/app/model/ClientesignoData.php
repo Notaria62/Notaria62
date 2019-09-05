@@ -25,10 +25,8 @@ class ClientesignoData
     {
         $sql = "insert into ".self::$tablename." (typeidentification,identification,identificationexpedida,name,lastname,email,status) ";
         $sql .= "value (\"$this->typeindentification\",\"$this->identification\",\"$this->identificationexpedida\",\"$this->name\",\"$this->lastname\",\"$this->email\",\"$this->status\")";
-        //echo $sql;
+        echo $sql;
         Executor::doit($sql);
-        //$sql1 = "SELECT LAST_INSERT_ID;";
-       // return Executor::doit($sql1);
     }
 
     public static function delById($id)

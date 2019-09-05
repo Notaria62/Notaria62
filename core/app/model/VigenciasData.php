@@ -16,12 +16,8 @@ class VigenciasData
         $this->consecutivo = "";
         $this->nroescriturapublica = "";
         $this->dateescritura = "";
-        $this->poderdantecc = "";
-        $this->poderdantename = "";
-        $this->poderdanteccexpedida = "";
-        $this->apoderadocc = "";
-        $this->apoderadoname = "";
-        $this->apoderadoccexpedida = "";
+        $this->poderdante_ids = "";
+        $this->apoderados_ids = "";
         $this->otorgotipo = "";
         $this->solicitante = "";
         $this->observation = "";
@@ -31,14 +27,22 @@ class VigenciasData
     }
 
 
+    // public function add()
+    // {
+    //     $sql = "INSERT INTO  ".self::$tablename. " (consecutivo,nroescriturapublica,dateescritura,poderdantecc,poderdantename,poderdanteccexpedida,  apoderadocc, apoderadoname, apoderadoccexpedida, otorgotipo, solicitante, observation,notario_id, user_id, created_at ) VALUES ";
+    //     $sql .= "(\"$this->consecutivo\",\"$this->nroescriturapublica\",\"$this->dateescritura\",\"$this->poderdantecc\",\"$this->poderdantename\",\"$this->poderdanteccexpedida\",\"$this->apoderadocc\",\"$this->apoderadoname\",\"$this->apoderadoccexpedida\",\"$this->otorgotipo\",\"$this->solicitante\",\"$this->observation\",\"$this->notario_id\",$this->user_id,\"$this->created_at\" )";
+    //     echo $sql;
+    //     Executor::doit($sql);
+    // }
+
+
     public function add()
     {
-        $sql = "INSERT INTO  ".self::$tablename. " (consecutivo,nroescriturapublica,dateescritura,poderdantecc,poderdantename,poderdanteccexpedida,  apoderadocc, apoderadoname, apoderadoccexpedida, otorgotipo, solicitante, observation,notario_id, user_id, created_at ) VALUES ";
-        $sql .= "(\"$this->consecutivo\",\"$this->nroescriturapublica\",\"$this->dateescritura\",\"$this->poderdantecc\",\"$this->poderdantename\",\"$this->poderdanteccexpedida\",\"$this->apoderadocc\",\"$this->apoderadoname\",\"$this->apoderadoccexpedida\",\"$this->otorgotipo\",\"$this->solicitante\",\"$this->observation\",\"$this->notario_id\",$this->user_id,\"$this->created_at\" )";
-        echo $sql;
+        $sql = "INSERT INTO  ".self::$tablename. " (consecutivo,nroescriturapublica,dateescritura,poderdante_ids,apoderado_ids, otorgotipo, solicitante, observation,notario_id, user_id, created_at ) VALUES ";
+        $sql .= "(\"$this->consecutivo\",\"$this->nroescriturapublica\",\"$this->dateescritura\",\"$this->poderdante_ids\",\"$this->apoderado_ids\",\"$this->otorgotipo\",\"$this->solicitante\",\"$this->observation\",\"$this->notario_id\",$this->user_id,\"$this->created_at\" )";
+        //echo $sql;
         Executor::doit($sql);
     }
-
     public function update()
     {
         //$destino = addslashes($this->destino);

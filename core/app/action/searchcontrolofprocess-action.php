@@ -41,8 +41,7 @@ if (empty($checkanswers)) {
     $today = new DateTime(NumeroALetras::getDatetimeNow());
     $diff =$created_at->diff($today);
     $num_input = $value->num_input; ?>
-                <tr data-background-color-approval="<?php echo ($diff->days <= 30) ? " approval " : "
-                    "; ?>">
+                <tr data-background-color-approval="<?php echo ($diff->days <= 30) ? "approval" : ""; ?>">
                     <td>
                         <?php echo $display_number; ?>.
                         <?php echo $question1; ?>.
@@ -85,23 +84,6 @@ if (empty($checkanswers)) {
                             if ($q_format=="radio") :
                                echo Util::generateRadioButtons("question".$checklistsquestions_id ."_answer", $num_input, true);
     endif; ?>
-
-
-
-                        <!-- <label>
-                            <input type="radio" name="question< echo $checklistsquestions_id; >_answer" value="1"
-                                required checked="checked">
-                        </label>
-                    </td>
-                    <td class="col-md-1">
-                        <label>
-                            <input type="radio" name="question< echo $checklistsquestions_id; >_answer" value="0">
-                        </label>
-                    </td>
-                    <td class="col-md-1">
-                        <label>
-                            <input type="radio" name="question< echo $checklistsquestions_id; >_answer" value="2">
-                        </label> -->
                     </td>
                 </tr>
                 <?php

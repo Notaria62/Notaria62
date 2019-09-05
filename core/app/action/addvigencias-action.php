@@ -5,7 +5,6 @@ if (count($_POST)>0) {
     $c->nroescriturapublica = $_POST["nroescriturapublica"];
     $c->dateescritura = $_POST["dateescritura"];
     $c->otorgotipo = $_POST["otorgotipo"];
-
     $poderdante_ids ="";
     for ($i = 0; $i < count($_POST['poderdantetypeidentification']); $i++) {
         $clientp = new ClientesignoData();
@@ -16,40 +15,43 @@ if (count($_POST)>0) {
         $clientp->lastname = $_POST['poderdantelastname'][$i];
         $clientp->email = "";
         $clientp->status = "1";
-        $clientp->add();
+        try {
+            $clientp->add();
+        } catch (\Throwable $th) {
+            //throw $th;
+        } finally {
+            $ids_p = ClientesignoData::getByIndentification($_POST['poderdanteidentification'][$i]);
+            $poderdante_ids .=$ids_p->id."-";
+        }
     }
     $apoderado_ids = "";
-    for ($i = 0; $i < count($_POST['apoderadotypeidentification']); $i++) {
+    for ($j = 0; $j < count($_POST['apoderadotypeidentification']); $j++) {
         $clientap = new ClientesignoData();
-        $clientap->typeindentification = $_POST['apoderadotypeidentification'][$i];
-        $clientap->identification = $_POST['apoderadoidentification'][$i];
-        $clientap->identificationexpedida = $_POST['apoderadoidentificationexpedida'][$i];
-        $clientap->name = $_POST['apoderadoname'][$i];
-        $clientap->lastname = $_POST['apoderadolastname'][$i];
+        $clientap->typeindentification = $_POST['apoderadotypeidentification'][$j];
+        $clientap->identification = $_POST['apoderadoidentification'][$j];
+        $clientap->identificationexpedida = $_POST['apoderadoidentificationexpedida'][$j];
+        $clientap->name = $_POST['apoderadoname'][$j];
+        $clientap->lastname = $_POST['apoderadolastname'][$j];
         $clientap->email = "";
         $clientap->status = "1";
-        $ids = ClientesignoData::getByIndentification($_POST['apoderadoidentification'][$i]);
-
-        if (empty($ids)) {
-            # code...
+        try {
             $clientap->add();
-        } else {
-            $apoderado_ids .="$ids->id-";
+        } catch (\Throwable $th) {
+            $apoderado_ids .=$ids->id."-";
+        } finally {
+            $ids_ap = ClientesignoData::getByIndentification($_POST['apoderadoidentification'][$j]);
+            $apoderado_ids .=$ids_ap->id."-";
         }
-        
-       
-        
-        echo "paso: $i<br>";
     }
-    echo "los ID de los Apoderados son: $apoderado_ids";
-    $c->apoderado_ids = $apoderado_ids;
-    $c->poderdante_ids = $poderdante_ids;
+    $c->apoderado_ids = substr_replace($apoderado_ids, "", -1);
+    $c->poderdante_ids = substr_replace($poderdante_ids, "", -1);
     $c->solicitante = $_POST["solicitante"];
+    $c->observation = $_POST["observation"];
     $c->notario_id =  $_POST["notario_id"];
     $c->user_id = Session::getUID();
-    // $c->add();
+    $c->add();
     Session::msg("s", "Agregado correctamente. La vigencia de la E.P.: ".$_POST["nroescriturapublica"]);
-// Core::redir("./?view=protocolovigencias");
+    Core::redir("./?view=protocolovigencias");
 } else {
     Core::redir("./?view=protocolovigencias");
 }

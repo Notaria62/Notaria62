@@ -8,6 +8,23 @@
  * @author sistemas
  */
 $vigen = VigenciasData::getById($_GET["id"]);
+        $poderdante_ids = $vigen->poderdante_ids;
+        $p_ids = explode("-", $poderdante_ids);
+        $apoderado_ids = $vigen->apoderado_ids;
+        $ap_ids = explode("-", $apoderado_ids);
+       // $fullnamep="";
+        // foreach ($p_ids as $key => $v) {
+        //     # code...
+        //     $cs = ClientesignoData::getById($v);
+        //     $fullnamep .= $cs->name. " ".$cs->lastname."; ";
+        // }
+        $fullnameap="";
+        foreach ($ap_ids as $key => $j) {
+            # code...
+            $cs = ClientesignoData::getById($j);
+            $fullnameap .= $cs->name. " ".$cs->lastname."; ";
+        }
+
 $notarios = NotariosData::getAll();
 
 ?>
@@ -65,52 +82,25 @@ $notarios = NotariosData::getAll();
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="poderdantecc" class="bmd-label-floating">C.C. poderdante</label>
-                                <input type="number" class="form-control" id="poderdantecc" name="poderdantecc"
-                                    value="<?=$vigen->poderdantecc;?>" required />
-                            </div>
+                    </div>
+                    <hr>
+                    <div id="poderdante" class="">
+                        <div class="col-md-12">
+                            <a href="#" onclick="addPoderdante();" class="btn btn-success">Agregar poderdante</a>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="poderdantename" class="bmd-label-floating">Nombre poderdante</label>
-                                <input type="text" class="form-control" id="poderdantename" name="poderdantename"
-                                    value="<?=$vigen->poderdantename;?>" autocomplete="off" required />
-                            </div>
+                    </div>
+                    <hr />
+                    <div id="apoderado" class="">
+                        <div class="col-md-12">
+                            <a href="#" onclick="addApoderado();" class="btn btn-success">Agregar apoderado</a>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="poderdanteccexpedida" class="bmd-label-floating">Expedida cc
-                                    poderdante</label>
-                                <input type="text" class="form-control" id="poderdanteccexpedida"
-                                    name="poderdanteccexpedida" value="<?=$vigen->poderdanteccexpedida;?>"
-                                    autocomplete="off" required />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="apoderadocc" class="bmd-label-floating">C.C. apoderado</label>
-                                <input type="number" class="form-control" id="apoderadocc" name="apoderadocc"
-                                    value="<?=$vigen->apoderadocc;?>" required />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="apoderadoname" class="bmd-label-floating">Nombre apoderado</label>
-                                <input type="text" class="form-control" id="apoderadoname" name="apoderadoname"
-                                    value="<?=$vigen->apoderadoname;?>" autocomplete="off" required />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="apoderadoccexpedida" class="bmd-label-floating">Expedida cc
-                                    apoderado</label>
-                                <input type="text" class="form-control" id="apoderadoccexpedida"
-                                    name="apoderadoccexpedida" value="<?=$vigen->apoderadoccexpedida;?>"
-                                    autocomplete="off" required />
-                            </div>
-                        </div>
+                    </div>
+                    <hr />
+
+
+
+
+                    <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="solicitante" class="bmd-label-floating">Solicitante</label>
@@ -170,8 +160,85 @@ $(document).ready(function() {
     //     updateButton();
     // });
     // updateButton();
+
+    $("#poderdante").on('click', '.btn-retirar-poderdante', function() {
+        var strbtnpoderdante = $(this).attr("id");
+        var res = strbtnpoderdante.substring(strbtnpoderdante.length - 1, strbtnpoderdante.length);
+        $(this).closest('#addpoderdante_' + res).remove();
+    });
+
+    $("#apoderado").on('click', '.btn-retirar-apoderado', function() {
+        var strbtnapoderado = $(this).attr("id");
+        var res = strbtnapoderado.substring(strbtnapoderado.length - 1, strbtnapoderado.length);
+        $(this).closest('#addapoderado_' + res).remove();
+    });
 });
 
+function FormSetFieldValue(fieldName, fieldValue) {
+    document.getElementById(fieldName).value = fieldValue;
+}
+var nextinputp = 0;
+
+function addPoderdante() {
+    nextinputp++;
+    htmladdpoderdante =
+        '<div id="addpoderdante_' + nextinputp +
+        '" class="row"><div class="col-md-2"><div class="form-group bmd-form-group is-filled"><label for="poderdantetypeidentification[]" class="bmd-label-floating">Tipo identificacion</label>' +
+        '<select id="" name="poderdantetypeidentification[]" class="custom-select" required>' +
+        //'<option value="0">-- SELECCIONE --</option>' +
+        '<option value="C.C." selected> C.C.</option >' +
+        '<option value="NIT."> NIT.</option >' +
+        '<option value="C.E."> C.E.</option >' +
+        '<option value="P.P."> Pasaporte</option>' +
+        '</select></div></div><div class="col-md-2"><div class="form-group"><label for="poderdanteidentification[]" class="bmd-label-floating">Indentificacion poderdante</label>' +
+        '<input type="number" class="form-control" name="poderdanteidentification[]" id="poderdanteidentification_' +
+        nextinputp + '" value="" required />' +
+        '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdanteidentificationexpedida[]" class="bmd-label-floating">Expedida ident. poderdante</label>' +
+        '<input type="text" class="form-control" id="poderdanteidentificationexpedida_' +
+        nextinputp + '" name="poderdanteidentificationexpedida[]" value="" autocomplete="off" required />' +
+        '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdantename[]" class="bmd-label-floating">Nombre poderdante</label>' +
+        '<input type="text" class="form-control" id="poderdantename_' +
+        nextinputp + '" name="poderdantename[]" autocomplete="off" value="" required />' +
+        '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdantelastname[]" class="bmd-label-floating">Apellido poderdante</label>' +
+        '<input type="text" class="form-control" id="poderdantelastname_' +
+        nextinputp + '" name="poderdantelastname[]" value="" autocomplete="off" required />' +
+        '</div></div><div class="col-md-2"><button class="btn-danger btn btn-block btn-retirar-poderdante" id="btn-retirar-poderdante_' +
+        nextinputp +
+        '" type="button">Retirar</button></div></div>';
+    $("#poderdante").prepend(htmladdpoderdante);
+}
+var nextinputap = 0;
+
+function addApoderado() {
+    nextinputap++;
+    htmladdapoderado =
+        '<div id="addapoderado_' + nextinputap +
+        '" class="row"><div class="col-md-2"><div class="form-group bmd-form-group is-filled"><label for="apoderadotypeidentification[]" class="bmd-label-floating">Tipo identificacion</label>' +
+        '<select id="apoderadotypeidentification_' + nextinputap +
+        '" name="apoderadotypeidentification[]" class="custom-select" required>' +
+        //'<option value="0">-- SELECCIONE --</option>' +
+        '<option value="C.C." selected> C.C.</option >' +
+        '<option value="NIT."> NIT.</option >' +
+        '<option value="C.E."> C.E.</option >' +
+        '<option value="P.P."> Pasaporte</option>' +
+        '</select></div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoidentification[]" class="bmd-label-floating">Indentificacion apoderado</label>' +
+        '<input type="number" class="form-control" name="apoderadoidentification[]" id="apoderadoidentification_' +
+        nextinputap +
+        '" value="" required />' +
+        '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoidentificationexpedida[]" class="bmd-label-floating">Expedida ident. apoderado</label>' +
+        '<input type="text" class="form-control" id="apoderadoidentificationexpedida_' + nextinputap +
+        '" name="apoderadoidentificationexpedida[]" value="" autocomplete="off" required />' +
+        '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoname[]" class="bmd-label-floating">Nombre apoderado</label>' +
+        '<input type="text" class="form-control" id="apoderadoname_' + nextinputap +
+        '" name="apoderadoname[]" autocomplete="off" value="" required />' +
+        '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadolastname[]" class="bmd-label-floating">Apellido apoderado</label>' +
+        '<input type="text" class="form-control" id="apoderadolastname_' + nextinputap +
+        '" name="apoderadolastname[]" value="" autocomplete="off" required />' +
+        '</div></div><div class="col-md-2"><button class="btn-danger btn btn-block btn-retirar-apoderado" id="btn-retirar-apoderado_' +
+        nextinputap +
+        '" type="button">Retirar</button></div></div>';
+    $("#apoderado").prepend(htmladdapoderado);
+}
 // function updateButton() {
 //     if ($('#is_registro:checked').length != 0) {
 //         $('#is_sustituto').prop('disabled', true).prop("checked", false);
@@ -194,3 +261,44 @@ $(document).ready(function() {
 //     }
 // }
 </script>
+<?php
+
+ foreach ($p_ids as $key => $v) {
+     # code...
+     $key++;
+     $cs = ClientesignoData::getById($v);
+     // $fullnamep .= $cs->name. " ".$cs->lastname."; ";
+     
+     echo "<script>";
+     // echo "alert($key);";
+     echo "addPoderdante();";
+     echo "FormSetFieldValue('poderdanteidentification_$key','".$cs->identification."');";
+     echo "FormSetFieldValue('poderdanteidentificationexpedida_$key','".$cs->identificationexpedida."');";
+     echo "FormSetFieldValue('poderdantename_$key','".$cs->name."');";
+     echo "FormSetFieldValue('poderdantelastname_$key','".$cs->lastname."');";
+     echo "</script>";
+ }
+
+  foreach ($ap_ids as $key => $v) {
+      # code...
+      $key++;
+      $cs = ClientesignoData::getById($v);
+      // $fullnamep .= $cs->name. " ".$cs->lastname."; ";
+     
+      echo "<script>";
+      echo "addApoderado();";
+      echo "FormSetFieldValue('apoderadoidentification_$key','".$cs->identification."');";
+      echo "FormSetFieldValue('apoderadoidentificationexpedida_$key','".$cs->identificationexpedida."');";
+      echo "FormSetFieldValue('apoderadoname_$key','".$cs->name."');";
+      echo "FormSetFieldValue('apoderadolastname_$key','".$cs->lastname."');";
+      echo "</script>";
+  }
+
+// if ($b->typeident1 != "0") {
+//     echo "<script>";
+//     echo "adddebtor();";
+//     echo "FormSetFieldValue('typeident1','".$b->typeident1."');";
+//     echo "FormSetFieldValue('identificacion1','".$b->identificacion1."');";
+//     echo "FormSetFieldValue('fullname1','".$b->fullname1."');";
+//     echo "</script>";
+// }

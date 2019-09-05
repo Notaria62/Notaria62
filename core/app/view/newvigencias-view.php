@@ -48,7 +48,7 @@ if (empty($last)) {
                         <label for="nroescriturapublica" class="bmd-label-floating">N&uacute;mero de
                             escritura</label>
                         <input type="number" class="form-control" id="nroescriturapublica" name="nroescriturapublica"
-                            required />
+                            required value="" />
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -73,104 +73,25 @@ if (empty($last)) {
                 </div>
             </div>
             <hr>
-            <div id="poderdante" class="row">
-                <div id="addpoderdante" class="d-none1">
-                    <div class="col-md-3">
-                        <div class="well well-sm">
-                            <div class="form-group">
-                                <label for="poderdantecc" class="bmd-label-floating">Tipo identificacion</label>
-                                <input type="text" class="form-control" name="poderdantetypeidentification[]" value="CC"
-                                    required />
-                            </div>
-                            <div class="form-group">
-                                <label for="poderdantecc" class="bmd-label-floating">Indentificacion poderdante</label>
-                                <input type="number" class="form-control" name="poderdanteidentification[]"
-                                    value="112222222" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="poderdanteidentificationexpedida" class="bmd-label-floating">Expedida ident.
-                                    poderdante</label>
-                                <input type="text" class="form-control" id="" name="poderdanteidentificationexpedida[]"
-                                    value="Bogota D.C." autocomplete="off" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="poderdantename" class="bmd-label-floating">Nombre poderdante</label>
-                                <input type="text" class="form-control" id="" name="poderdantename[]" autocomplete="off"
-                                    value="Julio Marino" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="poderdantelastname" class="bmd-label-floating">Apellido poderdante</label>
-                                <input type="text" class="form-control" id="" name="poderdantelastname[]"
-                                    value="Lopex Angu" autocomplete="off" required />
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="well">
-                        <button class="btn btn-block btn-default" id="btn-poderdante-agregar" type="button">Agregar
-                            poderdante</button>
-                    </div>
-                </div>
-            </div>
-
-            <hr />
-
-            <div id="apoderado" class="row">
-                <div id="addapoderado" class="d-none1">
-                    <div class="col-md-3">
-                        <div class="well well-sm">
-                            <div class="form-group">
-                                <label for="apoderadotypeidentification" class="bmd-label-floating">Tipo identificacion
-                                    apoderado</label>
-                                <input type="number" class="form-control" id="" name="apoderadotypeidentification[]"
-                                    value="22" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="apoderadoidentification" class="bmd-label-floating">Identificacion
-                                    apoderado</label>
-                                <input type="number" class="form-control" id="" name="apoderadoidentification[]"
-                                    value="22" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="apoderadoidentificationexpedida" class="bmd-label-floating">Expedida ident.
-                                    apoderado</label>
-                                <input type="text" class="form-control" id="" name="apoderadoidentificationexpedida[]"
-                                    value="22" autocomplete="off" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="apoderadoname" class="bmd-label-floating">Nombre apoderado</label>
-                                <input type="text" class="form-control" id="" name="apoderadoname[]" value="22"
-                                    autocomplete="off" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="apoderadolastname" class="bmd-label-floating">Apellido apoderado</label>
-                                <input type="text" class="form-control" id="" name="apoderadolastname[]" value="22"
-                                    autocomplete="off" required />
-                            </div>
-
-
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="col-md-2">
-                    <div class="well">
-                        <button class="btn btn-block btn-default" id="btn-apoderado-agregar" type="button">Agregar
-                            apoderado</button>
-                    </div>
+            <div id="poderdante" class="">
+                <div class="col-md-12">
+                    <a href="#" onclick="addPoderdante();" class="btn btn-success">Agregar poderdante</a>
                 </div>
             </div>
             <hr />
+            <div id="apoderado" class="">
+                <div class="col-md-12">
+                    <a href="#" onclick="addApoderado();" class="btn btn-success">Agregar apoderado</a>
+                </div>
+            </div>
+            <hr />
+
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="solicitante" class="bmd-label-floating">Solicitante</label>
                         <input type="text" class="form-control" id="solicitante" name="solicitante" autocomplete="off"
-                            required />
+                            required value="" />
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -223,51 +144,115 @@ $(document).ready(function() {
     // updateButton();
 
 
-    var formulario_poderdante = $("#addpoderdante").html();
-    // El encargado de agregar más formularios
-    $("#btn-poderdante-agregar").click(function() {
-        // Agregamos el formulario
-        $("#poderdante").prepend(formulario_poderdante);
 
-        // Agregamos un boton para retirar el formulario
-        $("#poderdante .col-md-3:first .well").append(
-            '<button class="btn-danger btn btn-block btn-retirar-poderdante" type="button">Retirar</button>'
-        );
 
-        // Hacemos focus en el primer input del formulario
-        $("#poderdante .col-md-3:first .well input:first").focus();
 
-        // Volvemos a cargar todo los plugins que teníamos, dentro de esta función esta el del datepicker assets/js/ini.js
-        //Plugins();
-    });
+
+    // var formulario_poderdante = $("#addpoderdante").html();
+    // // El encargado de agregar más formularios
+    // $("#btn-poderdante-agregar").click(function() {
+    //     // Agregamos el formulario
+    //     $("#poderdante").prepend(formulario_poderdante);
+
+    //     // Agregamos un boton para retirar el formulario
+    //     $("#poderdante .col-md-3:first .well").append(
+    //         '<button class="btn-danger btn btn-block btn-retirar-poderdante" type="button">Retirar</button>'
+    //     );
+
+    //     // Hacemos focus en el primer input del formulario
+    //     $("#poderdante .col-md-3:first .well input:first").focus();
+
+    //     // Volvemos a cargar todo los plugins que teníamos, dentro de esta función esta el del datepicker assets/js/ini.js
+    //     //Plugins();
+    // });
     // Cuando hacemos click en el boton de retirar
     $("#poderdante").on('click', '.btn-retirar-poderdante', function() {
-        $(this).closest('.col-md-3').remove();
+        var strbtnpoderdante = $(this).attr("id");
+        var res = strbtnpoderdante.substring(strbtnpoderdante.length - 1, strbtnpoderdante.length);
+        $(this).closest('#addpoderdante_' + res).remove();
     });
-    var formulario_apoderado = $("#addapoderado").html();
-    // El encargado de agregar más formularios
-    $("#btn-apoderado-agregar").click(function() {
-        // Agregamos el formulario
-        $("#apoderado").prepend(formulario_poderdante);
 
-        // Agregamos un boton para retirar el formulario
-        $("#apoderado .col-md-3:first .well").append(
-            '<button class="btn-danger btn btn-block btn-retirar-apoderado" type="button">Retirar</button>'
-        );
-
-        // Hacemos focus en el primer input del formulario
-        $("#apoderado .col-md-3:first .well input:first").focus();
-
-        // Volvemos a cargar todo los plugins que teníamos, dentro de esta función esta el del datepicker assets/js/ini.js
-        //Plugins();
-    });
-    // Cuando hacemos click en el boton de retirar
     $("#apoderado").on('click', '.btn-retirar-apoderado', function() {
-        $(this).closest('.col-md-3').remove();
+        var strbtnapoderado = $(this).attr("id");
+        var res = strbtnapoderado.substring(strbtnapoderado.length - 1, strbtnapoderado.length);
+        $(this).closest('#addapoderado_' + res).remove();
     });
+    // var formulario_apoderado = $("#addapoderado").html();
+    // // El encargado de agregar más formularios
+    // $("#btn-apoderado-agregar").click(function() {
+    //     // Agregamos el formulario
+    //     $("#apoderado").prepend(formulario_poderdante);
+
+    //     // Agregamos un boton para retirar el formulario
+    //     $("#apoderado .col-md-3:first .well").append(
+    //         '<button class="btn-danger btn btn-block btn-retirar-apoderado" type="button">Retirar</button>'
+    //     );
+
+    //     // Hacemos focus en el primer input del formulario
+    //     $("#apoderado .col-md-3:first .well input:first").focus();
+
+    //     // Volvemos a cargar todo los plugins que teníamos, dentro de esta función esta el del datepicker assets/js/ini.js
+    //     //Plugins();
+    // });
+    // Cuando hacemos click en el boton de retirar
+    // $("#apoderado").on('click', '.btn-retirar-apoderado', function() {
+    //     $(this).closest('#addpoderdante').remove();
+    // });
 
 
 });
+var nextinputp = 0;
+
+function addPoderdante() {
+    nextinputp++;
+    htmladdpoderdante =
+        '<div id="addpoderdante_' + nextinputp +
+        '" class="row"><div class="col-md-2"><div class="form-group bmd-form-group is-filled"><label for="poderdantetypeidentification[]" class="bmd-label-floating">Tipo identificacion</label>' +
+        '<select id="" name="poderdantetypeidentification[]" class="custom-select" required>' +
+        //'<option value="0">-- SELECCIONE --</option>' +
+        '<option value="C.C." selected> C.C.</option >' +
+        '<option value="NIT."> NIT.</option >' +
+        '<option value="C.E."> C.E.</option >' +
+        '<option value="P.P."> Pasaporte</option>' +
+        '</select></div></div><div class="col-md-2"><div class="form-group"><label for="poderdanteidentification[]" class="bmd-label-floating">Indentificacion poderdante</label>' +
+        '<input type="number" class="form-control" name="poderdanteidentification[]" value="" required />' +
+        '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdanteidentificationexpedida[]" class="bmd-label-floating">Expedida ident. poderdante</label>' +
+        '<input type="text" class="form-control" id="" name="poderdanteidentificationexpedida[]" value="" autocomplete="off" required />' +
+        '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdantename[]" class="bmd-label-floating">Nombre poderdante</label>' +
+        '<input type="text" class="form-control" id="" name="poderdantename[]" autocomplete="off" value="" required />' +
+        '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdantelastname[]" class="bmd-label-floating">Apellido poderdante</label>' +
+        '<input type="text" class="form-control" id="" name="poderdantelastname[]" value="" autocomplete="off" required />' +
+        '</div></div><div class="col-md-2"><button class="btn-danger btn btn-block btn-retirar-poderdante" id="btn-retirar-poderdante_' +
+        nextinputp +
+        '" type="button">Retirar</button></div></div>';
+    $("#poderdante").prepend(htmladdpoderdante);
+}
+var nextinputap = 0;
+
+function addApoderado() {
+    nextinputap++;
+    htmladdapoderado =
+        '<div id="addapoderado_' + nextinputap +
+        '" class="row"><div class="col-md-2"><div class="form-group bmd-form-group is-filled"><label for="apoderadotypeidentification[]" class="bmd-label-floating">Tipo identificacion</label>' +
+        '<select id="" name="apoderadotypeidentification[]" class="custom-select" required>' +
+        //'<option value="0">-- SELECCIONE --</option>' +
+        '<option value="C.C." selected> C.C.</option >' +
+        '<option value="NIT."> NIT.</option >' +
+        '<option value="C.E."> C.E.</option >' +
+        '<option value="P.P."> Pasaporte</option>' +
+        '</select></div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoidentification[]" class="bmd-label-floating">Indentificacion apoderado</label>' +
+        '<input type="number" class="form-control" name="apoderadoidentification[]" value="" required />' +
+        '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoidentificationexpedida[]" class="bmd-label-floating">Expedida ident. apoderado</label>' +
+        '<input type="text" class="form-control" id="" name="apoderadoidentificationexpedida[]" value="" autocomplete="off" required />' +
+        '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoname[]" class="bmd-label-floating">Nombre apoderado</label>' +
+        '<input type="text" class="form-control" id="" name="apoderadoname[]" autocomplete="off" value="" required />' +
+        '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadolastname[]" class="bmd-label-floating">Apellido apoderado</label>' +
+        '<input type="text" class="form-control" id="" name="apoderadolastname[]" value="" autocomplete="off" required />' +
+        '</div></div><div class="col-md-2"><button class="btn-danger btn btn-block btn-retirar-apoderado" id="btn-retirar-apoderado_' +
+        nextinputap +
+        '" type="button">Retirar</button></div></div>';
+    $("#apoderado").prepend(htmladdapoderado);
+}
 
 // function updateButton() {
 //     if ($('#is_registro:checked').length != 0) {
