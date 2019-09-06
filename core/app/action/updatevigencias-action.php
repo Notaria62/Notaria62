@@ -7,17 +7,53 @@ if (count($_POST)>0) {
     $c->nroescriturapublica = $_POST["nroescriturapublica"];
     $c->dateescritura = $_POST["dateescritura"];
     $c->otorgotipo = $_POST["otorgotipo"];
-    $c->poderdantecc = $_POST["poderdantecc"];
-    $c->poderdantename = $_POST["poderdantename"];
-    $c->poderdanteccexpedida = $_POST["poderdanteccexpedida"];
-    $c->apoderadocc = $_POST["apoderadocc"];
-    $c->apoderadoname = $_POST["apoderadoname"];
-    $c->apoderadoccexpedida = $_POST["apoderadoccexpedida"];
+
+    for ($i = 0; $i < count($_POST['poderdantetypeidentification']); $i++) {
+        $clientp = new ClientesignoData();
+        $clientp->typeindentification = $_POST['poderdantetypeidentification'][$i];
+        $clientp->identification = $_POST['poderdanteidentification'][$i];
+        $clientp->identificationexpedida = $_POST['poderdanteidentificationexpedida'][$i];
+        $clientp->name = $_POST['poderdantename'][$i];
+        $clientp->lastname = $_POST['poderdantelastname'][$i];
+        $clientp->email = "";
+        $clientp->status = "1";
+        try {
+            $clientp->add();
+        } catch (\Throwable $th) {
+            //throw $th;
+        } finally {
+            $ids_p = ClientesignoData::getByIndentification($_POST['poderdanteidentification'][$i]);
+            $poderdante_ids .=$ids_p->id."-";
+        }
+    }
+    $apoderado_ids = "";
+    for ($j = 0; $j < count($_POST['apoderadotypeidentification']); $j++) {
+        $clientap = new ClientesignoData();
+        $clientap->typeindentification = $_POST['apoderadotypeidentification'][$j];
+        $clientap->identification = $_POST['apoderadoidentification'][$j];
+        $clientap->identificationexpedida = $_POST['apoderadoidentificationexpedida'][$j];
+        $clientap->name = $_POST['apoderadoname'][$j];
+        $clientap->lastname = $_POST['apoderadolastname'][$j];
+        $clientap->email = "";
+        $clientap->status = "1";
+        try {
+            $clientap->add();
+        } catch (\Throwable $th) {
+            $apoderado_ids .=$ids->id."-";
+        } finally {
+            $ids_ap = ClientesignoData::getByIndentification($_POST['apoderadoidentification'][$j]);
+            $apoderado_ids .=$ids_ap->id."-";
+        }
+    }
+    $c->apoderado_ids = substr_replace($apoderado_ids, "", -1);
+    $c->poderdante_ids = substr_replace($poderdante_ids, "", -1);
+
     $c->solicitante = $_POST["solicitante"];
     $c->observation=$_POST["observation"];
     $c->notario_id =  $_POST["notario_id"];
     $c->user_id=Session::getUID();
     $c->update();
+
     Session::msg("s", "Actualizado correctamente. La vigencia de la E.P.: ".$_POST["nroescriturapublica"]);
     Core::redir("./?view=protocolovigencias");
 } else {

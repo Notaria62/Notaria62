@@ -45,7 +45,8 @@ $notarios = NotariosData::getAll();
                             <div class="form-group">
                                 <label for="consecutivo" class="bmd-label-floating">N&uacute;mero de consecutivo</label>
                                 <input type="number" class="form-control" id="consecutivo" name="consecutivo"
-                                    number="true" required="true" value="<?=$vigen->consecutivo;?>"
+                                    number="true" required="true"
+                                    value="<?=$vigen->consecutivo;?>"
                                     aria-required="true" />
                             </div>
                         </div>
@@ -55,7 +56,9 @@ $notarios = NotariosData::getAll();
                                 <label for="nroescriturapublica" class="bmd-label-floating">N&uacute;mero de
                                     escritura</label>
                                 <input type="number" class="form-control" id="nroescriturapublica"
-                                    name="nroescriturapublica" value="<?=$vigen->nroescriturapublica;?>" required />
+                                    name="nroescriturapublica"
+                                    value="<?=$vigen->nroescriturapublica;?>"
+                                    required />
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -64,7 +67,8 @@ $notarios = NotariosData::getAll();
                                     Fecha escritura</label>
                                 <input type="text" name="dateescritura" id="dateescritura"
                                     class="form-control datepicker-here" data-timepicker="false"
-                                    data-date-format="yyyy-mm-dd" placeholder="" value="<?=$vigen->dateescritura;?>"
+                                    data-date-format="yyyy-mm-dd" placeholder=""
+                                    value="<?=$vigen->dateescritura;?>"
                                     required>
                                 <span class="form-control-feedback">
                                     <i class="material-icons">calendar_today</i>
@@ -105,7 +109,8 @@ $notarios = NotariosData::getAll();
                             <div class="form-group">
                                 <label for="solicitante" class="bmd-label-floating">Solicitante</label>
                                 <input type="text" class="form-control" id="solicitante" name="solicitante"
-                                    value="<?=$vigen->solicitante;?>" autocomplete="off" required />
+                                    value="<?=$vigen->solicitante;?>"
+                                    autocomplete="off" required />
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -113,7 +118,8 @@ $notarios = NotariosData::getAll();
                                 <label for="notario_id" class="bmd-label-floating">Notario</label>
                                 <select id="notario_id" name="notario_id" required class="custom-select">
                                     <?php foreach ($notarios as $d):?>
-                                    <option value=<?=$d->id;?> <?=($vigen->notario_id == $d->id)? "selected" : ""; ?>>
+                                    <option value=<?=$d->id;?>
+                                        <?=($vigen->notario_id == $d->id)? "selected" : ""; ?>>
                                         <?=$d->name." ".$d->lastname; ?>
                                     </option>
                                     <?php endforeach; ?>
@@ -129,7 +135,8 @@ $notarios = NotariosData::getAll();
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <input type="hidden" name="id" value="<?= $vigen->id;?>">
+                            <input type="hidden" name="id"
+                                value="<?= $vigen->id;?>">
                             <div class="col-lg-offset-2 col-lg-10">
                                 <button type="submit" class="btn btn-primary">Actualizar</button>
                             </div>
@@ -143,123 +150,124 @@ $notarios = NotariosData::getAll();
 </div>
 
 <script>
-$(document).ready(function() {
-    //var availableTags = [ < ? php echo $text; ? > ];
-    //autocomplete(document.getElementById("destino"), availableTags);
+    $(document).ready(function() {
+        //var availableTags = [ < ? php echo $text; ? > ];
+        //autocomplete(document.getElementById("destino"), availableTags);
 
-    // $('#is_registro').on('click', function() {
-    //     if ($(this).is(':checked')) {
-    //         $('#destino').val('Registrador de instrumentos publicos correspondiente');
+        // $('#is_registro').on('click', function() {
+        //     if ($(this).is(':checked')) {
+        //         $('#destino').val('Registrador de instrumentos publicos correspondiente');
+        //     } else {
+        //         $('#destino').val('');
+
+        //     }
+        // });
+
+        // $(':checkbox').on('click', function() {
+        //     updateButton();
+        // });
+        // updateButton();
+
+        $("#poderdante").on('click', '.btn-retirar-poderdante', function() {
+            var strbtnpoderdante = $(this).attr("id");
+            var res = strbtnpoderdante.substring(strbtnpoderdante.length - 1, strbtnpoderdante.length);
+            $(this).closest('#addpoderdante_' + res).remove();
+        });
+
+        $("#apoderado").on('click', '.btn-retirar-apoderado', function() {
+            var strbtnapoderado = $(this).attr("id");
+            var res = strbtnapoderado.substring(strbtnapoderado.length - 1, strbtnapoderado.length);
+            $(this).closest('#addapoderado_' + res).remove();
+        });
+    });
+
+    function FormSetFieldValue(fieldName, fieldValue) {
+        document.getElementById(fieldName).value = fieldValue;
+    }
+    var nextinputp = 0;
+
+    function addPoderdante() {
+        nextinputp++;
+        htmladdpoderdante =
+            '<div id="addpoderdante_' + nextinputp +
+            '" class="row"><div class="col-md-2"><div class="form-group bmd-form-group is-filled"><label for="poderdantetypeidentification[]" class="bmd-label-floating">Tipo identificacion</label>' +
+            '<select id="poderdantetypeidentification_' +
+            nextinputp + '" name="poderdantetypeidentification[]" class="custom-select" required>' +
+            //'<option value="0">-- SELECCIONE --</option>' +
+            '<option value="C.C."> C.C.</option >' +
+            '<option value="NIT."> NIT.</option >' +
+            '<option value="C.E."> C.E.</option >' +
+            '<option value="P.P."> Pasaporte</option>' +
+            '</select></div></div><div class="col-md-2"><div class="form-group"><label for="poderdanteidentification[]" class="bmd-label-floating">Indentificacion poderdante</label>' +
+            '<input type="number" class="form-control" name="poderdanteidentification[]" id="poderdanteidentification_' +
+            nextinputp + '" value="" required />' +
+            '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdanteidentificationexpedida[]" class="bmd-label-floating">Expedida ident. poderdante</label>' +
+            '<input type="text" class="form-control" id="poderdanteidentificationexpedida_' +
+            nextinputp + '" name="poderdanteidentificationexpedida[]" value="" autocomplete="off" required />' +
+            '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdantename[]" class="bmd-label-floating">Nombre poderdante</label>' +
+            '<input type="text" class="form-control" id="poderdantename_' +
+            nextinputp + '" name="poderdantename[]" autocomplete="off" value="" required />' +
+            '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdantelastname[]" class="bmd-label-floating">Apellido poderdante</label>' +
+            '<input type="text" class="form-control" id="poderdantelastname_' +
+            nextinputp + '" name="poderdantelastname[]" value="" autocomplete="off" required />' +
+            '</div></div><div class="col-md-2"><button class="btn-danger btn btn-block btn-retirar-poderdante" id="btn-retirar-poderdante_' +
+            nextinputp +
+            '" type="button">Retirar</button></div></div>';
+        $("#poderdante").prepend(htmladdpoderdante);
+    }
+    var nextinputap = 0;
+
+    function addApoderado() {
+        nextinputap++;
+        htmladdapoderado =
+            '<div id="addapoderado_' + nextinputap +
+            '" class="row"><div class="col-md-2"><div class="form-group bmd-form-group is-filled"><label for="apoderadotypeidentification[]" class="bmd-label-floating">Tipo identificacion</label>' +
+            '<select id="apoderadotypeidentification_' + nextinputap +
+            '" name="apoderadotypeidentification[]" class="custom-select" required>' +
+            //'<option value="0">-- SELECCIONE --</option>' +
+            '<option value="C.C."> C.C.</option >' +
+            '<option value="NIT."> NIT.</option >' +
+            '<option value="C.E."> C.E.</option >' +
+            '<option value="P.P."> Pasaporte</option>' +
+            '</select></div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoidentification[]" class="bmd-label-floating">Indentificacion apoderado</label>' +
+            '<input type="number" class="form-control" name="apoderadoidentification[]" id="apoderadoidentification_' +
+            nextinputap +
+            '" value="" required />' +
+            '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoidentificationexpedida[]" class="bmd-label-floating">Expedida ident. apoderado</label>' +
+            '<input type="text" class="form-control" id="apoderadoidentificationexpedida_' + nextinputap +
+            '" name="apoderadoidentificationexpedida[]" value="" autocomplete="off" required />' +
+            '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoname[]" class="bmd-label-floating">Nombre apoderado</label>' +
+            '<input type="text" class="form-control" id="apoderadoname_' + nextinputap +
+            '" name="apoderadoname[]" autocomplete="off" value="" required />' +
+            '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadolastname[]" class="bmd-label-floating">Apellido apoderado</label>' +
+            '<input type="text" class="form-control" id="apoderadolastname_' + nextinputap +
+            '" name="apoderadolastname[]" value="" autocomplete="off" required />' +
+            '</div></div><div class="col-md-2"><button class="btn-danger btn btn-block btn-retirar-apoderado" id="btn-retirar-apoderado_' +
+            nextinputap +
+            '" type="button">Retirar</button></div></div>';
+        $("#apoderado").prepend(htmladdapoderado);
+    }
+    // function updateButton() {
+    //     if ($('#is_registro:checked').length != 0) {
+    //         $('#is_sustituto').prop('disabled', true).prop("checked", false);
+    //         $('#is_ejemplar').prop('disabled', true).prop("checked", false);
     //     } else {
-    //         $('#destino').val('');
+    //         if ($('#is_sustituto:checked').length != 0) {
+    //             $('#is_registro').prop('disabled', true).prop("checked", false);
+    //             $('#is_ejemplar').prop('disabled', true).prop("checked", false);
+    //         } else {
+    //             if ($('#is_ejemplar:checked').length != 0) {
+    //                 $('#is_registro').prop('disabled', true).prop("checked", false);
+    //                 $('#is_sustituto').prop('disabled', true).prop("checked", false);
+    //             } else {
+    //                 $('#is_sustituto').prop('disabled', false);
+    //                 $('#is_ejemplar').prop('disabled', false);
+    //                 $('#is_registro').prop('disabled', false);
 
+    //             }
+    //         }
     //     }
-    // });
-
-    // $(':checkbox').on('click', function() {
-    //     updateButton();
-    // });
-    // updateButton();
-
-    $("#poderdante").on('click', '.btn-retirar-poderdante', function() {
-        var strbtnpoderdante = $(this).attr("id");
-        var res = strbtnpoderdante.substring(strbtnpoderdante.length - 1, strbtnpoderdante.length);
-        $(this).closest('#addpoderdante_' + res).remove();
-    });
-
-    $("#apoderado").on('click', '.btn-retirar-apoderado', function() {
-        var strbtnapoderado = $(this).attr("id");
-        var res = strbtnapoderado.substring(strbtnapoderado.length - 1, strbtnapoderado.length);
-        $(this).closest('#addapoderado_' + res).remove();
-    });
-});
-
-function FormSetFieldValue(fieldName, fieldValue) {
-    document.getElementById(fieldName).value = fieldValue;
-}
-var nextinputp = 0;
-
-function addPoderdante() {
-    nextinputp++;
-    htmladdpoderdante =
-        '<div id="addpoderdante_' + nextinputp +
-        '" class="row"><div class="col-md-2"><div class="form-group bmd-form-group is-filled"><label for="poderdantetypeidentification[]" class="bmd-label-floating">Tipo identificacion</label>' +
-        '<select id="" name="poderdantetypeidentification[]" class="custom-select" required>' +
-        //'<option value="0">-- SELECCIONE --</option>' +
-        '<option value="C.C." selected> C.C.</option >' +
-        '<option value="NIT."> NIT.</option >' +
-        '<option value="C.E."> C.E.</option >' +
-        '<option value="P.P."> Pasaporte</option>' +
-        '</select></div></div><div class="col-md-2"><div class="form-group"><label for="poderdanteidentification[]" class="bmd-label-floating">Indentificacion poderdante</label>' +
-        '<input type="number" class="form-control" name="poderdanteidentification[]" id="poderdanteidentification_' +
-        nextinputp + '" value="" required />' +
-        '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdanteidentificationexpedida[]" class="bmd-label-floating">Expedida ident. poderdante</label>' +
-        '<input type="text" class="form-control" id="poderdanteidentificationexpedida_' +
-        nextinputp + '" name="poderdanteidentificationexpedida[]" value="" autocomplete="off" required />' +
-        '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdantename[]" class="bmd-label-floating">Nombre poderdante</label>' +
-        '<input type="text" class="form-control" id="poderdantename_' +
-        nextinputp + '" name="poderdantename[]" autocomplete="off" value="" required />' +
-        '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdantelastname[]" class="bmd-label-floating">Apellido poderdante</label>' +
-        '<input type="text" class="form-control" id="poderdantelastname_' +
-        nextinputp + '" name="poderdantelastname[]" value="" autocomplete="off" required />' +
-        '</div></div><div class="col-md-2"><button class="btn-danger btn btn-block btn-retirar-poderdante" id="btn-retirar-poderdante_' +
-        nextinputp +
-        '" type="button">Retirar</button></div></div>';
-    $("#poderdante").prepend(htmladdpoderdante);
-}
-var nextinputap = 0;
-
-function addApoderado() {
-    nextinputap++;
-    htmladdapoderado =
-        '<div id="addapoderado_' + nextinputap +
-        '" class="row"><div class="col-md-2"><div class="form-group bmd-form-group is-filled"><label for="apoderadotypeidentification[]" class="bmd-label-floating">Tipo identificacion</label>' +
-        '<select id="apoderadotypeidentification_' + nextinputap +
-        '" name="apoderadotypeidentification[]" class="custom-select" required>' +
-        //'<option value="0">-- SELECCIONE --</option>' +
-        '<option value="C.C." selected> C.C.</option >' +
-        '<option value="NIT."> NIT.</option >' +
-        '<option value="C.E."> C.E.</option >' +
-        '<option value="P.P."> Pasaporte</option>' +
-        '</select></div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoidentification[]" class="bmd-label-floating">Indentificacion apoderado</label>' +
-        '<input type="number" class="form-control" name="apoderadoidentification[]" id="apoderadoidentification_' +
-        nextinputap +
-        '" value="" required />' +
-        '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoidentificationexpedida[]" class="bmd-label-floating">Expedida ident. apoderado</label>' +
-        '<input type="text" class="form-control" id="apoderadoidentificationexpedida_' + nextinputap +
-        '" name="apoderadoidentificationexpedida[]" value="" autocomplete="off" required />' +
-        '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoname[]" class="bmd-label-floating">Nombre apoderado</label>' +
-        '<input type="text" class="form-control" id="apoderadoname_' + nextinputap +
-        '" name="apoderadoname[]" autocomplete="off" value="" required />' +
-        '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadolastname[]" class="bmd-label-floating">Apellido apoderado</label>' +
-        '<input type="text" class="form-control" id="apoderadolastname_' + nextinputap +
-        '" name="apoderadolastname[]" value="" autocomplete="off" required />' +
-        '</div></div><div class="col-md-2"><button class="btn-danger btn btn-block btn-retirar-apoderado" id="btn-retirar-apoderado_' +
-        nextinputap +
-        '" type="button">Retirar</button></div></div>';
-    $("#apoderado").prepend(htmladdapoderado);
-}
-// function updateButton() {
-//     if ($('#is_registro:checked').length != 0) {
-//         $('#is_sustituto').prop('disabled', true).prop("checked", false);
-//         $('#is_ejemplar').prop('disabled', true).prop("checked", false);
-//     } else {
-//         if ($('#is_sustituto:checked').length != 0) {
-//             $('#is_registro').prop('disabled', true).prop("checked", false);
-//             $('#is_ejemplar').prop('disabled', true).prop("checked", false);
-//         } else {
-//             if ($('#is_ejemplar:checked').length != 0) {
-//                 $('#is_registro').prop('disabled', true).prop("checked", false);
-//                 $('#is_sustituto').prop('disabled', true).prop("checked", false);
-//             } else {
-//                 $('#is_sustituto').prop('disabled', false);
-//                 $('#is_ejemplar').prop('disabled', false);
-//                 $('#is_registro').prop('disabled', false);
-
-//             }
-//         }
-//     }
-// }
+    // }
 </script>
 <?php
 
@@ -272,6 +280,9 @@ function addApoderado() {
      echo "<script>";
      // echo "alert($key);";
      echo "addPoderdante();";
+     //echo "alert('$cs->typeidentification');";
+     echo "$('#poderdantetypeidentification_$key').val('$cs->typeidentification');";
+
      echo "FormSetFieldValue('poderdanteidentification_$key','".$cs->identification."');";
      echo "FormSetFieldValue('poderdanteidentificationexpedida_$key','".$cs->identificationexpedida."');";
      echo "FormSetFieldValue('poderdantename_$key','".$cs->name."');";

@@ -40,14 +40,11 @@ class VigenciasData
     {
         $sql = "INSERT INTO  ".self::$tablename. " (consecutivo,nroescriturapublica,dateescritura,poderdante_ids,apoderado_ids, otorgotipo, solicitante, observation,notario_id, user_id, created_at ) VALUES ";
         $sql .= "(\"$this->consecutivo\",\"$this->nroescriturapublica\",\"$this->dateescritura\",\"$this->poderdante_ids\",\"$this->apoderado_ids\",\"$this->otorgotipo\",\"$this->solicitante\",\"$this->observation\",\"$this->notario_id\",$this->user_id,\"$this->created_at\" )";
-        //echo $sql;
         Executor::doit($sql);
     }
     public function update()
     {
-        //$destino = addslashes($this->destino);
-        $sql= "UPDATE ".self::$tablename." SET consecutivo=\"$this->consecutivo\",poderdantecc=\"$this->poderdantecc\",poderdantename=\"$this->poderdantename\",poderdanteccexpedida=\"$this->poderdanteccexpedida\",nroescriturapublica=\"$this->nroescriturapublica\", apoderadocc=\"$this->apoderadocc\", apoderadoname=\"$this->apoderadoname\", apoderadoccexpedida=\"$this->apoderadoccexpedida\",observation=\"$this->observation\",solicitante=\"$this->solicitante\", otorgotipo=\"$this->otorgotipo\", notario_id=\"$this->notario_id\", user_id=\"$this->user_id\"   WHERE id=$this->id ";
-        // echo $sql;
+        $sql= "UPDATE ".self::$tablename." SET consecutivo=\"$this->consecutivo\",poderdante_ids=\"$this->poderdante_ids\",apoderado_ids=\"$this->apoderado_ids\",nroescriturapublica=\"$this->nroescriturapublica\", dateescritura=\"$this->dateescritura\",observation=\"$this->observation\",solicitante=\"$this->solicitante\", otorgotipo=\"$this->otorgotipo\", notario_id=\"$this->notario_id\", user_id=\"$this->user_id\" WHERE id=$this->id ";
         Executor::doit($sql);
     }
     public function upload()

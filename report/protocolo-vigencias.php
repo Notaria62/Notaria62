@@ -11,7 +11,7 @@
 include "../core/autoload.php";
 include "../core/app/model/Util.php";
 include "../core/app/model/UserData.php";
-
+include "../core/app/model/ClientesignoData.php";
 include "../core/app/model/VigenciasData.php";
 include "../core/app/model/NumeroALetras.php";
 include "../core/app/model/CifrasEnLetras.php";
@@ -35,12 +35,46 @@ $builder->setValue('nroescriturapublica', strtoupper($cierr->nroescriturapublica
 $builder->setValue('nroescriturapublicatext', NumeroALetras::convertirEscritura($cierr->nroescriturapublica));
 $builder->setValue('dateescrituratextshort', strtoupper($dateescrituratextshort));
 //$builder->setValue('dateescrituratext', strtoupper($dateescrituratext));
-$builder->setValue('poderdantecc', strtoupper($cierr->poderdantecc));
-$builder->setValue('poderdantename', strtoupper($cierr->poderdantename));
-$builder->setValue('poderdanteccexpedida', strtoupper($cierr->poderdanteccexpedida));
-$builder->setValue('apoderadocc', strtoupper($cierr->apoderadocc));
-$builder->setValue('apoderadoname', strtoupper($cierr->apoderadoname));
-$builder->setValue('apoderadoccexpedida', strtoupper($cierr->apoderadoccexpedida));
+$poderdante_ids = $value->poderdante_ids;
+        $p_ids = explode("-", $poderdante_ids);
+        $apoderado_ids = $value->apoderado_ids;
+        $ap_ids = explode("-", $apoderado_ids);
+        $poderdante="";
+        foreach ($p_ids as $key => $v) {
+            # code...
+            $cs = ClientesignoData::getById($v);
+            $fullnamep = $cs->name. " ".$cs->lastname;
+            if ($key <=0) {
+                # code...
+                $poderdante .=  "en esta Notaria ".strtoupper($fullnamep).", identifica con $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida";
+            } else {
+                # code...
+                $poderdante .=  " y ".strtoupper($fullnamep).", identifica con $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida";
+            }
+        }
+        $apoderado="";
+        foreach ($ap_ids as $key => $j) {
+            # code...
+            $cs = ClientesignoData::getById($j);
+            $fullnameap = $cs->name." ".$cs->lastname;
+            if ($key <=0) {
+                # code...
+                $apoderado .=  "".strtoupper($fullnameap).", identifica $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida}";
+            } else {
+                # code...
+                $apoderado .=  " y ".strtoupper($fullnameap).", identifica con $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida";
+            }
+        }
+
+
+
+
+
+
+
+
+$builder->setValue('poderdante', $poderdante);
+$builder->setValue('apoderado', strtoupper($cierr->apoderado));
 $builder->setValue('solicitante', strtoupper($cierr->solicitante));
 $builder->setValue('otorgotipo', strtoupper($cierr->otorgotipo));
 $builder->setValue('observation', strtoupper($cierr->observation));

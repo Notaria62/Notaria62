@@ -87,14 +87,14 @@ if (empty($last)) {
             <hr />
 
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="form-group">
                         <label for="solicitante" class="bmd-label-floating">Solicitante</label>
                         <input type="text" class="form-control" id="solicitante" name="solicitante" autocomplete="off"
                             required value="" />
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <div class="form-group bmd-form-group is-filled">
                         <label for="notario_id" class="bmd-label-floating">Notario</label>
                         <select id="notario_id" name="notario_id" required class="custom-select">
@@ -104,6 +104,24 @@ if (empty($last)) {
                             </option>
                             <?php endforeach ?>
                         </select>
+                    </div>
+                </div>
+                <div class="col-md-1" id="resolucionnotario_div">
+                    <div class="form-group label-floating">
+                        <label for="resolucionnotario" class="bmd-label-floating">Resolución notario</label>
+                        <input type="number" class="form-control" id="resolucionnotario" name="resolucionnotario"
+                            value="0" />
+                    </div>
+                </div>
+                <div class="col-md-2" id="dateresolucionnotario_div">
+                    <div class="form-group label-floating">
+                        <label for="dateresolucionnotario" class="bmd-label-floating">Fecha de resolución
+                            (YYYY-MM-DD)</label>
+                        <input type="text" class="form-control" name="dateresolucionnotario" id="dateresolucionnotario"
+                            placeholder="" required
+                            pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
+                            title="Entre formato YYYY-MM-DD" maxlength="10"
+                            value="<?php echo (new \DateTime())->format('Y-m-d'); ?>" />
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -165,6 +183,26 @@ $(document).ready(function() {
     //     // Volvemos a cargar todo los plugins que teníamos, dentro de esta función esta el del datepicker assets/js/ini.js
     //     //Plugins();
     // });
+    $("#notario_id").change(function() {
+        var flag = 0;
+        $("#notario_id option:selected").each(function() {
+            flag = $(this).val();
+        });
+        switch (flag) {
+            case "1":
+                $('#resolucionnotario_div').hide();
+                $('#dateresolucionnotario_div').hide();
+                break;
+            case "2":
+                $('#resolucionnotario_div').show();
+                $('#dateresolucionnotario_div').show();
+                break;
+            case "3":
+                $('#resolucionnotario_div').show();
+                $('#dateresolucionnotario_div').show();
+                break;
+        }
+    }).trigger("change");
     // Cuando hacemos click en el boton de retirar
     $("#poderdante").on('click', '.btn-retirar-poderdante', function() {
         var strbtnpoderdante = $(this).attr("id");

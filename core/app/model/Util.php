@@ -6,7 +6,7 @@ class Util
         $tz_object = new DateTimeZone('America/Bogota');
         $datetime = new DateTime();
         $datetime->setTimezone($tz_object);
-        return $datetime->format('Y\-m\-d\ H:i');
+        return $datetime->format('Y\-m\-d\ H:i:s');
     }
     /*--------------------------------------------------------------*/
     /* Find current log in user by session id
