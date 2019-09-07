@@ -25,6 +25,7 @@ $pathtemplate = "protocolo-vigencias.docx";
 $dateescrituratextshort = NumeroALetras::dateShortToWords($cierr->dateescritura);
 $dateescrituratext = NumeroALetras::obtenerFechaEnLetraEscritura($cierr->dateescritura);
 $created_attext = NumeroALetras::obtenerFechaEnLetra($cierr->created_at);
+$dateresolucionnotario = NumeroALetras::obtenerFechaEnLetra($cierr->dateresolucionnotario);
 
 
 $builder = new \PhpOffice\PhpWord\TemplateProcessor('../PHPWord/resources/'.$pathtemplate);
@@ -35,9 +36,9 @@ $builder->setValue('nroescriturapublica', strtoupper($cierr->nroescriturapublica
 $builder->setValue('nroescriturapublicatext', NumeroALetras::convertirEscritura($cierr->nroescriturapublica));
 $builder->setValue('dateescrituratextshort', strtoupper($dateescrituratextshort));
 //$builder->setValue('dateescrituratext', strtoupper($dateescrituratext));
-$poderdante_ids = $value->poderdante_ids;
+$poderdante_ids = $cierr->poderdante_ids;
         $p_ids = explode("-", $poderdante_ids);
-        $apoderado_ids = $value->apoderado_ids;
+        $apoderado_ids = $cierr->apoderado_ids;
         $ap_ids = explode("-", $apoderado_ids);
         $poderdante="";
         foreach ($p_ids as $key => $v) {
@@ -59,7 +60,7 @@ $poderdante_ids = $value->poderdante_ids;
             $fullnameap = $cs->name." ".$cs->lastname;
             if ($key <=0) {
                 # code...
-                $apoderado .=  "".strtoupper($fullnameap).", identifica $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida}";
+                $apoderado .=  "".strtoupper($fullnameap).", identifica con $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida";
             } else {
                 # code...
                 $apoderado .=  " y ".strtoupper($fullnameap).", identifica con $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida";
@@ -74,14 +75,13 @@ $poderdante_ids = $value->poderdante_ids;
 
 
 $builder->setValue('poderdante', $poderdante);
-$builder->setValue('apoderado', strtoupper($cierr->apoderado));
+$builder->setValue('apoderado', $apoderado);
 $builder->setValue('solicitante', strtoupper($cierr->solicitante));
 $builder->setValue('otorgotipo', strtoupper($cierr->otorgotipo));
 $builder->setValue('observation', strtoupper($cierr->observation));
 $builder->setValue('digitador', strtoupper($u->name));
 
 $builder->setValue('created_attext', strtoupper($created_attext));
-
 
 switch ($cierr->notario_id) {
     case 1:
@@ -90,18 +90,17 @@ switch ($cierr->notario_id) {
         break;
     case 2:
         $builder->setValue('nombrenotario', 'SANDY CATHERINE DUSSAN MORENO');
-        $builder->setValue('description', 'NOTARIA SESENTA Y DOS (62) (E) DEL CÍRCULO DE BOGOTÁ D.C.');
+        $builder->setValue('resolucion', 'NOTARIA ENCARGADA SEGÚN RESOLUCIÓN '.$cierr->resolucionnotario.' DE FECHA '.$dateresolucionnotario.' DE LA SNR');
+
 
         break;
     case 3:
         $builder->setValue('nombrenotario', 'DORA INÉS VELOSA REYES');
-        $builder->setValue('description', 'NOTARIA SESENTA Y DOS (62) (E) DEL CÍRCULO DE BOGOTÁ D.C.');
-        //$builder->setValue('encargado', '(E)');
+                $builder->setValue('resolucion', 'NOTARIA ENCARGADA SEGÚN RESOLUCIÓN '.$memo->resolucionnotario.' DE FECHA '.$dateresolucionnotario.' DE LA SNR');
         break;
         case 4:
         $builder->setValue('nombrenotario', 'DORA INÉS VELOSA REYES');
         $builder->setValue('description', 'SECRETARIA DELEGADA PARA COPIAS DCTO. 1534 DE 1989');
-        //$builder->setValue('encargado', '');
         break;
 }
 

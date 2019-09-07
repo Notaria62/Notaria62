@@ -51,6 +51,9 @@ if (count($_POST)>0) {
     $c->solicitante = $_POST["solicitante"];
     $c->observation=$_POST["observation"];
     $c->notario_id =  $_POST["notario_id"];
+    $c->resolucionnotario =  $_POST["resolucionnotario"];
+    $c->dateresolucionnotario =  $_POST["dateresolucionnotario"];
+
     $c->user_id=Session::getUID();
     $c->update();
 

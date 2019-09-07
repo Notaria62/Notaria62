@@ -114,14 +114,15 @@ if (empty($last)) {
                     </div>
                 </div>
                 <div class="col-md-2" id="dateresolucionnotario_div">
-                    <div class="form-group label-floating">
-                        <label for="dateresolucionnotario" class="bmd-label-floating">Fecha de resolución
-                            (YYYY-MM-DD)</label>
-                        <input type="text" class="form-control" name="dateresolucionnotario" id="dateresolucionnotario"
-                            placeholder="" required
-                            pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
-                            title="Entre formato YYYY-MM-DD" maxlength="10"
-                            value="<?php echo (new \DateTime())->format('Y-m-d'); ?>" />
+                    <div class="form-group bmd-form-group is-filled has-success">
+                        <label for="dateresolucionnotario" class="bmd-label-floating">
+                            Fecha resolución</label>
+                        <input type="text" name="dateresolucionnotario" id="dateresolucionnotario"
+                            class="form-control datepicker-here" data-timepicker="false" data-date-format="yyyy-mm-dd"
+                            placeholder="" value="" required>
+                        <span class="form-control-feedback">
+                            <i class="material-icons">calendar_today</i>
+                        </span>
                     </div>
                 </div>
                 <div class="col-md-4">
