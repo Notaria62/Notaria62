@@ -119,7 +119,7 @@ if (empty($last)) {
                             Fecha resolución</label>
                         <input type="text" name="dateresolucionnotario" id="dateresolucionnotario"
                             class="form-control datepicker-here" data-timepicker="false" data-date-format="yyyy-mm-dd"
-                            placeholder="" value="" required>
+                            placeholder="" value="<?=(new \DateTime())->format('Y-m-d');?>" required>
                         <span class="form-control-feedback">
                             <i class="material-icons">calendar_today</i>
                         </span>

@@ -125,7 +125,6 @@ $notarios = NotariosData::getAll();
                             </div>
                         </div>
                         <div class="col-md-2" id="dateresolucionnotario_div">
-
                             <div class="form-group bmd-form-group is-filled has-success">
                                 <label for="dateresolucionnotario" class="bmd-label-floating">
                                     Fecha resolución</label>

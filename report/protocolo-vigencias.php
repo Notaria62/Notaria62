@@ -26,8 +26,6 @@ $dateescrituratextshort = NumeroALetras::dateShortToWords($cierr->dateescritura)
 $dateescrituratext = NumeroALetras::obtenerFechaEnLetraEscritura($cierr->dateescritura);
 $created_attext = NumeroALetras::obtenerFechaEnLetra($cierr->created_at);
 $dateresolucionnotario = NumeroALetras::obtenerFechaEnLetra($cierr->dateresolucionnotario);
-
-
 $builder = new \PhpOffice\PhpWord\TemplateProcessor('../PHPWord/resources/'.$pathtemplate);
 
 
@@ -66,23 +64,7 @@ $poderdante_ids = $cierr->poderdante_ids;
                 $apoderado .=  " y ".strtoupper($fullnameap).", identifica con $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida";
             }
         }
-
-
-
-
-
-
-
-
-$builder->setValue('poderdante', $poderdante);
-$builder->setValue('apoderado', $apoderado);
-$builder->setValue('solicitante', strtoupper($cierr->solicitante));
-$builder->setValue('otorgotipo', strtoupper($cierr->otorgotipo));
-$builder->setValue('observation', strtoupper($cierr->observation));
-$builder->setValue('digitador', strtoupper($u->name));
-
-$builder->setValue('created_attext', strtoupper($created_attext));
-
+        
 switch ($cierr->notario_id) {
     case 1:
         $builder->setValue('nombrenotario', 'CARLOS ARTURO SERRATO GALEANO');
@@ -90,19 +72,27 @@ switch ($cierr->notario_id) {
         break;
     case 2:
         $builder->setValue('nombrenotario', 'SANDY CATHERINE DUSSAN MORENO');
-        $builder->setValue('resolucion', 'NOTARIA ENCARGADA SEGÚN RESOLUCIÓN '.$cierr->resolucionnotario.' DE FECHA '.$dateresolucionnotario.' DE LA SNR');
-
-
+        $builder->setValue('description', 'NOTARIA ENCARGADA SEGÚN RESOLUCIÓN '.$cierr->resolucionnotario.' DE FECHA '.$dateresolucionnotario.' DE LA SNR');
         break;
     case 3:
         $builder->setValue('nombrenotario', 'DORA INÉS VELOSA REYES');
-                $builder->setValue('resolucion', 'NOTARIA ENCARGADA SEGÚN RESOLUCIÓN '.$memo->resolucionnotario.' DE FECHA '.$dateresolucionnotario.' DE LA SNR');
+        $builder->setValue('description', 'NOTARIA ENCARGADA SEGÚN RESOLUCIÓN '.$cierr->resolucionnotario.' DE FECHA '.$dateresolucionnotario.' DE LA SNR');
         break;
-        case 4:
+    case 4:
         $builder->setValue('nombrenotario', 'DORA INÉS VELOSA REYES');
         $builder->setValue('description', 'SECRETARIA DELEGADA PARA COPIAS DCTO. 1534 DE 1989');
         break;
 }
+
+$builder->setValue('poderdante', $poderdante);
+$builder->setValue('apoderado', $apoderado);
+$builder->setValue('solicitante', strtoupper($cierr->solicitante));
+$builder->setValue('otorgotipo', strtoupper($cierr->otorgotipo));
+$builder->setValue('observation', strtoupper($cierr->observation));
+$builder->setValue('digitador', strtoupper($u->name));
+$builder->setValue('created_attext', strtoupper($created_attext));
+
+
 
 $filename = "plantilla-".time()."-".$pathtemplate;
 $builder->saveAs($filename);

@@ -103,9 +103,6 @@ class ClientesignoData
         $query = Executor::doit($sql);
         return Model::many($query[0], new ClientesignoData());
     }
-
- 
-
     public static function getAllUnActive()
     {
         $sql = "select * from client where last_active_at<=date_sub(NOW(),interval 3 second)";
