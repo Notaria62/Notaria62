@@ -139,6 +139,9 @@ $(document).ready(function() {
                 "data": "options"
             }
         ],
+        "order": [
+            [5, "desc"]
+        ],
         "columnDefs": [{
             className: "text-right",
             "targets": [8]

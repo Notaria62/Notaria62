@@ -27,44 +27,41 @@ $dateescrituratext = NumeroALetras::obtenerFechaEnLetraEscritura($cierr->dateesc
 $created_attext = NumeroALetras::obtenerFechaEnLetra($cierr->created_at);
 $dateresolucionnotario = NumeroALetras::obtenerFechaEnLetra($cierr->dateresolucionnotario);
 $builder = new \PhpOffice\PhpWord\TemplateProcessor('../PHPWord/resources/'.$pathtemplate);
-
-
 $builder->setValue('consecutivo', substr($cierr->consecutivo, -4)." / ".substr($cierr->consecutivo, 0, -4));
 $builder->setValue('nroescriturapublica', strtoupper($cierr->nroescriturapublica));
 $builder->setValue('nroescriturapublicatext', NumeroALetras::convertirEscritura($cierr->nroescriturapublica));
 $builder->setValue('dateescrituratextshort', strtoupper($dateescrituratextshort));
-//$builder->setValue('dateescrituratext', strtoupper($dateescrituratext));
 $poderdante_ids = $cierr->poderdante_ids;
-        $p_ids = explode("-", $poderdante_ids);
-        $apoderado_ids = $cierr->apoderado_ids;
-        $ap_ids = explode("-", $apoderado_ids);
-        $poderdante="";
-        foreach ($p_ids as $key => $v) {
-            # code...
-            $cs = ClientesignoData::getById($v);
-            $fullnamep = $cs->name. " ".$cs->lastname;
-            if ($key <=0) {
-                # code...
-                $poderdante .=  "en esta Notaria ".strtoupper($fullnamep).", identifica con $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida";
-            } else {
-                # code...
-                $poderdante .=  " y ".strtoupper($fullnamep).", identifica con $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida";
-            }
+$p_ids = explode("-", $poderdante_ids);
+$apoderado_ids = $cierr->apoderado_ids;
+$ap_ids = explode("-", $apoderado_ids);
+$poderdante="";
+foreach ($p_ids as $key => $v) {
+    # code...
+    $cs = ClientesignoData::getById($v);
+    $fullnamep = $cs->name. " ".$cs->lastname;
+    if ($key <=0) {
+        # code...
+        $poderdante .=  "en esta Notaria ".strtoupper($fullnamep).", identifica con $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida";
+    } else {
+        # code...
+        $poderdante .=  " y ".strtoupper($fullnamep).", identifica con $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida";
+    }
+}
+$apoderado="";
+if ($ap_ids=="1") {
+    $apoderado = $cierr->otorgoobservation;
+} else {
+    foreach ($ap_ids as $key => $j) {
+        $cs = ClientesignoData::getById($j);
+        $fullnameap = $cs->name." ".$cs->lastname;
+        if ($key <=0) {
+            $apoderado .=  "".strtoupper($fullnameap).", identifica con $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida";
+        } else {
+            $apoderado .=  " y ".strtoupper($fullnameap).", identifica con $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida";
         }
-        $apoderado="";
-        foreach ($ap_ids as $key => $j) {
-            # code...
-            $cs = ClientesignoData::getById($j);
-            $fullnameap = $cs->name." ".$cs->lastname;
-            if ($key <=0) {
-                # code...
-                $apoderado .=  "".strtoupper($fullnameap).", identifica con $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida";
-            } else {
-                # code...
-                $apoderado .=  " y ".strtoupper($fullnameap).", identifica con $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida";
-            }
-        }
-        
+    }
+}
 switch ($cierr->notario_id) {
     case 1:
         $builder->setValue('nombrenotario', 'CARLOS ARTURO SERRATO GALEANO');

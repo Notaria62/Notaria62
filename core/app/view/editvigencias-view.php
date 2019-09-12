@@ -41,7 +41,7 @@ $notarios = NotariosData::getAll();
                 <form method="post" id="updatevigencias" action="./?action=updatevigencias" role="form">
 
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="form-group">
                                 <label for="consecutivo" class="bmd-label-floating">N&uacute;mero de consecutivo</label>
                                 <input type="number" class="form-control" id="consecutivo" name="consecutivo"
@@ -50,7 +50,7 @@ $notarios = NotariosData::getAll();
                             </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="form-group">
                                 <label for="nroescriturapublica" class="bmd-label-floating">N&uacute;mero de
                                     escritura</label>
@@ -58,7 +58,7 @@ $notarios = NotariosData::getAll();
                                     name="nroescriturapublica" value="<?=$vigen->nroescriturapublica;?>" required />
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="form-group bmd-form-group is-filled has-success">
                                 <label for="dateescritura" class="bmd-label-floating">
                                     Fecha escritura</label>
@@ -71,7 +71,7 @@ $notarios = NotariosData::getAll();
                                 </span>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="form-group bmd-form-group is-filled">
                                 <label for="otorgotipo" class="bmd-label-floating">Otorga</label>
                                 <select id="otorgotipo" name="otorgotipo" required class="custom-select">
@@ -79,7 +79,17 @@ $notarios = NotariosData::getAll();
                                         value="Poder general">Poder general</option>
                                     <option <?=($vigen->otorgotipo == "Poder especial") ? "selected":"";?>
                                         value="Poder especial">Poder especial</option>
+                                    <option <?=($vigen->otorgotipo == "Salida del pais") ? "selected":"";?>
+                                        value="Salida del pais">Salida del pa&iacute;s</option>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12" id="otorgoobservation_div">
+                            <div class="form-group">
+                                <label for="otorgoobservation" class="bmd-label-floating">Descripci&oacute;n otorga
+                                </label>
+                                <textarea class="form-control" id="otorgoobservation" name="otorgoobservation"
+                                    cols="30"><?=$vigen->otorgoobservation;?></textarea>
                             </div>
                         </div>
                     </div>
@@ -177,6 +187,29 @@ $(document).ready(function() {
     //     updateButton();
     // });
     // updateButton();
+
+
+    $("#otorgotipo").change(function() {
+        var flag = "";
+        $("#otorgotipo option:selected").each(function() {
+            flag = $(this).val();
+        });
+        switch (flag) {
+            case "Salida del pais":
+                $('#otorgoobservation_div').show();
+                $('#apoderado').hide();
+
+                break;
+            case "Poder general":
+                $('#otorgoobservation_div').hide();
+                $('#apoderado').show();
+                break;
+            case "Poder especial":
+                $('#otorgoobservation_div').hide();
+                $('#apoderado').show();
+                break;
+        }
+    }).trigger("change");
     $("#notario_id").change(function() {
         var flag = 0;
         $("#notario_id option:selected").each(function() {
@@ -228,7 +261,7 @@ function addPoderdante() {
         '<option value="C.E."> C.E.</option >' +
         '<option value="P.P."> Pasaporte</option>' +
         '</select></div></div><div class="col-md-2"><div class="form-group"><label for="poderdanteidentification[]" class="bmd-label-floating">Indentificacion poderdante</label>' +
-        '<input type="number" class="form-control" name="poderdanteidentification[]" id="poderdanteidentification_' +
+        '<input type="text" class="form-control" name="poderdanteidentification[]" id="poderdanteidentification_' +
         nextinputp + '" value="" required />' +
         '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdanteidentificationexpedida[]" class="bmd-label-floating">Expedida ident. poderdante</label>' +
         '<input type="text" class="form-control" id="poderdanteidentificationexpedida_' +
@@ -259,7 +292,7 @@ function addApoderado() {
         '<option value="C.E."> C.E.</option >' +
         '<option value="P.P."> Pasaporte</option>' +
         '</select></div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoidentification[]" class="bmd-label-floating">Indentificacion apoderado</label>' +
-        '<input type="number" class="form-control" name="apoderadoidentification[]" id="apoderadoidentification_' +
+        '<input type="text" class="form-control" name="apoderadoidentification[]" id="apoderadoidentification_' +
         nextinputap +
         '" value="" required />' +
         '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoidentificationexpedida[]" class="bmd-label-floating">Expedida ident. apoderado</label>' +

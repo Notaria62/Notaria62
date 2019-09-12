@@ -36,14 +36,14 @@ if (empty($last)) {
         <form method="post" id="addvigencias" action="./?action=addvigencias" role="form">
 
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group">
                         <label for="consecutivo" class="bmd-label-floating">N&uacute;mero de consecutivo</label>
                         <input type="number" class="form-control" id="consecutivo" name="consecutivo" number="true"
                             required="true" value="<?=$cons?>" aria-required="true" />
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group">
                         <label for="nroescriturapublica" class="bmd-label-floating">N&uacute;mero de
                             escritura</label>
@@ -51,7 +51,7 @@ if (empty($last)) {
                             required value="" />
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group bmd-form-group is-filled has-success">
                         <label for="dateescritura" class="bmd-label-floating">
                             Fecha escritura</label>
@@ -62,13 +62,22 @@ if (empty($last)) {
                         </span>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group bmd-form-group is-filled">
                         <label for="otorgotipo" class="bmd-label-floating">Otorga</label>
                         <select id="otorgotipo" name="otorgotipo" required class="custom-select">
                             <option value="Poder general">Poder general</option>
                             <option value="Poder especial">Poder especial</option>
+                            <option value="Salida del pais">Salida del pa&iacute;s</option>
                         </select>
+                    </div>
+                </div>
+                <div class="col-md-12" id="otorgoobservation_div">
+                    <div class="form-group">
+                        <label for="otorgoobservation" class="bmd-label-floating">Descripci&oacute;n otorga
+                        </label>
+                        <textarea class="form-control" id="otorgoobservation" name="otorgoobservation"
+                            cols="30">AUTORIZACION SALIDA DEL PAIS DEL MENOR DE EDAD, XXXX, registrado en XXXX bajo el indicativo serial número XXXX. Autoriza de carácter indefinido o hasta que cumpla la mayoría de edad, o sea hasta los dieciocho (18) años que, en consecuencia, el (la, los) mencionado(s) menor(es) saldrá(n) del país cuantas veces lo requiera, solo(s) y/o en compañía de su señor padre, XXXX</textarea>
                     </div>
                 </div>
             </div>
@@ -78,8 +87,9 @@ if (empty($last)) {
                     <a href="#" onclick="addPoderdante();" class="btn btn-success">Agregar poderdante</a>
                 </div>
             </div>
-            <hr />
+
             <div id="apoderado" class="">
+                <hr />
                 <div class="col-md-12">
                     <a href="#" onclick="addApoderado();" class="btn btn-success">Agregar apoderado</a>
                 </div>
@@ -184,6 +194,28 @@ $(document).ready(function() {
     //     // Volvemos a cargar todo los plugins que teníamos, dentro de esta función esta el del datepicker assets/js/ini.js
     //     //Plugins();
     // });
+    $("#otorgotipo").change(function() {
+        var flag = "";
+        $("#otorgotipo option:selected").each(function() {
+            flag = $(this).val();
+        });
+        switch (flag) {
+            case "Salida del pais":
+                $('#otorgoobservation_div').show();
+                $('#apoderado').hide();
+
+                break;
+            case "Poder general":
+                $('#otorgoobservation_div').hide();
+                $('#apoderado').show();
+                break;
+            case "Poder especial":
+                $('#otorgoobservation_div').hide();
+                $('#apoderado').show();
+                break;
+        }
+    }).trigger("change");
+
     $("#notario_id").change(function() {
         var flag = 0;
         $("#notario_id option:selected").each(function() {
@@ -253,8 +285,8 @@ function addPoderdante() {
         '<option value="NIT."> NIT.</option >' +
         '<option value="C.E."> C.E.</option >' +
         '<option value="P.P."> Pasaporte</option>' +
-        '</select></div></div><div class="col-md-2"><div class="form-group"><label for="poderdanteidentification[]" class="bmd-label-floating">Indentificacion poderdante</label>' +
-        '<input type="number" class="form-control" name="poderdanteidentification[]" value="" required />' +
+        '</select></div></div><div class="col-md-2"><div class="form-group"><label for="poderdanteidentification[]" class="bmd-label-floating">Identificacion poderdante</label>' +
+        '<input type="text" class="form-control" name="poderdanteidentification[]" value="" required />' +
         '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdanteidentificationexpedida[]" class="bmd-label-floating">Expedida ident. poderdante</label>' +
         '<input type="text" class="form-control" id="" name="poderdanteidentificationexpedida[]" value="" autocomplete="off" required />' +
         '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdantename[]" class="bmd-label-floating">Nombre poderdante</label>' +
@@ -279,8 +311,8 @@ function addApoderado() {
         '<option value="NIT."> NIT.</option >' +
         '<option value="C.E."> C.E.</option >' +
         '<option value="P.P."> Pasaporte</option>' +
-        '</select></div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoidentification[]" class="bmd-label-floating">Indentificacion apoderado</label>' +
-        '<input type="number" class="form-control" name="apoderadoidentification[]" value="" required />' +
+        '</select></div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoidentification[]" class="bmd-label-floating">Identificacion apoderado</label>' +
+        '<input type="text" class="form-control" name="apoderadoidentification[]" value="" required />' +
         '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoidentificationexpedida[]" class="bmd-label-floating">Expedida ident. apoderado</label>' +
         '<input type="text" class="form-control" id="" name="apoderadoidentificationexpedida[]" value="" autocomplete="off" required />' +
         '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoname[]" class="bmd-label-floating">Nombre apoderado</label>' +

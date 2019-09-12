@@ -19,6 +19,7 @@ class VigenciasData
         $this->poderdante_ids = "";
         $this->apoderados_ids = "";
         $this->otorgotipo = "";
+        $this->otorgoobservation = "";
         $this->solicitante = "";
         $this->observation = "";
         $this->dateresolucionnotario = "";
@@ -28,25 +29,15 @@ class VigenciasData
         $this->created_at = Util::getDatetimeNow();
     }
 
-
-    // public function add()
-    // {
-    //     $sql = "INSERT INTO  ".self::$tablename. " (consecutivo,nroescriturapublica,dateescritura,poderdantecc,poderdantename,poderdanteccexpedida,  apoderadocc, apoderadoname, apoderadoccexpedida, otorgotipo, solicitante, observation,notario_id, user_id, created_at ) VALUES ";
-    //     $sql .= "(\"$this->consecutivo\",\"$this->nroescriturapublica\",\"$this->dateescritura\",\"$this->poderdantecc\",\"$this->poderdantename\",\"$this->poderdanteccexpedida\",\"$this->apoderadocc\",\"$this->apoderadoname\",\"$this->apoderadoccexpedida\",\"$this->otorgotipo\",\"$this->solicitante\",\"$this->observation\",\"$this->notario_id\",$this->user_id,\"$this->created_at\" )";
-    //     echo $sql;
-    //     Executor::doit($sql);
-    // }
-
-
     public function add()
     {
-        $sql = "INSERT INTO  ".self::$tablename. " (consecutivo,nroescriturapublica,dateescritura,poderdante_ids,apoderado_ids, otorgotipo, solicitante, observation,notario_id,resolucionnotario,dateresolucionnotario, user_id, created_at ) VALUES ";
-        $sql .= "(\"$this->consecutivo\",\"$this->nroescriturapublica\",\"$this->dateescritura\",\"$this->poderdante_ids\",\"$this->apoderado_ids\",\"$this->otorgotipo\",\"$this->solicitante\",\"$this->observation\",\"$this->notario_id\",\"$this->resolucionnotario\",\"$this->dateresolucionnotario\",$this->user_id,\"$this->created_at\" )";
+        $sql = "INSERT INTO  ".self::$tablename. " (consecutivo,nroescriturapublica,dateescritura,poderdante_ids,apoderado_ids, otorgotipo, otorgoobservation, solicitante, observation,notario_id,resolucionnotario,dateresolucionnotario, user_id, created_at ) VALUES ";
+        $sql .= "(\"$this->consecutivo\",\"$this->nroescriturapublica\",\"$this->dateescritura\",\"$this->poderdante_ids\",\"$this->apoderado_ids\",\"$this->otorgotipo\",\"$this->otorgoobservation\",\"$this->solicitante\",\"$this->observation\",\"$this->notario_id\",\"$this->resolucionnotario\",\"$this->dateresolucionnotario\",$this->user_id,\"$this->created_at\" )";
         Executor::doit($sql);
     }
     public function update()
     {
-        $sql= "UPDATE ".self::$tablename." SET consecutivo=\"$this->consecutivo\",poderdante_ids=\"$this->poderdante_ids\",apoderado_ids=\"$this->apoderado_ids\",nroescriturapublica=\"$this->nroescriturapublica\", dateescritura=\"$this->dateescritura\",observation=\"$this->observation\",solicitante=\"$this->solicitante\", otorgotipo=\"$this->otorgotipo\", notario_id=\"$this->notario_id\",resolucionnotario=\"$this->resolucionnotario\",dateresolucionnotario=\"$this->dateresolucionnotario\", user_id=\"$this->user_id\" WHERE id=$this->id ";
+        $sql= "UPDATE ".self::$tablename." SET consecutivo=\"$this->consecutivo\",poderdante_ids=\"$this->poderdante_ids\",apoderado_ids=\"$this->apoderado_ids\",nroescriturapublica=\"$this->nroescriturapublica\", dateescritura=\"$this->dateescritura\",observation=\"$this->observation\",solicitante=\"$this->solicitante\", otorgotipo=\"$this->otorgotipo\",otorgoobservation=\"$this->otorgoobservation\", notario_id=\"$this->notario_id\",resolucionnotario=\"$this->resolucionnotario\",dateresolucionnotario=\"$this->dateresolucionnotario\", user_id=\"$this->user_id\" WHERE id=$this->id ";
         Executor::doit($sql);
     }
     public function upload()

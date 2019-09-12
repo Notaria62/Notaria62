@@ -25,7 +25,7 @@ class ClientesignoData
     {
         $sql = "insert into ".self::$tablename." (typeidentification,identification,identificationexpedida,name,lastname,email,status) ";
         $sql .= "value (\"$this->typeindentification\",\"$this->identification\",\"$this->identificationexpedida\",\"$this->name\",\"$this->lastname\",\"$this->email\",\"$this->status\")";
-        echo $sql;
+        //echo $sql;
         Executor::doit($sql);
     }
 
