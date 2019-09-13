@@ -5,11 +5,10 @@ if (count($_POST)>0) {
     $cc->nroescriturapublica = $_POST["nroescriturapublica"];
     $cc->radicado = $_POST["radicado"];
     $cc->tipo = $_POST["tipo"];
-
     $cc->consecutivo = $_POST["consecutivo"];
     $cc->user_id=Session::getUID();
     $flag = ConsecutivosDeRemisionesData::getByConsecutivo($_POST["nroescriturapublica"], date("Y"), $_POST["consecutivo"]);
-    if (count($flag)<=0) {
+    if (empty($flag)) {
         $cc->add();
         Session::msg("s", "Agregado satisfactoriamente.");
 

@@ -13,13 +13,13 @@ $codeApproval = "";
 if (count($_POST)>0) {
     $flag =ChecklistsanswerBCSData::getByNroRadicado($_POST["numradicado"]);
 
-    if (count($flag)>0) {
+    if (!empty($flag)) {
         Session::msg("w", "El número de radico ". $_POST["numradicado"]." ya ha sido creado.");
         Core::redir("./?view=newchecklistbcs");
     } else {
         if ($_POST["numanotacioncoordinador"] == $_POST["numanotacionrevisor"] && $_POST["numanotacioncoordinador"] !="0") {
             $result = ChecklistsanswerBCSData::getByLastApprovalCode(date("Y"));
-            if (count($result)<=0) {
+            if (empty($result)) {
                 $cons = date("Y").Util::zero_fill(1, 4);
             } else {
                 foreach ($result as $value) {
