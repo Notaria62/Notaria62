@@ -14,7 +14,7 @@ $numShow = count($benefiCreated);
 $count=0;
 
 if (isset($_POST['view'])) {
-    if (count($benefiCreated)>0) {
+    if (!empty($benefiCreated)) {
         # code...
         $ar = array();
         $count= BeneficenciaData::getAllStatusDelivered();

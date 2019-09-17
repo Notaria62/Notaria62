@@ -56,7 +56,6 @@ class Model
             $found = $data;
             break;
         }
-        
         return $found;
     }
 }

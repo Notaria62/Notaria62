@@ -124,7 +124,6 @@ $(document).ready(function() {
         "processing": true,
         "ajax": {
             "url": $url,
-            \
             "dataSrc": "",
             "type": "GET"
         },
@@ -236,7 +235,7 @@ $(document).ready(function() {
 
     setInterval(function() {
         load_unseen_notification();
-    }, 30000);
+    }, 90000);
 
     function push($v1, $v2) {
         var notification = null;
@@ -249,7 +248,7 @@ $(document).ready(function() {
             notification = new Notification($v1, {
                 body: $v2,
                 dir: 'auto',
-                icon: 'themes/notaria62web/img/logonotaria62.jpg'
+                icon: 'themes/notaria62web/img/logo.png'
             });
 
         } else if (Notification.permission !== 'denied') {
@@ -260,13 +259,14 @@ $(document).ready(function() {
                         notification = new Notification($v1, {
                             body: $v2,
                             dir: 'auto',
-                            icon: 'themes/notaria62web/img/logonotaria62.jpg'
+                            icon: 'themes/notaria62web/img/logo.png'
                         });
                     }
                 });
         }
         notification.onclick = function(event) {
-            event.preventDefault(); // Previene al buscador de mover el foco a la pestaña del Notification
+            event
+                .preventDefault(); // Previene al buscador de mover el foco a la pestaña del Notification
             location.href = "./?view=beneficencia";
         }
 

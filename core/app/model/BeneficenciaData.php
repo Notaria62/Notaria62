@@ -78,7 +78,7 @@ class BeneficenciaData
     }
     public static function getAllNotDelivered()
     {
-        $sql = "select * from ".self::$tablename. " WHERE is_delivered = 0 ";
+        $sql = "select * from ".self::$tablename. " WHERE is_delivered=0;";
         $query = Executor::doit($sql);
         return Model::many($query[0], new BeneficenciaData());
     }

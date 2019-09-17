@@ -12,15 +12,15 @@ $count = count($_POST['qid']);
 $codeAproval = "";
 if ($count>0) {
     foreach ($_POST['qid'] as $key => $value) {
-        if (($_POST['question'.$value.'_answer'] == 1) || ($_POST['question'.$value.'_answer'] == 2)) {
-            # code...
-            $counter++;
-        }
-        if ($counter == $count) {
-            # code...
-            $codeApproval=NumeroALetras::generarCodigo(10);
-        } else {
-            $codeApproval = "";
+        if (isset($_POST['question'.$value.'_answer'])) {
+            if (($_POST['question'.$value.'_answer'] == 1) || ($_POST['question'.$value.'_answer'] == 2)) {
+                $counter++;
+            }
+            if ($counter == $count) {
+                $codeApproval=NumeroALetras::generarCodigo(10);
+            } else {
+                $codeApproval = "";
+            }
         }
     }
     //echo "El codigo de aprobacion es: ". $codeApproval;
@@ -28,7 +28,7 @@ if ($count>0) {
         $ca = new ChecklistsanswerData();
         $ca->numeroescriturapublica = $_POST['numeroescriturapublica'];
         $ca->observation =isset($_POST["observation"]) ? $_POST["observation"] : "";
-        $ca->answer= $_POST['question'.$value.'_answer'];
+        $ca->answer= isset($_POST['question'.$value.'_answer']) ? $_POST['question'.$value.'_answer'] : "0";
         $ca->checklistsquestions_id = $value;
         $ca->user_id= Session::getUID();
         $ca->ep_anho = $_POST['ep_anho'];
