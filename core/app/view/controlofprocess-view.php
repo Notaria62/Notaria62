@@ -35,9 +35,14 @@ if (isset($_GET["start_at"])) {
             <!-- Session comments -->
             <?= Util::display_msg(Session::$msg);?>
             <!-- End session comments-->
-            < <a href="./?view=newcontrolofprocess" class="btn btn-default">
+            <?php
+            $us = UserData::getById(Session::getUID());
+
+            if ($us->user_level == 1 || $us->user_level == 20):?>
+            <a href="./?view=newcontrolofprocess" class="btn btn-default">
                 <i class="material-icons">add</i> Nuevo control proceso
-                </a>
+            </a>
+            <?php endif;?>
         </div>
         <hr />
         <form class="form-horizontal" role="form">

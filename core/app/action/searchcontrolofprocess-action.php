@@ -95,8 +95,8 @@ if (empty($checkanswers)) {
     <div class="form-group">
         <div class="col-lg-offset-2 col-lg-10">
             <input type="hidden" name="numeroescriturapublica" id="numeroescriturapublica"
-                value="<?php echo $_GET['numeroescriturapublica']; ?>" />
-            <input type="hidden" name="checklists_id" id="checklists_id" value="<?php echo $_GET['ddllists']; ?>" />
+                value="<?= $_GET['numeroescriturapublica']; ?>" />
+            <input type="hidden" name="checklists_id" id="checklists_id" value="<?=$_GET['ddllists']; ?>" />
             <input type="hidden" name="client_id" id="client_id" value="<?php echo $_GET['ddlabogado']; ?>" />
             <input type="hidden" name="observation" id="observation" value="<?php echo $_GET['observation']; ?>" />
             <input type="hidden" name="ep_anho" id="ep_anho" value="<?php echo $_GET['ep_anho']; ?>" />

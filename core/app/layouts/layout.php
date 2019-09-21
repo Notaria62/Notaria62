@@ -172,17 +172,17 @@ if (isset($_GET['view'])) {
                 <?php if (count($categories) > 0) : ?>
                 <ul class="nav">
                     <?php foreach ($categories as $cat) :
-                                $view_id = CategoryMenuData::isUserGroupCategoryMenu($cat->id, $user->user_level);
-                                if ($user->user_level == $view_id) : ?>
+                        $view_id = CategoryMenuData::isUserGroupCategoryMenu($cat->id, $user->user_level);
+                        if ($user->user_level == $view_id) : ?>
                     <li class="nav-item ">
                         <a class="nav-link" data-toggle="collapse" href="#<?= $cat->id; ?>">
                             <i class="material-icons"><?= $cat->icon; ?></i>
-                            <p><?= $cat->name; ?>
+                            <p><?=$cat->name; ?>
                                 <b class="caret"></b>
                             </p>
                         </a>
                         <?php
-                                        CategoryMenuData::list_tree_cat_id_user($cat->id); ?>
+                            CategoryMenuData::list_tree_cat_id_user($cat->id); ?>
                         <?php endif;
                             endforeach; ?>
                     </li>
