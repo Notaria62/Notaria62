@@ -16,10 +16,6 @@ class Database
         $con = new mysqli($this->host, $this->user, $this->pass, $this->ddbb) or die('MySQL connect failed: llamar administrador: ' . mysqli_connect_error());
         return $con;
     }
-    public function __destruct()
-    {
-        //mysql_close(self::$con);
-    }
 
     public static function getCon()
     {

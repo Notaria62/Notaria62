@@ -2,7 +2,7 @@
 Session::currentURL();
 
 $numtoword = "";
-$peso= $_POST["numtoword"];
+$peso= isset($_POST["numtoword"])?$_POST["numtoword"]:"";
 if (isset($_POST["numtoword"]) && $_POST["numtoword"]!="") {
     $numtoword = mb_strtoupper(CifrasEnLetras::convertirPesosEnLetras($_POST["numtoword"], 0));
 }
@@ -40,8 +40,7 @@ if (isset($_POST["numtoword"]) && $_POST["numtoword"]!="") {
         <hr />
         <div class="row">
             <div class="col-md-12">
-                <h2><?php
-                echo $numtoword;?>
+                <h2><?= $numtoword;?>
                 </h2>
                 <h5><?="Pesos a convertir: ".$peso?>
                 </h5>

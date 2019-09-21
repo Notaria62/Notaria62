@@ -21,6 +21,7 @@ if (Session::getUID()=="") {
         $userid = $r['id'];
         $name = $r['name'];
     }
+    $con->close();
     if ($found==true) {
         //	print $userid;
         $_SESSION['user_id']=$userid ;

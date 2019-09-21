@@ -41,13 +41,13 @@ if (empty($checkanswers)) {
     $today = new DateTime(NumeroALetras::getDatetimeNow());
     $diff =$created_at->diff($today);
     $num_input = $value->num_input; ?>
-                <tr data-background-color-approval="<?php echo ($diff->days <= 30) ? "approval" : ""; ?>">
+                <tr data-background-color-approval="<?=($diff->days <= 30) ? "approval" : ""; ?>">
                     <td>
-                        <?php echo $display_number; ?>.
-                        <?php echo $question1; ?>.
+                        <?=$display_number; ?>.
+                        <?= $question1; ?>.
                         <?php if (!empty($description) || (!empty($linkpdf))) :  ?>
-                        <a href="" data-toggle="modal" data-target="#myModal-<?php echo $checklistsquestions_id; ?>"
-                            title="<?php echo $description; ?>" class="btn-simple btn btn-danger btn-xs">
+                        <a href="" data-toggle="modal" data-target="#myModal-<?=$checklistsquestions_id; ?>"
+                            title="<?=$description; ?>" class="btn-simple btn btn-danger btn-xs">
                             Ver m&aacute;s
                             <i class="material-icons">visibility</i>
                         </a>
@@ -65,7 +65,7 @@ if (empty($checkanswers)) {
                                     <div class="modal-body">
                                         <?php echo $description; ?>
                                         <?php if (!empty($linkpdf)): ?>
-                                        <object width="100%" height="350px" data="<?php echo $linkpdf; ?>#zoom=85"
+                                        <object width="100%" height="350px" data="<?=$linkpdf; ?>#zoom=85"
                                             type="application/pdf" trusted="yes" application="yes"></object>
                                         <?php endif?>
                                     </div>

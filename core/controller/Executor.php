@@ -2,6 +2,7 @@
 
 class Executor
 {
+    //private string $con;
     public static function doit($sql)
     {
         $con = Database::getCon();

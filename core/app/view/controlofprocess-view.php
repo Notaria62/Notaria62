@@ -35,9 +35,9 @@ if (isset($_GET["start_at"])) {
             <!-- Session comments -->
             <?= Util::display_msg(Session::$msg);?>
             <!-- End session comments-->
-            <a href="./?view=newcontrolofprocess" class="btn btn-default">
+            < <a href="./?view=newcontrolofprocess" class="btn btn-default">
                 <i class="material-icons">add</i> Nuevo control proceso
-            </a>
+                </a>
         </div>
         <hr />
         <form class="form-horizontal" role="form">
