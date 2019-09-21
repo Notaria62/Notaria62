@@ -40,8 +40,8 @@ $display_number = 1;
     <thead class="report-header">
         <tr>
             <th>Pregunta</th>
-            <th>Si</th>
-            <th>No</th>
+            <th>Opciones</th>
+            <!-- <th>No</th> -->
         </tr>
     </thead>
     <?php foreach ($answers as $key => $value) {
@@ -49,21 +49,29 @@ $display_number = 1;
     $cla_id=$value->cla_id;
     $question1 = $question->question;
     $description = $question->description;
+    $q_format= $question->q_format;
+    $num_input = $question->num_input;
     $checklistsquestions_id = $question->id; ?>
     <tr>
         <td>
             <?php echo $display_number; ?>. <?php echo $question1; ?>.
             <input type="hidden" name="aid[]" id="aid[]" value='<?php echo $cla_id; ?>'>
         </td>
-        <td class="col-md-1">
-            <label><input readonly type="radio" name="question<?php echo $cla_id; ?>_answer" value="1" <?php if ($value->respuesta== "1") {
+
+        <td class="col-md-3">
+            <?php
+                            if ($q_format=="radio") :
+                               echo Util::generateRadioButtons("question".$cla_id ."_answer", $num_input, true, $value->respuesta, "disabled");
+    endif; ?>
+            <!-- <td class="col-md-1">
+            <label><input readonly type="radio" name="question< echo $cla_id; ?>_answer" value="1" <if ($value->respuesta== "1") {
         echo "checked";
     } ?> required></label>
         </td>
         <td class="col-md-1">
-            <label><input readonly type="radio" name="question<?php echo $cla_id; ?>_answer" value="0" <?php if ($value->respuesta== "0") {
+            <label><input readonly type="radio" name="question< echo $cla_id; ?>_answer" value="0" < if ($value->respuesta== "0") {
         echo "checked";
-    } ?>></label>
+    } ?>></label> -->
         </td>
     </tr>
     <?php $display_number++;

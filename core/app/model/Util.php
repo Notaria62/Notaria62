@@ -72,7 +72,7 @@ class Util
         $val = ucfirst($val);
         return $val;
     }
-    public static function generateRadioButtons($name, $values = 5, $flag = false, $valueA = "")
+    public static function generateRadioButtons($name, $values = 5, $flag = false, $valueA = "", $readOnly = "")
     {
         $i = $flag == true ? 0 : 1;
         $values = $flag == true ? $values - 1 : $values;
@@ -102,7 +102,7 @@ class Util
             }
             $selected = ($valueA === "$v") ? ' checked="checked"': '' ;
             //echo "Valor:".$valueA." Selection:".$selected." foreach:$v";
-            $o .= '<input type="radio" class="" id="' . $name . '" name="' . $name . '" value="' . $v . '"' . $selected . '> ' . $b . "\n";
+            $o .= '<input type="radio" class="" id="' . $name . '" name="' . $name . '" value="' . $v . '"' . $selected . ' '.$readOnly.'> ' . $b . "\n";
         }
         $o .= '</label>' . "\n";
         return $o;
