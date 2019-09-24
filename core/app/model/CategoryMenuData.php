@@ -17,7 +17,7 @@ class CategoryMenuData
         $this->icon = "";
         $this->url = "";
         $this->category_id = "";
-        $this->created_at = "NOW()";
+        $this->created_at = Util::getDatetimeNow();
     }
 
     public static function get_base_categories()

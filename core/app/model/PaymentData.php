@@ -25,6 +25,7 @@ class PaymentData
         $sql = "delete from ".self::$tablename." where id=$id";
         Executor::doit($sql);
     }
+    
     public function del()
     {
         $sql = "delete from ".self::$tablename." where id=$this->id";

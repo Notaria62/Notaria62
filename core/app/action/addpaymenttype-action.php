@@ -10,7 +10,8 @@ if (count($_POST) > 0) {
     $b->status =  isset($_POST["status"]) ? $_POST["status"] : "1";
     $b->created_at = isset($_POST["created_at"]) ? $_POST["created_at"] : "0000-00-00 00:00:00";
     $b->user_id = Session::getUID();
+    
     $b->add();
     Session::msg("s", "Agregado correctamente.");
-    //Core::redir("./?view=beneficencia");
+    //Core::redir("./?view=");
 }

@@ -241,13 +241,13 @@ if (isset($_GET['id'])) {
 </div>
 
 
-<script type="text/javascript" language="javascript">
+<script type="text/javascript">
 $(document).ready(function() {
     fetch_data();
 
     function fetch_data() {
         var $url = "./?action=searchpaymenttype&idcr=" +
-            "<?=$id_cashregister ?>";
+            "<?=$id_cashregister; ?>";
         var dataTable = $('#user_data').DataTable({
             "processing": true,
             "serverSide": true,
@@ -328,7 +328,7 @@ $(document).ready(function() {
         if (tipo != '' && id_tipo != '') {
             $.ajax({
                 url: $url,
-                method: "GET",
+                method: "POST",
                 data: {
                     tipo: tipo,
                     id_tipo: id_tipo,

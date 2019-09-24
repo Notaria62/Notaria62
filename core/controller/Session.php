@@ -95,13 +95,19 @@ class Session
         $ugcm = Util::getUrlGropus($user->user_level);
         $flag = false;
         foreach ($ugcm as $value) {
-            //echo $value->url;
             $urlDB= substr($value->url, 1);
-            if (false !== strpos($uri, $urlDB)) {
-                //echo " -".$urlDB."- ";
-                //echo ' #Acepted# ';
-                $flag = true;
+            //echo "URI: $uri, URLDB: $urlDB<br>";
+            //code...
+            // if (false !== strpos($uri, $urlDB)) {
+            //     $flag = true;
+            //     break;
+            // }
+            if ($uri == $urlDB) {
+                # code...
+                $flag =true;
                 break;
+            } else {
+                # code...
             }
         }
         if (false === strpos($uri, '/?view=home')) {

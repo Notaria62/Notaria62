@@ -29,6 +29,7 @@ class PaymentTypeData
         Executor::doit($sql);
     }
 
+    
     public function updateDelivered()
     {
         $this->finished_at = self::getDatetimeNow();
