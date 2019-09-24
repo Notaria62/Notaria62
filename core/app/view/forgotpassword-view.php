@@ -21,15 +21,11 @@ if (Session::getUID() != "") {
             <div class="input-group justify-content-center">
                 <img src="themes/notaria62web/img/logo.png" alt="Notaria 62" height="40" width="40" />
             </div>
-
         </div>
 
         <i id="previousButton" class="material-icons">arrow_back</i>
-
         <i id="forwardButton" class="material-icons">arrow_right</i>
-
         <div id="inputContainer" class="form-group">
-
             <label id="inputLabel" class="bmd-label-floating"></label>
             <input id="inputField" required multiple class="form-control">
 
@@ -190,7 +186,8 @@ $(document).ready(function() {
                         });
                     }
 
-                    if (position == 2 && questions[0].answer != "" && questions[1].answer != "") {
+                    if (position == 2 && questions[0].answer != "" && questions[1].answer !=
+                        "") {
                         var inputF1 = questions[0].answer;
                         var inputF2 = questions[1].answer;
                         $.post("./?action=searchforgotpassword", {
@@ -211,7 +208,8 @@ $(document).ready(function() {
                     }
                 } else hideCurrent(function() {
                     // alert("nect3");
-                    if (position == 3 && questions[0].answer != "" && questions[1].answer !=
+                    if (position == 3 && questions[0].answer != "" && questions[1]
+                        .answer !=
                         "" &&
                         questions[2].answer != "") {
                         var inputF1 = questions[0].answer;

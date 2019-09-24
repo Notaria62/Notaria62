@@ -14,7 +14,7 @@ if (count($_POST) > 0) {
     if ($_POST['value1'] != "" and $_POST['value2'] != "" and $_POST['value3'] != ""  and $_POST['getBy'] == "password") {
         # code...
         $result = UserData::getByccAndEmail($_POST['value1'], $_POST['value2']);
-        if (count($result)) {
+        if (!empty($result)) {
             $userId = $result->id;
             $result->password = sha1(md5($_POST["value3"]));
             $result->update_passwd();
@@ -28,7 +28,7 @@ if (count($_POST) > 0) {
         if ($_POST['value1'] != "" and $_POST['value2'] != "" and $_POST['getBy'] == "email") {
             # code...
             $result = UserData::getByccAndEmail($_POST['value1'], $_POST['value2']);
-            if (count($result)) {
+            if (!empty($result)) {
                 $userId = $result->id;
                 $flag = "ok";
             } else {
@@ -38,7 +38,7 @@ if (count($_POST) > 0) {
             if ($_POST['value1'] != "" and $_POST['getBy'] == "cc") {
                 # code...
                 $result = UserData::getBycc($_POST['value1']);
-                if (count($result)) {
+                if (!empty($result)) {
                     $flag = "ok";
                 } else {
                     $flag = "empty";

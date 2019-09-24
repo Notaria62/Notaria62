@@ -149,7 +149,7 @@ class CategoryMenuData
                         $selected= "selected";
                     }
                     echo "<option value=\"$s->id\" $selected>".str_repeat("-", $level)."$s->name </option>";
-                    self::selected_tree_cat_id($s->id, $level+1, $curr_id, $selected_id);
+                    $this->selected_tree_cat_id($s->id, $level+1, $curr_id, $selected_id);
                 }
             }
         }
