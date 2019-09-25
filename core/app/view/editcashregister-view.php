@@ -58,7 +58,7 @@ if (isset($_GET['id'])) {
         <form class="form-horizontal" role="form" method="post" action="./?action=updatecashregister"
             id="updatecashregister">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-1">
                     <div class="form-group">
                         <label for="radicado" class="bmd-label-floating">Cuadre diario nro.</label>
                         <input type="text" class="form-control" id="radicado" name="radicado" required

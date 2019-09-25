@@ -5,7 +5,7 @@ if (isset($_GET["start_at"])) {
     $start_at = date('Y\-m\-d\ H:i');
 }
 
-
+ 
 
 $result = CashRegisterData::getByLastRadicado(date("Y"));
 $b = new CashRegisterData();
@@ -73,92 +73,132 @@ if (isset($_GET['idcr'])) {
             <?= Util::display_msg(Session::$msg); ?>
             <!-- End session comments-->
         </div>
-
-        <div class="row">
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label for="radicado" class="bmd-label-floating">Cuadre diario nro.</label>
-                    <input type="text" class="form-control" id="radicado" name="radicado" required
-                        value="<?= $const ?>" />
+        <form class="form-horizontal" role="form" method="post" action="./?action=updatecashregister"
+            id="updatecashregister">
+            <div class="row">
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label for="radicado" class="bmd-label-floating">Cuadre diario nro.</label>
+                        <input type="text" class="form-control" id="radicado" name="radicado" required
+                            value="<?= $const ?>" />
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group bmd-form-group has-success">
-                    <label for="created_at" class="bmd-label-floating">
-                        Fecha inicio</label>
-                    <input type="text" name="created_at" id="created_at" class="form-control datepicker-here"
-                        data-timepicker="true" data-date-format="yyyy-mm-dd" data-time-format="hh:ii" placeholder=""
-                        value="<?= $start_at ?>">
-                    <span class="form-control-feedback">
-                        <i class="material-icons">calendar_today</i>
-                    </span>
+                <div class="col-md-2">
+                    <div class="form-group bmd-form-group has-success">
+                        <label for="created_at" class="bmd-label-floating">
+                            Fecha inicio</label>
+                        <input type="text" name="created_at" id="created_at" class="form-control datepicker-here"
+                            data-timepicker="true" data-date-format="yyyy-mm-dd" data-time-format="hh:ii" placeholder=""
+                            value="<?= $start_at ?>">
+                        <span class="form-control-feedback">
+                            <i class="material-icons">calendar_today</i>
+                        </span>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label for="cuentaanticipos" class="bmd-label-floating">Cuenta anticipos</label>
-                    <input type="text" class="form-control" id="cuentaanticipos" name="cuentaanticipos" required />
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="cuentaanticipos" class="bmd-label-floating">Cuenta anticipos (SIGNO 1837)</label>
+                        <input type="text" class="form-control" id="cuentaanticipos" name="cuentaanticipos" required />
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label for="cuentanotaria" class="bmd-label-floating">Cuenta notaria</label>
-                    <input type="text" class="form-control" id="cuentanotaria" name="cuentanotaria" required />
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="cuentanotaria" class="bmd-label-floating">Cuenta notaria (SIGNO 1837)</label>
+                        <input type="text" class="form-control" id="cuentanotaria" name="cuentanotaria" required />
+                    </div>
                 </div>
-            </div>
-
-            <div class="col-md-2">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="cuentaunicanotarial" class="bmd-label-floating">Cuenta unica notarial
+                            (SIGNO 1938)</label>
+                        <input type="text" class="form-control" id="cuentaunicanotarial" name="cuentaunicanotarial"
+                            required />
+                    </div>
+                </div>
+                <!-- <div class="col-md-2">
                 <div class="form-group">
                     <label for="diferencias" class="bmd-label-floating">Diferencia</label>
                     <input type="text" class="form-control" id="diferencias" name="diferencias" required />
                 </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label for="totalpagos" class="bmd-label-floating">Total pagos</label>
-                    <input type="text" class="form-control" id="totalpagos" name="totalpagos" required />
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label for="cuentaunicanotarial" class="bmd-label-floating">Cuenta unica notarial</label>
-                    <input type="text" class="form-control" id="cuentaunicanotarial" name="cuentaunicanotarial"
-                        required />
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="table-responsive">
-                    <div align="right">
-                        <button type="button" name="add" id="add" class="btn btn-info">Add</button>
+            </div> -->
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="totalpagos" class="bmd-label-floating">Total pagos</label>
+                        <input type="text" class="form-control" id="totalpagos" name="totalpagos" required />
                     </div>
-                    <br />
-                    <div id="alert_message"></div>
-                    <table id="user_data" class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>Cuenta bancaria</th>
-                                <th>Tipo de trans.</th>
-                                <th>Número (Voucher o cheque)</th>
-                                <th class="sum">Monto</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th colspan="4" style="text-align:right">Total:</th>
-                                <th></th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="cajaauxuliar" class="bmd-label-floating">Cajero auxiliar</label>
+                        <input type="text" class="form-control target txtMounts" id="cajaauxuliar" name="cajaauxuliar"
+                            value="<?= $cajaauxuliar ?>" required />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="cajaprincipal" class="bmd-label-floating">Cajero principal</label>
+                        <input type="text" class="form-control target" id="cajaprincipal" name="cajaprincipal" value="0"
+                            required />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="caja1erpiso" class="bmd-label-floating">Caja 1er primer</label>
+                        <input type="text" class="form-control target" id="caja1erpiso" name="caja1erpiso" value="0"
+                            required />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" id="id_cashregister" name="id_cashregister"
+                            value="<?= $id_cashregister; ?>" />
+                        <button type="submit" name="btnupdatecashregister" id="btnupdatecashregister"
+                            class="btn btn-success btn-xs">Actualizar</button>
+                        <a href="./?view=cashregister" class="btn btn-default">Volver</a>
+                    </div>
                 </div>
             </div>
-
-
-
-
-            <input type="hidden" class="form-control" id="id_cashregister" name="id_cashregister"
-                value="<?= $id_cashregister; ?>" />
+        </form>
+        <div class="col-md-12">
+            <div style="display:block;" id="efectivosobrante">0</div>
+            <input type="hidden" class="form-control" id="totalMountAccountCash" name="totalMountAccountCash"
+                value="0" />
+            <input type="hidden" class="form-control" id="totalMountCash" name="totalMountCash" value="0" />
+            <button type="button" name="btncalculator" id="btncalculator"
+                class="btn btn-success btn-xs">Calcular</button>
         </div>
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <div align="right">
+                    <button type="button" name="add" id="add" class="btn btn-info">Add</button>
+                </div>
+                <br />
+                <div id="alert_message"></div>
+                <table id="user_data" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Cuenta bancaria</th>
+                            <th>Tipo de trans.</th>
+                            <th>Número (Voucher o cheque)</th>
+                            <th class="sum">Monto</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th colspan="4" style="text-align:right">Total:</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+
+
+
+        <input type="hidden" class="form-control" id="id_cashregister" name="id_cashregister"
+            value="<?= $id_cashregister; ?>" />
     </div>
 </div>
 <!-- Modal -->
