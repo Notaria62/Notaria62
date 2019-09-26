@@ -1,8 +1,4 @@
-<?php
-
-
-
-?>
+<?php ?>
 <div class="card">
     <div class="card-header card-header-primary">
         <h4 class="card-title">Bienvenidos a su sistema Administrador De Contenidos <i

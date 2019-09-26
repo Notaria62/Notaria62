@@ -1,9 +1,9 @@
 <?php
 
 
-if (count($_POST)>0) {
+if (count($_POST) > 0) {
     $c = VigenciasData::getById($_POST["id"]);
-    $c->consecutivo = $_POST["consecutivo"]!="" ? $_POST["consecutivo"] : "0";
+    $c->consecutivo = $_POST["consecutivo"] != "" ? $_POST["consecutivo"] : "0";
     $c->nroescriturapublica = $_POST["nroescriturapublica"];
     $c->dateescritura = $_POST["dateescritura"];
     $c->otorgotipo = $_POST["otorgotipo"];
@@ -12,6 +12,7 @@ if (count($_POST)>0) {
     } else {
         $c->otorgoobservation = "";
     }
+    $poderdante_ids = "";
     for ($i = 0; $i < count($_POST['poderdantetypeidentification']); $i++) {
         $clientp = new ClientesignoData();
         $clientp->typeindentification = $_POST['poderdantetypeidentification'][$i];
@@ -27,7 +28,7 @@ if (count($_POST)>0) {
             //throw $th;
         } finally {
             $ids_p = ClientesignoData::getByIndentification($_POST['poderdanteidentification'][$i]);
-            $poderdante_ids .=$ids_p->id."-";
+            $poderdante_ids .= $ids_p->id . "-";
         }
     }
     $apoderado_ids = "";
@@ -44,28 +45,28 @@ if (count($_POST)>0) {
             try {
                 $clientap->add();
             } catch (\Throwable $th) {
-                $apoderado_ids .=$ids->id."-";
+                $apoderado_ids .= $ids->id . "-";
             } finally {
                 $ids_ap = ClientesignoData::getByIndentification($_POST['apoderadoidentification'][$j]);
-                $apoderado_ids .=$ids_ap->id."-";
+                $apoderado_ids .= $ids_ap->id . "-";
             }
         }
     }
     $poderdante_ids = substr_replace($poderdante_ids, "", -1);
     $apoderado_ids = substr_replace($apoderado_ids, "", -1);
-    $c->apoderado_ids = ($apoderado_ids!="") ? $apoderado_ids : "1";
-    $c->poderdante_ids = ($poderdante_ids!="") ? $poderdante_ids : "1";
+    $c->apoderado_ids = ($apoderado_ids != "") ? $apoderado_ids : "1";
+    $c->poderdante_ids = ($poderdante_ids != "") ? $poderdante_ids : "1";
 
 
     $c->solicitante = $_POST["solicitante"];
-    $c->observation=$_POST["observation"];
+    $c->observation = $_POST["observation"];
     $c->notario_id =  $_POST["notario_id"];
     $c->resolucionnotario =  $_POST["resolucionnotario"];
     $c->dateresolucionnotario =  $_POST["dateresolucionnotario"];
-    $c->user_id=Session::getUID();
+    $c->user_id = Session::getUID();
     $c->update();
 
-    Session::msg("s", "Actualizado correctamente. La vigencia de la E.P.: ".$_POST["nroescriturapublica"]);
+    Session::msg("s", "Actualizado correctamente. La vigencia de la E.P.: " . $_POST["nroescriturapublica"]);
     Core::redir("./?view=protocolovigencias");
 } else {
     pCore::redir("./?view=protocolovigencias");
