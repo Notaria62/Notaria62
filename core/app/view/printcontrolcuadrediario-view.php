@@ -26,7 +26,6 @@ if (isset($_GET['id'])) {
     $cajaprincipal = $cr->cajaprincipal;
     $caja1erpiso = $cr->caja1erpiso;
     $created_at = $cr->created_at;
-    $fechacuadre = $cr->fechacuadre;
     $totalMount = 0.00;
     $totalMountAccount1 = 0.00;
     $totalMountAccount2 = 0.00;
@@ -35,14 +34,17 @@ if (isset($_GET['id'])) {
     $totalMountAccount1Voucher = 0.00;
     $totalMountAccount1Cheque = 0.00;
     $totalMountAccount1Transferencia = 0.00;
+    $totalMountAccount1Gastos = 0.00;
     $totalMountAccount2Efectivo = 0.00;
     $totalMountAccount2Voucher = 0.00;
     $totalMountAccount2Cheque = 0.00;
     $totalMountAccount2Transferencia = 0.00;
+    $totalMountAccount2Gastos = 0.00;
     $totalMountAccount3Efectivo = 0.00;
     $totalMountAccount3Voucher = 0.00;
     $totalMountAccount3Cheque = 0.00;
     $totalMountAccount3Transferencia = 0.00;
+    $totalMountAccount3Gastos = 0.00;
 }
 //echo Util::toDot("20000.87");
 $display_number = 1;
@@ -56,7 +58,7 @@ $display_number = 1;
     </tr>
     <tr>
         <td colspan="2">PLANILLA CONTROL CUADRE DIARIO: <strong>
-                <?= $fechacuadre; ?></strong>
+                <?= $created_at; ?></strong>
             del radicado: <strong>
                 <?= $radicado; ?></strong>
         </td>
@@ -106,9 +108,12 @@ $display_number = 1;
                 case ($value->id_bankaccounts == 1) && ($value->tipo == 'Transferencia'):
                     $totalMountAccount1Transferencia += $value->mount;
                     break;
+                case ($value->id_bankaccounts == 1) && ($value->tipo == 'Gastos'):
+                    $totalMountAccount1Gastos += $value->mount;
+                    break;
             endswitch;
         endforeach;
-        $totalMountAccount1 = $totalMountAccount1Efectivo + $totalMountAccount1Voucher + $totalMountAccount1Cheque + $totalMountAccount1Transferencia; ?>
+        $totalMountAccount1 = $totalMountAccount1Efectivo + $totalMountAccount1Voucher + $totalMountAccount1Cheque + $totalMountAccount1Transferencia + $totalMountAccount1Gastos; ?>
     <tfoot>
         <tr>
             <td>
@@ -174,9 +179,12 @@ $display_number = 1;
                 case ($value->id_bankaccounts == 2) && ($value->tipo == 'Transferencia'):
                     $totalMountAccount2Transferencia += $value->mount;
                     break;
+                case ($value->id_bankaccounts == 2) && ($value->tipo == 'Gastos'):
+                    $totalMountAccount2Gastos += $value->mount;
+                    break;
             endswitch;
         endforeach;
-        $totalMountAccount2 = $totalMountAccount2Efectivo + $totalMountAccount2Voucher + $totalMountAccount2Cheque + $totalMountAccount2Transferencia;
+        $totalMountAccount2 = $totalMountAccount2Efectivo + $totalMountAccount2Voucher + $totalMountAccount2Cheque + $totalMountAccount2Transferencia + $totalMountAccount2Gastos;
 
         ?>
 
@@ -248,9 +256,12 @@ $display_number = 1;
                 case ($value->id_bankaccounts == 3) && ($value->tipo == 'Transferencia'):
                     $totalMountAccount3Transferencia += $value->mount;
                     break;
+                case ($value->id_bankaccounts == 3) && ($value->tipo == 'Gastos'):
+                    $totalMountAccount3Gastos += $value->mount;
+                    break;
             endswitch;
         endforeach;
-        $totalMountAccount3 = $totalMountAccount3Efectivo + $totalMountAccount3Voucher + $totalMountAccount3Cheque + $totalMountAccount3Transferencia;
+        $totalMountAccount3 = $totalMountAccount3Efectivo + $totalMountAccount3Voucher + $totalMountAccount3Cheque + $totalMountAccount3Transferencia + $totalMountAccount3Gastos;
 
         ?>
 

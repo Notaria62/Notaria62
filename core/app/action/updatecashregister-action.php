@@ -14,7 +14,7 @@ if (count($_POST) > 0) {
     $cr->cajaauxuliar = Util::eliminar_puntos_tres_digitos($_POST["cajaauxuliar"]);
     $cr->cajaprincipal = Util::eliminar_puntos_tres_digitos($_POST["cajaprincipal"]);
     $cr->caja1erpiso = Util::eliminar_puntos_tres_digitos($_POST["caja1erpiso"]);
-    $cr->fechacuadre = $_POST["fechacuadre"];
+    $cr->created_at = $_POST["created_at"];
 
     $cr->update();
 

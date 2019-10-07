@@ -2,7 +2,7 @@
 if (isset($_GET["start_at"])) {
     $start_at = $_GET["start_at"];
 } else {
-    $start_at = date('Y\-m\-d\ H:i');
+    $start_at = Util::getDatetimeNow();
 }
 
 $result = CashRegisterData::getByLastRadicado(date("Y"));
@@ -16,12 +16,12 @@ if (isset($_GET['id'])) {
     $cuentanotaria = $cr->cuentanotaria;
     $cuentaunicanotarial = $cr->cuentaunicanotarial;
     $cuentaapropiacion = $cr->cuentaapropiacion;
+    $created_at = $cr->created_at;
     $diferencias = $cr->diferencias;
     $totalpagos = $cr->totalpagos;
     $cajaauxuliar = $cr->cajaauxuliar;
     $cajaprincipal = $cr->cajaprincipal;
     $caja1erpiso = $cr->caja1erpiso;
-    $fechacuadre = $cr->fechacuadre;
 } else {
     if (count($result) <= 0) {
         $const = date("Y") . Util::zero_fill(1, 3);
@@ -73,7 +73,7 @@ if (isset($_GET['id'])) {
                             Fecha</label>
                         <input type="text" name="created_at" id="created_at" class="form-control datepicker-here"
                             data-timepicker="true" data-date-format="yyyy-mm-dd" data-time-format="hh:ii" placeholder=""
-                            value="<?= $start_at ?>">
+                            value="<?= $created_at ?>">
                         <span class="form-control-feedback">
                             <i class="material-icons">calendar_today</i>
                         </span>
@@ -146,18 +146,7 @@ if (isset($_GET['id'])) {
                             value="<?= $caja1erpiso ?>" required />
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="form-group bmd-form-group is-filled has-success">
-                        <label for="fechacuadre" class="bmd-label-floating">
-                            Fecha</label>
-                        <input type="text" name="fechacuadre" id="fechacuadre" class="form-control datepicker-here"
-                            data-timepicker="false" data-date-format="yyyy-mm-dd" placeholder=""
-                            value="<?= $fechacuadre; ?>">
-                        <span class="form-control-feedback">
-                            <i class="material-icons">calendar_today</i>
-                        </span>
-                    </div>
-                </div>
+
 
                 <div class="col-md-12">
                     <div class="form-group">
@@ -236,6 +225,7 @@ if (isset($_GET['id'])) {
                                 <option value="Voucher">Voucher</option>
                                 <option value="Cheque">Cheque</option>
                                 <option value="Transferencia">Transferencia</option>
+                                <option value="Gastos">Gastos</option>
                             </select>
                         </div>
                     </div>

@@ -23,7 +23,6 @@ class CashRegisterData
         $this->cajaauxuliar = "";
         $this->cajaprincipal = "";
         $this->caja1erpiso = "";
-        $this->fechacuadre = "";
 
         $this->status = "";
         $this->user_id = "";
@@ -56,7 +55,7 @@ class CashRegisterData
     }
     public function update()
     {
-        $sql = "UPDATE " . self::$tablename . " SET cuentaanticipos=\"$this->cuentaanticipos\",cuentanotaria=\"$this->cuentanotaria\",cuentaunicanotarial=\"$this->cuentaunicanotarial\",cuentaapropiacion=\"$this->cuentaapropiacion\",totalpagos=\"$this->totalpagos\",diferencias=\"$this->diferencias\",cajaauxuliar=\"$this->cajaauxuliar\" ,cajaprincipal=\"$this->cajaprincipal\" ,caja1erpiso=\"$this->caja1erpiso\" ,fechacuadre=\"$this->fechacuadre\" WHERE id=$this->id ";
+        $sql = "UPDATE " . self::$tablename . " SET cuentaanticipos=\"$this->cuentaanticipos\",cuentanotaria=\"$this->cuentanotaria\",cuentaunicanotarial=\"$this->cuentaunicanotarial\",cuentaapropiacion=\"$this->cuentaapropiacion\",totalpagos=\"$this->totalpagos\",diferencias=\"$this->diferencias\",cajaauxuliar=\"$this->cajaauxuliar\" ,cajaprincipal=\"$this->cajaprincipal\" ,caja1erpiso=\"$this->caja1erpiso\",created_at=\"$this->created_at\" WHERE id=$this->id ";
         echo $sql;
         Executor::doit($sql);
     }
