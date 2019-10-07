@@ -7,12 +7,14 @@ if (count($_POST) > 0) {
     $cr->cuentaanticipos = Util::eliminar_puntos_tres_digitos($_POST["cuentaanticipos"]);
     $cr->cuentanotaria = Util::eliminar_puntos_tres_digitos($_POST["cuentanotaria"]);
     $cr->cuentaunicanotarial = Util::eliminar_puntos_tres_digitos($_POST["cuentaunicanotarial"]);
+    $cr->cuentaapropiacion = Util::eliminar_puntos_tres_digitos($_POST["cuentaapropiacion"]);
     $cr->diferencias = isset($_POST["diferencias"]) ? $_POST["diferencias"] : "0";;
 
     $cr->totalpagos = Util::eliminar_puntos_tres_digitos($_POST["totalpagos"]);
     $cr->cajaauxuliar = Util::eliminar_puntos_tres_digitos($_POST["cajaauxuliar"]);
     $cr->cajaprincipal = Util::eliminar_puntos_tres_digitos($_POST["cajaprincipal"]);
     $cr->caja1erpiso = Util::eliminar_puntos_tres_digitos($_POST["caja1erpiso"]);
+    $cr->fechacuadre = $_POST["fechacuadre"];
 
     $cr->update();
 

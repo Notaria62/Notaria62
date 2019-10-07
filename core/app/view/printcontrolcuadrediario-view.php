@@ -19,12 +19,14 @@ if (isset($_GET['id'])) {
     $cuentaanticipos = $cr->cuentaanticipos;
     $cuentanotaria = $cr->cuentanotaria;
     $cuentaunicanotarial = $cr->cuentaunicanotarial;
+    $cuentaapropiacion = $cr->cuentaapropiacion;
     $diferencias = $cr->diferencias;
     $totalpagos = $cr->totalpagos;
     $cajaauxuliar = $cr->cajaauxuliar;
     $cajaprincipal = $cr->cajaprincipal;
     $caja1erpiso = $cr->caja1erpiso;
     $created_at = $cr->created_at;
+    $fechacuadre = $cr->fechacuadre;
     $totalMount = 0.00;
     $totalMountAccount1 = 0.00;
     $totalMountAccount2 = 0.00;
@@ -54,7 +56,7 @@ $display_number = 1;
     </tr>
     <tr>
         <td colspan="2">PLANILLA CONTROL CUADRE DIARIO: <strong>
-                <?= $created_at; ?></strong>
+                <?= $fechacuadre; ?></strong>
             del radicado: <strong>
                 <?= $radicado; ?></strong>
         </td>
@@ -111,7 +113,7 @@ $display_number = 1;
         <tr>
             <td>
             </td>
-            <td>EFECTIVO:</td>
+            <td>EFECTIVO A*:</td>
             <td><?= Util::toDot($totalMountAccount1Efectivo) ?></td>
         </tr>
         <tr>
@@ -182,7 +184,7 @@ $display_number = 1;
         <tr>
             <td>
             </td>
-            <td>EFECTIVO:</td>
+            <td>EFECTIVO B*:</td>
             <td><?= Util::toDot($totalMountAccount2Efectivo) ?>
             </td>
         </tr>
@@ -211,7 +213,7 @@ $display_number = 1;
     <thead>
         <tr>
             <th colspan="2">CUENTA APROPIACI&Oacute;N (3426)</th>
-            <th>INGRESO SEGÚN CUADRE (SIGNO): <?= $cuentaunicanotarial ?></th>
+            <th>INGRESO SEGÚN CUADRE (SIGNO): <?= $cuentaapropiacion ?></th>
         </tr>
         <tr>
             <th>Tipo transacción</th>
@@ -256,7 +258,7 @@ $display_number = 1;
         <tr>
             <td>
             </td>
-            <td>EFECTIVO:</td>
+            <td>EFECTIVO C*:</td>
             <td><?= Util::toDot($totalMountAccount3Efectivo) ?>
             </td>
         </tr>
@@ -274,7 +276,7 @@ $display_number = 1;
             </td>
             <td>DIFERENCIA:</td>
             <td>
-                <?= Util::toDot($totalMountAccount3 - $cuentaunicanotarial) ?>
+                <?= Util::toDot($totalMountAccount3 - $cuentaapropiacion) ?>
             </td>
         </tr>
     </tfoot>
@@ -307,9 +309,9 @@ $display_number = 1;
     </thead>
     <tfoot>
         <tr>
-            <th>SUME (A+B) TOTAL:</th>
+            <th>SUME (A+B+C) EFECTIVO TOTAL:</th>
             <th>
-                <?= Util::toDot($totalMountAccount1Efectivo + $totalMountAccount2Efectivo) ?>
+                <?= Util::toDot($totalMountAccount1Efectivo + $totalMountAccount2Efectivo + $totalMountAccount3Efectivo) ?>
             </th>
         </tr>
 

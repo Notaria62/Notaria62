@@ -5,7 +5,7 @@ if (isset($_GET["start_at"])) {
     $start_at = date('Y\-m\-d\ H:i');
 }
 
- 
+
 
 $result = CashRegisterData::getByLastRadicado(date("Y"));
 $b = new CashRegisterData();
@@ -16,7 +16,7 @@ if (isset($_GET['idcr'])) {
     $const = $cr->radicado;
     $id_cashregister = $cr->id;
 
-/* if (count($result)<=0) {
+    /* if (count($result)<=0) {
     $const = date("Y"). Util::zero_fill(1, 3);
 } else {
     foreach ($result as $value) {
@@ -95,13 +95,13 @@ if (isset($_GET['idcr'])) {
                         </span>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group">
                         <label for="cuentaanticipos" class="bmd-label-floating">Cuenta anticipos (SIGNO 1837)</label>
                         <input type="text" class="form-control" id="cuentaanticipos" name="cuentaanticipos" required />
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group">
                         <label for="cuentanotaria" class="bmd-label-floating">Cuenta notaria (SIGNO 1837)</label>
                         <input type="text" class="form-control" id="cuentanotaria" name="cuentanotaria" required />
@@ -112,6 +112,14 @@ if (isset($_GET['idcr'])) {
                         <label for="cuentaunicanotarial" class="bmd-label-floating">Cuenta unica notarial
                             (SIGNO 1938)</label>
                         <input type="text" class="form-control" id="cuentaunicanotarial" name="cuentaunicanotarial"
+                            required />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="cuentaapropiacion" class="bmd-label-floating">Cuenta apropiacion
+                            (SIGNO 3426)</label>
+                        <input type="text" class="form-control" id="cuentaapropiacion" name="cuentaapropiacion"
                             required />
                     </div>
                 </div>
@@ -131,7 +139,7 @@ if (isset($_GET['idcr'])) {
                     <div class="form-group">
                         <label for="cajaauxuliar" class="bmd-label-floating">Cajero auxiliar</label>
                         <input type="text" class="form-control target txtMounts" id="cajaauxuliar" name="cajaauxuliar"
-                            value="<?= $cajaauxuliar ?>" required />
+                            value="0" required />
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -146,6 +154,17 @@ if (isset($_GET['idcr'])) {
                         <label for="caja1erpiso" class="bmd-label-floating">Caja 1er primer</label>
                         <input type="text" class="form-control target" id="caja1erpiso" name="caja1erpiso" value="0"
                             required />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group bmd-form-group is-filled has-success">
+                        <label for="fechacuadre" class="bmd-label-floating">
+                            Fecha</label>
+                        <input type="text" name="fechacuadre" id="fechacuadre" class="form-control datepicker-here"
+                            data-timepicker="false" data-date-format="yyyy-mm-dd" placeholder="" value="">
+                        <span class="form-control-feedback">
+                            <i class="material-icons">calendar_today</i>
+                        </span>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -266,7 +285,7 @@ $(document).ready(function() {
 
 
     function fetch_data() {
-        $id_cashregister = '<?=$id_cashregister ?>';
+        $id_cashregister = '<?= $id_cashregister ?>';
         var $url = "./?action=searchpaymenttype&idcr=" + $id_cashregister;
         var dataTable = $('#user_data').DataTable({
             "processing": true,

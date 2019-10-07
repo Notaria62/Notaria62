@@ -15,11 +15,13 @@ if (isset($_GET['id'])) {
     $cuentaanticipos = $cr->cuentaanticipos;
     $cuentanotaria = $cr->cuentanotaria;
     $cuentaunicanotarial = $cr->cuentaunicanotarial;
+    $cuentaapropiacion = $cr->cuentaapropiacion;
     $diferencias = $cr->diferencias;
     $totalpagos = $cr->totalpagos;
     $cajaauxuliar = $cr->cajaauxuliar;
     $cajaprincipal = $cr->cajaprincipal;
     $caja1erpiso = $cr->caja1erpiso;
+    $fechacuadre = $cr->fechacuadre;
 } else {
     if (count($result) <= 0) {
         $const = date("Y") . Util::zero_fill(1, 3);
@@ -77,26 +79,34 @@ if (isset($_GET['id'])) {
                         </span>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group">
                         <label for="cuentaanticipos" class="bmd-label-floating">Cuenta anticipos (SIGNO 1837)</label>
                         <input type="text" class="form-control txtMounts" id="cuentaanticipos" name="cuentaanticipos"
                             value="<?= $cuentaanticipos ?>" required />
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group">
                         <label for="cuentanotaria" class="bmd-label-floating">Cuenta notaria (SIGNO 1837)</label>
                         <input type="text" class="form-control txtMounts" id="cuentanotaria" name="cuentanotaria"
                             value="<?= $cuentanotaria ?>" required />
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group">
                         <label for="cuentaunicanotarial" class="bmd-label-floating">Cuenta unica notarial
                             (SIGNO 1938)</label>
                         <input type="text" class="form-control txtMounts" id="cuentaunicanotarial"
                             name="cuentaunicanotarial" value="<?= $cuentaunicanotarial ?>" required />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="cuentaapropiacion" class="bmd-label-floating">Cuenta apropiacion
+                            (SIGNO 3426)</label>
+                        <input type="text" class="form-control" id="cuentaapropiacion" name="cuentaapropiacion"
+                            value="<?= $cuentaapropiacion ?>" required />
                     </div>
                 </div>
                 <!-- 
@@ -134,6 +144,18 @@ if (isset($_GET['id'])) {
                         <label for="caja1erpiso" class="bmd-label-floating">Caja 1er primer</label>
                         <input type="text" class="form-control target" id="caja1erpiso" name="caja1erpiso"
                             value="<?= $caja1erpiso ?>" required />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group bmd-form-group is-filled has-success">
+                        <label for="fechacuadre" class="bmd-label-floating">
+                            Fecha</label>
+                        <input type="text" name="fechacuadre" id="fechacuadre" class="form-control datepicker-here"
+                            data-timepicker="false" data-date-format="yyyy-mm-dd" placeholder=""
+                            value="<?= $fechacuadre; ?>">
+                        <span class="form-control-feedback">
+                            <i class="material-icons">calendar_today</i>
+                        </span>
                     </div>
                 </div>
 
@@ -247,7 +269,7 @@ $(document).ready(function() {
 
     function fetch_data() {
         var $url = "./?action=searchpaymenttype&idcr=" +
-            "<?=$id_cashregister; ?>";
+            "<?= $id_cashregister; ?>";
         var dataTable = $('#user_data').DataTable({
             "processing": true,
             "serverSide": true,

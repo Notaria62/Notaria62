@@ -2,10 +2,10 @@
 session_start();
 
 /**
-* 1 de agosto del 2013
-* Esta funcion contiene el nombre de los identificadores que se usaran como variables de session
-* y tambien los setters y getters correspondientes.
-**/
+ * 1 de agosto del 2013
+ * Esta funcion contiene el nombre de los identificadores que se usaran como variables de session
+ * y tambien los setters y getters correspondientes.
+ **/
 
 class Session
 {
@@ -66,12 +66,12 @@ class Session
             Core::redir("./");
         }
     }
-    
-    public static function msg($type ='', $msg ='')
+
+    public static function msg($type = '', $msg = '')
     {
         if (!empty($msg)) {
             if (strlen(trim($type)) == 1) {
-                $type = str_replace(array('d', 'i', 'w','s'), array('danger', 'info', 'warning','success'), $type);
+                $type = str_replace(array('d', 'i', 'w', 's'), array('danger', 'info', 'warning', 'success'), $type);
             }
             $_SESSION['msg'][$type] = $msg;
         } else {
@@ -90,25 +90,16 @@ class Session
 
     public static function currentURL()
     {
-        $uri= $_SERVER["REQUEST_URI"];
+        $uri = $_SERVER["REQUEST_URI"];
         $user = Util::current_user();
         $ugcm = Util::getUrlGropus($user->user_level);
         $flag = false;
         foreach ($ugcm as $value) {
-            $urlDB= substr($value->url, 1);
-            //echo "URI: $uri, URLDB: $urlDB<br>";
-            //code...
-            // if (false !== strpos($uri, $urlDB)) {
-            //     $flag = true;
-            //     break;
-            // }
+            $urlDB = substr($value->url, 1);
             if ($uri == $urlDB) {
-                # code...
-                $flag =true;
+                $flag = true;
                 break;
-            } else {
-                # code...
-            }
+            } else { }
         }
         if (false === strpos($uri, '/?view=home')) {
             if (!$flag) {
@@ -118,5 +109,5 @@ class Session
         }
     }
 }
- $session = new Session();
- $msg = $session->msg();
+$session = new Session();
+$msg = $session->msg();
