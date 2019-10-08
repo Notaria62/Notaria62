@@ -35,16 +35,19 @@ if (isset($_GET['id'])) {
     $totalMountAccount1Cheque = 0.00;
     $totalMountAccount1Transferencia = 0.00;
     $totalMountAccount1Gastos = 0.00;
+    $totalMountAccount1Cartera = 0.00;
     $totalMountAccount2Efectivo = 0.00;
     $totalMountAccount2Voucher = 0.00;
     $totalMountAccount2Cheque = 0.00;
     $totalMountAccount2Transferencia = 0.00;
     $totalMountAccount2Gastos = 0.00;
+    $totalMountAccount2Cartera = 0.00;
     $totalMountAccount3Efectivo = 0.00;
     $totalMountAccount3Voucher = 0.00;
     $totalMountAccount3Cheque = 0.00;
     $totalMountAccount3Transferencia = 0.00;
     $totalMountAccount3Gastos = 0.00;
+    $totalMountAccount3Cartera = 0.00;
 }
 //echo Util::toDot("20000.87");
 $display_number = 1;
@@ -110,6 +113,9 @@ $display_number = 1;
                     break;
                 case ($value->id_bankaccounts == 1) && ($value->tipo == 'Gastos'):
                     $totalMountAccount1Gastos += $value->mount;
+                    break;
+                case ($value->id_bankaccounts == 1) && ($value->tipo == 'Cartera'):
+                    $totalMountAccount1Cartera += $value->mount;
                     break;
             endswitch;
         endforeach;
@@ -181,6 +187,9 @@ $display_number = 1;
                     break;
                 case ($value->id_bankaccounts == 2) && ($value->tipo == 'Gastos'):
                     $totalMountAccount2Gastos += $value->mount;
+                    break;
+                case ($value->id_bankaccounts == 2) && ($value->tipo == 'Cartera'):
+                    $totalMountAccount2Cartera += $value->mount;
                     break;
             endswitch;
         endforeach;
@@ -259,6 +268,9 @@ $display_number = 1;
                 case ($value->id_bankaccounts == 3) && ($value->tipo == 'Gastos'):
                     $totalMountAccount3Gastos += $value->mount;
                     break;
+                case ($value->id_bankaccounts == 3) && ($value->tipo == 'Cartera'):
+                    $totalMountAccount3Cartera += $value->mount;
+                    break;
             endswitch;
         endforeach;
         $totalMountAccount3 = $totalMountAccount3Efectivo + $totalMountAccount3Voucher + $totalMountAccount3Cheque + $totalMountAccount3Transferencia + $totalMountAccount3Gastos;
@@ -293,6 +305,7 @@ $display_number = 1;
     </tfoot>
 
 </table>
+
 <hr />
 <table class="material-datatables table-bordered" style="width: 100%;">
     <thead>
@@ -337,6 +350,358 @@ $display_number = 1;
     </p>
     <p>(*)BAUCHER(S): SI LAS CASILLAS NO LE ALCANZAN AGRUPELAS DE MENOR VALOR EN LA CASILLA ANTES DEL EFECTIVO.</p>
 </div>
+
+
+<table class="material-datatables table-bordered">
+    <tr>
+        <td><img src="themes/notaria62web/img/logo.png" alt="Notaria 62" style="width: 70px;" /></td>
+        <td align="center" colspan="6">
+            <h3>CONTROL VOUCHER SIN PROCESAR</h3>
+        </td>
+    </tr>
+    <tr>
+        <td>NUMERO</td>
+        <td>CUENTA N°</td>
+        <td>VALOR</td>
+        <td colspan="4">
+            <table class="material-datatables table-bordered" style="width:100%">
+                <tr>
+                    <td colspan="4">Control contabilidad</td>
+                </tr>
+                <tr>
+                    <td colspan="3">Procesado</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Fecha</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+
+</table>
+
+<div class="col-md-12">
+    <p>
+        Se le informa a contabilidad y entregó copia de voucher y del listado para reclamar al banco: Si_______
+        No_______</p>
+
+    <p>Firma y sello de contabilidad como constancia de haber verificado y obtenido el abono de los voucher</p>
+    <table style="border:2px solid #000;">
+        <tr>
+            <td class="text-center" style="width:200px; height:70px; border:2px solid #000;">Contabilidad</td>
+            <td class="text-center" style="width:200px; height:70px;border:2px solid #000;text">Notario</td>
+        </tr>
+    </table>
+</div>
+
+<table class="material-datatables table-bordered">
+    <tr>
+        <td><img src="themes/notaria62web/img/logo.png" alt="Notaria 62" style="width: 70px;" /></td>
+        <td align="center" colspan="6">
+            <h3>Control translados retefuente reteica por pagos tarjeta d y c</h3>
+        </td>
+    </tr>
+    <tr>
+        <td>Fecha extracto</td>
+        <td>Valor exacto en extracto retencion</td>
+        <td>exacto en extracto reteica</td>
+        <td colspan="4">
+            <table class="material-datatables table-bordered" style="width:100%">
+                <tr>
+                    <td colspan="4">Control contabilidad</td>
+                </tr>
+                <tr>
+                    <td colspan="4">Se elaboro nota translado</td>
+
+                </tr>
+                <tr>
+                    <td>Si</td>
+                    <td>No</td>
+                    <td colspan="2">Total</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+
+</table>
+<div class="col-md-12">
+
+
+    <p>Firma y sello de contabilidad como constancia de haber transladodo los valores de retefuente y reteica del
+        dia______ mes_____ año____</p>
+    <table style="border:2px solid #000;">
+        <tr>
+            <td class="text-center" style="width:200px; height:70px; border:2px solid #000;">Contabilidad</td>
+            <td class="text-center" style="width:200px; height:70px;border:2px solid #000;text">Notario</td>
+        </tr>
+    </table>
+</div>
+
+
+
+
+
+
 
 <button onclick="javascript:window.print()" class="btn btn-success"><i class="material-icons">print</i>
     Imprimir</button>

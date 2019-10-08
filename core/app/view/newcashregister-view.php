@@ -244,6 +244,7 @@ if (isset($_GET['idcr'])) {
                                 <option value="Cheque">Cheque</option>
                                 <option value="Transferencia">Transferencia</option>
                                 <option value="Gastos">Gastos</option>
+                                <option value="Cartera">Cartera</option>
                             </select>
                         </div>
                     </div>
@@ -435,6 +436,22 @@ $(document).ready(function() {
                 $('#alert_message').html('');
             }, 5000);
         }
+    });
+    $(document).on('click', '#btncalculator', function() {
+        var totalMountAccountCash = Number($("#totalMountAccountCash").val());
+        var totalMountCash = Number($("#totalMountCash").val());
+        var cajaauxuliar = Number($("#cajaauxuliar").val());
+        var cajaprincipal = Number($("#cajaprincipal").val());
+        var caja1erpiso = Number($("#caja1erpiso").val());
+        var cuentaapropiacion = Number($("#cuentaapropiacion").val());
+        var cuentaunicanotarial = Number($("#cuentaunicanotarial").val());
+        var aux1 = cuentaunicanotarial - cuentaapropiacion;
+        $("#cuentaunicanotarial").val(aux1);
+        var totalMountCash = cajaauxuliar + cajaprincipal + caja1erpiso;
+
+        var cash = totalMountCash - totalMountAccountCash;
+        $("#efectivosobrante").html('Efectivo sobrante : $' + cash);
+
     });
 });
 </script>
