@@ -245,6 +245,7 @@ if (isset($_GET['idcr'])) {
                                 <option value="Transferencia">Transferencia</option>
                                 <option value="Gastos">Gastos</option>
                                 <option value="Cartera">Cartera</option>
+                                <option value="Devoluciones">Devoluciones</option>
                             </select>
                         </div>
                     </div>

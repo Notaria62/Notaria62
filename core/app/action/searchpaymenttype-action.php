@@ -79,7 +79,7 @@ if (count($_GET) > 0) {
         /*$sub_array[] = '<div contenteditable class="update" data-id="'.$value->id.'" data-column="id_tipo">' . $value->id_tipo . '</div>';
             $sub_array[] = '<div contenteditable class="update" data-id="'.$value->id.'" data-column="mount">' . $value->mount . '</div>'; */
         $btnEdit = '<button type="button" id="' . $value->id . '" name="btnEdit" data-toggle="tooltip" title="Editar" class="btn btn-link btn-success btn-just-icon btn-sm btnEdit"><i class="material-icons">edit</i> </button>';
-        $btnDel = ($us->is_admin) ? '<button type="button" mane="delete" id="' . $value->id . '" data-toggle="tooltip" title="Eliminar" class="btn btn-link btn-danger btn-just-icon btn-sm delete"> <i class="material-icons">delete</i></button>' : '';
+        $btnDel = ($us->is_admin || $us->user_level == 25) ? '<button type="button" mane="delete" id="' . $value->id . '" data-toggle="tooltip" title="Eliminar" class="btn btn-link btn-danger btn-just-icon btn-sm delete"> <i class="material-icons">delete</i></button>' : '';
         $sub_array[] = $btnDel;
 
 

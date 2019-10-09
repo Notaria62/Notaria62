@@ -36,18 +36,21 @@ if (isset($_GET['id'])) {
     $totalMountAccount1Transferencia = 0.00;
     $totalMountAccount1Gastos = 0.00;
     $totalMountAccount1Cartera = 0.00;
+    $totalMountAccount1Devoluciones = 0.00;
     $totalMountAccount2Efectivo = 0.00;
     $totalMountAccount2Voucher = 0.00;
     $totalMountAccount2Cheque = 0.00;
     $totalMountAccount2Transferencia = 0.00;
     $totalMountAccount2Gastos = 0.00;
     $totalMountAccount2Cartera = 0.00;
+    $totalMountAccount2Devoluciones = 0.00;
     $totalMountAccount3Efectivo = 0.00;
     $totalMountAccount3Voucher = 0.00;
     $totalMountAccount3Cheque = 0.00;
     $totalMountAccount3Transferencia = 0.00;
     $totalMountAccount3Gastos = 0.00;
     $totalMountAccount3Cartera = 0.00;
+    $totalMountAccount3Devoluciones = 0.00;
 }
 //echo Util::toDot("20000.87");
 $display_number = 1;
@@ -119,9 +122,12 @@ $display_number = 1;
                     case ($value->id_bankaccounts == 1) && ($value->tipo == 'Cartera'):
                         $totalMountAccount1Cartera += $value->mount;
                         break;
+                    case ($value->id_bankaccounts == 1) && ($value->tipo == 'Devoluciones'):
+                        $totalMountAccount1Develociones += $value->mount;
+                        break;
                 endswitch;
             endforeach;
-            $totalMountAccount1 = $totalMountAccount1Efectivo + $totalMountAccount1Voucher + $totalMountAccount1Cheque + $totalMountAccount1Transferencia + $totalMountAccount1Gastos; ?>
+            $totalMountAccount1 = $totalMountAccount1Efectivo + $totalMountAccount1Voucher + $totalMountAccount1Cheque + $totalMountAccount1Transferencia + $totalMountAccount1Gastos + $totalMountAccount1Cartera + $totalMountAccount1Devoluciones; ?>
         <tfoot>
             <tr>
                 <td>
@@ -193,9 +199,12 @@ $display_number = 1;
                     case ($value->id_bankaccounts == 2) && ($value->tipo == 'Cartera'):
                         $totalMountAccount2Cartera += $value->mount;
                         break;
+                    case ($value->id_bankaccounts == 2) && ($value->tipo == 'Devoluciones'):
+                        $totalMountAccount2Develociones += $value->mount;
+                        break;
                 endswitch;
             endforeach;
-            $totalMountAccount2 = $totalMountAccount2Efectivo + $totalMountAccount2Voucher + $totalMountAccount2Cheque + $totalMountAccount2Transferencia + $totalMountAccount2Gastos;
+            $totalMountAccount2 = $totalMountAccount2Efectivo + $totalMountAccount2Voucher + $totalMountAccount2Cheque + $totalMountAccount2Transferencia + $totalMountAccount2Gastos + $totalMountAccount2Devoluciones + $totalMountAccount2Cartera;
 
             ?>
 
@@ -273,9 +282,12 @@ $display_number = 1;
                     case ($value->id_bankaccounts == 3) && ($value->tipo == 'Cartera'):
                         $totalMountAccount3Cartera += $value->mount;
                         break;
+                    case ($value->id_bankaccounts == 3) && ($value->tipo == 'Devoluciones'):
+                        $totalMountAccount3Develociones += $value->mount;
+                        break;
                 endswitch;
             endforeach;
-            $totalMountAccount3 = $totalMountAccount3Efectivo + $totalMountAccount3Voucher + $totalMountAccount3Cheque + $totalMountAccount3Transferencia + $totalMountAccount3Gastos;
+            $totalMountAccount3 = $totalMountAccount3Efectivo + $totalMountAccount3Voucher + $totalMountAccount3Cheque + $totalMountAccount3Transferencia + $totalMountAccount3Gastos + $totalMountAccount3Cartera + $totalMountAccount3Develociones;
 
             ?>
 
