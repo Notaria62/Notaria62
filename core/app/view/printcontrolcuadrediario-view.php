@@ -37,6 +37,7 @@ if (isset($_GET['id'])) {
     $totalMountAccount1Gastos = 0.00;
     $totalMountAccount1Cartera = 0.00;
     $totalMountAccount1Devoluciones = 0.00;
+    $totalMountAccount1Consignaciones = 0.00;
     $totalMountAccount2Efectivo = 0.00;
     $totalMountAccount2Voucher = 0.00;
     $totalMountAccount2Cheque = 0.00;
@@ -44,6 +45,7 @@ if (isset($_GET['id'])) {
     $totalMountAccount2Gastos = 0.00;
     $totalMountAccount2Cartera = 0.00;
     $totalMountAccount2Devoluciones = 0.00;
+    $totalMountAccount2Consignaciones = 0.00;
     $totalMountAccount3Efectivo = 0.00;
     $totalMountAccount3Voucher = 0.00;
     $totalMountAccount3Cheque = 0.00;
@@ -51,6 +53,7 @@ if (isset($_GET['id'])) {
     $totalMountAccount3Gastos = 0.00;
     $totalMountAccount3Cartera = 0.00;
     $totalMountAccount3Devoluciones = 0.00;
+    $totalMountAccount3Consignaciones = 0.00;
 }
 //echo Util::toDot("20000.87");
 $display_number = 1;
@@ -65,10 +68,11 @@ $display_number = 1;
             </td>
         </tr>
         <tr>
-            <td colspan="2">PLANILLA CONTROL CUADRE DIARIO: <strong>
-                    <?= $created_at; ?></strong>
-                del radicado: <strong>
-                    <?= $radicado; ?></strong>
+            <td colspan="2">
+                <h4>PLANILLA CONTROL CUADRE DIARIO: <strong>
+                        <?= $created_at; ?></strong>
+                    del radicado: <strong>
+                        <?= $radicado; ?></strong></h4>
             </td>
         </tr>
     </table>
@@ -78,7 +82,7 @@ $display_number = 1;
         <thead>
             <tr>
                 <th colspan="2">CUENTA NOTARIA (1837)</th>
-                <th>INGRESO SEGÚN CUADRE (SIGNO): <?= $cuentaanticipos + $cuentanotaria  ?></th>
+                <th>INGRESO SEGÚN CUADRE (SIGNO): <?= Util::toDot($cuentaanticipos + $cuentanotaria) ?></th>
             </tr>
             <tr>
                 <th>Tipo transacción</th>
@@ -123,11 +127,14 @@ $display_number = 1;
                         $totalMountAccount1Cartera += $value->mount;
                         break;
                     case ($value->id_bankaccounts == 1) && ($value->tipo == 'Devoluciones'):
-                        $totalMountAccount1Develociones += $value->mount;
+                        $totalMountAccount1Devoluciones += $value->mount;
+                        break;
+                    case ($value->id_bankaccounts == 1) && ($value->tipo == 'Consignaciones'):
+                        $totalMountAccount1Consignaciones += $value->mount;
                         break;
                 endswitch;
             endforeach;
-            $totalMountAccount1 = $totalMountAccount1Efectivo + $totalMountAccount1Voucher + $totalMountAccount1Cheque + $totalMountAccount1Transferencia + $totalMountAccount1Gastos + $totalMountAccount1Cartera + $totalMountAccount1Devoluciones; ?>
+            $totalMountAccount1 = $totalMountAccount1Efectivo + $totalMountAccount1Voucher + $totalMountAccount1Cheque + $totalMountAccount1Transferencia + $totalMountAccount1Gastos + $totalMountAccount1Cartera + $totalMountAccount1Devoluciones + $totalMountAccount1Consignaciones; ?>
         <tfoot>
             <tr>
                 <td>
@@ -158,7 +165,7 @@ $display_number = 1;
         <thead>
             <tr>
                 <th colspan="2">CUENTA UNINCA NOTARIAL (1938)</th>
-                <th>INGRESO SEGÚN CUADRE (SIGNO): <?= $cuentaunicanotarial ?></th>
+                <th>INGRESO SEGÚN CUADRE (SIGNO): <?= Util::toDot($cuentaunicanotarial) ?></th>
             </tr>
             <tr>
                 <th>Tipo transacción</th>
@@ -200,11 +207,14 @@ $display_number = 1;
                         $totalMountAccount2Cartera += $value->mount;
                         break;
                     case ($value->id_bankaccounts == 2) && ($value->tipo == 'Devoluciones'):
-                        $totalMountAccount2Develociones += $value->mount;
+                        $totalMountAccount2Devoluciones += $value->mount;
+                        break;
+                    case ($value->id_bankaccounts == 2) && ($value->tipo == 'Consignaciones'):
+                        $totalMountAccount2Consignaciones += $value->mount;
                         break;
                 endswitch;
             endforeach;
-            $totalMountAccount2 = $totalMountAccount2Efectivo + $totalMountAccount2Voucher + $totalMountAccount2Cheque + $totalMountAccount2Transferencia + $totalMountAccount2Gastos + $totalMountAccount2Devoluciones + $totalMountAccount2Cartera;
+            $totalMountAccount2 = $totalMountAccount2Efectivo + $totalMountAccount2Voucher + $totalMountAccount2Cheque + $totalMountAccount2Transferencia + $totalMountAccount2Gastos + $totalMountAccount2Devoluciones + $totalMountAccount2Cartera + $totalMountAccount2Consignaciones;
 
             ?>
 
@@ -241,7 +251,7 @@ $display_number = 1;
         <thead>
             <tr>
                 <th colspan="2">CUENTA APROPIACI&Oacute;N (3426)</th>
-                <th>INGRESO SEGÚN CUADRE (SIGNO): <?= $cuentaapropiacion ?></th>
+                <th>INGRESO SEGÚN CUADRE (SIGNO): <?= Util::toDot($cuentaapropiacion) ?></th>
             </tr>
             <tr>
                 <th>Tipo transacción</th>
@@ -283,11 +293,14 @@ $display_number = 1;
                         $totalMountAccount3Cartera += $value->mount;
                         break;
                     case ($value->id_bankaccounts == 3) && ($value->tipo == 'Devoluciones'):
-                        $totalMountAccount3Develociones += $value->mount;
+                        $totalMountAccount3Devoluciones += $value->mount;
+                        break;
+                    case ($value->id_bankaccounts == 3) && ($value->tipo == 'Consignaciones'):
+                        $totalMountAccount3Consignaciones += $value->mount;
                         break;
                 endswitch;
             endforeach;
-            $totalMountAccount3 = $totalMountAccount3Efectivo + $totalMountAccount3Voucher + $totalMountAccount3Cheque + $totalMountAccount3Transferencia + $totalMountAccount3Gastos + $totalMountAccount3Cartera + $totalMountAccount3Develociones;
+            $totalMountAccount3 = $totalMountAccount3Efectivo + $totalMountAccount3Voucher + $totalMountAccount3Cheque + $totalMountAccount3Transferencia + $totalMountAccount3Gastos + $totalMountAccount3Cartera + $totalMountAccount3Devoluciones + $totalMountAccount3Consignaciones;
 
             ?>
 
@@ -379,19 +392,22 @@ $display_number = 1;
             <td>NUMERO</td>
             <td>CUENTA N°</td>
             <td>VALOR</td>
-            <td colspan="4">
-                <table class="material-datatables table-bordered" style="width:100%">
+            <td colspan="4" class="text-left" style="padding:0px !important;">
+                <table class="" style="width:100%">
                     <tr>
-                        <td colspan="4">Control contabilidad</td>
+                        <td colspan="3">Control contabilidad</td>
+                        <td>Observaci&oacute;n</td>
                     </tr>
                     <tr>
-                        <td colspan="3">Procesado</td>
+                        <td colspan="">Procesado</td>
+                        <td style="width:40px;">Si</td>
+                        <td style="width:40px;">No</td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td>Fecha</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <td style="width:200px;">Fecha</td>
+                        <td style="width:40px;">&nbsp;</td>
+                        <td style="width:40px;">&nbsp;</td>
                         <td>&nbsp;</td>
                     </tr>
                 </table>
@@ -404,11 +420,11 @@ $display_number = 1;
             </td>
             <td>
             </td>
-            <td>
+            <td style="width:200px;">
             </td>
-            <td>
+            <td style="width:40px;">
             </td>
-            <td>
+            <td style="width:40px;">
             </td>
             <td>
             </td>
@@ -529,18 +545,21 @@ $display_number = 1;
     </table>
 
     <div class="col-md-12">
-        <p>
+        <p style="font-size: large;padding-top:10px;">
             Se le informa a contabilidad y entregó copia de voucher y del listado para reclamar al banco: Si_______
             No_______</p>
 
         <p>Firma y sello de contabilidad como constancia de haber verificado y obtenido el abono de los voucher</p>
         <table style="border:2px solid #000;">
             <tr>
-                <td class="text-center" style="width:200px; height:70px; border:2px solid #000;">Contabilidad</td>
-                <td class="text-center" style="width:200px; height:70px;border:2px solid #000;text">Notario</td>
+                <td class="text-center" style="width:400px; height:90px; border:2px solid #000;vertical-align: bottom;">
+                    Contabilidad</td>
+                <td class="text-center" style="width:400px; height:90px;border:2px solid #000;vertical-align: bottom;">
+                    Notario</td>
             </tr>
         </table>
     </div>
+    <hr />
 
     <table class="material-datatables table-bordered" style="width: 100%;">
         <tr>
@@ -550,11 +569,11 @@ $display_number = 1;
             </td>
         </tr>
         <tr>
-            <td>Fecha extracto</td>
-            <td>Valor exacto en extracto retencion</td>
-            <td>exacto en extracto reteica</td>
-            <td colspan="4">
-                <table class="material-datatables table-bordered" style="width:100%">
+            <td style="width:100px">Fecha extracto</td>
+            <td style="width:250px">Valor exacto en extracto retencion</td>
+            <td style="width:250px">Exacto en extracto reteica</td>
+            <td colspan="4" class="text-left" style="padding:0px !important;">
+                <table class="" style="width:100%">
                     <tr>
                         <td colspan="4">Control contabilidad</td>
                     </tr>
@@ -563,8 +582,8 @@ $display_number = 1;
 
                     </tr>
                     <tr>
-                        <td>Si</td>
-                        <td>No</td>
+                        <td style="width:40px;">Si</td>
+                        <td style="width:40px;">No</td>
                         <td colspan="2">Total</td>
                     </tr>
                 </table>
@@ -577,14 +596,13 @@ $display_number = 1;
             </td>
             <td>
             </td>
-            <td>
+            <td style="width:40px;">
+            </td>
+            <td style="width:40px;">
             </td>
             <td>
             </td>
-            <td>
-            </td>
-            <td>
-            </td>
+
         </tr>
         <tr>
             <td>&nbsp;
@@ -599,8 +617,7 @@ $display_number = 1;
             </td>
             <td>
             </td>
-            <td>
-            </td>
+
         </tr>
         <tr>
             <td>&nbsp;
@@ -615,8 +632,7 @@ $display_number = 1;
             </td>
             <td>
             </td>
-            <td>
-            </td>
+
         </tr>
         <tr>
             <td>&nbsp;
@@ -631,8 +647,7 @@ $display_number = 1;
             </td>
             <td>
             </td>
-            <td>
-            </td>
+
         </tr>
         <tr>
             <td>&nbsp;
@@ -647,8 +662,7 @@ $display_number = 1;
             </td>
             <td>
             </td>
-            <td>
-            </td>
+
         </tr>
         <tr>
             <td>&nbsp;
@@ -663,8 +677,7 @@ $display_number = 1;
             </td>
             <td>
             </td>
-            <td>
-            </td>
+
         </tr>
         <tr>
             <td>&nbsp;
@@ -679,8 +692,7 @@ $display_number = 1;
             </td>
             <td>
             </td>
-            <td>
-            </td>
+
         </tr>
         <tr>
             <td>&nbsp;
@@ -695,20 +707,22 @@ $display_number = 1;
             </td>
             <td>
             </td>
-            <td>
-            </td>
+
         </tr>
 
     </table>
     <div class="col-md-12">
 
 
-        <p>Firma y sello de contabilidad como constancia de haber transladodo los valores de retefuente y reteica del
-            dia______ mes_____ año____</p>
+        <p style="font-size: large;padding-top:10px;">Firma y sello de contabilidad como constancia de haber transladodo
+            los valores de retefuente y reteica del
+            dia________mes_____________año________</p>
         <table style="border:2px solid #000;">
             <tr>
-                <td class="text-center" style="width:200px; height:70px; border:2px solid #000;">Contabilidad</td>
-                <td class="text-center" style="width:200px; height:70px;border:2px solid #000;text">Notario</td>
+                <td class="text-center" style="width:400px; height:90px; border:2px solid #000;vertical-align: bottom;">
+                    Contabilidad</td>
+                <td class="text-center" style="width:400px; height:90px;border:2px solid #000;vertical-align: bottom;">
+                    Notario</td>
             </tr>
         </table>
     </div>

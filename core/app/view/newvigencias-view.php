@@ -15,7 +15,7 @@
  */
 $last = VigenciasData::getByConsecutivoLast(date("Y"));
 if (empty($last)) {
-    $cons = date("Y").Util::zero_fill(1, 4);
+    $cons = date("Y") . Util::zero_fill(1, 4);
 } else {
     foreach ($last as $value) {
         $cons = $value->consecutivo;
@@ -40,7 +40,7 @@ if (empty($last)) {
                     <div class="form-group">
                         <label for="consecutivo" class="bmd-label-floating">N&uacute;mero de consecutivo</label>
                         <input type="number" class="form-control" id="consecutivo" name="consecutivo" number="true"
-                            required="true" value="<?=$cons?>" aria-required="true" />
+                            required="true" value="<?= $cons ?>" aria-required="true" />
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -100,7 +100,7 @@ if (empty($last)) {
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="solicitante" class="bmd-label-floating">Solicitante</label>
-                        <input type="text" class="form-control" id="solicitante" name="solicitante" autocomplete="off"
+                        <input type="text" class="form-control" id="solicitante" name="solicitante" autocomplete="on"
                             required value="" />
                     </div>
                 </div>
@@ -110,7 +110,7 @@ if (empty($last)) {
                         <select id="notario_id" name="notario_id" required class="custom-select">
                             <?php foreach (NotariosData::getAll() as $d) : ?>
                             <option value="<?php echo $d->id; ?>">
-                                <?= $d->name." ".$d->lastname; ?>
+                                <?= $d->name . " " . $d->lastname; ?>
                             </option>
                             <?php endforeach ?>
                         </select>
@@ -129,7 +129,7 @@ if (empty($last)) {
                             Fecha resolución</label>
                         <input type="text" name="dateresolucionnotario" id="dateresolucionnotario"
                             class="form-control datepicker-here" data-timepicker="false" data-date-format="yyyy-mm-dd"
-                            placeholder="" value="<?=(new \DateTime())->format('Y-m-d');?>" required>
+                            placeholder="" value="<?= (new \DateTime())->format('Y-m-d'); ?>" required>
                         <span class="form-control-feedback">
                             <i class="material-icons">calendar_today</i>
                         </span>
@@ -288,11 +288,11 @@ function addPoderdante() {
         '</select></div></div><div class="col-md-2"><div class="form-group"><label for="poderdanteidentification[]" class="bmd-label-floating">Identificacion poderdante</label>' +
         '<input type="text" class="form-control" name="poderdanteidentification[]" value="" required />' +
         '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdanteidentificationexpedida[]" class="bmd-label-floating">Expedida ident. poderdante</label>' +
-        '<input type="text" class="form-control" id="" name="poderdanteidentificationexpedida[]" value="" autocomplete="off" required />' +
+        '<input type="text" class="form-control" id="" name="poderdanteidentificationexpedida[]" value="" autocomplete="on" required />' +
         '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdantename[]" class="bmd-label-floating">Nombre poderdante</label>' +
-        '<input type="text" class="form-control" id="" name="poderdantename[]" autocomplete="off" value="" required />' +
+        '<input type="text" class="form-control" id="" name="poderdantename[]" autocomplete="on" value="" required />' +
         '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdantelastname[]" class="bmd-label-floating">Apellido poderdante</label>' +
-        '<input type="text" class="form-control" id="" name="poderdantelastname[]" value="" autocomplete="off" required />' +
+        '<input type="text" class="form-control" id="" name="poderdantelastname[]" value="" autocomplete="on" required />' +
         '</div></div><div class="col-md-2"><button class="btn-danger btn btn-block btn-retirar-poderdante" id="btn-retirar-poderdante_' +
         nextinputp +
         '" type="button">Retirar</button></div></div>';
@@ -314,11 +314,11 @@ function addApoderado() {
         '</select></div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoidentification[]" class="bmd-label-floating">Identificacion apoderado</label>' +
         '<input type="text" class="form-control" name="apoderadoidentification[]" value="" required />' +
         '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoidentificationexpedida[]" class="bmd-label-floating">Expedida ident. apoderado</label>' +
-        '<input type="text" class="form-control" id="" name="apoderadoidentificationexpedida[]" value="" autocomplete="off" required />' +
+        '<input type="text" class="form-control" id="" name="apoderadoidentificationexpedida[]" value="" autocomplete="on" required />' +
         '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoname[]" class="bmd-label-floating">Nombre apoderado</label>' +
-        '<input type="text" class="form-control" id="" name="apoderadoname[]" autocomplete="off" value="" required />' +
+        '<input type="text" class="form-control" id="" name="apoderadoname[]" autocomplete="on" value="" required />' +
         '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadolastname[]" class="bmd-label-floating">Apellido apoderado</label>' +
-        '<input type="text" class="form-control" id="" name="apoderadolastname[]" value="" autocomplete="off" required />' +
+        '<input type="text" class="form-control" id="" name="apoderadolastname[]" value="" autocomplete="on" required />' +
         '</div></div><div class="col-md-2"><button class="btn-danger btn btn-block btn-retirar-apoderado" id="btn-retirar-apoderado_' +
         nextinputap +
         '" type="button">Retirar</button></div></div>';

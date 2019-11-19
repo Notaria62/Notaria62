@@ -228,6 +228,7 @@ if (isset($_GET['id'])) {
                                 <option value="Gastos">Gastos</option>
                                 <option value="Cartera">Cartera</option>
                                 <option value="Devoluciones">Devoluciones</option>
+                                <option value="Consignaciones">Consignaciones</option>
                             </select>
                         </div>
                     </div>
@@ -240,13 +241,16 @@ if (isset($_GET['id'])) {
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="mount" class="bmd-label-floating">Monto</label>
-                            <input type="text" class="form-control txtMounts" id="mount" name="mount" required />
+
+                            <input type="text" class="form-control" id="mount" name="mount" required /><button
+                                onclick="sum()" class="btn btn-primary btn-sm">Sumar</button>
+
                         </div>
                     </div>
                 </div>
             </div>
             <div class=" modal-footer">
-                <button type="button" name="insert" id="insert" class="btn btn-success btn-xs">Insert</button></td>
+                <button type="button" name="insert" id="insert" class="btn btn-success btn-xs">Insert</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
@@ -414,6 +418,15 @@ $(document).ready(function() {
 
 
 });
+
+function sum() {
+    sumofnums = 0;
+    nums = document.getElementById("mount").value.split(",");
+    for (i = 0; i < nums.length; i++) {
+        sumofnums += parseInt(nums[i]);
+    }
+    $("#mount").val(sumofnums)
+}
 
 $(function() {
 

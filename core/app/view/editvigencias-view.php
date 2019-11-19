@@ -1,4 +1,5 @@
 <?php
+
 /**
  *  short summary.
  *
@@ -8,22 +9,22 @@
  * @author sistemas
  */
 $vigen = VigenciasData::getById($_GET["id"]);
-        $poderdante_ids = $vigen->poderdante_ids;
-        $p_ids = explode("-", $poderdante_ids);
-        $apoderado_ids = $vigen->apoderado_ids;
-        $ap_ids = explode("-", $apoderado_ids);
-       // $fullnamep="";
-        // foreach ($p_ids as $key => $v) {
-        //     # code...
-        //     $cs = ClientesignoData::getById($v);
-        //     $fullnamep .= $cs->name. " ".$cs->lastname."; ";
-        // }
-        $fullnameap="";
-        foreach ($ap_ids as $key => $j) {
-            # code...
-            $cs = ClientesignoData::getById($j);
-            $fullnameap .= $cs->name. " ".$cs->lastname."; ";
-        }
+$poderdante_ids = $vigen->poderdante_ids;
+$p_ids = explode("-", $poderdante_ids);
+$apoderado_ids = $vigen->apoderado_ids;
+$ap_ids = explode("-", $apoderado_ids);
+// $fullnamep="";
+// foreach ($p_ids as $key => $v) {
+//     # code...
+//     $cs = ClientesignoData::getById($v);
+//     $fullnamep .= $cs->name. " ".$cs->lastname."; ";
+// }
+$fullnameap = "";
+foreach ($ap_ids as $key => $j) {
+    # code...
+    $cs = ClientesignoData::getById($j);
+    $fullnameap .= $cs->name . " " . $cs->lastname . "; ";
+}
 
 $notarios = NotariosData::getAll();
 
@@ -45,7 +46,7 @@ $notarios = NotariosData::getAll();
                             <div class="form-group">
                                 <label for="consecutivo" class="bmd-label-floating">N&uacute;mero de consecutivo</label>
                                 <input type="number" class="form-control" id="consecutivo" name="consecutivo"
-                                    number="true" required="true" value="<?=$vigen->consecutivo;?>"
+                                    number="true" required="true" value="<?= $vigen->consecutivo; ?>"
                                     aria-required="true" />
                             </div>
                         </div>
@@ -55,7 +56,7 @@ $notarios = NotariosData::getAll();
                                 <label for="nroescriturapublica" class="bmd-label-floating">N&uacute;mero de
                                     escritura</label>
                                 <input type="number" class="form-control" id="nroescriturapublica"
-                                    name="nroescriturapublica" value="<?=$vigen->nroescriturapublica;?>" required />
+                                    name="nroescriturapublica" value="<?= $vigen->nroescriturapublica; ?>" required />
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -64,7 +65,7 @@ $notarios = NotariosData::getAll();
                                     Fecha escritura</label>
                                 <input type="text" name="dateescritura" id="dateescritura"
                                     class="form-control datepicker-here" data-timepicker="false"
-                                    data-date-format="yyyy-mm-dd" placeholder="" value="<?=$vigen->dateescritura;?>"
+                                    data-date-format="yyyy-mm-dd" placeholder="" value="<?= $vigen->dateescritura; ?>"
                                     required>
                                 <span class="form-control-feedback">
                                     <i class="material-icons">calendar_today</i>
@@ -75,11 +76,11 @@ $notarios = NotariosData::getAll();
                             <div class="form-group bmd-form-group is-filled">
                                 <label for="otorgotipo" class="bmd-label-floating">Otorga</label>
                                 <select id="otorgotipo" name="otorgotipo" required class="custom-select">
-                                    <option <?=($vigen->otorgotipo == "Poder general") ? "selected":"";?>
+                                    <option <?= ($vigen->otorgotipo == "Poder general") ? "selected" : ""; ?>
                                         value="Poder general">Poder general</option>
-                                    <option <?=($vigen->otorgotipo == "Poder especial") ? "selected":"";?>
+                                    <option <?= ($vigen->otorgotipo == "Poder especial") ? "selected" : ""; ?>
                                         value="Poder especial">Poder especial</option>
-                                    <option <?=($vigen->otorgotipo == "Salida del pais") ? "selected":"";?>
+                                    <option <?= ($vigen->otorgotipo == "Salida del pais") ? "selected" : ""; ?>
                                         value="Salida del pais">Salida del pa&iacute;s</option>
                                 </select>
                             </div>
@@ -89,7 +90,7 @@ $notarios = NotariosData::getAll();
                                 <label for="otorgoobservation" class="bmd-label-floating">Descripci&oacute;n otorga
                                 </label>
                                 <textarea class="form-control" id="otorgoobservation" name="otorgoobservation"
-                                    cols="30"><?=$vigen->otorgoobservation;?></textarea>
+                                    cols="30"><?= $vigen->otorgoobservation; ?></textarea>
                             </div>
                         </div>
                     </div>
@@ -112,16 +113,17 @@ $notarios = NotariosData::getAll();
                             <div class="form-group">
                                 <label for="solicitante" class="bmd-label-floating">Solicitante</label>
                                 <input type="text" class="form-control" id="solicitante" name="solicitante"
-                                    value="<?=$vigen->solicitante;?>" autocomplete="off" required />
+                                    value="<?= $vigen->solicitante; ?>" autocomplete="on" required />
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group bmd-form-group is-filled">
                                 <label for="notario_id" class="bmd-label-floating">Notario</label>
                                 <select id="notario_id" name="notario_id" required class="custom-select">
-                                    <?php foreach ($notarios as $d):?>
-                                    <option value=<?=$d->id;?> <?=($vigen->notario_id == $d->id)? "selected" : ""; ?>>
-                                        <?=$d->name." ".$d->lastname; ?>
+                                    <?php foreach ($notarios as $d) : ?>
+                                    <option value=<?= $d->id; ?>
+                                        <?= ($vigen->notario_id == $d->id) ? "selected" : ""; ?>>
+                                        <?= $d->name . " " . $d->lastname; ?>
                                     </option>
                                     <?php endforeach; ?>
                                 </select>
@@ -131,7 +133,7 @@ $notarios = NotariosData::getAll();
                             <div class="form-group label-floating">
                                 <label for="resolucionnotario" class="bmd-label-floating">Resolución notario</label>
                                 <input type="number" class="form-control" id="resolucionnotario"
-                                    name="resolucionnotario" value="<?=$vigen->resolucionnotario;?>" />
+                                    name="resolucionnotario" value="<?= $vigen->resolucionnotario; ?>" />
                             </div>
                         </div>
                         <div class="col-md-2" id="dateresolucionnotario_div">
@@ -141,7 +143,7 @@ $notarios = NotariosData::getAll();
                                 <input type="text" name="dateresolucionnotario" id="dateresolucionnotario"
                                     class="form-control datepicker-here" data-timepicker="false"
                                     data-date-format="yyyy-mm-dd" placeholder=""
-                                    value="<?=$vigen->dateresolucionnotario;?>" required>
+                                    value="<?= $vigen->dateresolucionnotario; ?>" required>
                                 <span class="form-control-feedback">
                                     <i class="material-icons">calendar_today</i>
                                 </span>
@@ -152,11 +154,11 @@ $notarios = NotariosData::getAll();
                                 <label for="observation" class="bmd-label-floating">Derechos notariales
                                 </label>
                                 <textarea class="form-control" id="observation" name="observation"
-                                    cols="30"><?=$vigen->observation;?></textarea>
+                                    cols="30"><?= $vigen->observation; ?></textarea>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <input type="hidden" name="id" value="<?= $vigen->id;?>">
+                            <input type="hidden" name="id" value="<?= $vigen->id; ?>">
                             <div class="col-lg-offset-2 col-lg-10">
                                 <button type="submit" class="btn btn-primary">Actualizar</button>
                             </div>
@@ -265,13 +267,13 @@ function addPoderdante() {
         nextinputp + '" value="" required />' +
         '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdanteidentificationexpedida[]" class="bmd-label-floating">Expedida ident. poderdante</label>' +
         '<input type="text" class="form-control" id="poderdanteidentificationexpedida_' +
-        nextinputp + '" name="poderdanteidentificationexpedida[]" value="" autocomplete="off" required />' +
+        nextinputp + '" name="poderdanteidentificationexpedida[]" value="" autocomplete="on" required />' +
         '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdantename[]" class="bmd-label-floating">Nombre poderdante</label>' +
         '<input type="text" class="form-control" id="poderdantename_' +
-        nextinputp + '" name="poderdantename[]" autocomplete="off" value="" required />' +
+        nextinputp + '" name="poderdantename[]" autocomplete="on" value="" required />' +
         '</div></div><div class="col-md-2"><div class="form-group"><label for="poderdantelastname[]" class="bmd-label-floating">Apellido poderdante</label>' +
         '<input type="text" class="form-control" id="poderdantelastname_' +
-        nextinputp + '" name="poderdantelastname[]" value="" autocomplete="off" required />' +
+        nextinputp + '" name="poderdantelastname[]" value="" autocomplete="on" required />' +
         '</div></div><div class="col-md-2"><button class="btn-danger btn btn-block btn-retirar-poderdante" id="btn-retirar-poderdante_' +
         nextinputp +
         '" type="button">Retirar</button></div></div>';
@@ -297,13 +299,13 @@ function addApoderado() {
         '" value="" required />' +
         '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoidentificationexpedida[]" class="bmd-label-floating">Expedida ident. apoderado</label>' +
         '<input type="text" class="form-control" id="apoderadoidentificationexpedida_' + nextinputap +
-        '" name="apoderadoidentificationexpedida[]" value="" autocomplete="off" required />' +
+        '" name="apoderadoidentificationexpedida[]" value="" autocomplete="on" required />' +
         '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadoname[]" class="bmd-label-floating">Nombre apoderado</label>' +
         '<input type="text" class="form-control" id="apoderadoname_' + nextinputap +
-        '" name="apoderadoname[]" autocomplete="off" value="" required />' +
+        '" name="apoderadoname[]" autocomplete="on" value="" required />' +
         '</div></div><div class="col-md-2"><div class="form-group"><label for="apoderadolastname[]" class="bmd-label-floating">Apellido apoderado</label>' +
         '<input type="text" class="form-control" id="apoderadolastname_' + nextinputap +
-        '" name="apoderadolastname[]" value="" autocomplete="off" required />' +
+        '" name="apoderadolastname[]" value="" autocomplete="on" required />' +
         '</div></div><div class="col-md-2"><button class="btn-danger btn btn-block btn-retirar-apoderado" id="btn-retirar-apoderado_' +
         nextinputap +
         '" type="button">Retirar</button></div></div>';
@@ -333,39 +335,39 @@ function addApoderado() {
 </script>
 <?php
 
- foreach ($p_ids as $key => $v) {
-     # code...
-     $key++;
-     $cs = ClientesignoData::getById($v);
-     // $fullnamep .= $cs->name. " ".$cs->lastname."; ";
-     
-     echo "<script>";
-     // echo "alert($key);";
-     echo "addPoderdante();";
-     //echo "alert('$cs->typeidentification');";
-     echo "$('#poderdantetypeidentification_$key').val('$cs->typeidentification');";
+foreach ($p_ids as $key => $v) {
+    # code...
+    $key++;
+    $cs = ClientesignoData::getById($v);
+    // $fullnamep .= $cs->name. " ".$cs->lastname."; ";
 
-     echo "FormSetFieldValue('poderdanteidentification_$key','".$cs->identification."');";
-     echo "FormSetFieldValue('poderdanteidentificationexpedida_$key','".$cs->identificationexpedida."');";
-     echo "FormSetFieldValue('poderdantename_$key','".$cs->name."');";
-     echo "FormSetFieldValue('poderdantelastname_$key','".$cs->lastname."');";
-     echo "</script>";
- }
+    echo "<script>";
+    // echo "alert($key);";
+    echo "addPoderdante();";
+    //echo "alert('$cs->typeidentification');";
+    echo "$('#poderdantetypeidentification_$key').val('$cs->typeidentification');";
 
-  foreach ($ap_ids as $key => $v) {
-      # code...
-      $key++;
-      $cs = ClientesignoData::getById($v);
-      // $fullnamep .= $cs->name. " ".$cs->lastname."; ";
-     
-      echo "<script>";
-      echo "addApoderado();";
-      echo "FormSetFieldValue('apoderadoidentification_$key','".$cs->identification."');";
-      echo "FormSetFieldValue('apoderadoidentificationexpedida_$key','".$cs->identificationexpedida."');";
-      echo "FormSetFieldValue('apoderadoname_$key','".$cs->name."');";
-      echo "FormSetFieldValue('apoderadolastname_$key','".$cs->lastname."');";
-      echo "</script>";
-  }
+    echo "FormSetFieldValue('poderdanteidentification_$key','" . $cs->identification . "');";
+    echo "FormSetFieldValue('poderdanteidentificationexpedida_$key','" . $cs->identificationexpedida . "');";
+    echo "FormSetFieldValue('poderdantename_$key','" . $cs->name . "');";
+    echo "FormSetFieldValue('poderdantelastname_$key','" . $cs->lastname . "');";
+    echo "</script>";
+}
+
+foreach ($ap_ids as $key => $v) {
+    # code...
+    $key++;
+    $cs = ClientesignoData::getById($v);
+    // $fullnamep .= $cs->name. " ".$cs->lastname."; ";
+
+    echo "<script>";
+    echo "addApoderado();";
+    echo "FormSetFieldValue('apoderadoidentification_$key','" . $cs->identification . "');";
+    echo "FormSetFieldValue('apoderadoidentificationexpedida_$key','" . $cs->identificationexpedida . "');";
+    echo "FormSetFieldValue('apoderadoname_$key','" . $cs->name . "');";
+    echo "FormSetFieldValue('apoderadolastname_$key','" . $cs->lastname . "');";
+    echo "</script>";
+}
 
 // if ($b->typeident1 != "0") {
 //     echo "<script>";
