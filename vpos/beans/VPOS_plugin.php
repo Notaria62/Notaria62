@@ -444,7 +444,6 @@ class VPOS_plugin
 		}
 		return true;
 	}
-
 	function generateSessionKey()
 	{
 		srand((float) microtime() * 1000000);
