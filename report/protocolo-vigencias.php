@@ -22,7 +22,7 @@ $cierr = VigenciasData::getById($_GET['id']);
 $u = UserData::getById($cierr->user_id);
 
 $pathtemplate = "protocolo-vigencias.docx";
-$dateescrituratextshort = NumeroALetras::dateShortToWords($cierr->dateescritura);
+$dateescrituratextshort = NumeroALetras::obtenerFechaEnLetra($cierr->dateescritura);
 $dateescrituratext = NumeroALetras::obtenerFechaEnLetraEscritura($cierr->dateescritura);
 $created_attext = NumeroALetras::obtenerFechaEnLetra($cierr->created_at);
 $dateresolucionnotario = NumeroALetras::obtenerFechaEnLetra($cierr->dateresolucionnotario);
@@ -55,9 +55,15 @@ foreach ($p_ids as $key => $v) {
     }
 }
 $apoderado = "";
+<<<<<<< HEAD
 
 if ($ap_ids == "1") {
+=======
+//print_r($ap_ids);
+if ($ap_ids[0] == "1") {
+>>>>>>> 787b0113c23b8b4263995a752fa237f5ba4f1ca1
     $apoderado = $cierr->otorgoobservation;
+    // echo $apoderado;
 } else {
     foreach ($ap_ids as $key => $j) {
         $cs = ClientesignoData::getById($j);

@@ -7,7 +7,7 @@ class Database
     {
         //$this->user = "not62bog_notaria62user";
         //$this->pass = "2fr{N}@~waQ[11";
-        $this->user = "root";
+        $this->user = "phpmyadminuser";
         $this->pass = "root";
         $this->host = "localhost";
         $this->ddbb = "not62bog_notaria62web";

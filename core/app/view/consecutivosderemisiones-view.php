@@ -8,7 +8,7 @@
  * @version 1.0
  * @author DigitalesWeb
  */
-Session::currentURL();
+
 
 if (isset($_GET["finish_at"])) {
     $finish_at = strtotime($_GET["finish_at"]);
@@ -34,7 +34,7 @@ if (isset($_GET["start_at"])) {
     <div class="card-body">
         <div class="card-title">
             <!-- Session comments -->
-            <?= Util::display_msg(Session::$msg);?>
+            <?= Util::display_msg(Session::$msg); ?>
             <!-- End session comments-->
             <a href="./?view=newconsecutivosderemisiones" class="btn btn-default">
                 <i class="material-icons">add</i> Solicitar
@@ -49,7 +49,7 @@ if (isset($_GET["start_at"])) {
                                 Fecha inicio</label>
                             <input type="text" name="start_at" id="start_at" class="form-control datepicker-here"
                                 data-timepicker="true" data-date-format="yyyy-mm-dd" data-time-format="hh:ii"
-                                placeholder="" value="<?=$start_at?>">
+                                placeholder="" value="<?= $start_at ?>">
                             <span class="form-control-feedback">
                                 <i class="material-icons">calendar_today</i>
                             </span>
@@ -61,7 +61,7 @@ if (isset($_GET["start_at"])) {
                                 Fecha fin</label>
                             <input type="text" name="finish_at" id="finish_at" class="form-control datepicker-here"
                                 data-timepicker="true" data-date-format="yyyy-mm-dd" data-time-format="hh:ii"
-                                placeholder="" value="<?=$now;?>">
+                                placeholder="" value="<?= $now; ?>">
                             <span class="form-control-feedback">
                                 <i class="material-icons">calendar_today</i>
                             </span>
@@ -100,7 +100,7 @@ if (isset($_GET["start_at"])) {
                 </div>
 
                 <?php
-                else:
+                else :
                     echo "<p class='alert alert-danger'>No hay consecutivos creados.</p>";
                 endif;
                 ?>
@@ -113,7 +113,7 @@ if (isset($_GET["start_at"])) {
 <script language="javascript">
 $(document).ready(function() {
     var $url =
-        '<?="./?action=searchconsecutivosremisiones&start_at=".$start_at."&finish_at=".$now;?>';
+        '<?= "./?action=searchconsecutivosremisiones&start_at=" . $start_at . "&finish_at=" . $now; ?>';
     $('#datatables').DataTable({
         "ajax": {
             "url": $url,
