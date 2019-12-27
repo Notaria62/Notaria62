@@ -246,6 +246,7 @@ if (isset($_GET['idcr'])) {
                                 <option value="Gastos">Gastos</option>
                                 <option value="Cartera">Cartera</option>
                                 <option value="Devoluciones">Devoluciones</option>
+                                <option value="Consignaciones">Consignaciones</option>
                             </select>
                         </div>
                     </div>
@@ -259,6 +260,7 @@ if (isset($_GET['idcr'])) {
                         <div class="form-group">
                             <label for="mount" class="bmd-label-floating">Monto</label>
                             <input type="text" class="form-control" id="mount" name="mount" required />
+                            <button onclick="sum()" class="btn btn-primary btn-sm">Sumar</button>
                         </div>
                     </div>
                 </div>
@@ -331,7 +333,6 @@ $(document).ready(function() {
         $('#mount').val("");
 
     }
-
 
     function update_data(id, column_name, value) {
         $.ajax({
@@ -454,5 +455,55 @@ $(document).ready(function() {
         $("#efectivosobrante").html('Efectivo sobrante : $' + cash);
 
     });
+});
+
+function sum() {
+    sumofnums = 0;
+    nums = document.getElementById("mount").value.split(",");
+    for (i = 0; i < nums.length; i++) {
+        sumofnums += parseInt(nums[i]);
+    }
+    //alert(sumofnums);
+    $("#mount").val(sumofnums)
+}
+
+$(function() {
+
+    $("#tipo").change(function() {
+        var flag = 0;
+        $("#tipo option:selected").each(function() {
+            flag = $(this).val();
+        });
+        //alert(flag);
+        switch (flag) {
+            case "Efectivo":
+                $('#id_tipo').val(0);
+                $('#div_id_tipo').hide();
+                break;
+            case "Voucher":
+                $('#id_tipo').val("");
+                $('#div_id_tipo').show();
+                break;
+            case "Cheque":
+                $('#id_tipo').val("");
+                $('#div_id_tipo').show();
+                break;
+            case "Transferencia":
+                $('#did_tipo').val("");
+                $('#div_id_tipo').show();
+                break;
+        }
+    }).trigger("change");
+
+    $('.txtMounts').keyup(function() {
+        var val = $(this).val();
+        if (isNaN(val)) {
+            val = val.replace(/[^0-9\.]/g, '');
+            if (val.split('.').length > 2)
+                val = val.replace(/\.+$/, "");
+        }
+        $(this).val(val);
+    });
+
 });
 </script>

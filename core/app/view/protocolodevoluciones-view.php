@@ -94,8 +94,8 @@ if (isset($_GET["start_at"])) {
                     </table>
                 </div>
                 <?php else :
-                echo "<p class='alert alert-danger'>No hay devoluciones creadas.</p>";
-            endif; ?>
+                    echo "<p class='alert alert-danger'>No hay devoluciones creadas.</p>";
+                endif; ?>
             </div>
         </div>
     </div>
@@ -145,10 +145,6 @@ $(document).ready(function() {
                 $(row).css('background-color', '#f8d7da');
             }
         },
-
-
-
-
         "processing": true,
         "pagingType": "full_numbers",
         "lengthMenu": [

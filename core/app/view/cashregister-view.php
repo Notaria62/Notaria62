@@ -31,7 +31,7 @@ if (isset($_GET["start_at"])) {
     <div class="card-body">
         <div class="card-title">
             <!-- Session comments -->
-            <?= Util::display_msg(Session::$msg);?>
+            <?= Util::display_msg(Session::$msg); ?>
             <!-- End session comments-->
             <a href="./?view=newcashregister" class="btn btn-default">
                 <i class="material-icons">add</i> Crear cuadre
@@ -46,7 +46,7 @@ if (isset($_GET["start_at"])) {
                                 Fecha inicio</label>
                             <input type="text" name="start_at" id="start_at" class="form-control datepicker-here"
                                 data-timepicker="true" data-date-format="yyyy-mm-dd" data-time-format="hh:ii"
-                                placeholder="" value="<?=$start_at?>">
+                                placeholder="" value="<?= $start_at ?>">
                             <span class="form-control-feedback">
                                 <i class="material-icons">calendar_today</i>
                             </span>
@@ -58,7 +58,7 @@ if (isset($_GET["start_at"])) {
                                 Fecha fin</label>
                             <input type="text" name="finish_at" id="finish_at" class="form-control datepicker-here"
                                 data-timepicker="true" data-date-format="yyyy-mm-dd" data-time-format="hh:ii"
-                                placeholder="" value="<?=$now;?>">
+                                placeholder="" value="<?= $now; ?>">
                             <span class="form-control-feedback">
                                 <i class="material-icons">calendar_today</i>
                             </span>
@@ -94,7 +94,7 @@ if (isset($_GET["start_at"])) {
                 </div>
 
                 <?php
-                else:
+                else :
                     echo "<p class='alert alert-danger'>No hay cuadres diarios creadas.</p>";
                 endif;
                 ?>
@@ -107,7 +107,7 @@ if (isset($_GET["start_at"])) {
 <script language="javascript">
 $(document).ready(function() {
     var $url =
-        '<?="./?action=searchcashregister&start_at=".$start_at."&finish_at=".$now;?>';
+        '<?= "./?action=searchcashregister&start_at=" . $start_at . "&finish_at=" . $now; ?>';
     $('#datatables').DataTable({
         "processing": true,
         "ajax": {
@@ -133,6 +133,10 @@ $(document).ready(function() {
             className: "text-right",
             "targets": [3]
         }],
+
+        "order": [
+            [0, "desc"]
+        ],
         "bProcessing": true,
         "pagingType": "full_numbers",
         "lengthMenu": [
@@ -168,8 +172,7 @@ $(document).ready(function() {
             searchPlaceholder: "Buscar...",
         }
     });
-    var table = $('#datatables').DataTable();
-    table.order([3, 'desc']).draw();
+
     $('.card .material-datatables label').addClass('form-group');
 
 });

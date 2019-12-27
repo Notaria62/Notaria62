@@ -26,8 +26,8 @@ $dateescrituratextshort = NumeroALetras::dateShortToWords($cierr->dateescritura)
 $dateescrituratext = NumeroALetras::obtenerFechaEnLetraEscritura($cierr->dateescritura);
 $created_attext = NumeroALetras::obtenerFechaEnLetra($cierr->created_at);
 $dateresolucionnotario = NumeroALetras::obtenerFechaEnLetra($cierr->dateresolucionnotario);
-$builder = new \PhpOffice\PhpWord\TemplateProcessor('../PHPWord/resources/'.$pathtemplate);
-$builder->setValue('consecutivo', substr($cierr->consecutivo, -4)." / ".substr($cierr->consecutivo, 0, -4));
+$builder = new \PhpOffice\PhpWord\TemplateProcessor('../PHPWord/resources/' . $pathtemplate);
+$builder->setValue('consecutivo', substr($cierr->consecutivo, -4) . " / " . substr($cierr->consecutivo, 0, -4));
 $builder->setValue('nroescriturapublica', strtoupper($cierr->nroescriturapublica));
 $builder->setValue('nroescriturapublicatext', NumeroALetras::convertirEscritura($cierr->nroescriturapublica));
 $builder->setValue('dateescrituratextshort', strtoupper($dateescrituratextshort));
@@ -35,30 +35,37 @@ $poderdante_ids = $cierr->poderdante_ids;
 $p_ids = explode("-", $poderdante_ids);
 $apoderado_ids = $cierr->apoderado_ids;
 $ap_ids = explode("-", $apoderado_ids);
-$poderdante="";
+$poderdante = "";
+
+$before = '<w:rPr><w:b w:val="true" /></w:rPr><w:t xml:space="preserve"> ';
+$after = '</w:t>';
+
+
+
 foreach ($p_ids as $key => $v) {
     # code...
     $cs = ClientesignoData::getById($v);
-    $fullnamep = $cs->name. " ".$cs->lastname;
-    if ($key <=0) {
+    $fullnamep = $cs->name . " " . $cs->lastname;
+    if ($key <= 0) {
         # code...
-        $poderdante .=  "en esta Notaria ".strtoupper($fullnamep).", identifica con $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida";
+        $poderdante .=  "en esta Notaria " . $before . strtoupper($fullnamep) . $after . ", identificado(a) con $cs->typeidentification número $before" . $cs->identification . "$after expedida en $before" . $cs->identificationexpedida . "$after";
     } else {
         # code...
-        $poderdante .=  " y ".strtoupper($fullnamep).", identifica con $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida";
+        $poderdante .=  " y $before" . strtoupper($fullnamep) . "$after, identificado(a) con $cs->typeidentification número $before $cs->identification $after expedida en $before $cs->identificationexpedida $after";
     }
 }
-$apoderado="";
-if ($ap_ids=="1") {
+$apoderado = "";
+
+if ($ap_ids == "1") {
     $apoderado = $cierr->otorgoobservation;
 } else {
     foreach ($ap_ids as $key => $j) {
         $cs = ClientesignoData::getById($j);
-        $fullnameap = $cs->name." ".$cs->lastname;
-        if ($key <=0) {
-            $apoderado .=  "".strtoupper($fullnameap).", identifica con $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida";
+        $fullnameap = $cs->name . " " . $cs->lastname;
+        if ($key <= 0) {
+            $apoderado .=  "$before" . strtoupper($fullnameap) . "$after, identificado(a) con $cs->typeidentification número $before $cs->identification $after expedida en $before $cs->identificationexpedida $after";
         } else {
-            $apoderado .=  " y ".strtoupper($fullnameap).", identifica con $cs->typeidentification número $cs->identification expedida en $cs->identificationexpedida";
+            $apoderado .=  " y $before" . strtoupper($fullnameap) . "$after, identificado(a) con $cs->typeidentification número $before $cs->identification $after expedida en $before $cs->identificationexpedida $after";
         }
     }
 }
@@ -69,11 +76,11 @@ switch ($cierr->notario_id) {
         break;
     case 2:
         $builder->setValue('nombrenotario', 'SANDY CATHERINE DUSSAN MORENO');
-        $builder->setValue('description', 'NOTARIA ENCARGADA SEGÚN RESOLUCIÓN '.$cierr->resolucionnotario.' DE FECHA '.$dateresolucionnotario.' DE LA SNR');
+        $builder->setValue('description', 'NOTARIA ENCARGADA SEGÚN RESOLUCIÓN ' . $cierr->resolucionnotario . ' DE FECHA ' . $dateresolucionnotario . ' DE LA SNR');
         break;
     case 3:
         $builder->setValue('nombrenotario', 'DORA INÉS VELOSA REYES');
-        $builder->setValue('description', 'NOTARIA ENCARGADA SEGÚN RESOLUCIÓN '.$cierr->resolucionnotario.' DE FECHA '.$dateresolucionnotario.' DE LA SNR');
+        $builder->setValue('description', 'NOTARIA ENCARGADA SEGÚN RESOLUCIÓN ' . $cierr->resolucionnotario . ' DE FECHA ' . $dateresolucionnotario . ' DE LA SNR');
         break;
     case 4:
         $builder->setValue('nombrenotario', 'DORA INÉS VELOSA REYES');
@@ -91,7 +98,7 @@ $builder->setValue('created_attext', strtoupper($created_attext));
 
 
 
-$filename = "plantilla-".time()."-".$pathtemplate;
+$filename = "plantilla-" . time() . "-" . $pathtemplate;
 $builder->saveAs($filename);
 // Doc generated on the fly, may change so do not cache it; mark as public or
 // private to be cached.
@@ -103,7 +110,7 @@ header('Expires: 0');
 header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 header('Content-Description: File Transfer');
 header('Content-Type: application/vnd.oasis.opendocument.text');
-header('Content-Disposition: attachment; filename='.$filename);
+header('Content-Disposition: attachment; filename=' . $filename);
 header('Content-Transfer-Encoding: binary');
 header('Content-Length: ' . filesize($filename));
 flush();
