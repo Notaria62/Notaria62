@@ -25,7 +25,7 @@ class ChecklistsquestionData
         $this->num_input = "";
 
         $this->user_id ="";
-        $this->created_at = Util::getDatetimeNow();
+        $this->created_at = (new \DateTime())->format('Y-m-d H:i:s');
     }
     public function add()
     {

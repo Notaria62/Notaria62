@@ -1,8 +1,8 @@
 <?php
 /**
 * BookMedik
-* @author digitalesweb
-* @url http://digitalesweb.com/about/
+* @author evilnapsis
+* @url http://evilnapsis.com/about/
 **/
 if(isset($_POST)){
 $p = PostData::getById($_POST['id']);

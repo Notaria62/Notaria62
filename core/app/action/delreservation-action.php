@@ -1,7 +1,7 @@
 <?php
 /**
 * BookMedik
-* @author digitalesweb
+* @author evilnapsis
 **/
 $b = ReservationData::getById($_GET["id"]);
 $b->del();

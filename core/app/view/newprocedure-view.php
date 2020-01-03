@@ -12,25 +12,25 @@
             <div class="card-content table-responsive">
                 <form class="form-horizontal" method="post" id="addprocedure" action="./?action=addprocedure" role="form">
                     <div class="form-group">
-                        <label for="inputRadicado" class="bmd-label-floating">Radicado*</label>
+                        <label for="inputRadicado" class="col-lg-2 control-label">Radicado*</label>
                         <div class="col-md-6">
                             <input type="text" name="radicado" required class="form-control" id="radicado" placeholder="Radicado">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEscritura" class="bmd-label-floating">Escritura*</label>
+                        <label for="inputEscritura" class="col-lg-2 control-label">Escritura*</label>
                         <div class="col-md-6">
                             <input type="text" name="escritura" required class="form-control" id="escritura" placeholder="Escritura">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail" class="bmd-label-floating">Email*</label>
+                        <label for="inputEmail" class="col-lg-2 control-label">Email*</label>
                         <div class="col-md-6">
                             <input type="text" name="email" required class="form-control" id="email" placeholder="Email">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputAnho" class="bmd-label-floating">Año</label>
+                        <label for="inputAnho" class="col-lg-2 control-label">Año</label>
                         <div class="col-md-6">
 
                             <select class="form-control" id="anho" name="anho">
@@ -53,13 +53,13 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputCI" class="bmd-label-floating">Cedula de identidad*</label>
+                        <label for="inputCI" class="col-lg-2 control-label">Cedula de identidad*</label>
                         <div class="col-md-6">
                             <input type="text" name="ci" class="form-control" id="ci" placeholder="Cedula de identidad">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEstatus" class="bmd-label-floating">Estatus*</label>
+                        <label for="inputEstatus" class="col-lg-2 control-label">Estatus*</label>
                         <div class="col-md-6">
                             <select name="estatus" id="estatus" required class="form-control">
                                 <option value="">-- SELECCIONE --</option><?php foreach(StatusData::getAll() as $p):?>

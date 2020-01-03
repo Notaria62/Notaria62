@@ -10,19 +10,19 @@
 
 
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Nombre*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Nombre*</label>
     <div class="col-md-6">
       <input type="text" name="name" required class="form-control" id="name" placeholder="Nombre">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Apellido</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Apellido</label>
     <div class="col-md-6">
       <input type="text" name="lastname"  class="form-control" id="lastname" placeholder="Apellido">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Genero*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Genero*</label>
     <div class="col-md-6">
 <label class="checkbox-inline">
   <input type="radio" id="inlineCheckbox1" name="gender" required value="h"> Hombre
@@ -35,7 +35,7 @@
   </div>
 
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Fecha de Nacimiento</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Fecha de Nacimiento</label>
     <div class="col-md-6">
       <input type="date" name="day_of_birth" class="form-control"  id="address1" placeholder="Fecha de Nacimiento">
     </div>
@@ -43,38 +43,38 @@
 
 
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Direccion*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Direccion*</label>
     <div class="col-md-6">
       <input type="text" name="address" class="form-control"  id="address1" placeholder="Direccion">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Email*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Email*</label>
     <div class="col-md-6">
       <input type="text" name="email" class="form-control" id="email1" placeholder="Email">
     </div>
   </div>
 
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Telefono*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Telefono*</label>
     <div class="col-md-6">
       <input type="text" name="phone" class="form-control" id="phone1" placeholder="Telefono">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Enfermedad</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Enfermedad</label>
     <div class="col-md-6">
       <textarea name="sick" class="form-control" id="sick" placeholder="Enfermedad"></textarea>
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Medicamentos</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Medicamentos</label>
     <div class="col-md-6">
       <textarea name="medicaments" class="form-control" id="sick" placeholder="Medicamentos"></textarea>
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Alergia</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Alergia</label>
     <div class="col-md-6">
       <textarea name="alergy" class="form-control" id="sick" placeholder="Alergia"></textarea>
     </div>

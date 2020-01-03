@@ -1,0 +1,967 @@
+[30-Sep-2019 08:04:11 America/Bogota] PHP Notice:  Undefined variable: name in /home/not62bog/public_html/adc/core/app/view/processlogin-view.php on line 39
+[30-Sep-2019 08:16:33 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[30-Sep-2019 08:16:34 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[30-Sep-2019 08:16:34 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[30-Sep-2019 08:16:34 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/BeneficenciaData.php(83): Model::many(NULL, Object(BeneficenciaData))
+#1 /home/not62bog/public_html/adc/core/app/action/pushbeneficencia-action.php(12): BeneficenciaData::getAllNotDelivered()
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('pushbeneficenci...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[30-Sep-2019 08:16:34 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[30-Sep-2019 08:16:34 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[30-Sep-2019 08:16:34 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[30-Sep-2019 08:16:34 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/BeneficenciaData.php(83): Model::many(NULL, Object(BeneficenciaData))
+#1 /home/not62bog/public_html/adc/core/app/action/pushbeneficencia-action.php(12): BeneficenciaData::getAllNotDelivered()
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('pushbeneficenci...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[01-Oct-2019 08:33:53 America/Bogota] PHP Notice:  Undefined index: nrocopia in /home/not62bog/public_html/adc/core/app/action/updatecierres-action.php on line 20
+[01-Oct-2019 08:34:37 America/Bogota] PHP Notice:  Undefined index: nrocopia in /home/not62bog/public_html/adc/core/app/action/updatecierres-action.php on line 20
+[01-Oct-2019 09:04:04 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[01-Oct-2019 09:04:05 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Oct-2019 09:04:05 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Oct-2019 09:04:05 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/BeneficenciaData.php(103): Model::one(NULL, Object(BeneficenciaData))
+#1 /home/not62bog/public_html/adc/core/app/action/updatedeliveredbeneficencia-action.php(12): BeneficenciaData::getById('8221')
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('updatedelivered...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[01-Oct-2019 09:04:05 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[01-Oct-2019 09:04:05 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Oct-2019 09:04:05 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Oct-2019 09:04:05 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(10)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[01-Oct-2019 09:04:09 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[01-Oct-2019 09:04:09 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Oct-2019 09:04:09 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Oct-2019 09:04:09 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/BeneficenciaData.php(103): Model::one(NULL, Object(BeneficenciaData))
+#1 /home/not62bog/public_html/adc/core/app/action/updatedeliveredbeneficencia-action.php(12): BeneficenciaData::getById('8221')
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('updatedelivered...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[01-Oct-2019 09:04:16 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[01-Oct-2019 09:04:16 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Oct-2019 09:04:16 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Oct-2019 09:04:16 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/BeneficenciaData.php(103): Model::one(NULL, Object(BeneficenciaData))
+#1 /home/not62bog/public_html/adc/core/app/action/updatedeliveredbeneficencia-action.php(12): BeneficenciaData::getById('8221')
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('updatedelivered...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[01-Oct-2019 09:04:24 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[01-Oct-2019 09:04:24 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Oct-2019 09:04:24 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Oct-2019 09:04:24 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(41)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[01-Oct-2019 09:04:25 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[01-Oct-2019 09:04:25 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Oct-2019 09:04:25 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Oct-2019 09:04:25 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(41)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[01-Oct-2019 09:04:40 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[01-Oct-2019 09:04:40 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Oct-2019 09:04:40 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Oct-2019 09:04:40 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/BeneficenciaData.php(103): Model::one(NULL, Object(BeneficenciaData))
+#1 /home/not62bog/public_html/adc/core/app/action/updatedeliveredbeneficencia-action.php(12): BeneficenciaData::getById('8221')
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('updatedelivered...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[01-Oct-2019 09:04:57 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[01-Oct-2019 09:04:57 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Oct-2019 09:04:57 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Oct-2019 09:04:57 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(10)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[01-Oct-2019 09:05:08 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[01-Oct-2019 09:05:08 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Oct-2019 09:05:08 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Oct-2019 09:05:08 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(10)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[04-Oct-2019 13:34:27 America/Bogota] PHP Notice:  Undefined variable: name in /home/not62bog/public_html/adc/core/app/view/processlogin-view.php on line 39
+[04-Oct-2019 16:29:31 America/Bogota] PHP Notice:  Undefined index: nrocopia in /home/not62bog/public_html/adc/core/app/action/updatecierres-action.php on line 20
+[07-Oct-2019 09:04:25 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[07-Oct-2019 09:04:26 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[07-Oct-2019 09:04:26 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[07-Oct-2019 09:04:26 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/CategoryMenuData.php(27): Model::many(NULL, Object(CategoryMenuData))
+#1 /home/not62bog/public_html/adc/core/app/layouts/layout.php(2): CategoryMenuData::get_base_categories()
+#2 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[07-Oct-2019 09:04:26 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[07-Oct-2019 09:04:26 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[07-Oct-2019 09:04:26 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[07-Oct-2019 09:04:26 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/CategoryMenuData.php(27): Model::many(NULL, Object(CategoryMenuData))
+#1 /home/not62bog/public_html/adc/core/app/layouts/layout.php(2): CategoryMenuData::get_base_categories()
+#2 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[07-Oct-2019 09:04:48 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[07-Oct-2019 09:04:48 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[07-Oct-2019 09:04:48 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[07-Oct-2019 09:04:48 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(12)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[07-Oct-2019 09:04:52 America/Bogota] PHP Notice:  Undefined index: mail in /home/not62bog/public_html/adc/core/app/view/processlogin-view.php on line 7
+[07-Oct-2019 09:04:52 America/Bogota] PHP Notice:  Undefined index: password in /home/not62bog/public_html/adc/core/app/view/processlogin-view.php on line 8
+[07-Oct-2019 10:58:07 America/Bogota] PHP Notice:  Trying to get property 'numerocuenta' of non-object in /home/not62bog/public_html/adc/core/app/action/searchpaymenttype-action.php on line 35
+[07-Oct-2019 10:58:15 America/Bogota] PHP Notice:  Undefined variable: cajaauxuliar in /home/not62bog/public_html/adc/core/app/view/newcashregister-view.php on line 134
+[07-Oct-2019 11:23:55 America/Bogota] PHP Notice:  Undefined variable: cajaauxuliar in /home/not62bog/public_html/adc/core/app/view/newcashregister-view.php on line 134
+[07-Oct-2019 11:24:54 America/Bogota] PHP Notice:  Undefined variable: cajaauxuliar in /home/not62bog/public_html/adc/core/app/view/newcashregister-view.php on line 134
+[07-Oct-2019 12:31:31 America/Bogota] PHP Notice:  Undefined property: CashRegisterData::$cuentaapropiacion in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 22
+[07-Oct-2019 15:06:52 America/Bogota] PHP Notice:  Undefined variable: cuentaapropiacion in /home/not62bog/public_html/adc/core/app/view/editcashregister-view.php on line 108
+[07-Oct-2019 16:47:57 America/Bogota] PHP Notice:  Undefined variable: poderdante_ids in /home/not62bog/public_html/adc/core/app/action/updatevigencias-action.php on line 30
+[09-Oct-2019 13:50:14 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Develociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 290
+[09-Oct-2019 13:50:57 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Develociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 290
+[09-Oct-2019 13:58:34 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Develociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 290
+[10-Oct-2019 08:30:56 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Devolociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 302
+[10-Oct-2019 08:39:15 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Devolociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 302
+[10-Oct-2019 08:40:59 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Devolociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 302
+[10-Oct-2019 08:44:53 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Devolociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 302
+[10-Oct-2019 08:45:14 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Devolociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 302
+[10-Oct-2019 08:50:34 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Devolociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 302
+[10-Oct-2019 09:10:57 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Devolociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 302
+[10-Oct-2019 12:13:11 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount1Devolociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 129
+[10-Oct-2019 12:13:11 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Devolociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 302
+[10-Oct-2019 12:15:40 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount1Devolociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 129
+[10-Oct-2019 12:15:40 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Devolociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 302
+[10-Oct-2019 12:16:47 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount1Devolociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 129
+[10-Oct-2019 12:16:47 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Devolociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 302
+[10-Oct-2019 12:47:30 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount1Devolociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 129
+[10-Oct-2019 12:47:30 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Devolociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 302
+[10-Oct-2019 12:47:39 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount1Devolociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 129
+[10-Oct-2019 12:47:39 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Devolociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 302
+[10-Oct-2019 13:06:23 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount1Devolociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 129
+[10-Oct-2019 13:06:23 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Devolociones in /home/not62bog/public_html/adc/core/app/view/printcontrolcuadrediario-view.php on line 302
+[16-Oct-2019 10:54:25 America/Bogota] PHP Notice:  Undefined variable: poderdante_ids in /home/not62bog/public_html/adc/core/app/action/updatevigencias-action.php on line 30
+[17-Oct-2019 17:02:09 America/Bogota] PHP Notice:  Undefined variable: name in /home/not62bog/public_html/adc/core/app/view/processlogin-view.php on line 39
+[18-Oct-2019 12:11:19 America/Bogota] PHP Notice:  Undefined variable: poderdante_ids in /home/not62bog/public_html/adc/core/app/action/updatevigencias-action.php on line 30
+[19-Oct-2019 08:13:02 America/Bogota] PHP Notice:  Undefined variable: poderdante_ids in /home/not62bog/public_html/adc/core/app/action/updatevigencias-action.php on line 30
+[23-Oct-2019 15:47:50 America/Bogota] PHP Notice:  Undefined index: checklist in /home/not62bog/public_html/adc/core/app/view/adminquestionlist-view.php on line 236
+[23-Oct-2019 15:48:15 America/Bogota] PHP Notice:  Undefined index: checklist in /home/not62bog/public_html/adc/core/app/view/adminquestionlist-view.php on line 236
+[23-Oct-2019 15:50:00 America/Bogota] PHP Notice:  Undefined index: checklist in /home/not62bog/public_html/adc/core/app/view/adminquestionlist-view.php on line 236
+[23-Oct-2019 15:51:25 America/Bogota] PHP Notice:  Undefined index: checklist in /home/not62bog/public_html/adc/core/app/view/adminquestionlist-view.php on line 236
+[24-Oct-2019 14:58:18 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[24-Oct-2019 14:58:18 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[24-Oct-2019 14:58:18 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[24-Oct-2019 14:58:18 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/BeneficenciaData.php(83): Model::many(NULL, Object(BeneficenciaData))
+#1 /home/not62bog/public_html/adc/core/app/action/pushbeneficencia-action.php(12): BeneficenciaData::getAllNotDelivered()
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('pushbeneficenci...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[24-Oct-2019 16:17:52 America/Bogota] PHP Notice:  Undefined variable: poderdante_ids in /home/not62bog/public_html/adc/core/app/action/updatevigencias-action.php on line 30
+[28-Oct-2019 08:45:01 America/Bogota] PHP Notice:  Undefined index: mail in /home/not62bog/public_html/adc/core/app/view/processlogin-view.php on line 7
+[28-Oct-2019 08:45:01 America/Bogota] PHP Notice:  Undefined index: password in /home/not62bog/public_html/adc/core/app/view/processlogin-view.php on line 8
+[28-Oct-2019 14:55:57 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[28-Oct-2019 14:55:57 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[28-Oct-2019 14:55:57 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[28-Oct-2019 14:55:57 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(44)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[28-Oct-2019 14:55:57 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[28-Oct-2019 14:55:57 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[28-Oct-2019 14:55:57 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[28-Oct-2019 14:55:58 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(44)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[29-Oct-2019 14:58:54 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[29-Oct-2019 14:58:55 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[29-Oct-2019 14:58:55 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[29-Oct-2019 14:58:55 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(44)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[30-Oct-2019 08:39:06 America/Bogota] PHP Notice:  Undefined index: nrocopia in /home/not62bog/public_html/adc/core/app/action/updatecierres-action.php on line 20
+[31-Oct-2019 14:57:05 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[31-Oct-2019 14:57:06 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[31-Oct-2019 14:57:06 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[31-Oct-2019 14:57:06 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(2)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[31-Oct-2019 14:57:06 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[31-Oct-2019 14:57:06 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[31-Oct-2019 14:57:06 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[31-Oct-2019 14:57:06 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(2)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[31-Oct-2019 14:57:27 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[31-Oct-2019 14:57:27 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[31-Oct-2019 14:57:27 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[31-Oct-2019 14:57:27 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(2)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[31-Oct-2019 14:57:32 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[31-Oct-2019 14:57:32 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[31-Oct-2019 14:57:32 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[31-Oct-2019 14:57:32 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/CategoryMenuData.php(27): Model::many(NULL, Object(CategoryMenuData))
+#1 /home/not62bog/public_html/adc/core/app/layouts/layout.php(2): CategoryMenuData::get_base_categories()
+#2 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[31-Oct-2019 14:57:33 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[31-Oct-2019 14:57:33 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[31-Oct-2019 14:57:33 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[31-Oct-2019 14:57:33 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/CategoryMenuData.php(27): Model::many(NULL, Object(CategoryMenuData))
+#1 /home/not62bog/public_html/adc/core/app/layouts/layout.php(2): CategoryMenuData::get_base_categories()
+#2 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[01-Nov-2019 08:40:19 America/Bogota] PHP Notice:  Undefined variable: name in /home/not62bog/public_html/adc/core/app/view/processlogin-view.php on line 39
+[01-Nov-2019 14:56:46 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[01-Nov-2019 14:56:47 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Nov-2019 14:56:47 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Nov-2019 14:56:47 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(14)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[01-Nov-2019 14:56:48 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[01-Nov-2019 14:56:48 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Nov-2019 14:56:48 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Nov-2019 14:56:48 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(14)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[01-Nov-2019 14:56:57 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[01-Nov-2019 14:56:57 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Nov-2019 14:56:57 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[01-Nov-2019 14:56:57 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(14)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[05-Nov-2019 14:56:22 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[05-Nov-2019 14:56:22 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[05-Nov-2019 14:56:22 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[05-Nov-2019 14:56:22 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(24)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[05-Nov-2019 14:56:36 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[05-Nov-2019 14:56:36 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[05-Nov-2019 14:56:36 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[05-Nov-2019 14:56:36 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(24)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[05-Nov-2019 14:56:45 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[05-Nov-2019 14:56:45 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[05-Nov-2019 14:56:45 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[05-Nov-2019 14:56:45 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(12)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[05-Nov-2019 14:56:46 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[05-Nov-2019 14:56:46 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[05-Nov-2019 14:56:46 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[05-Nov-2019 14:56:46 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(12)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[05-Nov-2019 14:56:49 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[05-Nov-2019 14:56:49 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[05-Nov-2019 14:56:49 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[05-Nov-2019 14:56:49 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/CategoryMenuData.php(27): Model::many(NULL, Object(CategoryMenuData))
+#1 /home/not62bog/public_html/adc/core/app/layouts/layout.php(2): CategoryMenuData::get_base_categories()
+#2 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[05-Nov-2019 14:56:49 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[05-Nov-2019 14:56:49 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[05-Nov-2019 14:56:49 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[05-Nov-2019 14:56:49 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/CategoryMenuData.php(27): Model::many(NULL, Object(CategoryMenuData))
+#1 /home/not62bog/public_html/adc/core/app/layouts/layout.php(2): CategoryMenuData::get_base_categories()
+#2 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[05-Nov-2019 14:56:51 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[05-Nov-2019 14:56:51 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[05-Nov-2019 14:56:51 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[05-Nov-2019 14:56:51 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(12)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[06-Nov-2019 14:56:33 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[06-Nov-2019 14:56:33 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[06-Nov-2019 14:56:33 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[06-Nov-2019 14:56:33 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/BeneficenciaData.php(83): Model::many(NULL, Object(BeneficenciaData))
+#1 /home/not62bog/public_html/adc/core/app/action/pushbeneficencia-action.php(12): BeneficenciaData::getAllNotDelivered()
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('pushbeneficenci...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[06-Nov-2019 14:56:33 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[06-Nov-2019 14:56:33 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[06-Nov-2019 14:56:33 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[06-Nov-2019 14:56:33 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/BeneficenciaData.php(83): Model::many(NULL, Object(BeneficenciaData))
+#1 /home/not62bog/public_html/adc/core/app/action/pushbeneficencia-action.php(12): BeneficenciaData::getAllNotDelivered()
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('pushbeneficenci...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[06-Nov-2019 14:56:33 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[06-Nov-2019 14:56:33 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[06-Nov-2019 14:56:33 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[06-Nov-2019 14:56:33 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/BeneficenciaData.php(83): Model::many(NULL, Object(BeneficenciaData))
+#1 /home/not62bog/public_html/adc/core/app/action/pushbeneficencia-action.php(12): BeneficenciaData::getAllNotDelivered()
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('pushbeneficenci...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[06-Nov-2019 14:56:35 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[06-Nov-2019 14:56:35 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[06-Nov-2019 14:56:35 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[06-Nov-2019 14:56:35 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/BeneficenciaData.php(96): Model::many(NULL, Object(BeneficenciaData))
+#1 /home/not62bog/public_html/adc/core/app/action/searchescrituras-action.php(12): BeneficenciaData::getByRange('2019-10-06 14:5...', '2019-11-06 15:5...')
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('searchescritura...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[06-Nov-2019 14:56:41 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[06-Nov-2019 14:56:41 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[06-Nov-2019 14:56:41 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[06-Nov-2019 14:56:41 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/CategoryMenuData.php(27): Model::many(NULL, Object(CategoryMenuData))
+#1 /home/not62bog/public_html/adc/core/app/layouts/layout.php(2): CategoryMenuData::get_base_categories()
+#2 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[06-Nov-2019 14:56:42 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[06-Nov-2019 14:56:44 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[06-Nov-2019 14:56:44 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[06-Nov-2019 14:56:44 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/CategoryMenuData.php(27): Model::many(NULL, Object(CategoryMenuData))
+#1 /home/not62bog/public_html/adc/core/app/layouts/layout.php(2): CategoryMenuData::get_base_categories()
+#2 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[07-Nov-2019 14:56:00 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[07-Nov-2019 14:56:01 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[07-Nov-2019 14:56:01 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[07-Nov-2019 14:56:01 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/BeneficenciaData.php(83): Model::many(NULL, Object(BeneficenciaData))
+#1 /home/not62bog/public_html/adc/core/app/action/pushbeneficencia-action.php(12): BeneficenciaData::getAllNotDelivered()
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('pushbeneficenci...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[07-Nov-2019 14:56:18 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[07-Nov-2019 14:56:18 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[07-Nov-2019 14:56:18 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[07-Nov-2019 14:56:18 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/BeneficenciaData.php(83): Model::many(NULL, Object(BeneficenciaData))
+#1 /home/not62bog/public_html/adc/core/app/action/pushbeneficencia-action.php(12): BeneficenciaData::getAllNotDelivered()
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('pushbeneficenci...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[12-Nov-2019 14:56:32 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[12-Nov-2019 14:56:32 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[12-Nov-2019 14:56:32 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[12-Nov-2019 14:56:32 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/BeneficenciaData.php(83): Model::many(NULL, Object(BeneficenciaData))
+#1 /home/not62bog/public_html/adc/core/app/action/pushbeneficencia-action.php(12): BeneficenciaData::getAllNotDelivered()
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('pushbeneficenci...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[13-Nov-2019 14:56:02 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[13-Nov-2019 14:56:02 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[13-Nov-2019 14:56:03 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[13-Nov-2019 14:56:03 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(44)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[13-Nov-2019 14:56:03 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[13-Nov-2019 14:56:03 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[13-Nov-2019 14:56:03 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[13-Nov-2019 14:56:03 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(44)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[13-Nov-2019 14:56:08 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[13-Nov-2019 14:56:08 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[13-Nov-2019 14:56:08 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[13-Nov-2019 14:56:08 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(44)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[14-Nov-2019 14:56:30 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[14-Nov-2019 14:56:31 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[14-Nov-2019 14:56:31 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[14-Nov-2019 14:56:31 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/BeneficenciaData.php(83): Model::many(NULL, Object(BeneficenciaData))
+#1 /home/not62bog/public_html/adc/core/app/action/pushbeneficencia-action.php(12): BeneficenciaData::getAllNotDelivered()
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('pushbeneficenci...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[14-Nov-2019 14:56:59 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[14-Nov-2019 14:56:59 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[14-Nov-2019 14:56:59 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[14-Nov-2019 14:56:59 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(44)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[14-Nov-2019 14:57:00 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[14-Nov-2019 14:57:00 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[14-Nov-2019 14:57:00 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[14-Nov-2019 14:57:00 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(44)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[14-Nov-2019 14:57:40 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[14-Nov-2019 14:57:40 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[14-Nov-2019 14:57:40 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[14-Nov-2019 14:57:40 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/BeneficenciaData.php(83): Model::many(NULL, Object(BeneficenciaData))
+#1 /home/not62bog/public_html/adc/core/app/action/pushbeneficencia-action.php(12): BeneficenciaData::getAllNotDelivered()
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('pushbeneficenci...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[15-Nov-2019 14:56:20 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[15-Nov-2019 14:56:20 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[15-Nov-2019 14:56:20 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[15-Nov-2019 14:56:20 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/BeneficenciaData.php(83): Model::many(NULL, Object(BeneficenciaData))
+#1 /home/not62bog/public_html/adc/core/app/action/pushbeneficencia-action.php(12): BeneficenciaData::getAllNotDelivered()
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('pushbeneficenci...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[15-Nov-2019 14:56:29 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[15-Nov-2019 14:56:29 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[15-Nov-2019 14:56:29 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[15-Nov-2019 14:56:29 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(2)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[15-Nov-2019 14:56:29 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[15-Nov-2019 14:56:29 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[15-Nov-2019 14:56:29 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[15-Nov-2019 14:56:29 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(2)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[15-Nov-2019 14:56:40 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[15-Nov-2019 14:56:40 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[15-Nov-2019 14:56:40 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[15-Nov-2019 14:56:40 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:26
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/CategoryMenuData.php(27): Model::many(NULL, Object(CategoryMenuData))
+#1 /home/not62bog/public_html/adc/core/app/layouts/layout.php(2): CategoryMenuData::get_base_categories()
+#2 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 26
+[16-Nov-2019 09:46:44 America/Bogota] PHP Notice:  Undefined variable: name in /home/not62bog/public_html/adc/core/app/view/processlogin-view.php on line 39
+[18-Nov-2019 09:44:20 America/Bogota] PHP Notice:  Undefined variable: name in /home/not62bog/public_html/adc/core/app/view/processlogin-view.php on line 39
+[18-Nov-2019 13:48:53 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on boolean in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(false, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/action/searchpaymenttype-action.php(14): UserData::getById(false)
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('searchpaymentty...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[18-Nov-2019 13:49:11 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on boolean in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(false, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/action/searchpaymenttype-action.php(14): UserData::getById(false)
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('searchpaymentty...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[18-Nov-2019 14:39:13 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 107
+[18-Nov-2019 14:39:13 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 107
+[18-Nov-2019 14:39:13 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 107
+[18-Nov-2019 14:39:13 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 107
+[18-Nov-2019 14:39:13 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 107
+[18-Nov-2019 14:39:13 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 107
+[18-Nov-2019 14:39:13 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 117
+[18-Nov-2019 14:55:44 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[18-Nov-2019 14:55:44 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[18-Nov-2019 14:55:45 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[18-Nov-2019 14:55:45 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(42)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[18-Nov-2019 14:56:02 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[18-Nov-2019 14:56:02 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[18-Nov-2019 14:56:02 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[18-Nov-2019 14:56:02 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(42)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[18-Nov-2019 14:57:24 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[18-Nov-2019 14:57:24 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[18-Nov-2019 14:57:24 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[18-Nov-2019 14:57:24 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(44)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[18-Nov-2019 14:57:24 America/Bogota] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/not62bog/public_html/adc/core/controller/Database.php on line 20
+[18-Nov-2019 14:57:24 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[18-Nov-2019 14:57:24 America/Bogota] PHP Warning:  Executor::doit(): Couldn't fetch mysqli in /home/not62bog/public_html/adc/core/controller/Executor.php on line 11
+[18-Nov-2019 14:57:24 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(NULL, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/model/Util.php(21): UserData::getById(44)
+#2 /home/not62bog/public_html/adc/core/app/layouts/layout.php(1): Util::current_user()
+#3 /home/not62bog/public_html/adc/core/controller/Module.php(12): include('/home/not62bog/...')
+#4 /home/not62bog/public_html/adc/core/app/init.php(9): Module::loadLayout('index')
+#5 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#6 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#7 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[20-Nov-2019 12:46:14 America/Bogota] PHP Notice:  Undefined index: nrocopia in /home/not62bog/public_html/adc/core/app/action/updatecierres-action.php on line 20
+[22-Nov-2019 09:34:27 America/Bogota] PHP Notice:  Undefined index: nrocopia in /home/not62bog/public_html/adc/core/app/action/updatecierres-action.php on line 20
+[22-Nov-2019 10:00:22 America/Bogota] PHP Notice:  Undefined index: nrocopia in /home/not62bog/public_html/adc/core/app/action/updatecierres-action.php on line 20
+[25-Nov-2019 12:23:48 America/Bogota] PHP Notice:  Undefined variable: name in /home/not62bog/public_html/adc/core/app/view/processlogin-view.php on line 39
+[26-Nov-2019 11:13:06 America/Bogota] PHP Notice:  Trying to get property 'numeroescriturapublica' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 17
+[26-Nov-2019 11:13:06 America/Bogota] PHP Notice:  Trying to get property 'numradicado' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 18
+[26-Nov-2019 11:13:06 America/Bogota] PHP Notice:  Trying to get property 'numanotacioncoordinador' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 19
+[26-Nov-2019 11:13:06 America/Bogota] PHP Notice:  Trying to get property 'numanotacionrevisor' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 20
+[26-Nov-2019 11:13:06 America/Bogota] PHP Notice:  Trying to get property 'datedelivery' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 21
+[26-Nov-2019 11:13:06 America/Bogota] PHP Notice:  Trying to get property 'dateradication' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 22
+[26-Nov-2019 11:13:06 America/Bogota] PHP Notice:  Trying to get property 'datenotaryauthorization' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 23
+[26-Nov-2019 11:13:06 America/Bogota] PHP Notice:  Trying to get property 'observation' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 24
+[26-Nov-2019 11:13:06 America/Bogota] PHP Notice:  Trying to get property 'numday' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 25
+[26-Nov-2019 11:13:06 America/Bogota] PHP Notice:  Trying to get property 'code_approval' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 26
+[28-Nov-2019 11:11:25 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on boolean in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(false, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/action/searchpaymenttype-action.php(14): UserData::getById(false)
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('searchpaymentty...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[28-Nov-2019 11:11:54 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on boolean in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(false, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/action/searchpaymenttype-action.php(14): UserData::getById(false)
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('searchpaymentty...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[02-Dec-2019 10:45:30 America/Bogota] PHP Notice:  Undefined index: nrocopia in /home/not62bog/public_html/adc/core/app/action/updatecierres-action.php on line 20
+[02-Dec-2019 11:13:52 America/Bogota] PHP Notice:  Undefined index: nrocopia in /home/not62bog/public_html/adc/core/app/action/updatecierres-action.php on line 20
+[02-Dec-2019 12:13:55 America/Bogota] PHP Notice:  Undefined index: nrocopia in /home/not62bog/public_html/adc/core/app/action/updatecierres-action.php on line 20
+[02-Dec-2019 15:35:55 America/Bogota] PHP Notice:  Undefined variable: name in /home/not62bog/public_html/adc/core/app/view/processlogin-view.php on line 39
+[04-Dec-2019 10:24:30 America/Bogota] PHP Notice:  Undefined variable: poderdante_ids in /home/not62bog/public_html/adc/core/app/action/updatevigencias-action.php on line 30
+[04-Dec-2019 13:11:01 America/Bogota] PHP Notice:  Undefined index: nrocopia in /home/not62bog/public_html/adc/core/app/action/updatecierres-action.php on line 20
+[07-Dec-2019 09:32:29 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on boolean in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/ChecklistsanswerBCSData.php(110): Model::one(false, Object(ChecklistsanswerBCSData))
+#1 /home/not62bog/public_html/adc/core/app/action/addchecklistanswersbcs-action.php(14): ChecklistsanswerBCSData::getByNroRadicado('')
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('addchecklistans...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[07-Dec-2019 10:42:23 America/Bogota] PHP Notice:  Undefined index: nrocopia in /home/not62bog/public_html/adc/core/app/action/updatecierres-action.php on line 20
+[09-Dec-2019 16:16:07 America/Bogota] PHP Notice:  Undefined index: poderdantetypeidentification in /home/not62bog/public_html/adc/core/app/action/addvigencias-action.php on line 15
+[09-Dec-2019 16:16:07 America/Bogota] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/not62bog/public_html/adc/core/app/action/addvigencias-action.php on line 15
+[13-Dec-2019 09:22:15 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 107
+[13-Dec-2019 09:22:15 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 107
+[13-Dec-2019 09:22:15 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 107
+[13-Dec-2019 09:22:15 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 107
+[13-Dec-2019 09:22:15 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 107
+[13-Dec-2019 09:22:15 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 107
+[13-Dec-2019 09:22:15 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 117
+[13-Dec-2019 09:23:28 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 107
+[13-Dec-2019 09:23:28 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 107
+[13-Dec-2019 09:23:28 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 107
+[13-Dec-2019 09:23:28 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 107
+[13-Dec-2019 09:23:28 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 107
+[13-Dec-2019 09:23:28 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 107
+[13-Dec-2019 09:23:28 America/Bogota] PHP Notice:  Undefined index: page in /home/not62bog/public_html/adc/core/app/view/clients-view.php on line 117
+[13-Dec-2019 14:22:32 America/Bogota] PHP Notice:  Undefined variable: name in /home/not62bog/public_html/adc/core/app/view/processlogin-view.php on line 39
+[14-Dec-2019 11:37:38 America/Bogota] PHP Notice:  Undefined index: nrocopia in /home/not62bog/public_html/adc/core/app/action/updatecierres-action.php on line 20
+[16-Dec-2019 15:51:22 America/Bogota] PHP Notice:  Undefined variable: name in /home/not62bog/public_html/adc/core/app/view/processlogin-view.php on line 39
+[20-Dec-2019 13:50:37 America/Bogota] PHP Notice:  Undefined index: nrocopia in /home/not62bog/public_html/adc/core/app/action/updatecierres-action.php on line 20
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'numeroescriturapublica' of non-object in /home/not62bog/public_html/adc/core/app/view/printchecklistbcs-view.php on line 16
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'numradicado' of non-object in /home/not62bog/public_html/adc/core/app/view/printchecklistbcs-view.php on line 17
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'numanotacioncoordinador' of non-object in /home/not62bog/public_html/adc/core/app/view/printchecklistbcs-view.php on line 18
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'numanotacionrevisor' of non-object in /home/not62bog/public_html/adc/core/app/view/printchecklistbcs-view.php on line 19
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'datedelivery' of non-object in /home/not62bog/public_html/adc/core/app/view/printchecklistbcs-view.php on line 20
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'dateradication' of non-object in /home/not62bog/public_html/adc/core/app/view/printchecklistbcs-view.php on line 21
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'datenotaryauthorization' of non-object in /home/not62bog/public_html/adc/core/app/view/printchecklistbcs-view.php on line 22
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'observation' of non-object in /home/not62bog/public_html/adc/core/app/view/printchecklistbcs-view.php on line 23
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'numday' of non-object in /home/not62bog/public_html/adc/core/app/view/printchecklistbcs-view.php on line 24
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'numeroescriturapublica' of non-object in /home/not62bog/public_html/adc/core/app/view/printchecklistbcs-view.php on line 44
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'code_approval' of non-object in /home/not62bog/public_html/adc/core/app/view/printchecklistbcs-view.php on line 51
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'numeroescriturapublica' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 17
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'numradicado' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 18
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'numanotacioncoordinador' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 19
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'numanotacionrevisor' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 20
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'datedelivery' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 21
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'dateradication' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 22
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'datenotaryauthorization' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 23
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'observation' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 24
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'numday' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 25
+[20-Dec-2019 14:39:08 America/Bogota] PHP Notice:  Trying to get property 'code_approval' of non-object in /home/not62bog/public_html/adc/core/app/view/editchecklistbcs-view.php on line 26
+[20-Dec-2019 17:27:49 America/Bogota] PHP Notice:  Undefined variable: poderdante_ids in /home/not62bog/public_html/adc/core/app/action/updatevigencias-action.php on line 30
+[27-Dec-2019 20:45:38 America/Bogota] PHP Notice:  Undefined index: nrocopia in /home/not62bog/public_html/adc/core/app/action/updatecierres-action.php on line 20
+[27-Dec-2019 20:46:19 America/Bogota] PHP Notice:  Undefined index: nrocopia in /home/not62bog/public_html/adc/core/app/action/updatecierres-action.php on line 20
+[30-Dec-2019 11:17:59 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on boolean in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(false, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/action/searchpaymenttype-action.php(14): UserData::getById(false)
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('searchpaymentty...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[30-Dec-2019 11:18:18 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on boolean in /home/not62bog/public_html/adc/core/controller/Model.php:44
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/UserData.php(69): Model::one(false, Object(UserData))
+#1 /home/not62bog/public_html/adc/core/app/action/searchpaymenttype-action.php(14): UserData::getById(false)
+#2 /home/not62bog/public_html/adc/core/controller/Action.php(22): include('/home/not62bog/...')
+#3 /home/not62bog/public_html/adc/core/app/init.php(11): Action::load('searchpaymentty...')
+#4 /home/not62bog/public_html/adc/core/controller/Lb.php(15): include('/home/not62bog/...')
+#5 /home/not62bog/public_html/adc/index.php(27): Lb->start()
+#6 {main}
+  thrown in /home/not62bog/public_html/adc/core/controller/Model.php on line 44
+[30-Dec-2019 18:58:07 America/Bogota] PHP Notice:  Undefined index: nrocopia in /home/not62bog/public_html/adc/core/app/action/updatecierres-action.php on line 20
+[02-Jan-2020 10:12:46 America/Bogota] PHP Notice:  Undefined index: nrocopia in /home/not62bog/public_html/adc/core/app/action/updatecierres-action.php on line 20

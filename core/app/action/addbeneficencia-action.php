@@ -12,6 +12,6 @@ if (count($_POST)>0) {
     $b->status =  isset($_POST["status"]) ? $_POST["status"] : "0";
     $b->user_id=Session::getUID();
     $b->add();
-    Session::msg("s", "Agregado correctamente.");
-    Core::redir("./?view=beneficencia");
+	Session::msg("s", "Agregado correctamente.");
+	Core::redir("./?view=beneficencia");
 }

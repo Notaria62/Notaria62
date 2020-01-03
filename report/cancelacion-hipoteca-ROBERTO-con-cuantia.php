@@ -5,7 +5,7 @@
  *
  * cancelacion_hipoteca_ley_546_roberto description.
  *
- * @version 1.0 
+ * @version 1.0
  * @author sistemas
  */
 include "../core/autoload.php";
@@ -17,18 +17,18 @@ include "../core/app/model/CifrasEnLetras.php";
 //session_start();
 require_once '../PHPWord/bootstrap.php';
 $memo = MemorandumData::getById($_GET['id']);
-$digitador = DigitadoresData::getById($memo->digitador_id);
+$digitador= DigitadoresData::getById($memo->digitador_id);
 $tmemo = TemplateMemorandumData::getById($_GET['templatememo_id']);
-$pathtemplatememo = $tmemo->container;
+$pathtemplatememo= $tmemo->container;
 $dateescriturahipoteca = NumeroALetras::obtenerFechaEnLetra($memo->dateescriturahipoteca);
 $dateotorgamiento = NumeroALetras::obtenerFechaEnLetra($memo->dateotorgamiento);
 $dateresolucionnotario = NumeroALetras::obtenerFechaEnLetra($memo->dateresolucionnotario);
 
-$identificacion1 = number_format($memo->identificacion1, 0, ",", ".");
-$identificacion2 = number_format($memo->identificacion2, 0, ",", ".");
-$identificacion3 = number_format($memo->identificacion3, 0, ",", ".");
-$identificacion4 = number_format($memo->identificacion4, 0, ",", ".");
-$builder = new \PhpOffice\PhpWord\TemplateProcessor('../PHPWord/resources/' . $pathtemplatememo);
+$identificacion1= number_format($memo->identificacion1, 0, ",", ".");
+$identificacion2= number_format($memo->identificacion2, 0, ",", ".");
+$identificacion3= number_format($memo->identificacion3, 0, ",", ".");
+$identificacion4= number_format($memo->identificacion4, 0, ",", ".");
+$builder = new \PhpOffice\PhpWord\TemplateProcessor('../PHPWord/resources/'.$pathtemplatememo);
 $builder->setValue('numeroescriturapublica', strtoupper($memo->numeroescriturapublica));
 $builder->setValue('numeroescriturapublicaenletras', NumeroALetras::convertir($memo->numeroescriturapublica));
 $builder->setValue('dateotorgamiento', strtoupper($dateotorgamiento));
@@ -46,43 +46,43 @@ switch ($memo->notario_id) {
         $builder->setValue('resolucion', '');
         break;
     case 2:
-        $builder->setValue('nombredelnotarioquefirma', 'cuya NOTARIA ENCARGADA es la Doctora SANDY CATHERINE DUSSAN MORENO, mediante Resolución número ' . $memo->resolucionnotario . ' de fecha ' . $dateresolucionnotario . ' de la Superintendencia de Notariado y Registro;');
-        $builder->setValue('resolucion', 'NOTARIA ENCARGADA SEGÚN RESOLUCIÓN ' . $memo->resolucionnotario . ' DE FECHA ' . $dateresolucionnotario . ' DE LA SNR');
+        $builder->setValue('nombredelnotarioquefirma', 'cuya NOTARIA ENCARGADA es la Doctora SANDY CATHERINE DUSSAN MORENO, mediante Resolución número '.$memo->resolucionnotario.' de fecha '. $dateresolucionnotario.' de la Superintendencia de Notariado y Registro;');
+        $builder->setValue('resolucion', 'NOTARIA ENCARGADA SEGÚN RESOLUCIÓN '.$memo->resolucionnotario.' DE FECHA '.$dateresolucionnotario.' DE LA SNR');
         break;
     case 3:
-        $builder->setValue('nombredelnotarioquefirma', 'cuya NOTARIA ENCARGADA es la Doctora DORA INÉS VELOSA REYES, mediante Resolución numero ' . $memo->resolucionnotario . ' de fecha ' . $dateresolucionnotario . ' de la Superintendencia de Notariado y Registro;');
-        $builder->setValue('resolucion', 'NOTARIA ENCARGADA SEGÚN RESOLUCIÓN ' . $memo->resolucionnotario . ' DE FECHA ' . $dateresolucionnotario . ' DE LA SNR');
+        $builder->setValue('nombredelnotarioquefirma', 'cuya NOTARIA ENCARGADA es la Doctora DORA INÉS VELOSA REYES, mediante Resolución numero '.$memo->resolucionnotario.' de fecha '. $dateresolucionnotario.' de la Superintendencia de Notariado y Registro;');
+        $builder->setValue('resolucion', 'NOTARIA ENCARGADA SEGÚN RESOLUCIÓN '.$memo->resolucionnotario.' DE FECHA '.$dateresolucionnotario.' DE LA SNR');
         break;
 }
-$deudoresstr1 = "";
-$deudoresstr2 = "";
-if ($memo->typeident1 != "0") {
+$deudoresstr1="";
+$deudoresstr2="";
+if ($memo->typeident1 !="0") {
     $builder->setValue('fullname1', strtoupper($memo->fullname1));
     $builder->setValue('typeident1', strtoupper($memo->typeident1));
     $builder->setValue('identificacion1', $identificacion1);
-    $deudoresstr1 .= strtoupper($memo->fullname1) . '<w:t xml:space="preserve"> </w:t></w:t></w:r><w:r><w:tab/></w:r><w:r><w:t><w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr>' . strtoupper($memo->typeident1) . " " . $identificacion1;
-    $deudoresstr2 .= strtoupper($memo->fullname1) . " Identificado(s) con " . strtoupper($memo->typeident1) . " Número(s) " . $identificacion1;
+    $deudoresstr1 .= strtoupper($memo->fullname1).'<w:t xml:space="preserve"> </w:t></w:t></w:r><w:r><w:tab/></w:r><w:r><w:t><w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr>'.strtoupper($memo->typeident1)." ".$identificacion1;
+    $deudoresstr2 .=strtoupper($memo->fullname1)." Identificado(s) con ".strtoupper($memo->typeident1)." Número(s) ".$identificacion1;
 }
-if ($memo->typeident2 != "0") {
+if ($memo->typeident2 !="0") {
     $builder->setValue('fullname2', strtoupper($memo->fullname2));
     $builder->setValue('typeident2', strtoupper($memo->typeident2));
     $builder->setValue('identificacion2', $identificacion2);
-    $deudoresstr1 .= "<w:br/>" . strtoupper($memo->fullname2) . '<w:t xml:space="preserve"> </w:t></w:t></w:r><w:r><w:tab/></w:r><w:r><w:t><w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr>' . strtoupper($memo->typeident2) . " " . $identificacion2;
-    $deudoresstr2 .= " y " . strtoupper($memo->fullname2) . " Identificado(s) con " . strtoupper($memo->typeident2) . " Número(s) " . $identificacion2;
+    $deudoresstr1 .= "<w:br/>".strtoupper($memo->fullname2).'<w:t xml:space="preserve"> </w:t></w:t></w:r><w:r><w:tab/></w:r><w:r><w:t><w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr>'.strtoupper($memo->typeident2)." ".$identificacion2;
+    $deudoresstr2 .=" y ".strtoupper($memo->fullname2)." Identificado(s) con ".strtoupper($memo->typeident2)." Número(s) ".$identificacion2;
 }
-if ($memo->typeident3 != "0") {
+if ($memo->typeident3 !="0") {
     $builder->setValue('fullname3', strtoupper($memo->fullname3));
     $builder->setValue('typeident3', strtoupper($memo->typeident3));
     $builder->setValue('identificacion3', $identificacion3);
-    $deudoresstr1 .= "<w:br/>" . strtoupper($memo->fullname3) . '<w:t xml:space="preserve"> </w:t></w:t></w:r><w:r><w:tab/></w:r><w:r><w:t><w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr>' . strtoupper($memo->typeident3) . " " . $identificacion3;
-    $deudoresstr2 .= " y " . strtoupper($memo->fullname3) . " Identificado(s) con " . strtoupper($memo->typeident3) . " Número(s) " . $identificacion3;
+    $deudoresstr1 .= "<w:br/>".strtoupper($memo->fullname3).'<w:t xml:space="preserve"> </w:t></w:t></w:r><w:r><w:tab/></w:r><w:r><w:t><w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr>'.strtoupper($memo->typeident3)." ".$identificacion3;
+    $deudoresstr2 .=" y ".strtoupper($memo->fullname3)." Identificado(s) con ".strtoupper($memo->typeident3)." Número(s) ".$identificacion3;
 }
-if ($memo->typeident4 != "0") {
+if ($memo->typeident4 !="0") {
     $builder->setValue('fullname4', strtoupper($memo->fullname4));
     $builder->setValue('typeident4', strtoupper($memo->typeident4));
     $builder->setValue('identificacion4', $identificacion4);
-    $deudoresstr1 .= "<w:br/>" . strtoupper($memo->fullname4) . '<w:t xml:space="preserve"> </w:t></w:t></w:r><w:r><w:tab/></w:r><w:r><w:t><w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr>' . strtoupper($memo->typeident4) . " " . $identificacion4;
-    $deudoresstr2 .= " y " . strtoupper($memo->fullname4) . " Identificado(s) con " . strtoupper($memo->typeident4) . " Número(s) " . $identificacion4;
+    $deudoresstr1 .= "<w:br/>".strtoupper($memo->fullname4).'<w:t xml:space="preserve"> </w:t></w:t></w:r><w:r><w:tab/></w:r><w:r><w:t><w:t xml:space="preserve"> </w:t><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial Unicode MS" w:cs="Arial Unicode MS"/></w:rPr>'.strtoupper($memo->typeident4)." ".$identificacion4;
+    $deudoresstr2 .=" y ".strtoupper($memo->fullname4)." Identificado(s) con ".strtoupper($memo->typeident4)." Número(s) ".$identificacion4;
 }
 
 $builder->setValue('deudoresstr1', $deudoresstr1);
@@ -114,7 +114,7 @@ switch ($memo->notario_id) {
         break;
 }
 $builder->setValue('digitador', $digitador->name);
-$filename = "rad-" . $memo->radicado . "-ep-" . $memo->numeroescriturapublica . "-plantilla-" . time() . "-" . $digitador->name . "-" . $pathtemplatememo;
+$filename = "rad-".$memo->radicado."-ep-".$memo->numeroescriturapublica."-plantilla-".time()."-".$digitador->name."-".$pathtemplatememo;
 //$builder = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'ODText');
 $builder->saveAs($filename);
 // Doc generated on the fly, may change so do not cache it; mark as public or
@@ -127,7 +127,7 @@ header('Expires: 0');
 header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 header('Content-Description: File Transfer');
 header('Content-Type: application/vnd.oasis.opendocument.text');
-header('Content-Disposition: attachment; filename=' . $filename);
+header('Content-Disposition: attachment; filename='.$filename);
 header('Content-Transfer-Encoding: binary');
 header('Content-Length: ' . filesize($filename));
 flush();

@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="col-md-12">
         <div class="btn-group pull-right">
@@ -17,46 +18,52 @@
             </div>
             <div class="card-content table-responsive">
 
-                <form class="form-horizontal" method="post" id="addsafetypaper" action="index.php?action=addsafetypaper"
-                    role="form">
+                <form class="form-horizontal" method="post" id="addsafetypaper" action="index.php?action=addsafetypaper" role="form">
 
 
                     <div class="form-group">
-                        <label for="codsheet" class="bmd-label-floating">C&oacute;digo de hoja *</label>
+                        <label for="codsheet" class="col-lg-2 control-label">C&oacute;digo de hoja *</label>
                         <div class="col-md-6">
                             <input type="text" name="codsheet" required class="form-control" id="codsheet" placeholder="C&oacute;digo de hoja" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="ep" class="bmd-label-floating">EP *</label>
+                        <label for="ep" class="col-lg-2 control-label">EP *</label>
                         <div class="col-md-6">
                             <input type="text" name="ep" required class="form-control" id="ep" placeholder="EP" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="notaria" class="bmd-label-floating">Notaria *</label>
+                        <label for="notaria" class="col-lg-2 control-label">Notaria *</label>
                         <div class="col-md-6">
                             <input type="text" name="address" required class="form-control" id="address" placeholder="notaria" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="radicadosnr" class="bmd-label-floating">Radicado SNR *</label>
+                        <label for="radicadosnr" class="col-lg-2 control-label">Radicado SNR *</label>
                         <div class="col-md-6">
-                            <input type="text" name="radicadosnr" required class="form-control" id="radicadosnr"
-                                placeholder="Radicado SNR" />
+                            <input type="text" name="radicadosnr" required class="form-control" id="radicadosnr" placeholder="Radicado SNR" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="reportdate" class="bmd-label-floating">Fecha de reporte *</label>
+                        <label for="reportdate" class="col-lg-2 control-label">Fecha de reporte *</label>
                         <div class="col-md-6">
+
+
+
+
                             <div class='input-group date' id='start_at_div'>
                                 <span class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </span>
-                                <input type="text" name="reportdate" id="reportdate" class="form-control" required
-                                    value="<?php echo $paper->reportdate;?>"
-                                    placeholder="Fecha de reporte" />
+                                <input type="text" name="reportdate" id="reportdate" class="form-control" required value="<?php echo $paper->reportdate;?>" placeholder="Fecha de reporte" />
                             </div>
+
+
+
+
+
+
                         </div>
                     </div>
                     <p class="alert alert-info">* Campos obligatorios</p>
@@ -72,7 +79,7 @@
 </div>
 
 <script type="text/javascript">
-    $(function() {
+    $(function () {
         $('#start_at_div').datetimepicker({
             format: 'YYYY/MM/DD HH:mm:ss',
             icons: {
@@ -97,3 +104,4 @@
 <script type="text/javascript" src='themes/notaria62web/js/moment.min.js'></script>
 <script src="themes/notaria62web/js/es.js"></script>
 <script src="themes/notaria62web/js/bootstrap-datetimepicker.js"></script>
+

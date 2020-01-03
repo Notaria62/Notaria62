@@ -47,6 +47,7 @@ div.main-panel {
     </div>
     <div class="card-body">
         <div class="card-title">
+
             <!-- Session comments -->
             <?= Util::display_msg(Session::$msg); ?>
             <!-- End session comments-->

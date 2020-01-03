@@ -1,6 +1,316 @@
-[08-Jan-2019 10:17:37 America/Bogota] PHP Notice:  A session had already been started - ignoring session_start() in /home/not62bog/public_html/adc/report/cancelacion-hipoteca-luz-derly-con-cuantia.php on line 18
-[08-Jan-2019 10:17:45 America/Bogota] PHP Notice:  A session had already been started - ignoring session_start() in /home/not62bog/public_html/adc/report/cancelacion-hipoteca-ley-546-99-luz-derly.php on line 18
-[08-Jan-2019 10:22:14 America/Bogota] PHP Notice:  A session had already been started - ignoring session_start() in /home/not62bog/public_html/adc/report/protocolo-cierres.php on line 14
-[08-Jan-2019 10:22:19 America/Bogota] PHP Notice:  A session had already been started - ignoring session_start() in /home/not62bog/public_html/adc/report/cancelacion-hipoteca-ley-546-99-luz-derly.php on line 18
-[08-Jan-2019 10:23:56 America/Bogota] PHP Notice:  A session had already been started - ignoring session_start() in /home/not62bog/public_html/adc/report/cancelacion-hipoteca-luz-derly-con-cuantia.php on line 18
-[08-Jan-2019 10:24:30 America/Bogota] PHP Notice:  A session had already been started - ignoring session_start() in /home/not62bog/public_html/adc/report/cancelacion-hipoteca-luz-derly-con-cuantia.php on line 18
+[10-Oct-2019 10:25:35 America/Bogota] PHP Notice:  session_start(): A session had already been started - ignoring in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 9
+[10-Oct-2019 10:25:35 America/Bogota] PHP Warning:  require_once(../PhpWord/Autoloader.php): failed to open stream: No such file or directory in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 11
+[10-Oct-2019 10:25:35 America/Bogota] PHP Fatal error:  require_once(): Failed opening required '../PhpWord/Autoloader.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 11
+[10-Oct-2019 10:30:21 America/Bogota] PHP Fatal error:  Uncaught Error: Class 'Autoloader' not found in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 16
+[10-Oct-2019 10:30:39 America/Bogota] PHP Fatal error:  Uncaught Error: Class 'Autoloader' not found in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 16
+[10-Oct-2019 10:38:22 America/Bogota] PHP Fatal error:  Uncaught Error: Class 'Util' not found in /home/not62bog/public_html/adc/core/app/model/CashRegisterData.php:29
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/CashRegisterData.php(120): CashRegisterData->__construct()
+#1 /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php(22): CashRegisterData::getById('6')
+#2 {main}
+  thrown in /home/not62bog/public_html/adc/core/app/model/CashRegisterData.php on line 29
+[10-Oct-2019 10:39:09 America/Bogota] PHP Notice:  Undefined index: report_data in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 84
+[10-Oct-2019 10:39:09 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 104
+[10-Oct-2019 10:46:39 America/Bogota] PHP Notice:  Undefined variable: phpWord in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 67
+[10-Oct-2019 10:46:39 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function addSection() on null in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php:67
+Stack trace:
+#0 {main}
+  thrown in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 67
+[10-Oct-2019 10:55:12 America/Bogota] PHP Fatal error:  Uncaught PhpOffice\PhpWord\Exception\InvalidImageException: Invalid image: themes/notaria62web/img/logo.png in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Element/Image.php:385
+Stack trace:
+#0 /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Element/Image.php(140): PhpOffice\PhpWord\Element\Image->checkImage()
+#1 [internal function]: PhpOffice\PhpWord\Element\Image->__construct('themes/notaria6...', Array)
+#2 /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Element/AbstractContainer.php(145): ReflectionClass->newInstanceArgs(Array)
+#3 [internal function]: PhpOffice\PhpWord\Element\AbstractContainer->addElement('Image', 'themes/notaria6...', Array)
+#4 /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Element/AbstractContainer.php(112): call_user_func_array(Array, Array)
+#5 /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php(592): PhpOffice\PhpWord\Element\AbstractContainer->__call('addimage', Array)
+#6 [internal function]: PhpOffice\PhpWord\Shared\Html::parseImage(Object(DOMElement), in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Element/Image.php on line 385
+[10-Oct-2019 10:59:15 America/Bogota] PHP Warning:  Illegal string offset 'alignment' in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 250
+[10-Oct-2019 11:50:20 America/Bogota] PHP Parse error:  syntax error, unexpected '.', expecting elseif (T_ELSEIF) or else (T_ELSE) or endif (T_ENDIF) in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 170
+[10-Oct-2019 11:53:33 America/Bogota] PHP Warning:  A non-numeric value encountered in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 74
+[10-Oct-2019 11:53:33 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Devolociones in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 193
+[10-Oct-2019 11:53:33 America/Bogota] PHP Notice:  Undefined variable: hyml in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 216
+[10-Oct-2019 11:53:33 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and th in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 11:53:33 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 11:53:33 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 11:53:33 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 11:53:33 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:03:21 America/Bogota] PHP Warning:  A non-numeric value encountered in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 73
+[10-Oct-2019 12:03:21 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Devolociones in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 180
+[10-Oct-2019 12:03:21 America/Bogota] PHP Notice:  Undefined variable: hyml in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 183
+[10-Oct-2019 12:03:21 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and th in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:03:21 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:03:21 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:03:21 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:03:21 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:03:52 America/Bogota] PHP Warning:  A non-numeric value encountered in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 73
+[10-Oct-2019 12:03:52 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Devolociones in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 180
+[10-Oct-2019 12:03:52 America/Bogota] PHP Notice:  Undefined variable: hyml in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 183
+[10-Oct-2019 12:03:52 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and th in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:03:52 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:03:52 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:03:52 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:03:52 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:05:55 America/Bogota] PHP Warning:  A non-numeric value encountered in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 73
+[10-Oct-2019 12:05:55 America/Bogota] PHP Notice:  Undefined variable: totalMountAccount3Devolociones in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 180
+[10-Oct-2019 12:05:55 America/Bogota] PHP Notice:  Undefined variable: hyml in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 183
+[10-Oct-2019 12:05:55 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and th in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:05:55 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:05:55 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:05:55 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:05:55 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:05:55 America/Bogota] PHP Fatal error:  Uncaught Error: Call to undefined function write() in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php:194
+Stack trace:
+#0 {main}
+  thrown in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 194
+[10-Oct-2019 12:08:31 America/Bogota] PHP Warning:  A non-numeric value encountered in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 73
+[10-Oct-2019 12:08:31 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and th in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:08:31 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:08:31 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:08:31 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:08:31 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:08:31 America/Bogota] PHP Fatal error:  Uncaught Error: Call to undefined function write() in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php:194
+Stack trace:
+#0 {main}
+  thrown in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 194
+[10-Oct-2019 12:09:16 America/Bogota] PHP Warning:  A non-numeric value encountered in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 73
+[10-Oct-2019 12:09:16 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and th in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:09:16 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:09:16 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:09:16 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:09:16 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:11:15 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and thead in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:11:15 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:11:15 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:11:15 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:11:15 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:11:15 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:12:30 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and thead in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:12:30 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:12:30 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:12:30 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:12:30 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:12:30 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:12:30 America/Bogota] PHP Fatal error:  Uncaught Error: Call to undefined function write() in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php:193
+Stack trace:
+#0 {main}
+  thrown in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 193
+[10-Oct-2019 12:13:59 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and thead in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:13:59 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:13:59 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:13:59 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:13:59 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:13:59 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:13:59 America/Bogota] PHP Fatal error:  Uncaught Error: Call to undefined function write() in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php:193
+Stack trace:
+#0 {main}
+  thrown in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 193
+[10-Oct-2019 12:28:08 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and thead in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:28:08 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:28:08 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:28:08 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:28:08 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:28:08 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:28:08 America/Bogota] PHP Fatal error:  Uncaught Error: Call to undefined function write() in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php:193
+Stack trace:
+#0 {main}
+  thrown in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 193
+[10-Oct-2019 12:30:08 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and thead in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:30:08 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:30:08 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:30:08 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:30:08 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:30:08 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:32:20 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and thead in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:32:20 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:32:20 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:32:20 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:32:20 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:32:20 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:37:57 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and thead in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:37:57 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:37:57 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:37:57 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:37:57 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:37:57 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:38:03 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and thead in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:38:03 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:38:03 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:38:03 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:38:03 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:38:03 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:38:08 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and thead in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:38:08 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:38:08 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:38:08 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:38:08 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:38:08 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:38:33 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and thead in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:38:33 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:38:33 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:38:33 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:38:33 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:38:33 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:38:59 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and thead in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:38:59 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:38:59 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:38:59 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:38:59 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:38:59 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:39:03 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and thead in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:39:03 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:39:03 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:39:03 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:39:03 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:39:03 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:39:03 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and thead in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:39:03 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:39:03 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:39:03 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:39:03 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:39:03 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:39:04 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and thead in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:39:04 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:39:04 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:39:04 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:39:04 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:39:04 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:39:04 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and thead in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:39:04 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:39:04 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:39:04 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:39:04 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:39:04 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:39:20 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and thead in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:39:20 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:39:20 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:39:20 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:39:20 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:39:20 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:40:37 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and thead in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:40:37 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:40:37 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:40:37 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:40:37 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:40:37 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:41:19 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and thead in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:41:19 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:41:19 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:41:19 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:41:19 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:41:19 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:47:39 America/Bogota] PHP Fatal error:  Uncaught Error: Class 'Html' not found in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php:188
+Stack trace:
+#0 {main}
+  thrown in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 188
+[10-Oct-2019 12:48:15 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and thead in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:48:15 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:48:15 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:48:15 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:48:15 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:48:15 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:50:06 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and body in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:50:06 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Premature end of data in tag body line 1 in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:50:06 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:50:06 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:50:06 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:50:55 America/Bogota] PHP Warning:  Illegal string offset 'alignment' in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 250
+[10-Oct-2019 12:52:28 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and body in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:52:28 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Premature end of data in tag body line 1 in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:52:28 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:52:28 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:52:28 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:53:33 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and body in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:53:33 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Premature end of data in tag body line 1 in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:53:33 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:53:33 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:53:33 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:54:55 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and body in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:54:55 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Premature end of data in tag body line 1 in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:54:55 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:54:55 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:54:55 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:56:18 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: body line 1 and table in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:56:18 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Extra content at the end of the document in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:56:18 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:56:18 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:56:18 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 12:57:09 America/Bogota] PHP Warning:  Illegal string offset 'alignment' in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 250
+[10-Oct-2019 12:58:55 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and body in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:58:55 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Premature end of data in tag body line 1 in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 12:58:55 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 12:58:55 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 12:58:55 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 13:35:29 America/Bogota] PHP Warning:  DOMDocument::loadXML(): expected '&gt;' in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 13:35:29 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and unparseable in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 13:35:29 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: tr line 1 and body in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 13:35:29 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Premature end of data in tag body line 1 in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 13:35:29 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 13:35:29 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 13:35:29 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 13:39:09 America/Bogota] PHP Warning:  DOMDocument::loadXML(): expected '&gt;' in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 13:39:09 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and unparseable in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 13:39:09 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: tr line 1 and body in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 13:39:09 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Premature end of data in tag body line 1 in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 13:39:09 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 13:39:09 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 13:39:09 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 13:39:42 America/Bogota] PHP Warning:  DOMDocument::loadXML(): expected '&gt;' in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 13:39:42 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: table line 1 and unparseable in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 13:39:42 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Opening and ending tag mismatch: tr line 1 and body in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 13:39:42 America/Bogota] PHP Warning:  DOMDocument::loadXML(): Premature end of data in tag body line 1 in Entity, line: 1 in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 67
+[10-Oct-2019 13:39:42 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 151
+[10-Oct-2019 13:39:42 America/Bogota] PHP Notice:  Trying to get property 'nodeName' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 190
+[10-Oct-2019 13:39:42 America/Bogota] PHP Notice:  Trying to get property 'childNodes' of non-object in /home/not62bog/public_html/adc/PHPWord/src/PhpWord/Shared/Html.php on line 191
+[10-Oct-2019 13:45:50 America/Bogota] PHP Notice:  Undefined variable: Word in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 68
+[10-Oct-2019 13:45:50 America/Bogota] PHP Fatal error:  Uncaught Error: Call to a member function addSection() on null in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php:68
+Stack trace:
+#0 {main}
+  thrown in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 68
+[10-Oct-2019 13:46:40 America/Bogota] PHP Notice:  Undefined variable: html in /home/not62bog/public_html/adc/report/printcontrolcuadrediario.php on line 209
+[22-Oct-2019 14:27:17 America/Bogota] PHP Notice:  Undefined variable: negritaBeging in /home/not62bog/public_html/adc/report/protocolo-vigencias.php on line 47
+[22-Oct-2019 14:27:17 America/Bogota] PHP Notice:  Undefined variable: negritaEnd in /home/not62bog/public_html/adc/report/protocolo-vigencias.php on line 47
+[22-Oct-2019 14:27:17 America/Bogota] PHP Notice:  Undefined variable: negritaBeging in /home/not62bog/public_html/adc/report/protocolo-vigencias.php on line 47
+[22-Oct-2019 14:27:17 America/Bogota] PHP Notice:  Undefined variable: negritaEnd in /home/not62bog/public_html/adc/report/protocolo-vigencias.php on line 47
+[22-Oct-2019 15:32:21 America/Bogota] PHP Fatal error:  Uncaught Error: Class 'HTMLtoOpenXML' not found in /home/not62bog/public_html/adc/report/protocolo-vigencias.php:44
+Stack trace:
+#0 {main}
+  thrown in /home/not62bog/public_html/adc/report/protocolo-vigencias.php on line 44
+[22-Oct-2019 15:33:30 America/Bogota] PHP Fatal error:  Uncaught Error: Class 'PhpOffice\PhpWord\HTMLtoOpenXML' not found in /home/not62bog/public_html/adc/report/protocolo-vigencias.php:44
+Stack trace:
+#0 {main}
+  thrown in /home/not62bog/public_html/adc/report/protocolo-vigencias.php on line 44
+[22-Oct-2019 15:46:24 America/Bogota] PHP Fatal error:  Uncaught Error: Class 'PhpOffice\PhpWord\HTMLtoOpenXML' not found in /home/not62bog/public_html/adc/report/protocolo-vigencias.php:44
+Stack trace:
+#0 {main}
+  thrown in /home/not62bog/public_html/adc/report/protocolo-vigencias.php on line 44
+[22-Nov-2019 10:46:15 America/Bogota] PHP Fatal error:  Uncaught Error: Class 'Util' not found in /home/not62bog/public_html/adc/core/app/model/CierresData.php:28
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/CierresData.php(88): CierresData->__construct()
+#1 /home/not62bog/public_html/adc/report/protocolo-cierres.php(18): CierresData::getById('2734')
+#2 {main}
+  thrown in /home/not62bog/public_html/adc/core/app/model/CierresData.php on line 28
+[22-Nov-2019 10:46:21 America/Bogota] PHP Fatal error:  Uncaught Error: Class 'Util' not found in /home/not62bog/public_html/adc/core/app/model/CierresData.php:28
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/CierresData.php(88): CierresData->__construct()
+#1 /home/not62bog/public_html/adc/report/protocolo-cierres.php(18): CierresData::getById('2734')
+#2 {main}
+  thrown in /home/not62bog/public_html/adc/core/app/model/CierresData.php on line 28
+[22-Nov-2019 10:46:28 America/Bogota] PHP Fatal error:  Uncaught Error: Class 'Util' not found in /home/not62bog/public_html/adc/core/app/model/CierresData.php:28
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/CierresData.php(88): CierresData->__construct()
+#1 /home/not62bog/public_html/adc/report/protocolo-cierres.php(18): CierresData::getById('2734')
+#2 {main}
+  thrown in /home/not62bog/public_html/adc/core/app/model/CierresData.php on line 28
+[22-Nov-2019 10:47:34 America/Bogota] PHP Fatal error:  Uncaught Error: Class 'Util' not found in /home/not62bog/public_html/adc/core/app/model/CierresData.php:28
+Stack trace:
+#0 /home/not62bog/public_html/adc/core/app/model/CierresData.php(88): CierresData->__construct()
+#1 /home/not62bog/public_html/adc/report/protocolo-cierres.php(18): CierresData::getById('2734')
+#2 {main}
+  thrown in /home/not62bog/public_html/adc/core/app/model/CierresData.php on line 28

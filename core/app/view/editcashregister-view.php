@@ -263,6 +263,8 @@ if (isset($_GET['id'])) {
 $(document).ready(function() {
     fetch_data();
 
+
+
     function fetch_data() {
         var $url = "./?action=searchpaymenttype&idcr=" +
             "<?= $id_cashregister; ?>";

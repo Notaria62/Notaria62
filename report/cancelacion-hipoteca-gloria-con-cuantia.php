@@ -15,7 +15,7 @@ include "../core/app/model/DigitadoresData.php";
 include "../core/app/model/NumeroALetras.php";
 include "../core/app/model/CifrasEnLetras.php";
 
-//session_start();
+session_start();
 require_once '../PHPWord/bootstrap.php';
 $memo = MemorandumData::getById($_GET['id']);
 $digitador= DigitadoresData::getById($memo->digitador_id);

@@ -55,13 +55,8 @@ foreach ($p_ids as $key => $v) {
     }
 }
 $apoderado = "";
-<<<<<<< HEAD
-
-if ($ap_ids == "1") {
-=======
 //print_r($ap_ids);
 if ($ap_ids[0] == "1") {
->>>>>>> 787b0113c23b8b4263995a752fa237f5ba4f1ca1
     $apoderado = $cierr->otorgoobservation;
     // echo $apoderado;
 } else {

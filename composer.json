@@ -1,6 +1,5 @@
 {
     "require-dev": {
-        "squizlabs/php_codesniffer": "^3.2",
-        "phpmailer/phpmailer": "~6.0"
+        "squizlabs/php_codesniffer": "^3.2"
     }
 }

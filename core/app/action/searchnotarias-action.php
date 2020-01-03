@@ -25,6 +25,18 @@ if (isset($_REQUEST['term'])) {
     {
         echo 'ERROR: ' . $exception->getMessage();
     }
+
+
+
+
+
+
+    //while ($row = mysql_fetch_array($sql)) {
+    //    $array[] = array (
+    //        'label' => $row['city'].', '.$row['zip'],
+    //        'value' => $row['city'],
+    //    );
+    //}
     //RETURN JSON ARRAY
     echo json_encode ($return_arr);
 }

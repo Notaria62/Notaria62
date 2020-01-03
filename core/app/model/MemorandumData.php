@@ -154,6 +154,7 @@ class MemorandumData
     {
         $sql = "select * from " . self::$tablename;
         $query = Executor::doit($sql);
+        //echo $query;
         return Model::many($query[0], new MemorandumData());
     }
 

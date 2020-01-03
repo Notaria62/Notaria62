@@ -15,13 +15,13 @@ $payments = PaymentData::getAll();
   <div class="card-content table-responsive">
 <form class="form-horizontal" role="form" method="post" action="./?action=updatereservation">
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Asunto</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Asunto</label>
     <div class="col-lg-10">
       <input type="text" name="title" value="<?php echo $reservation->title; ?>" required class="form-control" id="inputEmail1" placeholder="Asunto">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Paciente</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Paciente</label>
     <div class="col-lg-4">
 <select name="pacient_id" class="form-control" required>
 <option value="">-- SELECCIONE --</option>
@@ -30,7 +30,7 @@ $payments = PaymentData::getAll();
   <?php endforeach; ?>
 </select>
     </div>
-    <label for="inputEmail1" class="bmd-label-floating">Medico</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Medico</label>
     <div class="col-lg-4">
 <select name="medic_id" class="form-control" required>
 <option value="">-- SELECCIONE --</option>
@@ -43,7 +43,7 @@ $payments = PaymentData::getAll();
   </div>
 
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Fecha/Hora</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Fecha/Hora</label>
     <div class="col-lg-5">
       <input type="date" name="date_at" value="<?php echo $reservation->date_at; ?>" required class="form-control" id="inputEmail1" placeholder="Fecha">
     </div>
@@ -52,11 +52,11 @@ $payments = PaymentData::getAll();
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Nota</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Nota</label>
     <div class="col-lg-4">
     <textarea class="form-control" name="note" placeholder="Nota"><?php echo $reservation->note;?></textarea>
     </div>
-    <label for="inputEmail1" class="bmd-label-floating">Enfermedad</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Enfermedad</label>
     <div class="col-lg-4">
     <textarea class="form-control" name="sick" placeholder="Enfermedad"><?php echo $reservation->sick;?></textarea>
     </div>
@@ -64,18 +64,18 @@ $payments = PaymentData::getAll();
   </div>
 
       <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Sintomas</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Sintomas</label>
     <div class="col-lg-4">
     <textarea class="form-control" name="symtoms" placeholder="Sintomas"><?php echo $reservation->symtoms;?></textarea>
     </div>
-    <label for="inputEmail1" class="bmd-label-floating">Medicamentos</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Medicamentos</label>
     <div class="col-lg-4">
     <textarea class="form-control" name="medicaments" placeholder="Medicamentos"><?php echo $reservation->medicaments;?></textarea>
     </div>
 
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Estado de la cita</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Estado de la cita</label>
     <div class="col-lg-4">
 <select name="status_id" class="form-control" required>
   <?php foreach($statuses as $p):?>
@@ -83,7 +83,7 @@ $payments = PaymentData::getAll();
   <?php endforeach; ?>
 </select>
     </div>
-    <label for="inputEmail1" class="bmd-label-floating">Estado del pago</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Estado del pago</label>
     <div class="col-lg-4">
 <select name="payment_id" class="form-control" required>
   <?php foreach($payments as $p):?>
@@ -97,7 +97,7 @@ $payments = PaymentData::getAll();
   </div>
 
     <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Costo</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Costo</label>
     <div class="col-lg-10">
 <div class="input-group">
   <span class="input-group-addon"><i class="fa fa-usd"></i></span>

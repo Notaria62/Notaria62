@@ -14,7 +14,7 @@ $categories = CategoryData::getAll();
 
 
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Area*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Area*</label>
     <div class="col-md-6">
     <select name="category_id" class="form-control">
     <option value="">-- SELECCIONE --</option>      
@@ -26,32 +26,32 @@ $categories = CategoryData::getAll();
   </div>
 
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Nombre*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Nombre*</label>
     <div class="col-md-6">
       <input type="text" name="name" value="<?php echo $user->name;?>" class="form-control" id="name" placeholder="Nombre">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Apellido*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Apellido*</label>
     <div class="col-md-6">
       <input type="text" name="lastname" value="<?php echo $user->lastname;?>" required class="form-control" id="lastname" placeholder="Apellido">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Direccion*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Direccion*</label>
     <div class="col-md-6">
       <input type="text" name="address" value="<?php echo $user->address;?>" class="form-control" required id="username" placeholder="Direccion">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Email*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Email*</label>
     <div class="col-md-6">
       <input type="text" name="email" value="<?php echo $user->email;?>" class="form-control" id="email" placeholder="Email">
     </div>
   </div>
 
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Telefono</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Telefono</label>
     <div class="col-md-6">
       <input type="text" name="phone"  value="<?php echo $user->phone;?>"  class="form-control" id="inputEmail1" placeholder="Telefono">
     </div>

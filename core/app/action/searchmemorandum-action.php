@@ -9,10 +9,10 @@
  * @author DigitalesWeb
  */
 //if(count($_POST)>0){
-$result = MemorandumData::getByRange($_GET['start_at'], $_GET['finish_at']);
-if (count($result)>0) {
+$reasult = MemorandumData::getByRange($_GET['start_at'], $_GET['finish_at']);
+if (count($reasult)>0) {
     $ar = array();
-    foreach ($result as $value) {
+    foreach ($reasult as $value) {
         $u = UserData::getById(Session::getUID());
         $up = UserGroupsData::getById($u->user_level);
         $us = UserData::getById(Session::getUID());

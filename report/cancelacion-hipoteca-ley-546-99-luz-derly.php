@@ -121,6 +121,11 @@ $filename = "rad-".$memo->radicado."-ep-".$memo->numeroescriturapublica."-planti
 //$builder = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'ODText');
 $builder->saveAs($filename);
 
+
+//$php = \PhpOffice\PhpWord\IOFactory::load('../PHPWord/resources/'.$filename);
+//$php->setDefaultFontName('arial');
+//$php->saveAs($filename);
+
 // Doc generated on the fly, may change so do not cache it; mark as public or
 // private to be cached.
 header('Pragma: no-cache');

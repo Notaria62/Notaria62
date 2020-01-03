@@ -8,25 +8,25 @@ $categories = CategoryData::getAll();
 		<form class="form-horizontal" method="post" enctype="multipart/form-data" id="addproduct" action="index.php?view=addproduct" role="form">
 
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Imagen</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Imagen</label>
     <div class="col-md-6">
       <input type="file" name="image" id="image" placeholder="">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Codigo de Barras*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Codigo de Barras*</label>
     <div class="col-md-6">
       <input type="text" name="barcode" id="product_code" class="form-control" id="barcode" placeholder="Codigo de Barras del Producto">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Nombre*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Nombre*</label>
     <div class="col-md-6">
       <input type="text" name="name" required class="form-control" id="name" placeholder="Nombre del Producto">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Categoria</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Categoria</label>
     <div class="col-md-6">
     <select name="category_id" class="form-control">
     <option value="">-- NINGUNA --</option>
@@ -36,32 +36,32 @@ $categories = CategoryData::getAll();
       </select>    </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Descripcion</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Descripcion</label>
     <div class="col-md-6">
       <textarea name="description" class="form-control" id="description" placeholder="Descripcion del Producto"></textarea>
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Precio de Entrada*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Precio de Entrada*</label>
     <div class="col-md-6">
       <input type="text" name="price_in" required class="form-control" id="price_in" placeholder="Precio de entrada">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Precio de Salida*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Precio de Salida*</label>
     <div class="col-md-6">
       <input type="text" name="price_out" required class="form-control" id="price_out" placeholder="Precio de salida">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Unidad*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Unidad*</label>
     <div class="col-md-6">
       <input type="text" name="unit"  class="form-control" id="unit" placeholder="Unidad del Producto">
     </div>
   </div>
 
   <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Presentacion</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Presentacion</label>
     <div class="col-md-6">
       <input type="text" name="presentation" class="form-control" id="inputEmail1" placeholder="Presentacion del Producto">
     </div>

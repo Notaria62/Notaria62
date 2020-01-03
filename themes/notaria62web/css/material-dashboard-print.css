@@ -4,6 +4,11 @@
     margin: 50px 20px;
   }
 
+  body {
+    background-color: #fff;
+    color: #000;
+    font: Georgia, "Times New Roman", Times, serif;
+  }
   .wrapper {
     position: inherit;
     top: 0;
@@ -28,7 +33,8 @@
     padding: 0px 8px;
     border: 1px solid #000;
   }
-
+}
+@media print {
   *,
   *::before,
   *::after {
@@ -66,16 +72,15 @@
   h3 {
     page-break-after: avoid;
   }
-
+  @page {
+    size: 8.5in 11in;
+    margin: 50px 20px;
+  }
   body {
     min-width: 992px !important;
     background-color: #fff;
     color: #000;
     font: Georgia, "Times New Roman", Times, serif;
-    float: none !important;
-    width: auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
   }
   .container {
     min-width: 992px !important;
@@ -97,7 +102,9 @@
   .table-bordered td {
     border: 1px solid #000 !important;
   }
+}
 
+@media print {
   .d-print-none {
     display: none !important;
   }

@@ -78,7 +78,7 @@ $product = ProductData::getById($p["product_id"]);
 <form method="post" class="form-horizontal" id="processsell" action="index.php?view=processsell">
 <h2>Resumen</h2>
 <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Cliente</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Cliente</label>
     <div class="col-lg-10">
     <?php 
 $clients = PersonData::getClients();
@@ -92,13 +92,13 @@ $clients = PersonData::getClients();
     </div>
   </div>
 <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Descuento</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Descuento</label>
     <div class="col-lg-10">
       <input type="text" name="discount" class="form-control" required value="0" id="discount" placeholder="Descuento">
     </div>
   </div>
  <div class="form-group">
-    <label for="inputEmail1" class="bmd-label-floating">Efectivo</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Efectivo</label>
     <div class="col-lg-10">
       <input type="text" name="money" required class="form-control" id="money" placeholder="Efectivo">
     </div>

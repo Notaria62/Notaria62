@@ -1,6 +1,6 @@
 <?php
 /**
- * @author digitalesweb
+ * @author evilnapsis
  **/
 if(!isset($_SESSION["cart"])){
 

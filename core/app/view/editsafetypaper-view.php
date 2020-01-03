@@ -24,31 +24,31 @@
                 <form class="form-horizontal" method="post" id="addsafetypaper" action="index.php?action=updatesafetypaper" role="form">
 
                     <div class="form-group">
-                        <label for="codsheet" class="bmd-label-floating">C&oacute;digo de hoja *</label>
+                        <label for="codsheet" class="col-lg-2 control-label">C&oacute;digo de hoja *</label>
                         <div class="col-md-6">
                             <input type="text" name="codsheet" required class="form-control" id="codsheet" placeholder="C&oacute;digo de hoja" value="<?php echo $paper->codsheet;?>" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="ep" class="bmd-label-floating">EP *</label>
+                        <label for="ep" class="col-lg-2 control-label">EP *</label>
                         <div class="col-md-6">
                             <input type="text" name="ep" required class="form-control" id="ep" placeholder="EP" value="<?php echo $paper->ep;?>" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="notaria" class="bmd-label-floating">Notaria *</label>
+                        <label for="notaria" class="col-lg-2 control-label">Notaria *</label>
                         <div class="col-md-6">
                             <input type="text" name="address" required class="form-control" id="address" placeholder="notaria" value="<?php echo $paper->address;?>" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="radicadosnr" class="bmd-label-floating">Radicado SNR *</label>
+                        <label for="radicadosnr" class="col-lg-2 control-label">Radicado SNR *</label>
                         <div class="col-md-6">
                             <input type="text" name="radicadosnr" required class="form-control" id="radicadosnr" placeholder="Radicado SNR" value="<?php echo $paper->radicadosnr;?>" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="reportdate" class="bmd-label-floating">Fecha de reporte *</label>
+                        <label for="reportdate" class="col-lg-2 control-label">Fecha de reporte *</label>
                         <div class="col-md-6">
                             <div class='input-group date' id='start_at_div'>
                                 <span class="input-group-addon">
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail1" class="bmd-label-floating"></label>
+                        <label for="inputEmail1" class="col-lg-2 control-label"></label>
                         <div class="col-md-6">
                             <p class="text-info">* Campos obligatorios</p>
                         </div>

@@ -1,7 +1,7 @@
 <?php
 /**
 * BookMedik
-* @author digitalesweb
+* @author evilnapsis
 **/
 
 

@@ -9,26 +9,24 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header" data-background-color="blue">
+                <h4 class="title">
+                    Procesos notariales
+                </h4>
             </div>
             <div class="card-content table-responsive">
 
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-download"></i> Descargar
-                        <span class="caret"></span>
-                    </button>
                 <a href="./?view=newprocedure" class="btn btn-default">
-                    <i class='fa fa-newspaper-o'></i> 
+                    <i class='fa fa-newspaper-o'></i>
                     Nuevo proceso
-                    </a>
-        <a>
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <i class='fa fa-upload'></i> 
-                    Cargar masiva
-                    <span class="caret"></span>
-                    </button>
+                </a>
+                <a href="./?view=uploadprocedure" class="btn btn-default">
+                    <i class='fa fa-upload'></i>Cargar masiva
                 </a>
                 <div class="btn-group pull-left">
-              
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-download"></i>Descargar
+                        <span class="caret"></span>
+                    </button>
                     <ul class="dropdown-menu" role="menu">
                         <li>
                             <a href="report/clients-word.php">Word 2007 (.docx)</a>
@@ -36,15 +34,14 @@
                     </ul>
                 </div>
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <form class="navbar-form navbar-right" accept-charset="utf-8" method="POST">
                             <div class="form-group  is-empty">
-                            <input type="text" name="busqueda" id="busqueda" class="form-control" placeholder="Búscar" maxlength="9" autocomplete="off" onkeyup="buscar();" />
+                                <input type="text" name="busqueda" id="busqueda" class="form-control" placeholder="Búscar" maxlength="9" autocomplete="off" onkeyup="buscar();" />
                                 <span class="material-input"></span>
+                                <i class="material-icons">search</i>
                             </div>
                         </form>
-
-
                         <div id="resultadoBusqueda"></div>
 
                         <script type="text/javascript">
@@ -202,22 +199,3 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -6,9 +6,16 @@ include "../core/app/model/Util.php";
 // include "../core/app/model/StatusData.php";
 // include "../core/app/model/PaymentData.php";
 require_once '../PHPWord/bootstrap.php';
+//session_start();
 
+//require_once '../PhpWord/Autoloader.php';
+
+//use PhpOffice\PhpWord\Autoloader;
+//use PhpOffice\PhpWord\Settings;
 use PhpOffice\PhpWord\Shared\Converter;
 use PhpOffice\PhpWord\Style\TablePosition;
+
+//Autoloader::register();
 
 $word = new  PhpOffice\PhpWord\PhpWord();
 
@@ -116,6 +123,8 @@ foreach ($result as $key => $value) {
 	endswitch;
 }
 $totalMountAccount1 = $totalMountAccount1Efectivo + $totalMountAccount1Voucher + $totalMountAccount1Cheque + $totalMountAccount1Transferencia + $totalMountAccount1Gastos + $totalMountAccount1Cartera + $totalMountAccount1Devoluciones + $totalMountAccount1Consignaciones;
+
+
 
 $table->addRow();
 $table->addCell()->addText("");
@@ -244,7 +253,7 @@ $totalMountAccount3 = $totalMountAccount3Efectivo + $totalMountAccount3Voucher +
 
 $table->addRow();
 $table->addCell()->addText("");
-$table->addCell()->addText("Efectivo C*:");
+$table->addCell()->addText("Efectivo B*:");
 $table->addCell()->addText(Util::toDot($totalMountAccount3Efectivo));
 $table->addRow();
 $table->addCell()->addText("");
@@ -278,9 +287,6 @@ $section->addTextBreak(1);
 $section->addText('(1)SIEMPRE DEBE DAR CERO, EN CASO CONTRARIO INDIQUE VALOR.');
 $section->addText('(+) Ó (-) IMPLICA TRASLADAR MEDIANTE CHEQUE ENTRE LAS CUENTAS PARA CUADRAR. GIRE CHEQUE CUENTA CON (+)');
 $section->addText('(*)VAUCHER(S): SI LAS CASILLAS NO LE ALCANZAN AGRUPELAS DE MENOR VALOR EN LA CASILLA ANTES DEL EFECTIVO.');
-
-
-$section->addHeader()->addText('Header');
 
 $filename = "report-" . time() . ".docx";
 #$word->setReadDataOnly(true);
