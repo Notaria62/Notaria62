@@ -1,6 +1,6 @@
 <?php
 $templatename = TemplateMemorandumData::getById($_GET['ddlmemorandum']);
- $mystr = $templatename->name;
+$mystr = $templatename->name;
 // $findme = "ley";
 // $flag = 0;
 // $pos = strpos($mystr, $findme);
@@ -10,19 +10,22 @@ $templatename = TemplateMemorandumData::getById($_GET['ddlmemorandum']);
 $allBancos =  MemorandumData::getAllBancos();
 $text = "";
 foreach ($allBancos as $key => $value) {
-    $text .= "'".$value->nombrebanco."',";
+    $text .= "'" . $value->nombrebanco . "',";
 }
+$text = "[" . substr($text, 0, -1) . "]";
+
+//echo $text;
 $allNotarias =  MemorandumData::getAllNotarias();
 $notarias = "";
 foreach ($allNotarias as $key => $value) {
-    $notarias .= "'".$value->notariaescriturahipoteca."',";
+    $notarias .= "'" . $value->notariaescriturahipoteca . "',";
 }
 ?>
 <form class="" method="post" id="addmemorandum" action="./?action=addmemorandum" role="form">
     <div class="row">
         <div class="col-md-12">
             <h2>
-                <?php echo $mystr;?>
+                <?php echo $mystr; ?>
             </h2>
             <h3>Deudores</h3>
             <a href="#" onclick="adddebtor();" class="btn btn-success">Agregar deudor</a>
@@ -121,12 +124,12 @@ foreach ($allNotarias as $key => $value) {
             <div class="form-group">
                 <label for="superintendencia" class="bmd-label-floating">Superintendencia</label>
                 <input type="text" class="form-control" id="superintendencia" name="superintendencia" required
-                    value="6200" />
+                    value="6600" />
             </div>
             <div class="form-group">
                 <label for="fondonacionalnotariado" class="bmd-label-floating">Fondo nacional notariado</label>
                 <input type="number" class="form-control" id="fondonacionalnotariado" name="fondonacionalnotariado"
-                    required value="6200" />
+                    required value="6600" />
             </div>
             <div class="form-group">
                 <label for="iva" class="bmd-label-floating">I.V.A.</label>
@@ -137,13 +140,13 @@ foreach ($allNotarias as $key => $value) {
                 <label for="notario_id" class="bmd-label-floating">Notario</label>
                 <select id="notario_id" name="notario_id" required class="custom-select">
                     <?php
-                        foreach (NotariosData::getAll() as $d) {
-                            ?>
+                    foreach (NotariosData::getAll() as $d) {
+                    ?>
                     <option value="<?php echo $d->id; ?>">
-                        <?=$d->name." ".$d->lastname; ?>
+                        <?= $d->name . " " . $d->lastname; ?>
                     </option>
                     <?php
-                        } ?>
+                    } ?>
                 </select>
             </div>
             <div class="form-group label-floating" id="resolucionnotario_div">
@@ -162,12 +165,12 @@ foreach ($allNotarias as $key => $value) {
                 <label for="" class="bmd-label-floating">Digitador</label>
                 <select id="digitador_id" name="digitador_id" required class="custom-select">
                     <?php foreach (DigitadoresData::getAll() as $d) {
-                            ?>
+                    ?>
                     <option value="<?php echo $d->id; ?>">
-                        <?= $d->name." ".$d->lastname; ?>
+                        <?= $d->name . " " . $d->lastname; ?>
                     </option>
                     <?php
-                        }?>
+                    } ?>
                 </select>
             </div>
             <div class="form-group">
@@ -196,7 +199,7 @@ foreach ($allNotarias as $key => $value) {
     <div class="row">
         <div class="col-lg-offset-2 col-lg-10">
             <input type="hidden" name="templatememo_id" id="templatememo_id"
-                value="<?php echo $_GET['ddlmemorandum'];?>" />
+                value="<?php echo $_GET['ddlmemorandum']; ?>" />
             <button type="submit" class="btn btn-success">Guardar minuta</button>
         </div>
     </div>
@@ -225,10 +228,12 @@ $(function() {
                 break;
         }
     }).trigger("change");
-    var availableTags = [<?php echo $text;?>];
-    var availableTagsNotarias = [<?php echo $notarias;?>];
-    autocomplete(document.getElementById("nombrebanco"), availableTags);
-    autocomplete(document.getElementById("notariaescriturahipoteca"), availableTagsNotarias);
+    // var availableTags = "<= $text ?>".slice(0, -1);
+    // availableTags = availableTags.substr(1);
+    // alert(availableTags);
+    // var availableTagsNotarias = '<"[" . $notarias . "]"; >';
+    // autocomplete(document.getElementById("nombrebanco"), availableTags);
+    // autocomplete(document.getElementById("notariaescriturahipoteca"), availableTagsNotarias);
 
 
 });

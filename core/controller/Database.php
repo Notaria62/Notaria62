@@ -5,13 +5,11 @@ class Database
     public static $con;
     public function __construct()
     {
-        $this->user = "not62bog_notaria62user";
-        $this->pass = "2fr{N}@~waQ[";
-        // $this->user = "root";
-        // $this->pass = "root";
+        $this->user = "phpmyadmin";
+        $this->pass = "Notaria62";
+
         $this->host = "localhost";
         $this->ddbb = "not62bog_notaria62web";
-        //echo "....................................----------------____________________________________-----" . $_SESSION['user_id'];
     }
     public function connect()
     {
